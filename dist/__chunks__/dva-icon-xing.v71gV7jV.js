@@ -1,0 +1,2 @@
+const t="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='100'%20height='100'%20viewBox='0%200%20100%20100'%3e%3cpath%20d='M23.97%2069.765L41.9%2041.198%2028.456%2018.27H5.702L19.15%2041.2%201.217%2069.765H23.97zM61.896%20100l-23.1-39.204L74.65%200h24.132l-35.85%2060.796L86.034%20100H61.896z'%3e%3c/path%3e%3ctitle%3eXing%3c/title%3e%3c/svg%3e";export{t as default};
+//# sourceMappingURL=dva-icon-xing.v71gV7jV.js.map

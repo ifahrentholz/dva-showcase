@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Illustration/Immobilienkauf/Weiss</title>
+    <g id="Illustration/Immobilienkauf/Weiss" stroke="none" stroke-width="1" fill-rule="evenodd">
+        <g id="Group" fill-rule="nonzero">
+            <g id="Original">
+                <path d="M20,8 L34,14 L34,36 L18,36 L18,24 L10,24 L10,36 L6,36 L6,14 L20,8 Z M30,16 L24,16 L24,22 L30,22 L30,16 Z" id="Gold-500" opacity="0.6"></path>
+                <path d="M36,34 L36,36 L4,36 L4,34 L36,34 Z M20,4 L28,8 L28,6 L32,6 L32,10 L36,12 L36,16 L20,8 L4,16 L4,12 L20,4 Z" id="Gold-600"></path>
+            </g>
+        </g>
+    </g>
+</svg>

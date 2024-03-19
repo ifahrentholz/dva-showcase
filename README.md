@@ -1,5 +1,5 @@
-# Your Project's Title...
-Your project's description...
+# DVAG Showcase
+This is a showcasde project in Edge Delivery Serices for DVAG.
 
 ## Environments
 - Preview: [https://main--dva-showcase--ifahrentholz.hlx.page/](https://main--dva-showcase--ifahrentholz.hlx.page/)
