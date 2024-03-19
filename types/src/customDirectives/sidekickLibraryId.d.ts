@@ -1,6 +1,6 @@
-import { Directive } from 'lit/directive.js';
-import { AttributePart } from 'lit';
-import { SidekickElement } from '../sidekickHelpers/extractSidekickLibraryId';
+import { Directive } from "lit/directive.js";
+import { AttributePart } from "lit";
+import { SidekickElement } from "../sidekickHelpers/extractSidekickLibraryId";
 declare class SidekickLibraryId extends Directive {
     private part?;
     update(part: AttributePart, props: unknown[]): symbol;

@@ -1,7 +1,7 @@
-import './components/sidebar/sidebar.ts';
-import './components/header.ts';
-import './components/icon/dva-e-icon.ts';
-import './services/fetch.service.ts';
+import "./components/sidebar/sidebar.ts";
+import "./components/header.ts";
+import "./components/icon/dva-e-icon.ts";
+import "./services/fetch.service.ts";
 declare global {
     interface Window {
         hlx: {

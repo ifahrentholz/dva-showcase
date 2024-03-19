@@ -1,4 +1,4 @@
-import { Component } from '@kluntje/core';
+import { Component } from "@kluntje/core";
 export declare class DvaIcon extends Component {
     constructor();
     connectedCallback(): void;

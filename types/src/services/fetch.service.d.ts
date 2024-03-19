@@ -1,5 +1,5 @@
 export interface FetchServiceCacheOptions {
-    cacheType?: 'runtime';
+    cacheType?: "runtime";
 }
 export interface FetchServiceOptions {
     fetchOptions?: RequestInit;

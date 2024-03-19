@@ -2,12 +2,12 @@
  * @module SidebarComponent
  * @copyright diva-e (https://diva-e.com)
  */
-import { LitElement } from 'lit';
-import { Ref } from 'lit/directives/ref.js';
-import './sidebarNav.ts';
-import './sidebarContact.ts';
-import './sidebarPosts.ts';
-import './sidebarFooter.ts';
+import { LitElement } from "lit";
+import { Ref } from "lit/directives/ref.js";
+import "./sidebarNav.ts";
+import "./sidebarContact.ts";
+import "./sidebarPosts.ts";
+import "./sidebarFooter.ts";
 export declare class SidebarComponent extends LitElement {
     toggleRef: Ref<HTMLAnchorElement>;
     createRenderRoot(): HTMLElement | DocumentFragment;

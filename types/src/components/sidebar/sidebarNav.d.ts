@@ -1,4 +1,4 @@
-import { LitElement } from 'lit';
+import { LitElement } from "lit";
 interface SubMenuItem {
     path: string;
     navtitle: string;

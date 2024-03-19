@@ -1,4 +1,4 @@
-export type FormFieldType = 'headline' | 'plaintext' | 'text' | 'button' | 'fieldset' | 'select' | 'toggle' | 'radio' | 'checkbox' | 'textarea' | 'reset' | 'submit';
+export type FormFieldType = "headline" | "plaintext" | "text" | "button" | "fieldset" | "select" | "toggle" | "radio" | "checkbox" | "textarea" | "reset" | "submit";
 export interface FormField {
     class?: string;
     id?: string;
