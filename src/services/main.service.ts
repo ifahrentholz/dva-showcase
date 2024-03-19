@@ -62,8 +62,7 @@ export class MainService {
     this.decorateTemplateAndTheme();
     const main = document.querySelector('main');
     if (main) {
-      main.setAttribute('id', 'main');
-      this.addSidebarContainer(main);
+      this.addMainHeader(main);
       this.sectionService.init(main);
       this.addInnerContainer(main); // TODO refactor initializing
       this.blockService.decorateBlocks(main);
@@ -86,7 +85,7 @@ export class MainService {
     }
   };
 
-  private addSidebarContainer(main: HTMLElement) {
+  private addMainHeader(main: HTMLElement) {
     if (isSidekickLibraryActive()) return;
 
     const sidebarContainer = document.createElement('sidebar-component');
@@ -98,7 +97,16 @@ export class MainService {
 
   private addInnerContainer(main: HTMLElement) {
     const children = main.innerHTML;
-    main.innerHTML = `<div class="inner">${isSidekickLibraryActive() ? `` : `<header-component id="header"></header-component>`}${children}</div>`;
+    const edsHeader = document.querySelector('header');
+    const edsFooter = document.querySelector('footer');
+    const edsMain = main;
+    const body = document.querySelector('body');
+    if (body) {
+      body.innerHTML = `<div class="page container dva-page"><header>MY-header</header>${children}<footer>my footer</footer></div>`;
+      edsFooter?.remove();
+      edsHeader?.remove();
+      edsMain.remove();
+    }
   }
 
   private loadLazy = async () => {
