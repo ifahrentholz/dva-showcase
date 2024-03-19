@@ -4,8 +4,9 @@
   font-weight: 300;
   font-style: normal;
   font-display: swap;
-  src: url("../../resources/fonts/dvag-type/woff2/DVAGType_W_Lt.woff2") format("woff2"),
-    url("../../resources/fonts/dvag-type/woff/DVAGType_W_Lt.woff") format("woff");
+  src:
+    url("../fonts/dvag-type/woff2/DVAGType_W_Lt.woff2") format("woff2"),
+    url("../fonts/dvag-type/woff/DVAGType_W_Lt.woff") format("woff");
 }
 
 @font-face {
@@ -13,8 +14,9 @@
   font-weight: 300;
   font-style: italic;
   font-display: swap;
-  src: url("../../resources/fonts/dvag-type/woff2/DVAGType_W_LtIt.woff2") format("woff2"),
-    url("../../resources/fonts/dvag-type/woff/DVAGType_W_LtIt.woff") format("woff");
+  src:
+    url("../fonts/dvag-type/woff2/DVAGType_W_LtIt.woff2") format("woff2"),
+    url("../fonts/dvag-type/woff/DVAGType_W_LtIt.woff") format("woff");
 }
 
 @font-face {
@@ -22,8 +24,9 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url("../../resources/fonts/dvag-type/woff2/DVAGType_W_Rg.woff2") format("woff2"),
-    url("../../resources/fonts/dvag-type/woff/DVAGType_W_Rg.woff") format("woff");
+  src:
+    url("../fonts/dvag-type/woff2/DVAGType_W_Rg.woff2") format("woff2"),
+    url("../fonts/dvag-type/woff/DVAGType_W_Rg.woff") format("woff");
 }
 
 @font-face {
@@ -31,8 +34,9 @@
   font-weight: 400;
   font-style: italic;
   font-display: swap;
-  src: url("../../resources/fonts/dvag-type/woff2/DVAGType_W_It.woff2") format("woff2"),
-    url("../../resources/fonts/dvag-type/woff/DVAGType_W_It.woff") format("woff");
+  src:
+    url("../fonts/dvag-type/woff2/DVAGType_W_It.woff2") format("woff2"),
+    url("../fonts/dvag-type/woff/DVAGType_W_It.woff") format("woff");
 }
 
 @font-face {
@@ -40,8 +44,9 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  src: url("../../resources/fonts/dvag-type/woff2/DVAGType_W_Bd.woff2") format("woff2"),
-    url("../../resources/fonts/dvag-type/woff/DVAGType_W_Bd.woff") format("woff");
+  src:
+    url("../fonts/dvag-type/woff2/DVAGType_W_Bd.woff2") format("woff2"),
+    url("../fonts/dvag-type/woff/DVAGType_W_Bd.woff") format("woff");
 }
 
 @font-face {
@@ -49,8 +54,9 @@
   font-weight: 700;
   font-style: italic;
   font-display: swap;
-  src: url("../../resources/fonts/dvag-type/woff2/DVAGType_W_BdIt.woff2") format("woff2"),
-    url("../../resources/fonts/dvag-type/woff/DVAGType_W_BdIt.woff") format("woff");
+  src:
+    url("../fonts/dvag-type/woff2/DVAGType_W_BdIt.woff2") format("woff2"),
+    url("../fonts/dvag-type/woff/DVAGType_W_BdIt.woff") format("woff");
 }
 
 $dva-typo__dvag-type: "dvag-type", sans-serif;

@@ -1,0 +1,2 @@
+const e="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='100'%20height='100'%20viewBox='0%200%20100%20100'%3e%3cpath%20d='M76,0.7C74.3,0.5,68.8,0,62.3,0C48.7,0,39.4,8.3,39.4,23.5v13.1H24v17.8h15.3V100h18.4V54.4H73l2.3-17.8H57.8V25.2c0-5.1,1.4-8.7,8.8-8.7H76V0.7z'%3e%3c/path%3e%3ctitle%3eFacebook%3c/title%3e%3c/svg%3e";export{e as default};
+//# sourceMappingURL=dva-icon-facebook.9PWltxW7.js.map

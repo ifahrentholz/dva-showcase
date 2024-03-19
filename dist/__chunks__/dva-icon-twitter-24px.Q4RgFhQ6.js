@@ -1,0 +1,4 @@
+const t=`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path d="M19.926 3.007h-2.758l-4.54 5.754L8.693 3H3l6.8 9.84L3.346 21h2.77l4.966-6.297L15.439 21H21l-7.094-10.37 6.02-7.623Zm-2.192 16.167H16.2L6.22 4.737h1.641l9.872 14.437Z"/>
+</svg>`;export{t as default};
+//# sourceMappingURL=dva-icon-twitter-24px.Q4RgFhQ6.js.map
