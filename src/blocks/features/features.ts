@@ -1,7 +1,7 @@
 import { html, render } from 'lit';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import './features.scss';
-import { renderIcon } from '../../components/icon/icon.template';
+import { renderIcon } from '../../components/icon/dva-e-icon.template';
 import { IconName } from '../../icons.types';
 
 interface Feature {

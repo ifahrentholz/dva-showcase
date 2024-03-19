@@ -1,0 +1,17 @@
+:host {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.dva-e-icon__svg {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  fill: inherit !important;
+
+  // special case: dva-e-icon-star:
+  .dva-e-icon-star__half-filled {
+    stop-color: currentColor;
+  }
+}

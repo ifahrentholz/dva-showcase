@@ -1,6 +1,6 @@
 import './components/sidebar/sidebar.ts';
 import './components/header.ts';
-import './components/icon/icon.ts';
+import './components/icon/dva-e-icon.ts';
 import './services/fetch.service.ts';
 declare global {
     interface Window {

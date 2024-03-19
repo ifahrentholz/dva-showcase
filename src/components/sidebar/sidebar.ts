@@ -11,7 +11,7 @@ import './sidebarNav.ts';
 import './sidebarContact.ts';
 import './sidebarPosts.ts';
 import './sidebarFooter.ts';
-import { renderIcon } from '../icon/icon.template.ts';
+import { renderIcon } from '../icon/dva-e-icon.template.ts';
 
 @customElement('sidebar-component')
 export class SidebarComponent extends LitElement {
@@ -39,7 +39,7 @@ export class SidebarComponent extends LitElement {
         <sidebar-footer id="footer"></sidebar-footer>
       </div>
       <a ${ref(this.toggleRef)} href="#sidebar" class="toggle hamburger-icon" aria-label="Sidebar toggle">
-        ${renderIcon('hamburger')}
+        ${renderIcon('dva-icon-zoom')}
       </a>
     `;
   }

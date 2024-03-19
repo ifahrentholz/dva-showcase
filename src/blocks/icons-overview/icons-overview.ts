@@ -1,5 +1,5 @@
 import { html, render } from 'lit';
-import { renderIcon } from '../../components/icon/icon.template.ts';
+import { renderIcon } from '../../components/icon/dva-e-icon.template.ts';
 import { createToast } from '../../components/toast/toast.template.ts';
 import { IconName } from '../../icons.types.ts';
 import './icons-overview.scss';
@@ -31,7 +31,7 @@ const template = (iconNames: IconName[], message: string, duration: number) => {
   return html`
     <p>This is a list of all icons in the project. If you click on an icon its name will be copied to the clipboard.</p>
     <pre>
-      <code> ${'<icon-component class="icon-component" name="my-icon-name"></icon-component>'} </code>
+      <code> ${'<dva-e-icon class="dva-e-icon" name="my-icon-name"></dva-e-icon>'} </code>
     </pre>
     <div class="icons-overview__container">
       ${iconNames.map((icon: IconName) => renderIconContainer(icon, message, duration))}
