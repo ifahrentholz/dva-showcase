@@ -1,0 +1,117 @@
+$breakpoints: (
+  0: $bp-0,
+  1: $bp-1,
+  2: $bp-2,
+  3: $bp-3,
+  4: $bp-4,
+  5: "max",
+);
+
+$ratios: (
+  "16-9": 56.26%,
+  "21-9": 42.8571429%,
+  "4-3": 75%,
+  "1-1": 100%,
+);
+
+.dva-h-preload {
+  display: block;
+}
+
+@mixin generate-preload-classes() {
+  @each $bpKey1, $bpValue1 in $breakpoints {
+    @if $bpKey1 == 0 {
+      @each $ratioName, $ratioPers in $ratios {
+        .dva-h-preload__#{$ratioName} {
+          padding-bottom: #{$ratioPers};
+        }
+        .dva-state-initialized.dva-h-preload__#{$ratioName} {
+          padding-bottom: 0;
+        }
+      }
+    } @else {
+      @each $bpKey2, $bpValue2 in $breakpoints {
+        @if ($bpKey1 <= $bpKey2) {
+          @include get-all-preload-classes($bpKey1, $bpKey2);
+        }
+      }
+    }
+  }
+}
+
+@mixin get-all-preload-classes($minMq, $maxMq) {
+  @each $ratioName, $ratioPers in $ratios {
+    @if ($minMq == $maxMq) {
+      @include get-preload-single-mq-classes($minMq, $ratioName, $ratioPers);
+    } @else if (map-get($breakpoints, $maxMq) == "max") {
+      @include get-preload-and-up-classes($minMq, $maxMq, $ratioName, $ratioPers);
+    } @else {
+      @include get-preload-from-to-classes($minMq, $maxMq, $ratioName, $ratioPers);
+    }
+  }
+}
+
+@mixin get-preload-from-to-classes($minMq, $maxMq, $ratioName, $ratioPers) {
+  @include breakpoint(get-mq-min-with($minMq) map-get($breakpoints, $maxMq)) {
+    @include get-preload-classes($minMq, $maxMq, $ratioName, $ratioPers);
+  }
+}
+
+@mixin get-preload-single-mq-classes($mq, $ratioName, $ratioPers) {
+  @if (map-get($breakpoints, $mq) == "max") {
+    @include breakpoint(get-mq-min-with($mq)) {
+      @include get-preload-classes($mq, $mq, $ratioName, $ratioPers);
+    }
+  } @else {
+    @include breakpoint(get-mq-min-with($mq) map-get($breakpoints, $mq)) {
+      @include get-preload-classes($mq, $mq, $ratioName, $ratioPers);
+    }
+  }
+}
+
+@mixin get-preload-and-up-classes($minMq, $maxMq, $ratioName, $ratioPers) {
+  @include breakpoint(get-mq-min-with($minMq)) {
+    @include get-preload-classes($minMq, $maxMq, $ratioName, $ratioPers);
+  }
+}
+
+@mixin get-preload-classes($minMq, $maxMq, $ratioName, $ratioPers) {
+  @if ($minMq == $maxMq) {
+    .dva-h-preload__#{$ratioName}--mq-#{$minMq} {
+      padding-bottom: #{$ratioPers};
+    }
+    .dva-state-initialized.dva-h-preload__#{$ratioName}--mq-#{$minMq} {
+      padding-bottom: 0;
+    }
+  } @else if (map-get($breakpoints, $maxMq) == "max") {
+    .dva-h-preload__#{$ratioName}--mq-#{$minMq}-#{$maxMq} {
+      padding-bottom: #{$ratioPers};
+    }
+    .dva-state-initialized.dva-h-preload__#{$ratioName}--mq-#{$minMq}-#{$maxMq} {
+      padding-bottom: 0;
+    }
+    .dva-h-preload__#{$ratioName}--mq-#{$minMq}-and-up {
+      padding-bottom: #{$ratioPers};
+    }
+    .dva-state-initialized.dva-h-preload__#{$ratioName}--mq-#{$minMq}-and-up {
+      padding-bottom: 0;
+    }
+  } @else {
+    .dva-h-preload__#{$ratioName}--mq-#{$minMq}-#{$maxMq} {
+      padding-bottom: #{$ratioPers};
+    }
+    .dva-state-initialized.dva-h-preload__#{$ratioName}--mq-#{$minMq}-#{$maxMq} {
+      padding-bottom: 0;
+    }
+  }
+}
+
+@function get-mq-min-with($mq) {
+  @if ($mq == 1) {
+    @return 0;
+  } @else {
+    @return map-get($breakpoints, ($mq - 1)) + 1;
+  }
+}
+
+@include generate-preload-classes();

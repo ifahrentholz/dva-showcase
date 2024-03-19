@@ -33,6 +33,7 @@
     "@types/node": "^20.11.21",
     "@typescript-eslint/eslint-plugin": "6.20.0",
     "@typescript-eslint/parser": "6.20.0",
+    "breakpoint-sass": "3.0.0",
     "chai": "5.0.0",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "15.0.0",

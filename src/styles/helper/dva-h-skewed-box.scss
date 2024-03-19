@@ -1,0 +1,39 @@
+%dva-skewed-box {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-bottom: 8.7489%; // 5° in percentage (tan(angle) * 100%)
+
+  &:after {
+    content: "";
+    position: absolute;
+    transform: skewY(-5deg);
+    transform-origin: top left;
+    width: 100%;
+    height: 0;
+    padding-bottom: 8.7489%; // 5° in percentage (tan(angle) * 100%)
+    background: currentColor;
+  }
+}
+
+.dva-h-skew {
+  &--in {
+    @extend %dva-skewed-box;
+
+    &:after {
+      top: 100%;
+    }
+  }
+  &--out {
+    @extend %dva-skewed-box;
+
+    &:after {
+      top: 0;
+    }
+  }
+}
+
+.dva-m-skewed-box__content {
+  padding: 0.01px; // prevent margins to show
+}

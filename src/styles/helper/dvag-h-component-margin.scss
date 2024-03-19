@@ -1,0 +1,116 @@
+// margin to be chosen by edit in stylesystem-dialog
+%dvag-h-component-margin,
+%dvag-h-component-margin-bottom,
+.dvag-h-component-margin,
+.dvag-h-component-margin-bottom {
+  margin-bottom: 40px;
+
+  /* stylelint-disable order/order */
+  .dvag-h-margin-none &,
+  .dvag-h-margin-bottom--none & {
+    margin-bottom: 0;
+  }
+
+  // to reset inner components margin in nested components
+  .dvag-h-margin-bottom--default & {
+    margin-bottom: 40px;
+  }
+
+  @include breakpoint($mq-3-and-up) {
+    margin-bottom: 64px;
+
+    .dvag-h-margin-none &,
+    .dvag-h-margin-bottom--none & {
+      margin-bottom: 0;
+    }
+
+    .dvag-h-margin-small &,
+    .dvag-h-margin-bottom--small & {
+      margin-bottom: 40px;
+    }
+
+    .dvag-h-margin-medium &,
+    .dvag-h-margin-bottom--medium & {
+      margin-bottom: 64px;
+    }
+
+    .dvag-h-margin-large &,
+    .dvag-h-margin-bottom--large & {
+      margin-bottom: 64px;
+    }
+
+    .dvag-h-margin-bottom--default & {
+      margin-bottom: 40px;
+    }
+  }
+
+  @include breakpoint($mq-4-and-up) {
+    .dvag-h-margin-none,
+    .dvag-h-margin-bottom--none & {
+      margin-bottom: 0;
+    }
+
+    .dvag-h-margin-small,
+    .dvag-h-margin-bottom--small & {
+      margin-bottom: 40px;
+    }
+
+    .dvag-h-margin-medium,
+    .dvag-h-margin-bottom--medium & {
+      margin-bottom: 64px;
+    }
+
+    .dvag-h-margin-large,
+    .dvag-h-margin-bottom--large & {
+      margin-bottom: 96px;
+    }
+
+    .dvag-h-margin-bottom--default & {
+      margin-bottom: 40px;
+    }
+  }
+  /* stylelint-enable order/order */
+}
+
+%dvag-h-component-margin-top,
+.dvag-h-component-margin-top {
+  margin-top: 0;
+
+  /* stylelint-disable order/order */
+  @include breakpoint($mq-3-and-up) {
+    .dvag-h-margin-top--none & {
+      margin-top: 0;
+    }
+
+    .dvag-h-margin-top--small & {
+      margin-top: 40px;
+    }
+
+    .dvag-h-margin-top--medium & {
+      margin-top: 64px;
+    }
+
+    .dvag-h-margin-top--large & {
+      margin-top: 64px;
+    }
+  }
+
+  @include breakpoint($mq-4-and-up) {
+    .dvag-h-margin-top--none & {
+      margin-top: 0;
+    }
+
+    .dvag-h-margin-top--small & {
+      margin-top: 40px;
+    }
+
+    .dvag-h-margin-top--medium & {
+      margin-top: 64px;
+    }
+
+    .dvag-h-margin-top--large & {
+      margin-top: 96px;
+    }
+  }
+  /* stylelint-enable order/order */
+}

@@ -1,0 +1,22 @@
+// padding to be chosen by edit in stylesystem-dialog
+%dvag-h-component-padding-bottom,
+.dvag-h-component-padding-bottom {
+  .dvag-h-padding-bottom--none & {
+    padding-bottom: 0;
+
+    .dvag-m-skewed-box__content {
+      padding-bottom: 0;
+    }
+  }
+}
+
+%dvag-h-component-padding-top,
+.dvag-h-component-padding-top {
+  .dvag-h-padding-top--none & {
+    padding-top: 0;
+
+    .dvag-m-skewed-box__content {
+      padding-top: 0;
+    }
+  }
+}

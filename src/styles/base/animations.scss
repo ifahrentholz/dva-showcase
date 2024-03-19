@@ -1,0 +1,125 @@
+@mixin dva-animation($typ, $timing) {
+  $duration: 0.3s;
+
+  @if $timing == "slow" {
+    $duration: 2s;
+  } @else if $timing == "reg" {
+    $duration: 1s;
+  }
+
+  @if $typ == "fadeIn" {
+    opacity: 1;
+    transition: opacity $duration ease-in;
+  } @else if $typ == "appearRight" {
+    position: relative;
+    left: 50px;
+    opacity: 1;
+    transition: transform $duration cubic-bezier(0.165, 0.84, 0.44, 1),
+      opacity $duration cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    @include transform(translateX(-50px));
+  } @else if $typ == "appearLeft" {
+    position: relative;
+    right: 50px;
+    opacity: 1;
+    transition: transform $duration cubic-bezier(0.165, 0.84, 0.44, 1),
+      opacity $duration cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    @include transform(translateX(50px));
+  } @else if $typ == "appearBottom" {
+    position: relative;
+    top: 50px;
+    opacity: 1;
+    transition: transform $duration cubic-bezier(0.165, 0.84, 0.44, 1),
+      opacity $duration cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    @include transform(translateY(-50px));
+  } @else if $typ == "appearTop" {
+    position: relative;
+    bottom: 50px;
+    opacity: 1;
+    transition: transform $duration cubic-bezier(0.165, 0.84, 0.44, 1),
+      opacity $duration cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    @include transform(translateY(50px));
+  }
+}
+
+%loading-animation {
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-name: loading-animation;
+  animation-timing-function: linear;
+}
+
+@include keyframes(loading-animation) {
+  0% {
+    @include transform(rotate(0deg));
+  }
+
+  100% {
+    @include transform(rotate(360deg));
+  }
+}
+
+@keyframes loadingShimmer {
+  0% {
+    left: -40%;
+  }
+  100% {
+    left: 140%;
+  }
+}
+
+%shimmer-loading-animation {
+  background-image: linear-gradient(
+    117deg,
+    $dvag-color__black-50 45%,
+    $dvag-color__black-25 50%,
+    $dvag-color__black-50 55%
+  );
+  background-size: 400%;
+  animation: shimmer-loading-animation 2s infinite;
+}
+
+@keyframes shimmer-loading-animation {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+
+@keyframes dvaFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes white-pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba($dvag-color__white-500, 0.7);
+  }
+  66% {
+    box-shadow: 0 0 0 20px rgba($dvag-color__black-500, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba($dvag-color__black-500, 0);
+  }
+}
+
+@keyframes gold-pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba($dvag-color__gold-500, 0.7);
+  }
+  66% {
+    box-shadow: 0 0 0 20px rgba($dvag-color__black-500, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba($dvag-color__black-500, 0);
+  }
+}
