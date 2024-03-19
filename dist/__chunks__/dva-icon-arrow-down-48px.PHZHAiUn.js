@@ -1,0 +1,5 @@
+const e=`<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M23.868 43.4727L40.918 25.8227L38.616 23.5997L25.604 37.0697L25.604 4.26566H22.404L22.404 37.3247L9.24203 23.6037L6.93303 25.8187L23.868 43.4727Z"/>
+</svg>
+`;export{e as default};
+//# sourceMappingURL=dva-icon-arrow-down-48px.PHZHAiUn.js.map
