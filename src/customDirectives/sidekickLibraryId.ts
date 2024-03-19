@@ -1,7 +1,8 @@
-import { Directive, directive } from 'lit/directive.js';
-import { AttributePart, nothing } from 'lit';
-import { SidekickElement } from '../sidekickHelpers/extractSidekickLibraryId';
-import { isSidekickLibraryActive } from '../sidekickHelpers/isSidekickLibraryActive';
+import { Directive, directive } from "lit/directive.js";
+import { AttributePart, nothing } from "lit";
+
+import { SidekickElement } from "../sidekickHelpers/extractSidekickLibraryId";
+import { isSidekickLibraryActive } from "../sidekickHelpers/isSidekickLibraryActive";
 
 class SidekickLibraryId extends Directive {
   private part?: AttributePart;
@@ -17,9 +18,9 @@ class SidekickLibraryId extends Directive {
 
     const element = this.part?.element;
     const { dataLibraryId, href } = sidekickElement;
-    if (dataLibraryId) element?.setAttribute('data-library-id', dataLibraryId);
-    if (dataLibraryId) element?.setAttribute('contenteditable', 'true');
-    if (href && element instanceof HTMLAnchorElement) element?.setAttribute('href', href);
+    if (dataLibraryId) element?.setAttribute("data-library-id", dataLibraryId);
+    if (dataLibraryId) element?.setAttribute("contenteditable", "true");
+    if (href && element instanceof HTMLAnchorElement) element?.setAttribute("href", href);
     return nothing;
   }
 }

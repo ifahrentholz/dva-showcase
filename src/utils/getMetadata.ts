@@ -20,9 +20,9 @@
  * // Output: 'Open Graph Title'
  */
 export function getMetadata(value: string, doc: Document = document): string {
-  const attr: 'property' | 'name' = value && value.includes(':') ? 'property' : 'name';
+  const attr: "property" | "name" = value && value.includes(":") ? "property" : "name";
   const metaTags: HTMLMetaElement[] =
     ([...doc.head.querySelectorAll(`meta[${attr}="${value}"]`)] as HTMLMetaElement[]) || [];
-  const meta: string = metaTags.map((metaElement: HTMLMetaElement) => metaElement.content).join(', ');
-  return meta.length ? meta : '';
+  const meta: string = metaTags.map((metaElement: HTMLMetaElement) => metaElement.content).join(", ");
+  return meta.length ? meta : "";
 }

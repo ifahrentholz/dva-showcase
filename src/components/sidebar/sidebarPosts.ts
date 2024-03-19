@@ -1,10 +1,11 @@
-import { html, LitElement, nothing } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
-import { createOptimizedPicture } from '../../utils/createOptimizedPicture.ts';
-import { SheetsResponse, Sitemap, SiteMapEntry } from '../../shared.types.ts';
-import FetchService from '../../services/fetch.service.ts';
+import { html, LitElement, nothing } from "lit";
+import { customElement, state } from "lit/decorators.js";
 
-@customElement('sidebar-posts')
+import { createOptimizedPicture } from "../../utils/createOptimizedPicture.ts";
+import { SheetsResponse, Sitemap, SiteMapEntry } from "../../shared.types.ts";
+import FetchService from "../../services/fetch.service.ts";
+
+@customElement("sidebar-posts")
 export class SidebarPosts extends LitElement {
   @state()
   private lastTreePosts: Sitemap;
@@ -25,10 +26,10 @@ export class SidebarPosts extends LitElement {
       <header class="major">
         <h2>Newest Posts</h2>
       </header>
-      <div class="mini-posts">${this.lastTreePosts.map((siteMapEntry) => this.renderPost(siteMapEntry))}</div>
+      <div class="mini-posts">${this.lastTreePosts.map(siteMapEntry => this.renderPost(siteMapEntry))}</div>
     `;
 
-    //TODO: Add overview if more button is needed
+    // TODO: Add overview if more button is needed
     /*
      <ul class="actions">
         <li><a href="#" class="button">More</a></li>
@@ -73,7 +74,7 @@ export class SidebarPosts extends LitElement {
   }
 
   private async getPosts() {
-    const queryIndex = await FetchService.fetchJson<SheetsResponse>('/query-index.json');
-    return queryIndex.data.filter((item) => item.path.startsWith('/posts'));
+    const queryIndex = await FetchService.fetchJson<SheetsResponse>("/query-index.json");
+    return queryIndex.data.filter(item => item.path.startsWith("/posts"));
   }
 }

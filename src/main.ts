@@ -1,12 +1,12 @@
 // const LCP_BLOCKS: string[] = []; // add your LCP blocks to the list
 
-import './components/sidebar/sidebar.ts';
-import './components/header.ts';
-import './components/icon/dva-e-icon.ts';
-import './services/fetch.service.ts';
-import { BlockService } from './services/block.service.ts';
-import { SectionService } from './services/section.service.ts';
-import { MainService } from './services/main.service.ts';
+import "./components/sidebar/sidebar.ts";
+import "./components/header.ts";
+import "./components/icon/dva-e-icon.ts";
+import "./services/fetch.service.ts";
+import { BlockService } from "./services/block.service.ts";
+import { SectionService } from "./services/section.service.ts";
+import { MainService } from "./services/main.service.ts";
 
 (async function () {
   // preloadLcpImageCandidate();

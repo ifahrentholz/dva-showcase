@@ -1,4 +1,4 @@
-import { isSidekickLibraryActive } from './isSidekickLibraryActive';
+import { isSidekickLibraryActive } from "./isSidekickLibraryActive";
 
 /**
  * Returns the true origin of the current page in the browser.
@@ -16,5 +16,5 @@ export function getHref(): string {
 
   const { location: parentLocation } = window.parent;
   const urlParams = new URLSearchParams(parentLocation.search);
-  return `${parentLocation.origin}${urlParams.get('path')}`;
+  return `${parentLocation.origin}${urlParams.get("path")}`;
 }

@@ -1,9 +1,10 @@
-import { html, LitElement, nothing } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import FetchService from '../../services/fetch.service.ts';
-import { renderIcon } from '../icon/dva-e-icon.template.ts';
-import { IconName } from '../../icons.types.ts';
+import { html, LitElement, nothing } from "lit";
+import { customElement, state } from "lit/decorators.js";
+import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
+
+import FetchService from "../../services/fetch.service.ts";
+import { renderIcon } from "../icon/dva-e-icon.template.ts";
+import { IconName } from "../../icons.types.ts";
 
 interface SidebarContactTemplateArgs {
   headline: HTMLElement | null;
@@ -16,7 +17,7 @@ interface Contact {
   markup: HTMLElement | null;
 }
 
-@customElement('sidebar-contact')
+@customElement("sidebar-contact")
 export class SidebarContact extends LitElement {
   @state()
   contactTemplateArgs: SidebarContactTemplateArgs;
@@ -29,10 +30,10 @@ export class SidebarContact extends LitElement {
 
   async fetchContactsHtml() {
     const parser = new DOMParser();
-    const contactHtmlString = await FetchService.fetchText('contact.plain.html', {
-      cacheOptions: { cacheType: 'runtime' },
+    const contactHtmlString = await FetchService.fetchText("contact.plain.html", {
+      cacheOptions: { cacheType: "runtime" },
     });
-    return parser.parseFromString(contactHtmlString, 'text/html');
+    return parser.parseFromString(contactHtmlString, "text/html");
   }
 
   renderHeader(headline: HTMLElement | null) {
@@ -69,20 +70,20 @@ export class SidebarContact extends LitElement {
   }
 
   private getContactsArgs(contactHtml: Document): Contact[] {
-    const contactsElement = contactHtml.querySelectorAll('.contact > div:not(:first-child)');
+    const contactsElement = contactHtml.querySelectorAll(".contact > div:not(:first-child)");
     const contactsArray = Array.from(contactsElement);
 
-    return contactsArray.map((contactElement) => {
+    return contactsArray.map(contactElement => {
       return {
-        icon: contactElement.querySelector('div'),
-        markup: contactElement.querySelector('div:last-child'),
+        icon: contactElement.querySelector("div"),
+        markup: contactElement.querySelector("div:last-child"),
       };
     });
   }
 
   private getContactTemplateArgs(contactHtml: Document) {
-    const headline = contactHtml.querySelector('h2');
-    const text = contactHtml.querySelector('p');
+    const headline = contactHtml.querySelector("h2");
+    const text = contactHtml.querySelector("p");
     const contacts = this.getContactsArgs(contactHtml);
 
     this.contactTemplateArgs = {
@@ -95,7 +96,7 @@ export class SidebarContact extends LitElement {
   private renderContacts(contacts: Contact[]) {
     if (contacts.length === 0) return nothing;
     return html`<ul class="contact">
-      ${contacts.map((contact) => this.renderContact(contact))}
+      ${contacts.map(contact => this.renderContact(contact))}
     </ul>`;
   }
 

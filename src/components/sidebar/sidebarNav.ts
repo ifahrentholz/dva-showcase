@@ -1,9 +1,9 @@
-import { html, LitElement } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
+import { html, LitElement } from "lit";
+import { customElement, state } from "lit/decorators.js";
 
-import { SheetsResponse, SiteMapEntry } from '../../shared.types';
-import FetchService from '../../services/fetch.service.ts';
-import { renderIcon } from '../icon/dva-e-icon.template.ts';
+import { SheetsResponse, SiteMapEntry } from "../../shared.types";
+import FetchService from "../../services/fetch.service.ts";
+import { renderIcon } from "../icon/dva-e-icon.template.ts";
 
 interface SubMenuItem {
   path: string;
@@ -16,7 +16,7 @@ interface MenuItem {
   children?: SubMenuItem[];
 }
 
-@customElement('sidebar-nav')
+@customElement("sidebar-nav")
 export class SidebarNav extends LitElement {
   @state()
   items: MenuItem[];
@@ -40,17 +40,17 @@ export class SidebarNav extends LitElement {
   }
 
   private toggleSubmenu({ currentTarget }: Event) {
-    if (!(currentTarget instanceof HTMLElement) || !currentTarget.classList.contains('opener')) return;
-    currentTarget.classList.toggle('active');
+    if (!(currentTarget instanceof HTMLElement) || !currentTarget.classList.contains("opener")) return;
+    currentTarget.classList.toggle("active");
   }
 
   private renderSubMenu(item) {
     return html`<span @click="${this.toggleSubmenu}" class="opener submenu">
         <span class="submenu__text">${item.navtitle} </span>
-        ${renderIcon('dva-icon-zoom', 'submenu__icon')}
+        ${renderIcon("dva-icon-zoom", "submenu__icon")}
       </span>
       <ul>
-        ${item.children.map((child) => html` <li><a href="${child.path}">${child.navtitle}</a></li>`)}
+        ${item.children.map(child => html` <li><a href="${child.path}">${child.navtitle}</a></li>`)}
       </ul>`;
   }
 
@@ -67,18 +67,18 @@ export class SidebarNav extends LitElement {
   }
 
   private getSubmenuName = (entry: SiteMapEntry) => {
-    return entry.path.split('/')[1];
+    return entry.path.split("/")[1];
   };
 
   private getNavTitle(item: SiteMapEntry) {
-    if (item.path === '/') return 'Homepage';
+    if (item.path === "/") return "Homepage";
     return item.navtitle || item.title;
   }
 
   private filterNavigation(queryIndex: SiteMapEntry[], filterValues: string[]): MenuItem[] {
     return queryIndex
-      .filter((item) => filterValues.every((term) => !item.path.includes(term)))
-      .map((item) => ({
+      .filter(item => filterValues.every(term => !item.path.includes(term)))
+      .map(item => ({
         path: item.path,
         navtitle: this.getNavTitle(item),
       }));
@@ -86,7 +86,7 @@ export class SidebarNav extends LitElement {
 
   private groupItemsByFirstLevelPath(queryIndex: SiteMapEntry[]): Record<string, SiteMapEntry[]> {
     const groups = {};
-    queryIndex.forEach((item) => {
+    queryIndex.forEach(item => {
       const firstLevelPath = this.getSubmenuName(item); // Extracting the first level of the path
       if (!groups[firstLevelPath]) {
         groups[firstLevelPath] = [];
@@ -100,8 +100,8 @@ export class SidebarNav extends LitElement {
   }
 
   groupByFirstLevelPath = async () => {
-    let queryIndex: SheetsResponse = await FetchService.fetchJson<SheetsResponse>('/query-index.json');
-    const filterValues: string[] = ['sidekick', 'sidekick-library', 'tools', 'development', 'dev-', '__'];
+    const queryIndex: SheetsResponse = await FetchService.fetchJson<SheetsResponse>("/query-index.json");
+    const filterValues: string[] = ["sidekick", "sidekick-library", "tools", "development", "dev-", "__"];
 
     // filtering out all entries from blacklist from navigation
     const filteredNavigation = this.filterNavigation(queryIndex.data, filterValues);
@@ -118,7 +118,7 @@ export class SidebarNav extends LitElement {
       }
 
       return {
-        navtitle: group[0].path.split('/')[1],
+        navtitle: group[0].path.split("/")[1],
         path: group[0].path,
         children: group,
       };

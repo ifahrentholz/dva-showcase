@@ -1,8 +1,9 @@
-import { html, render } from 'lit';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import { SidekickElement, extractSidekickLibraryId } from '../../sidekickHelpers/extractSidekickLibraryId';
-import { getSidekickLibraryId } from '../../customDirectives/sidekickLibraryId';
-import './banner.scss';
+import { html, render } from "lit";
+import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
+
+import { SidekickElement, extractSidekickLibraryId } from "../../sidekickHelpers/extractSidekickLibraryId";
+import { getSidekickLibraryId } from "../../customDirectives/sidekickLibraryId";
+import "./banner.scss";
 
 interface TemplateArgs {
   headline: SidekickElement;
@@ -21,13 +22,13 @@ const template = (args: TemplateArgs) => {
           <h1 ${getSidekickLibraryId(headline)}>${headline.innerHTML}</h1>
           <p ${getSidekickLibraryId(subline)}>${subline.innerHTML}</p>
         </header>
-        ${texts?.map((text) => html`<p ${getSidekickLibraryId(text)}>${text.innerHTML}</p>`)}
+        ${texts?.map(text => html`<p ${getSidekickLibraryId(text)}>${text.innerHTML}</p>`)}
         <ul class="actions">
           ${buttons?.map(
-            (button) =>
+            button =>
               html` <li>
                 <a href="${button.href}" class="button big" ${getSidekickLibraryId(button)}>${button.innerHTML}</a>
-              </li>`
+              </li>`,
           )}
         </ul>
       </div>
@@ -37,21 +38,21 @@ const template = (args: TemplateArgs) => {
 };
 
 export default function (block: HTMLElement) {
-  const image = block.querySelector('img');
+  const image = block.querySelector("img");
   if (image) {
-    image.setAttribute('loading', 'eager');
+    image.setAttribute("loading", "eager");
   }
-  const firstRow = block.querySelector('div');
+  const firstRow = block.querySelector("div");
   const secondRow = block.children[1];
-  const headline = extractSidekickLibraryId(firstRow?.querySelector('h1'));
-  const subline = extractSidekickLibraryId(firstRow?.querySelector('h3'));
-  const texts = firstRow ? [...firstRow.querySelectorAll('p')].map((item) => extractSidekickLibraryId(item)) : [];
-  const buttons = secondRow ? [...secondRow.querySelectorAll('a')].map((item) => extractSidekickLibraryId(item)) : [];
-  const picture = firstRow?.querySelector('picture') || undefined;
-  const img = picture?.querySelector('img');
-  img?.setAttribute('loading', 'eager');
+  const headline = extractSidekickLibraryId(firstRow?.querySelector("h1"));
+  const subline = extractSidekickLibraryId(firstRow?.querySelector("h3"));
+  const texts = firstRow ? [...firstRow.querySelectorAll("p")].map(item => extractSidekickLibraryId(item)) : [];
+  const buttons = secondRow ? [...secondRow.querySelectorAll("a")].map(item => extractSidekickLibraryId(item)) : [];
+  const picture = firstRow?.querySelector("picture") || undefined;
+  const img = picture?.querySelector("img");
+  img?.setAttribute("loading", "eager");
 
-  block.innerHTML = '';
-  block.style.removeProperty('display');
+  block.innerHTML = "";
+  block.style.removeProperty("display");
   render(template({ headline, subline, texts, buttons, picture }), block);
 }

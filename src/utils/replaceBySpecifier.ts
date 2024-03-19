@@ -44,5 +44,5 @@ export function replaceBySpecifier({ input, specifier, htmlTag }: ReplaceBySpeci
   return input
     .split(specifier)
     .map((part: string, index: number): string => (index % 2 === 1 ? `<${htmlTag}>${part}</${htmlTag}>` : part))
-    .join('');
+    .join("");
 }

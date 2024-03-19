@@ -1,4 +1,4 @@
-import { getHref } from '../sidekickHelpers/getHref';
+import { getHref } from "../sidekickHelpers/getHref";
 
 /**
  * Represents a breakpoint configuration used in responsive web design.
@@ -64,9 +64,9 @@ interface CreateOptimizedPictureArgs {
  * The last breakpoint provided in the `breakpoints` array is used as the source for the fallback image.
  */
 export function createOptimizedPicture(
-  createOptimizedPictureArgs: CreateOptimizedPictureArgs
+  createOptimizedPictureArgs: CreateOptimizedPictureArgs,
 ): HTMLPictureElement | undefined {
-  if (createOptimizedPictureArgs.src === '') return undefined;
+  if (createOptimizedPictureArgs.src === "") return undefined;
 
   const {
     src,
@@ -74,37 +74,37 @@ export function createOptimizedPicture(
     eager = false,
     width,
     height,
-    breakpoints = [{ media: '(min-width: 600px)', width: 2000 }, { width: 750 }],
+    breakpoints = [{ media: "(min-width: 600px)", width: 2000 }, { width: 750 }],
   } = createOptimizedPictureArgs;
   const url = new URL(src, getHref());
-  const picture = document.createElement('picture');
+  const picture = document.createElement("picture");
   const { pathname } = url;
-  const ext = pathname.substring(pathname.lastIndexOf('.') + 1);
+  const ext = pathname.substring(pathname.lastIndexOf(".") + 1);
 
   // webp
   breakpoints.forEach((breakpoint: BreakPoint): void => {
-    const source = document.createElement('source');
-    if (breakpoint.media) source.setAttribute('media', breakpoint.media);
-    source.setAttribute('type', 'image/webp');
-    source.setAttribute('srcset', `${pathname}?width=${breakpoint.width}&format=webply&optimize=medium`);
+    const source = document.createElement("source");
+    if (breakpoint.media) source.setAttribute("media", breakpoint.media);
+    source.setAttribute("type", "image/webp");
+    source.setAttribute("srcset", `${pathname}?width=${breakpoint.width}&format=webply&optimize=medium`);
     picture.appendChild(source);
   });
 
   // fallback
   breakpoints.forEach((breakpoint: Record<string, string>, index: number): void => {
     if (index < breakpoints.length - 1) {
-      const source = document.createElement('source');
-      if (breakpoint.media) source.setAttribute('media', breakpoint.media);
-      source.setAttribute('srcset', `${pathname}?width=${breakpoint.width}&format=${ext}&optimize=medium`);
+      const source = document.createElement("source");
+      if (breakpoint.media) source.setAttribute("media", breakpoint.media);
+      source.setAttribute("srcset", `${pathname}?width=${breakpoint.width}&format=${ext}&optimize=medium`);
       picture.appendChild(source);
     } else {
-      const img = document.createElement('img');
-      img.setAttribute('loading', eager ? 'eager' : 'lazy');
-      img.setAttribute('alt', alt);
-      img.setAttribute('width', width.toString());
-      img.setAttribute('height', height.toString());
+      const img = document.createElement("img");
+      img.setAttribute("loading", eager ? "eager" : "lazy");
+      img.setAttribute("alt", alt);
+      img.setAttribute("width", width.toString());
+      img.setAttribute("height", height.toString());
       picture.appendChild(img);
-      img.setAttribute('src', `${pathname}?width=${breakpoint.width}&format=${ext}&optimize=medium`);
+      img.setAttribute("src", `${pathname}?width=${breakpoint.width}&format=${ext}&optimize=medium`);
     }
   });
 

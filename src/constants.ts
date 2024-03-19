@@ -1,1 +1,1 @@
-export const ICONS_PATH = '/public/icons';
+export const ICONS_PATH = "/public/icons";

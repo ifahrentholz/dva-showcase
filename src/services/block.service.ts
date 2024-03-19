@@ -1,7 +1,7 @@
-import { toClassName } from '../utils/toClassName';
+import { toClassName } from "../utils/toClassName";
 
 export class BlockService {
-  //TODO: Provider for fetch data
+  // TODO: Provider for fetch data
 
   /**
    * Extracts the config from a block.
@@ -10,33 +10,33 @@ export class BlockService {
    */
   readBlockConfig(block: Element): Record<string, any> {
     const config: Record<any, any> = {};
-    block.querySelectorAll(':scope > div').forEach((row) => {
+    block.querySelectorAll(":scope > div").forEach(row => {
       if (row.children) {
         const cols = [...row.children];
         if (cols[1]) {
           const col = cols[1];
-          const name = toClassName(cols[0].textContent ?? '');
-          let value: any = '';
-          if (col.querySelector('a')) {
-            const as = [...col.querySelectorAll('a')];
+          const name = toClassName(cols[0].textContent ?? "");
+          let value: any = "";
+          if (col.querySelector("a")) {
+            const as = [...col.querySelectorAll("a")];
             if (as.length === 1) {
               value = as[0].href;
             } else {
-              value = as.map((a) => a.href);
+              value = as.map(a => a.href);
             }
-          } else if (col.querySelector('img')) {
-            const imgs = [...col.querySelectorAll('img')];
+          } else if (col.querySelector("img")) {
+            const imgs = [...col.querySelectorAll("img")];
             if (imgs.length === 1) {
               value = imgs[0].src;
             } else {
-              value = imgs.map((img) => img.src);
+              value = imgs.map(img => img.src);
             }
-          } else if (col.querySelector('p')) {
-            const ps = [...col.querySelectorAll('p')];
+          } else if (col.querySelector("p")) {
+            const ps = [...col.querySelectorAll("p")];
             if (ps.length === 1) {
               value = ps[0].textContent;
             } else {
-              value = ps.map((p) => p.textContent);
+              value = ps.map(p => p.textContent);
             }
           } else value = row.children[1].textContent;
           config[name] = value;
@@ -51,7 +51,7 @@ export class BlockService {
    * @param {Element} main The container element
    */
   decorateBlocks(main: HTMLElement) {
-    main.querySelectorAll<HTMLDivElement>('div.section > div > div').forEach(this.decorateBlock);
+    main.querySelectorAll<HTMLDivElement>("div.section > div > div").forEach(this.decorateBlock);
   }
 
   /**
@@ -61,11 +61,11 @@ export class BlockService {
   private decorateBlock(block: HTMLElement) {
     const shortBlockName = block.classList[0];
     if (shortBlockName) {
-      block.classList.add('block');
+      block.classList.add("block");
       block.dataset.blockName = shortBlockName;
       const blockWrapper = block.parentElement;
       blockWrapper?.classList.add(`${shortBlockName}-wrapper`);
-      const section = block.closest('.section');
+      const section = block.closest(".section");
       if (section) section.classList.add(`${shortBlockName}-container`);
     }
   }

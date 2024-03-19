@@ -1,10 +1,11 @@
-import { html, nothing, render } from 'lit';
-import { createOptimizedPicture } from '../../utils/createOptimizedPicture';
-import FetchService from '../../services/fetch.service.ts';
-import { SheetsResponse } from '../../shared.types.ts';
-import { ifDefined } from 'lit-html/directives/if-defined.js';
-import { isSidekickLibraryActive } from '../../sidekickHelpers/isSidekickLibraryActive.ts';
-import './posts.scss';
+import { html, nothing, render } from "lit";
+import { ifDefined } from "lit-html/directives/if-defined.js";
+
+import { createOptimizedPicture } from "../../utils/createOptimizedPicture";
+import FetchService from "../../services/fetch.service.ts";
+import { SheetsResponse } from "../../shared.types.ts";
+import { isSidekickLibraryActive } from "../../sidekickHelpers/isSidekickLibraryActive.ts";
+import "./posts.scss";
 
 interface PostArgs {
   postUrl?: string;
@@ -38,44 +39,44 @@ const postTemplate = (args: PostArgs) => {
     <article>
       ${renderPicture(postUrl, picture)} ${renderHeadline(headline)} ${renderText(text)}
       <ul class="actions">
-        <li><a href="${ifDefined(postUrl)}" class="button">${buttontext || 'Goto Post'}</a></li>
+        <li><a href="${ifDefined(postUrl)}" class="button">${buttontext || "Goto Post"}</a></li>
       </ul>
     </article>
   `;
 };
 
 const template = (posts: PostArgs[]) => {
-  return posts.map((post) => postTemplate(post));
+  return posts.map(post => postTemplate(post));
 };
 
 // TODO: Candidate for a EDS helper function???
 const findFirstNonEmptyParagraph = (doc: Document): string | undefined => {
-  const paragraphs = Array.from(doc.querySelectorAll('p'));
-  return paragraphs.find((p) => p.innerText.trim().length > 0)?.innerText;
+  const paragraphs = Array.from(doc.querySelectorAll("p"));
+  return paragraphs.find(p => p.innerText.trim().length > 0)?.innerText;
 };
 
 export default async function (block: HTMLElement) {
-  block.innerHTML = '';
+  block.innerHTML = "";
 
   const parser = new DOMParser();
-  const queryIndex = await FetchService.fetchJson<SheetsResponse>('/query-index.json');
-  const siteMapPostEntries = queryIndex.data.filter((item) => item.path.startsWith('/posts'));
+  const queryIndex = await FetchService.fetchJson<SheetsResponse>("/query-index.json");
+  const siteMapPostEntries = queryIndex.data.filter(item => item.path.startsWith("/posts"));
 
   const postsPreview = await Promise.all(
-    siteMapPostEntries.map((post) =>
+    siteMapPostEntries.map(post =>
       FetchService.fetchText(`${post.path}.plain.html`, {
         cacheOptions: {
-          cacheType: 'runtime',
+          cacheType: "runtime",
         },
-      })
-    )
+      }),
+    ),
   );
 
-  const postsPreviewHtml = postsPreview.map((res) => parser.parseFromString(res, 'text/html'));
+  const postsPreviewHtml = postsPreview.map(res => parser.parseFromString(res, "text/html"));
   const posts = postsPreviewHtml.map((doc, index) => {
     return {
       postUrl: isSidekickLibraryActive() ? undefined : `${window.hlx.codeBasePath}${siteMapPostEntries[index].path}`,
-      headline: doc.querySelector('h1')?.innerText || doc.querySelector('h2')?.innerText,
+      headline: doc.querySelector("h1")?.innerText || doc.querySelector("h2")?.innerText,
       text: findFirstNonEmptyParagraph(doc),
       buttontext: siteMapPostEntries[index].buttontext,
       picture: createOptimizedPicture({
@@ -87,6 +88,6 @@ export default async function (block: HTMLElement) {
     };
   });
 
-  block.style.removeProperty('display');
+  block.style.removeProperty("display");
   render(template(posts), block);
 }

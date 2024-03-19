@@ -1,20 +1,21 @@
-import { html, nothing } from 'lit';
-import { toClassName } from '../../utils/toClassName';
-import { ifDefined } from 'lit-html/directives/if-defined.js';
+import { html, nothing } from "lit";
+import { ifDefined } from "lit-html/directives/if-defined.js";
+
+import { toClassName } from "../../utils/toClassName";
 
 export type FormFieldType =
-  | 'headline'
-  | 'plaintext'
-  | 'text'
-  | 'button'
-  | 'fieldset'
-  | 'select'
-  | 'toggle'
-  | 'radio'
-  | 'checkbox'
-  | 'textarea'
-  | 'reset'
-  | 'submit';
+  | "headline"
+  | "plaintext"
+  | "text"
+  | "button"
+  | "fieldset"
+  | "select"
+  | "toggle"
+  | "radio"
+  | "checkbox"
+  | "textarea"
+  | "reset"
+  | "submit";
 
 export interface FormField {
   class?: string;
@@ -37,10 +38,10 @@ export interface FormFieldSelect extends FormField {
 }
 
 const ids = [];
-const generateFieldId = (field: FormField, suffix = '') => {
+const generateFieldId = (field: FormField, suffix = "") => {
   const slug = toClassName(`form-${field.name}${suffix}`);
   ids[slug] = ids[slug] || 0;
-  const idSuffix = ids[slug] ? `-${ids[slug]}` : '';
+  const idSuffix = ids[slug] ? `-${ids[slug]}` : "";
   ids[slug] += 1;
   return `${slug}${idSuffix}`;
 };
@@ -62,7 +63,7 @@ const renderFieldset = (field: FormField) => {
 const renderHeading = (field: FormFieldInput) => {
   return html`
     <div class="${ifDefined(field.class)}" data-fieldset="${ifDefined(field.fieldset)}">
-      ${field.class && field.class.includes('sub-heading')
+      ${field.class && field.class.includes("sub-heading")
         ? html`<h3 id="${ifDefined(field.id)}">${field.value || field.label}</h3>`
         : html`<h2 id="${ifDefined(field.id)}">${field.value || field.label}</h2>`}
     </div>
@@ -82,7 +83,7 @@ const renderPlaintext = (field: FormFieldInput) => {
 };
 
 const renderInputField = (field: FormFieldInput, hasLabelOnTop = true) => {
-  const labelId = generateFieldId(field, '-label');
+  const labelId = generateFieldId(field, "-label");
   return html`
     <div class="${ifDefined(field.class)}" data-fieldset="${ifDefined(field.fieldset)}">
       ${hasLabelOnTop ? renderLabel(labelId, field) : nothing}
@@ -101,7 +102,7 @@ const renderInputField = (field: FormFieldInput, hasLabelOnTop = true) => {
 };
 
 const renderTextareaField = (field: FormFieldInput) => {
-  const labelId = generateFieldId(field, '-label');
+  const labelId = generateFieldId(field, "-label");
   return html`
     <div class="${ifDefined(field.class)}" data-fieldset="${ifDefined(field.fieldset)}">
       ${field.label ? renderLabel(labelId, field) : nothing}
@@ -117,31 +118,31 @@ const renderTextareaField = (field: FormFieldInput) => {
 };
 
 const renderCheckboxField = (field: FormFieldInput) => {
-  if (!field.value) field.value = 'checked';
+  if (!field.value) field.value = "checked";
   return renderInputField(field, false);
 };
 
 const renderSelectFieldOption = (option: string, selectValue) => {
   const text = option.trim();
-  const value = option.trim().toLowerCase() ?? '';
-  const selected = value === selectValue ? '' : undefined;
+  const value = option.trim().toLowerCase() ?? "";
+  const selected = value === selectValue ? "" : undefined;
   return html`<option selected="${ifDefined(selected)}" value="${value}">${text}</option>`;
 };
 
 const renderSelectField = (field: FormFieldSelect) => {
-  const labelId = generateFieldId(field, '-label');
+  const labelId = generateFieldId(field, "-label");
   return html`
     <div class="${ifDefined(field.class)}" data-fieldset="${ifDefined(field.fieldset)}">
       ${field.label ? renderLabel(labelId, field) : nothing}
       <select id="${ifDefined(field.id)}" name="${ifDefined(field.name)}" required="${ifDefined(field.required)}">
-        ${field.options.map((option) => renderSelectFieldOption(option, field.value))}
+        ${field.options.map(option => renderSelectFieldOption(option, field.value))}
       </select>
     </div>
   `;
 };
 
 const renderRadioField = (field: FormFieldInput) => {
-  if (!field.value) field.value = field.label || 'on';
+  if (!field.value) field.value = field.label || "on";
   return renderInputField(field, false);
 };
 

@@ -1,6 +1,6 @@
-import { html, render } from 'lit';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import './table.scss';
+import { html, render } from "lit";
+import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
+import "./table.scss";
 
 interface TemplateArgs {
   headers: string[];
@@ -14,16 +14,16 @@ const template = (args: TemplateArgs) => {
       <table>
         <thead>
           <tr>
-            ${headers.map((header) => html`<th>${unsafeHTML(header)}</th>`)}
+            ${headers.map(header => html`<th>${unsafeHTML(header)}</th>`)}
           </tr>
         </thead>
         <tbody>
           ${data.map(
-            (row) => html`
+            row => html`
               <tr>
-                ${row.map((cell) => html`<td>${unsafeHTML(cell)}</td>`)}
+                ${row.map(cell => html`<td>${unsafeHTML(cell)}</td>`)}
               </tr>
-            `
+            `,
           )}
         </tbody>
       </table>
@@ -37,14 +37,14 @@ export default function decorate(block: HTMLElement) {
 
   [...block.children].forEach((child, index) => {
     if (index === 0) {
-      headers.push(...Array.from(child.querySelectorAll('div')).map((cell) => cell.innerHTML));
+      headers.push(...Array.from(child.querySelectorAll("div")).map(cell => cell.innerHTML));
     } else {
-      data.push(Array.from(child.querySelectorAll('div')).map((cell) => cell.innerHTML));
+      data.push(Array.from(child.querySelectorAll("div")).map(cell => cell.innerHTML));
     }
   });
 
-  block.innerHTML = '';
+  block.innerHTML = "";
 
-  block.style.removeProperty('display');
+  block.style.removeProperty("display");
   render(template({ headers, data }), block);
 }

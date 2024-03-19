@@ -13,7 +13,7 @@
 export function toClassName(name: string): string {
   return name
     .toLowerCase()
-    .replace(/[^0-9a-z]/gi, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
+    .replace(/[^0-9a-z]/gi, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
 }

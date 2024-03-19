@@ -1,4 +1,4 @@
-import { isSidekickLibraryActive } from './isSidekickLibraryActive';
+import { isSidekickLibraryActive } from "./isSidekickLibraryActive";
 
 /**
  * Represents the constructed Element.
@@ -37,17 +37,17 @@ export type SidekickElement = {
 export const extractSidekickLibraryId = (element?: HTMLElement | HTMLAnchorElement | null): SidekickElement => {
   const constructedElement: SidekickElement = {
     dataLibraryId: undefined,
-    innerHTML: '',
-    href: '',
+    innerHTML: "",
+    href: "",
   };
   if (!element) return constructedElement;
 
   constructedElement.innerHTML = element.innerHTML;
-  if (element instanceof HTMLAnchorElement && element.href !== '') {
+  if (element instanceof HTMLAnchorElement && element.href !== "") {
     constructedElement.href = element.href;
   }
 
-  const sidekickLibraryId: string | null = element.getAttribute('data-library-id');
+  const sidekickLibraryId: string | null = element.getAttribute("data-library-id");
   if (isSidekickLibraryActive() && sidekickLibraryId !== null) {
     constructedElement.dataLibraryId = sidekickLibraryId;
   }

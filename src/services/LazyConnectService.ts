@@ -3,7 +3,7 @@ class LazyConnectService {
   intersectionObserver: IntersectionObserver;
 
   constructor() {
-    this.intersectionObserver = new IntersectionObserver((entries) => this.handleIntersectionChange(entries));
+    this.intersectionObserver = new IntersectionObserver(entries => this.handleIntersectionChange(entries));
   }
 
   subscribe(target: HTMLElement, intersectionCallback: () => void) {
@@ -18,7 +18,7 @@ class LazyConnectService {
 
   handleIntersectionChange(entries: Array<IntersectionObserverEntry>) {
     // console.log("lol", entries);
-    entries.forEach((intersectionEntry) => {
+    entries.forEach(intersectionEntry => {
       const target = intersectionEntry.target;
 
       if (!intersectionEntry.isIntersecting || !this.componentMap.has(target)) return;

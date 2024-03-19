@@ -1,12 +1,12 @@
-import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { css, html, LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
-@customElement('toast-component')
+@customElement("toast-component")
 export class Toast extends LitElement {
   @property({ type: String })
-  message: string = 'Your settings have been saved successfully!';
+  message = "Your settings have been saved successfully!";
   @property({ type: Number })
-  duration: number = 3000;
+  duration = 3000;
 
   connectedCallback() {
     super.connectedCallback();
@@ -16,7 +16,7 @@ export class Toast extends LitElement {
   }
 
   close() {
-    this.style.animation = 'fadeOut 0.3s ease-in-out forwards';
+    this.style.animation = "fadeOut 0.3s ease-in-out forwards";
     setTimeout(() => {
       this.remove();
     }, 305);

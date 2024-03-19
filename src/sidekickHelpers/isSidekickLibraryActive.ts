@@ -4,7 +4,7 @@
  * @returns {boolean} Wether the Sidekick Library Plugin is in use.
  */
 export const isSidekickLibraryActive = (): boolean => {
-  const main = document.querySelector('#main');
+  const main = document.querySelector("#main");
   if (!main) return false;
-  return window.location.href === 'about:srcdoc' && main.classList.contains('sidekick-library');
+  return window.location.href === "about:srcdoc" && main.classList.contains("sidekick-library");
 };

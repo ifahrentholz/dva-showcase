@@ -1,7 +1,7 @@
-import { RuntimeCache } from '../utils/RuntimeCache';
+import { RuntimeCache } from "../utils/RuntimeCache";
 
 export interface FetchServiceCacheOptions {
-  cacheType?: 'runtime'; // 'local' | 'session' | "request" can be added later
+  cacheType?: "runtime"; // 'local' | 'session' | "request" can be added later
 }
 
 export interface FetchServiceOptions {
@@ -25,7 +25,7 @@ class FetchService {
   private async fetchData<T>(
     url: string,
     options: FetchServiceOptions,
-    dataMapper: (Response) => Promise<T>
+    dataMapper: (Response) => Promise<T>,
   ): Promise<T> {
     const { cacheOptions } = options;
     const cachedData = this.getCachedData<T>(url, cacheOptions);
@@ -58,20 +58,20 @@ class FetchService {
   }
 
   private getCachedData<T>(url: string, cacheOptions?: FetchServiceCacheOptions): T | null {
-    if (cacheOptions?.cacheType === 'runtime') {
+    if (cacheOptions?.cacheType === "runtime") {
       return this.runtimeCache.get(url) ?? null;
     }
     return null;
   }
 
   private setCachedData<T>(url: string, data: T, cacheOptions?: FetchServiceCacheOptions): void {
-    if (cacheOptions?.cacheType === 'runtime') {
+    if (cacheOptions?.cacheType === "runtime") {
       this.runtimeCache.set(url, data);
     }
   }
 
   private getCodeBasePath(endpoint: string): string {
-    const decoratedUrl = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+    const decoratedUrl = endpoint.startsWith("/") ? endpoint : `/${endpoint}`;
     return `${window.hlx.codeBasePath}${decoratedUrl}`;
   }
 }

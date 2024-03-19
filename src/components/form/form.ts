@@ -1,7 +1,8 @@
-import { html, LitElement } from 'lit';
-import { customElement, property, query, state } from 'lit/decorators.js';
-import FetchService from '../../services/fetch.service.ts';
-import { FormField, FormFieldInput, FormFieldSelect, FormFieldType, renderField } from './form.template.ts';
+import { html, LitElement } from "lit";
+import { customElement, property, query, state } from "lit/decorators.js";
+
+import FetchService from "../../services/fetch.service.ts";
+import { FormField, FormFieldInput, FormFieldSelect, FormFieldType, renderField } from "./form.template.ts";
 
 type FormElement = {
   name: string;
@@ -25,15 +26,15 @@ interface SheetsResponse {
 
 type FormPayload = Record<string, string>;
 
-@customElement('form-component')
+@customElement("form-component")
 export class Form extends LitElement {
   @state()
   formData: FormField[];
 
   @property({ type: String })
-  pathname: string = '';
+  pathname = "";
 
-  @query('form')
+  @query("form")
   form: HTMLFormElement;
 
   protected createRenderRoot(): HTMLElement | DocumentFragment {
@@ -55,17 +56,17 @@ export class Form extends LitElement {
   render() {
     if (!this.formData) return;
     return html`
-      <form method="post" data-action="${this.pathname.split('.json')[0]}" @submit="${this.submitForm}">
-        <div class="row gtr-uniform">${this.formData.map((element) => html`${renderField(element)}`)}</div>
+      <form method="post" data-action="${this.pathname.split(".json")[0]}" @submit="${this.submitForm}">
+        <div class="row gtr-uniform">${this.formData.map(element => html`${renderField(element)}`)}</div>
       </form>
     `;
   }
 
   setFieldsets() {
     // group fields into fieldsets
-    const fieldsets = this.form.querySelectorAll('fieldset');
-    fieldsets.forEach((fieldset) => {
-      this.form.querySelectorAll(`[data-fieldset="${fieldset.name}"`).forEach((field) => {
+    const fieldsets = this.form.querySelectorAll("fieldset");
+    fieldsets.forEach(fieldset => {
+      this.form.querySelectorAll(`[data-fieldset="${fieldset.name}"`).forEach(field => {
         fieldset.append(field);
       });
     });
@@ -73,27 +74,27 @@ export class Form extends LitElement {
 
   parseFieldData(item: FormElement): FormField | FormFieldInput | FormFieldSelect {
     return {
-      class: item.class !== '' ? item.class : undefined,
-      id: item.id !== '' ? item.id : undefined,
+      class: item.class !== "" ? item.class : undefined,
+      id: item.id !== "" ? item.id : undefined,
       name: item.name,
       label: item.label,
-      fieldset: item.fieldset !== '' ? item.fieldset : undefined,
-      value: item.value !== '' ? item.value : undefined,
+      fieldset: item.fieldset !== "" ? item.fieldset : undefined,
+      value: item.value !== "" ? item.value : undefined,
       type: item.type.toLowerCase() as FormFieldType,
       placeholder: item.placeholder || undefined,
-      options: item.options ? item.options.split(',').map((option: string) => option.trim()) : [],
-      required: item.required.toLowerCase() === 'true' || item.required.toLowerCase() === 'x' ? true : undefined,
+      options: item.options ? item.options.split(",").map((option: string) => option.trim()) : [],
+      required: item.required.toLowerCase() === "true" || item.required.toLowerCase() === "x" ? true : undefined,
     };
   }
 
   generatePayload(form: HTMLFormElement): FormPayload {
     const payload = {};
 
-    [...(form.elements as HTMLCollectionOf<HTMLFormElement>)].forEach((field) => {
-      if (field.name && field.type !== 'submit' && !field.disabled) {
-        if (field.type === 'radio') {
+    [...(form.elements as HTMLCollectionOf<HTMLFormElement>)].forEach(field => {
+      if (field.name && field.type !== "submit" && !field.disabled) {
+        if (field.type === "radio") {
           if (field.checked) payload[field.name] = field.value;
-        } else if (field.type === 'checkbox') {
+        } else if (field.type === "checkbox") {
           if (field.checked)
             payload[field.name] = payload[field.name] ? `${payload[field.name]},${field.value}` : field.value;
         } else {
@@ -115,30 +116,30 @@ export class Form extends LitElement {
     if (valid) {
       this.handleSubmit(this.form);
     } else {
-      const firstInvalidEl = this.querySelector<HTMLElement>(':invalid:not(fieldset)');
+      const firstInvalidEl = this.querySelector<HTMLElement>(":invalid:not(fieldset)");
       if (firstInvalidEl) {
         firstInvalidEl.focus();
-        firstInvalidEl.scrollIntoView({ behavior: 'smooth' });
+        firstInvalidEl.scrollIntoView({ behavior: "smooth" });
       }
     }
   }
 
   async handleSubmit(form: HTMLFormElement) {
-    if (form.getAttribute('data-submitting') === 'true') return;
+    if (form.getAttribute("data-submitting") === "true") return;
 
     const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
     try {
-      form.setAttribute('data-submitting', 'true');
+      form.setAttribute("data-submitting", "true");
       if (submit) submit.disabled = true;
 
       // create payload
-      const action = form.dataset.action ?? '';
+      const action = form.dataset.action ?? "";
       const payload = this.generatePayload(form);
       const response = await fetch(action, {
-        method: 'POST',
+        method: "POST",
         body: JSON.stringify({ data: payload }),
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       });
       if (response.ok) {
@@ -153,7 +154,7 @@ export class Form extends LitElement {
     } catch (e) {
       this.handleSubmitError(form, e);
     } finally {
-      form.setAttribute('data-submitting', 'false');
+      form.setAttribute("data-submitting", "false");
       form.reset();
       if (submit) submit.disabled = false;
     }

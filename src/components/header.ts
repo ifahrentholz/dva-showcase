@@ -1,10 +1,11 @@
-import { html, LitElement, PropertyValueMap } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
-import { replaceBySpecifier } from '../utils/replaceBySpecifier.ts';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import FetchService from '../services/fetch.service.ts';
-import { renderIcon } from './icon/dva-e-icon.template.ts';
-import { IconName } from '../icons.types.ts';
+import { html, LitElement, PropertyValueMap } from "lit";
+import { customElement, state } from "lit/decorators.js";
+import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
+
+import { replaceBySpecifier } from "../utils/replaceBySpecifier.ts";
+import FetchService from "../services/fetch.service.ts";
+import { renderIcon } from "./icon/dva-e-icon.template.ts";
+import { IconName } from "../icons.types.ts";
 
 export interface HeaderResponseData {
   leftCol: LeftCol;
@@ -35,7 +36,7 @@ interface HeaderTemplateData {
   rightCol: RightColData[];
 }
 
-@customElement('header-component')
+@customElement("header-component")
 export class HeaderComponent extends LitElement {
   @state()
   headerData: HeaderTemplateData;
@@ -50,28 +51,28 @@ export class HeaderComponent extends LitElement {
 
   async fetchHeaderData() {
     try {
-      const response = await FetchService.fetchJson<HeaderResponseData>('header.json', {
-        cacheOptions: { cacheType: 'runtime' },
+      const response = await FetchService.fetchJson<HeaderResponseData>("header.json", {
+        cacheOptions: { cacheType: "runtime" },
       });
       this.headerData = { leftCol: response.leftCol.data[0], rightCol: response.rightCol.data };
     } catch (error) {
-      console.error('HeaderComponent: ', error);
+      console.error("HeaderComponent: ", error);
     }
   }
 
   render() {
     if (!this.headerData) return;
     const { leftCol, rightCol } = this.headerData;
-    const logoText = replaceBySpecifier({ input: leftCol.logoText, htmlTag: 'strong', specifier: ':::' });
+    const logoText = replaceBySpecifier({ input: leftCol.logoText, htmlTag: "strong", specifier: ":::" });
     const logoTextHTML = unsafeHTML(logoText);
     return html`
       <a href="${leftCol.logoLink}" class="logo">${logoTextHTML}</a>
       <ul class="icons">
-        ${rightCol.map((item) => {
+        ${rightCol.map(item => {
           return html`
             <li>
               <a href="${item.socialLink}" class="icon brands" aria-label="${item.socialLabel}">
-                ${renderIcon(item.socialIcon, 'header-icon')}
+                ${renderIcon(item.socialIcon, "header-icon")}
                 <span class="label">${item.socialLabel}</span>
               </a>
             </li>

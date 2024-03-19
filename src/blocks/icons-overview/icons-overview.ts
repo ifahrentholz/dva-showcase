@@ -1,8 +1,9 @@
-import { html, render } from 'lit';
-import { renderIcon } from '../../components/icon/dva-e-icon.template.ts';
-import { createToast } from '../../components/toast/toast.template.ts';
-import { IconName } from '../../icons.types.ts';
-import './icons-overview.scss';
+import { html, render } from "lit";
+
+import { renderIcon } from "../../components/icon/dva-e-icon.template.ts";
+import { createToast } from "../../components/toast/toast.template.ts";
+import { IconName } from "../../icons.types.ts";
+import "./icons-overview.scss";
 
 const renderIconLabel = (icon: string) => html`<span class="icon-label">${icon}</span>`;
 
@@ -23,8 +24,8 @@ const copyNameToClipboard = async (name: string, message: string, duration: numb
 };
 
 const fetchIconNames = async (): Promise<IconName[]> => {
-  const iconOverview = import.meta.glob('/public/icons/*.svg');
-  return Object.keys(iconOverview).map((iconPath) => iconPath.replace(/^.*\/(.*?)\.svg$/, '$1')) as IconName[];
+  const iconOverview = import.meta.glob("/public/icons/*.svg");
+  return Object.keys(iconOverview).map(iconPath => iconPath.replace(/^.*\/(.*?)\.svg$/, "$1")) as IconName[];
 };
 
 const template = (iconNames: IconName[], message: string, duration: number) => {
@@ -41,7 +42,7 @@ const template = (iconNames: IconName[], message: string, duration: number) => {
 
 const getMessage = (block: HTMLElement) => {
   const text = block.children[0].children[0];
-  if (!text) return 'Icon name copied to clipboard!';
+  if (!text) return "Icon name copied to clipboard!";
   return text.innerHTML;
 };
 
@@ -56,7 +57,7 @@ const renderIcons = async (block: HTMLElement) => {
   const message = getMessage(block);
   const duration = getDuration(block);
 
-  block.innerHTML = '';
+  block.innerHTML = "";
   render(template(iconNames, message, duration), block);
 };
 
