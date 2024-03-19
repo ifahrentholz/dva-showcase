@@ -1,0 +1,279 @@
+.dvag-m-n01-header {
+  position: fixed;
+  z-index: $zIndex-n01-header;
+  top: 0;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1460px;
+  height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  margin: 0 auto;
+  background: $dvag-color__white-500;
+  box-shadow: 0px 4px 0px 0px rgba(0, 0, 0, 0.03);
+  gap: 16px;
+
+  @include breakpoint($mq-3-and-up) {
+    padding: 0 40px;
+  }
+
+  // Logos
+  &__logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__logo-mobile {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: all;
+
+    @include breakpoint($mq-3-and-up) {
+      display: none;
+    }
+
+    .dva-e-icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__logo-desktop {
+    display: none;
+
+    @include breakpoint($mq-3-and-up) {
+      display: flex;
+      width: 180px;
+      height: 41px;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+      pointer-events: all;
+    }
+
+    .dva-e-icon {
+      width: 180px;
+      height: 41px;
+    }
+  }
+
+  &__vb-info {
+    position: relative;
+    left: -32px;
+    transform: translateY(-100%);
+    display: flex;
+    min-width: 155px;
+    height: 72px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0;
+    transition: transform 0.3s ease-in-out;
+    pointer-events: none;
+
+    @include breakpoint($mq-3-and-up) {
+      left: -180px;
+      min-width: 180px;
+    }
+
+    &.dva-state-visible {
+      transform: translateY(13%);
+      pointer-events: all;
+    }
+
+    &.dva-state-hidden {
+      display: none;
+    }
+
+    .dvag-m-skew-component {
+      min-width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+
+    .dvag-m-skewed-box__content {
+      display: flex;
+      min-width: 155px;
+      height: 72px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 0;
+      background: $dvag-color__white-500;
+
+      @include breakpoint($mq-3-and-up) {
+        min-width: 180px;
+      }
+    }
+
+    .dvag-h-skew--out {
+      display: block;
+      color: $dvag-color__white-500;
+    }
+  }
+
+  &__vb-subheadline {
+    @extend %dva-type-400;
+
+    display: none;
+    margin: 0;
+    color: $dvag-color__black-375;
+
+    @include breakpoint($mq-2-and-up) {
+      display: flex;
+    }
+  }
+
+  &__vb-name {
+    @extend %dva-type-400-bold;
+
+    margin: 0;
+    color: $dvag-color__black-375;
+    text-wrap: balance;
+  }
+
+  &__vb-link {
+    @extend %dva-type-400-bold;
+
+    margin: 0;
+    color: $dvag-color__black-375;
+    text-wrap: balance;
+  }
+
+  // Buttons
+  &__menu-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint($mq-3-and-up) {
+      gap: 24px;
+    }
+  }
+
+  &__header-navigation-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__header-navigation-list {
+    @extend %dvag-reset-list-styling;
+
+    display: none;
+
+    @include breakpoint($mq-3-and-up) {
+      display: flex;
+      overflow: hidden;
+      height: 72px;
+      flex-flow: row;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 20px;
+    }
+  }
+
+  &__header-navigation-link {
+    @extend %dva-type-bold;
+    display: flex;
+    height: 72px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    border-bottom: 2px solid $dvag-color__white-500;
+    color: $dvag-color__black-375;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+
+    @include hover() {
+      border-bottom: 2px solid $dvag-color__gold-500;
+      background-color: $dvag-color__black-25;
+    }
+
+    .dvag-h-keyboard-focus &:focus {
+      border-bottom: 2px solid $dvag-color__gold-500;
+      outline: none;
+      background-color: $dvag-color__black-25;
+    }
+  }
+
+  &__cta.dva-e-button--small {
+    padding: 6px 12px;
+
+    @include breakpoint($mq-3-and-up) {
+      padding: 12px 24px;
+    }
+
+    .dva-e-icon {
+      display: none;
+
+      @include breakpoint($mq-3-and-up) {
+        display: inline-flex;
+      }
+    }
+  }
+
+  &__burger-menu {
+    display: flex;
+    height: 72px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    border-bottom: 2px solid $dvag-color__white-500;
+    color: $dvag-color__black-375;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+
+    @include hover() {
+      border-bottom: 2px solid $dvag-color__gold-500;
+      background-color: $dvag-color__black-25;
+    }
+
+    .dvag-h-keyboard-focus &:focus {
+      border-bottom: 2px solid $dvag-color__gold-500;
+      outline: none;
+      background-color: $dvag-color__black-25;
+    }
+
+    &:active {
+      border-bottom: 2px solid $dvag-color__white-500;
+      background-color: $dvag-color__white-500;
+    }
+
+    .dva-e-icon {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+  }
+
+  &__burger-label {
+    @extend %dva-type-bold;
+
+    display: none;
+
+    @include breakpoint($mq-3-and-up) {
+      display: flex;
+      margin-left: 6px;
+    }
+  }
+
+  // navigation-wrapper
+  &__navigation-wrapper {
+    position: fixed;
+    z-index: 1002;
+    display: flex;
+    overflow: hidden;
+    height: var(--app-height);
+    flex-direction: row-reverse;
+    pointer-events: none;
+    inset: 0;
+  }
+}

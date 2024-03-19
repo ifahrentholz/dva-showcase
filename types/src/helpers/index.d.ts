@@ -1,0 +1,1 @@
+export { stringToHash } from "./stringToHash";

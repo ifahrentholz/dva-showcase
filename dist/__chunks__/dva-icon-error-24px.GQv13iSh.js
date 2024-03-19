@@ -1,2 +1,0 @@
-const e="data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M12.032%202.26562L2.29867%2021.7323H21.7653L12.032%202.26562ZM12.032%205.84296L19.184%2020.1323H4.888L12.032%205.84296ZM12.82%2011.0254H11.22V15.9414H12.82V11.0254ZM11.22%2017.2964H12.82V18.8897H11.22V17.2964Z'/%3e%3c/svg%3e";export{e as default};
-//# sourceMappingURL=dva-icon-error-24px.GQv13iSh.js.map

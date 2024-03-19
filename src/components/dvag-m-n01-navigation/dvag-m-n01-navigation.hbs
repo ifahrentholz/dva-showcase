@@ -1,0 +1,132 @@
+---
+layout: default
+title: "[N01] Navigation"
+---
+
+<dvag-m-n01-navigation class="dvag-m-n01-navigation {{cssClasses}}" role="navigation" aria-label="Menu">
+  <div class="dvag-m-n01-navigation__content-wrapper">
+    <div class="dvag-m-n01-navigation__header">
+      {{> dva-e-link 
+        cssClasses="dva-e-link--icon-left dvag-m-n01-navigation__header-button dvag-m-n01-navigation__header-button--back"
+        label="Zurück"
+        iconID="dva-icon-chevron-left-24px"
+      }}
+      {{> dva-e-link 
+        cssClasses="dva-e-link--icon-left dvag-m-n01-navigation__header-button dvag-m-n01-navigation__header-button--close"
+        label="Schließen"
+        iconID="dva-icon-close-24px"
+      }}
+    </div>
+
+    <div class="dvag-m-n01-navigation__content">
+      <!-- toggle-buttons to open overlay for vb-finder (dvag.de) or contact-overlay (VB-pages) -->    
+      {{> dvag-e-n06-vb-finder-overlay-toggle 
+        cssClasses="dvag-m-n01-navigation__cta dvag-m-n01-navigation__cta--vb-finder"
+        iconID="dva-icon-speechbubble-24px"
+        label="Jetzt beraten lassen"
+      }}
+      {{> dvag-e-c26-vb-contact-overlay-toggle 
+        cssClasses="dvag-m-n01-navigation__cta dvag-m-n01-navigation__cta--contact-overlay"
+        noCookieHide=true
+        iconID="dva-icon-speechbubble-24px"
+        label="Kontakt" 
+      }}
+
+      <!-- navigation level 1 -->
+      <ul class="dvag-m-n01-navigation__group-list">
+      {{#each dvag-m-n01-navigation__data.navigationItems}}
+        <li class="dvag-m-n01-navigation__item">
+          <a class="dvag-m-n01-navigation__item-link"
+            tabindex="0"
+            href="{{this.href}}"
+            data-subnav-id="{{this.subNavId}}"
+            target="_self"
+            title="{{this.label}}">
+              {{this.label}}
+              {{#if hasRating}}
+              <div class="dvag-m-n01-navigation__item-rating-wrapper">
+                <dva-m-rating-box class="dva-m-rating-box" rating="4,5" edit-mode="false"></dva-m-rating-box>
+                <p class="dvag-m-n01-navigation__item-rating-label">
+                  4,5 von 5 Sternen
+                </p>
+              </div>
+              {{/if}}
+          </a>
+
+          {{#if this.subNavigation}}
+          <!-- 2nd level navigation -->
+          <div class="dvag-m-n01-navigation__level-2">
+            <p class="dvag-m-n01-navigation__level-2-headline">{{this.subNavigationHeadline}}</p>
+            <p class="dvag-m-n01-navigation__level-2-subheadline">{{this.subNavigationSubheadline}}</p>
+            <ul class="dvag-m-n01-navigation__group-list">
+              {{#each this.subNavigation}}
+              <li class="dvag-m-n01-navigation__item">
+                <a class="dvag-m-n01-navigation__item-link dvag-m-n01-navigation__item-link--level-2" 
+                  tabindex="0"
+                  href="{{this.href}}" 
+                  target="_self"
+                  title="{{this.label}}">{{this.label}}</a>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          {{/if}}
+        </li>
+      {{/each}}
+      </ul>
+
+      <!-- language switch -->
+      <ul class="dvag-m-n01-navigation__group-list dvag-m-n01-navigation__group-list--language-switch">
+      {{#each dvag-m-n01-navigation__data.languages}}
+        <li class="dvag-m-n01-navigation__item dvag-m-n01-navigation__item--language-switch">
+          <a class="dvag-m-n01-navigation__item-link dvag-m-n01-navigation__item-link--language-switch {{this.cssClasses}}"
+              tabindex="0"
+              href="{{this.href}}"
+              target="_self"
+              title="{{this.label}}">
+              {{> dva-e-icon iconId=this.iconId}}
+              <span>{{this.label}}</span>
+          </a>
+        </li>
+      {{/each}}
+      </ul>
+
+      <!-- teaser and optional links on grey background -->
+      <div class="dvag-m-n01-navigation__teaser-area">
+        <p class="dvag-m-n01-navigation__teaser-headline">Heute im Fokus</p>
+        {{> dvag-m-c01a-teaser dvag-m-c01a-teaser__data.variants.[2] cssClasses="dvag-h-background--none"}}
+      
+        <!-- @BE: please only add ul-tag, if there are optional links available -->
+        <ul class="dvag-m-n01-navigation__group-list dvag-m-n01-navigation__group-list--optional">
+        {{#each dvag-m-n01-navigation__data.navigationItemsOptional}}
+          <li class="dvag-m-n01-navigation__item dvag-m-n01-navigation__item--optional">
+            <a class="dvag-m-n01-navigation__item-link dvag-m-n01-navigation__item-link--optional"
+                tabindex="0"
+                href="{{this.href}}"
+                target="_self"
+                title="{{this.label}}">
+                {{this.label}}
+            </a>
+          </li>
+        {{/each}}
+        </ul>
+      </div>
+
+      <!-- secondary links -->
+      <ul class="dvag-m-n01-navigation__group-list dvag-m-n01-navigation__group-list--secondary">
+      {{#each dvag-m-n01-navigation__data.navigationItemsSecondary}}
+        <li class="dvag-m-n01-navigation__item dvag-m-n01-navigation__item--secondary">
+          <a class="dvag-m-n01-navigation__item-link dvag-m-n01-navigation__item-link--secondary"
+              tabindex="0"
+              href="{{this.href}}"
+              target="_self"
+              title="{{this.label}}">
+              {{this.label}}
+          </a>
+        </li>
+      {{/each}}
+      </ul>
+    </div>
+  </div>
+</dvag-m-n01-navigation>
+<div class="dvag-m-n01-navigation-lock"></div>

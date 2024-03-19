@@ -33,6 +33,7 @@
     "@babel/eslint-parser": "7.23.3",
     "@pro-vision/stylelint-config-pv": "2.0.8",
     "@types/node": "^20.11.21",
+    "@types/js-cookie": "3.0.3",
     "@typescript-eslint/eslint-plugin": "6.20.0",
     "@typescript-eslint/parser": "6.20.0",
     "breakpoint-sass": "3.0.0",
@@ -54,13 +55,15 @@
     "stylelint-scss": "5.0.0",
     "typescript": "^5.3.3",
     "vite": "5.0.12"
+    
   },
   "dependencies": {
     "@kluntje/core": "1.3.0",
     "@kluntje/js-utils": "^0.7.2",
     "@kluntje/polyfills": "^0.2.0",
     "@kluntje/services": "^0.6.5",
-    "lit": "3.1.1"
+    "lit": "3.1.1",
+    "js-cookie": "2.2.1"
   },
   "engines": {
     "node": ">=18",

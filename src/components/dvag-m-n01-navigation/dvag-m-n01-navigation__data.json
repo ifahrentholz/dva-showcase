@@ -1,0 +1,134 @@
+{
+  "navigationItems": [
+    {
+      "label": "Unternehmen",
+      "subNavId": "subNavId01",
+      "isShownInHeader": true,
+      "hasRating": false,
+      "subNavigationHeadline": "Unternehmen",
+      "subNavigationSubheadline": "Mehr über Deutschlands größte und bedeutendste eigenständige Finanzberatung",
+      "subNavigation": [
+        {
+          "label": "Alles zum Unternehmen",
+          "link": "#"
+        },
+        {
+          "label": "Über uns",
+          "link": "#"
+        },
+        {
+          "label": "Geschäftsleitung",
+          "link": "#"
+        },
+        {
+          "label": "Markenbotschafter",
+          "link": "#"
+        },
+        {
+          "label": "Struktur & Geschichte",
+          "link": "#"
+        },
+        {
+          "label": "Unternehmensbericht",
+          "link": "#"
+        },
+        {
+          "label": "Presseservice",
+          "link": "#"
+        },
+        {
+          "label": "Standorte",
+          "link": "#"
+        }
+      ]      
+    },
+    {
+      "label": "Beratung",
+      "subNavId": "subNavId02",
+      "isShownInHeader": false,
+      "hasRating": false,
+      "href": "http://www.google.de"
+    },
+    {
+      "label": "Erfahrungen & Bewertungen",
+      "hasRating": true,
+      "href": "#"
+    },
+    {
+      "label": "Verantwortung",
+      "subNavId": "subNavId03",
+      "isShownInHeader": true,
+      "href": "#",
+      "hasRating": false,
+      "subNavigationHeadline": "Verantwortung",
+      "subNavigationSubheadline": "Verantwortung Subheadline lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "subNavigation": [
+        {
+          "label": "Sub1",
+          "link": "#"
+        },
+        {
+          "label": "Sub2",
+          "link": "#"
+        },
+        {
+          "label": "Sub3",
+          "link": "#"
+        },
+        {
+          "label": "Sub4",
+          "link": "#"
+        }
+      ] 
+    },
+    {
+      "label": "Karriere",
+      "subNavId": "subNavId04",
+      "isShownInHeader": true,
+      "href": "http://www.google.com",
+      "hasRating": false
+    }
+  ],
+  "navigationItemsOptional": [
+    {
+      "label": "Freier Link",
+      "href": "#"
+    },
+    {
+      "label": "Freier Link",
+      "href": "#"
+    },
+    {
+      "label": "Freier Link",
+      "href": "#"
+    }
+  ],
+  "navigationItemsSecondary": [
+    {
+      "label": "Links",
+      "href": "#"
+    },
+    {
+      "label": "Impressum",
+      "href": "#"
+    },
+    {
+      "label": "Lorem Ipsum",
+      "href": "#"
+    }
+  ],
+  "languages": [
+    {
+      "cssClasses": "dva-state-active",
+      "label": "DE",
+      "iconId": "dva-icon-lang-de",
+      "href": "#"
+    },
+    {
+      "cssClasses": "",
+      "label": "EN",
+      "iconId": "dva-icon-lang-en",
+      "href": "#"
+    }
+  ]
+}

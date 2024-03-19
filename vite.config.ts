@@ -1,11 +1,11 @@
-import { defineConfig } from 'vite';
-import minifyHTML from 'rollup-plugin-minify-html-literals';
-import { generateBlockEntries, generateIconNameType } from './vite.helpers';
-import { config } from './config.ts';
-import { resolve } from 'path';
-import { InputOption } from 'rollup';
+import { defineConfig } from "vite";
+import minifyHTML from "rollup-plugin-minify-html-literals";
+import { generateBlockEntries, generateIconNameType } from "./vite.helpers";
+import { config } from "./config.ts";
+import path, { resolve } from "path";
+import { InputOption } from "rollup";
 
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === "production";
 
 // @ts-ignore:next line
 export default defineConfig(({ command, mode }) => {
@@ -34,25 +34,32 @@ export default defineConfig(({ command, mode }) => {
         },
       },
     },
+    resolve: {
+      alias: {
+        Components: resolve(__dirname, "src/components/"),
+        Services: resolve(__dirname, "src/services"),
+        Helpers: resolve(__dirname, "src/helpers"),
+      },
+    },
     build: {
       sourcemap: true,
       minify: true,
       cssMinify: true,
       commonjsOptions: {
-        include: ['node_modules/**'],
+        include: ["node_modules/**"],
       },
       emptyOutDir: true,
       rollupOptions: {
         cache: false,
-        preserveEntrySignatures: 'strict',
+        preserveEntrySignatures: "strict",
         input: inputOptions,
         output: {
-          dir: 'dist',
+          dir: "dist",
           assetFileNames: () => {
-            return '[name]/[name][extname]';
+            return "[name]/[name][extname]";
           },
-          chunkFileNames: '__chunks__/[name].[hash].js',
-          entryFileNames: '[name]/[name].js',
+          chunkFileNames: "__chunks__/[name].[hash].js",
+          entryFileNames: "[name]/[name].js",
         },
         plugins: [isProd && minifyHTML()],
       },
