@@ -28,5 +28,10 @@
       "Helpers/*": ["./src/helpers/*"],
     }
   },
-  "include": ["blocks/**/*.ts", "scripts/**/*.ts", "src/**/*.ts"],
+  "include": [
+    "blocks/**/*.ts",
+    "scripts/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.json"
+  ],
 }

@@ -10,10 +10,6 @@ export class SidebarPosts extends LitElement {
   @state()
   private lastTreePosts: Sitemap;
 
-  constructor() {
-    super();
-  }
-
   async connectedCallback() {
     super.connectedCallback();
     const posts = await this.getPosts();
@@ -28,13 +24,6 @@ export class SidebarPosts extends LitElement {
       </header>
       <div class="mini-posts">${this.lastTreePosts.map(siteMapEntry => this.renderPost(siteMapEntry))}</div>
     `;
-
-    // TODO: Add overview if more button is needed
-    /*
-     <ul class="actions">
-        <li><a href="#" class="button">More</a></li>
-      </ul>
-    */
   }
 
   protected createRenderRoot(): HTMLElement | DocumentFragment {

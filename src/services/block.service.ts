@@ -1,8 +1,6 @@
 import { toClassName } from "../utils/toClassName";
 
 export class BlockService {
-  // TODO: Provider for fetch data
-
   /**
    * Extracts the config from a block.
    * @param {Element} block The block element

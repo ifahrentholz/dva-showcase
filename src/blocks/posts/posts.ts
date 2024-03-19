@@ -49,7 +49,6 @@ const template = (posts: PostArgs[]) => {
   return posts.map(post => postTemplate(post));
 };
 
-// TODO: Candidate for a EDS helper function???
 const findFirstNonEmptyParagraph = (doc: Document): string | undefined => {
   const paragraphs = Array.from(doc.querySelectorAll("p"));
   return paragraphs.find(p => p.innerText.trim().length > 0)?.innerText;

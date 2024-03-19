@@ -1,19 +1,11 @@
 import { html, render } from "lit";
+import { renderIcon } from "Components/icon/dva-e-icon.template.ts";
+import { createToast } from "Components/toast/toast.template.ts";
 
-import { renderIcon } from "../../components/icon/dva-e-icon.template.ts";
-import { createToast } from "../../components/toast/toast.template.ts";
 import { IconName } from "../../icons.types.ts";
 import "./icons-overview.scss";
 
 const renderIconLabel = (icon: string) => html`<span class="icon-label">${icon}</span>`;
-
-const renderIconContainer = (icon: IconName, message: string, duration: number) => {
-  return html`
-    <button type="button" class="icon-container" @click="${() => copyNameToClipboard(icon, message, duration)}">
-      ${renderIcon(icon)} ${renderIconLabel(icon)}
-    </button>
-  `;
-};
 
 const showToast = async (message: string, duration: number) =>
   render(await createToast(message, duration), document.body);
@@ -23,7 +15,15 @@ const copyNameToClipboard = async (name: string, message: string, duration: numb
   await showToast(message, duration);
 };
 
-const fetchIconNames = async (): Promise<IconName[]> => {
+const renderIconContainer = (icon: IconName, message: string, duration: number) => {
+  return html`
+    <button type="button" class="icon-container" @click="${() => copyNameToClipboard(icon, message, duration)}">
+      ${renderIcon(icon)} ${renderIconLabel(icon)}
+    </button>
+  `;
+};
+
+const fetchIconNames = (): IconName[] => {
   const iconOverview = import.meta.glob("/public/icons/*.svg");
   return Object.keys(iconOverview).map(iconPath => iconPath.replace(/^.*\/(.*?)\.svg$/, "$1")) as IconName[];
 };
@@ -52,8 +52,8 @@ const getDuration = (block: HTMLElement) => {
   return Number(duration.innerHTML);
 };
 
-const renderIcons = async (block: HTMLElement) => {
-  const iconNames = await fetchIconNames();
+const renderIcons = (block: HTMLElement) => {
+  const iconNames = fetchIconNames();
   const message = getMessage(block);
   const duration = getDuration(block);
 
@@ -61,6 +61,6 @@ const renderIcons = async (block: HTMLElement) => {
   render(template(iconNames, message, duration), block);
 };
 
-export default async function decorate(block: HTMLElement) {
-  await renderIcons(block);
+export default function decorate(block: HTMLElement) {
+  renderIcons(block);
 }

@@ -26,7 +26,6 @@ module.exports = {
       files: ["**/*.spec.ts"],
       rules: {
         "@typescript-eslint/ban-ts-comment": "off",
-        "@typescript-eslint/ban-ts-comment": "off",
         "no-proto": "off",
       },
     },
