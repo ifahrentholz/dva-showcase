@@ -2,8 +2,8 @@
 Your project's description...
 
 ## Environments
-- Preview: [https://main--dva-showcase--ifahrentholz.hlx.page/](https://main--eds-editorial--ifahrentholz.hlx.page/)
-- Live: [https://main--dva-showcase--ifahrentholz.hlx.live/](https://main--eds-editorial--ifahrentholz.hlx.live/)
+- Preview: [https://main--dva-showcase--ifahrentholz.hlx.page/](https://main--dva-showcase--ifahrentholz.hlx.page/)
+- Live: [https://main--dva-showcase--ifahrentholz.hlx.live/](https://main--dva-showcase--ifahrentholz.hlx.live/)
 
 ## Installation
 
