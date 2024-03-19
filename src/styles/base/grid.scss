@@ -1,4 +1,6 @@
 // Breakpoints
+@use "sass:math";
+
 $bp-0: 0;
 $bp-1: 476px;
 $bp-2: 760px;
@@ -123,12 +125,12 @@ $grid-columns: 12;
     @for $curBp from $minMq through length($breakpoints) {
       @if $curBp == 1 {
         margin: 0 map-get($grid-gutter, $curBp);
-        flex-basis: calc((100% / #{$grid-columns / $col}) - #{map-get($grid-gutter, $curBp) * 2});
-        max-width: calc((100% / #{$grid-columns / $col}) - #{map-get($grid-gutter, $curBp) * 2});
+        flex-basis: calc((100% / #{math.div($grid-columns, $col)}) - #{map-get($grid-gutter, $curBp) * 2});
+        max-width: calc((100% / #{math.div($grid-columns, $col)}) - #{map-get($grid-gutter, $curBp) * 2});
       } @else {
         @include breakpoint(map-get($breakpoints, $curBp)) {
-          max-width: calc((100% / #{$grid-columns / $col}) - #{map-get($grid-gutter, $curBp) * 2});
-          flex-basis: calc((100% / #{$grid-columns / $col}) - #{map-get($grid-gutter, $curBp) * 2});
+          max-width: calc((100% / #{math.div($grid-columns, $col)}) - #{map-get($grid-gutter, $curBp) * 2});
+          flex-basis: calc((100% / #{math.div($grid-columns, $col)}) - #{map-get($grid-gutter, $curBp) * 2});
           margin: 0 map-get($grid-gutter, $curBp);
         }
       }
@@ -166,14 +168,14 @@ $grid-columns: 12;
         @if $col == 0 {
           margin-left: #{map-get($grid-gutter, $minMq)};
         } @else {
-          margin-left: calc((100% / #{$grid-columns / $col}) + #{map-get($grid-gutter, $curBp)});
+          margin-left: calc((100% / #{math.div($grid-columns, $col)}) + #{map-get($grid-gutter, $curBp)});
         }
       } @else {
         @include breakpoint(map-get($breakpoints, $curBp)) {
           @if $col == 0 {
             margin-left: #{map-get($grid-gutter, $curBp)};
           } @else {
-            margin-left: calc((100% / #{$grid-columns / $col}) + #{map-get($grid-gutter, $curBp)});
+            margin-left: calc((100% / #{math.div($grid-columns, $col)}) + #{map-get($grid-gutter, $curBp)});
           }
         }
       }
