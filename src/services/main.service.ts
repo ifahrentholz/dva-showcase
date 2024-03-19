@@ -54,17 +54,15 @@ export class MainService {
   }
 
   private loadEager = async () => {
-    // TODO: how to support different languages here
     document.documentElement.lang = "en";
     this.decorateTemplateAndTheme();
     const main = document.querySelector("main");
     if (main) {
       this.addMainHeader(main);
       this.sectionService.init(main);
-      this.addInnerContainer(main); // TODO refactor initializing
+      this.addInnerContainer(main);
       this.blockService.decorateBlocks(main);
 
-      // TODO: Performance adjustment
       setTimeout(() => {
         document.body.classList.add("show");
       }, 100);
@@ -87,8 +85,19 @@ export class MainService {
 
     const sidebarContainer = document.createElement("sidebar-component");
     sidebarContainer.setAttribute("id", "sidebar");
-    window.innerWidth <= 1280 ? sidebarContainer.classList.remove("active") : sidebarContainer.classList.add("active");
-    window.innerWidth <= 1280 ? sidebarContainer.classList.remove("active") : sidebarContainer.classList.add("active");
+
+    if (window.innerWidth <= 1280) {
+      sidebarContainer.classList.remove("active");
+    } else {
+      sidebarContainer.classList.add("active");
+    }
+
+    if (window.innerWidth <= 1280) {
+      sidebarContainer.classList.remove("active");
+    } else {
+      sidebarContainer.classList.add("active");
+    }
+
     main.after(sidebarContainer);
   }
 
@@ -213,7 +222,7 @@ export class MainService {
   private async waitForLCP() {
     /* Js Chunks should be loaded
     Old logic only looks after the first block
-    New logic looks in the first section after lcp candidates, 
+    New logic looks in the first section after lcp candidates,
     since we show ech section depending on if its blocks and modules are loaded */
     const firstSection: HTMLElement | null = document.querySelector(".section");
 
@@ -252,10 +261,13 @@ export class MainService {
       return;
     }
 
+    const loadingPromises: Promise<void>[] = [];
+
     for (const block of sectionsBlocks) {
-      Promise.all([this.loadBlockModules(block), this.loadBlockStyles(block)]);
+      loadingPromises.push(this.loadBlockModules(block), this.loadBlockStyles(block));
     }
 
+    await Promise.all(loadingPromises);
     this.showSection(section);
   }
 }
