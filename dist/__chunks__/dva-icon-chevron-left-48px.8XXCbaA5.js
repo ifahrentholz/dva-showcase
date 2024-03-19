@@ -1,5 +1,0 @@
-const n=`<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M33.04 43.7412L12.7307 23.9999L33.0373 4.25854L35.2693 6.55454L17.3227 23.9999L35.2693 41.4452L33.04 43.7412Z"/>
-</svg>
-`;export{n as default};
-//# sourceMappingURL=dva-icon-chevron-left-48px.8XXCbaA5.js.map
