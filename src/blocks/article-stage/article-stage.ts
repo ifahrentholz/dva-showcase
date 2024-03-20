@@ -1,8 +1,7 @@
 import { html, render } from "lit";
 import { createOptimizedPicture } from "Utils/createOptimizedPicture.ts";
 import { cleanUpBlock } from "Utils/cleanUpBlock.ts";
-import "article-stage.scss";
-
+import "./article-stage.scss";
 const pictureTemplate = (picture: HTMLPictureElement) => {
   return html`<div class="dva-grid">
     <div class="dva-grid-row">
@@ -24,7 +23,6 @@ const template = (picture?: HTMLPictureElement) => {
 };
 
 export default function (block: HTMLElement) {
-  console.log("  this is a test");
   let picture: HTMLPictureElement | undefined;
   const image = block.querySelector("img");
 

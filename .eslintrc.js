@@ -20,7 +20,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["src/**/*.js", "src/**/*.ts", "src/**/*.json"],
+      files: ["**/*.js", "**/*.ts", "**/*.json"],
       rules: {
         "@typescript-eslint/ban-ts-comment": "off",
         "no-proto": "off",

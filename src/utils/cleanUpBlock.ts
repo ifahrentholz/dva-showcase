@@ -7,6 +7,9 @@
  * This function is useful for resetting a block's state or content.
  */
 export const cleanUpBlock = (block: HTMLElement): void => {
-  block.innerHTML = "";
+  while (block.firstChild) {
+    block.removeChild(block.firstChild);
+  }
+
   block.style.removeProperty("display");
 };
