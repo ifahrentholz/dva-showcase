@@ -1,8 +1,5 @@
 module.exports = {
-  extends: [
-    "@pro-vision/eslint-config-pv/typescript",
-    "@pro-vision/eslint-config-pv/prettier"
-  ],
+  extends: ["@pro-vision/eslint-config-pv/typescript", "@pro-vision/eslint-config-pv/prettier"],
   rules: {
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -11,19 +8,19 @@ module.exports = {
     "@typescript-eslint/no-misused-promises": [
       "error",
       {
-        "checksVoidReturn": false
-      }
+        checksVoidReturn: false,
+      },
     ],
     "@typescript-eslint/no-unsafe-argument": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-unsafe-return": "off",
     "@typescript-eslint/unbound-method": "off",
     "import/extensions": "off",
-    "no-console": "off"
+    "no-console": "off",
   },
   overrides: [
     {
-      files: ["**/*.spec.ts"],
+      files: ["src/**/*.js", "src/**/*.ts", "src/**/*.json"],
       rules: {
         "@typescript-eslint/ban-ts-comment": "off",
         "no-proto": "off",
