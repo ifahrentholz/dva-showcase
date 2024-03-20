@@ -5,6 +5,9 @@ import { BlockService } from "./block.service";
 import { SectionService } from "./section.service";
 import { config } from "../../config.ts";
 import { getLocation } from "../sidekickHelpers/getLocation.ts";
+import { html, render } from "lit-html";
+import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
+import { headerTemplate } from "Components/dvag-m-n01-header/dvag-m-n01-header.template.ts";
 
 type BlockMapping = {
   name: string;
@@ -58,7 +61,6 @@ export class MainService {
     this.decorateTemplateAndTheme();
     const main = document.querySelector("main");
     if (main) {
-      this.addMainHeader(main);
       this.sectionService.init(main);
       this.addInnerContainer(main);
       this.blockService.decorateBlocks(main);
@@ -80,25 +82,14 @@ export class MainService {
     }
   };
 
-  private addMainHeader(main: HTMLElement) {
-    if (isSidekickLibraryActive()) return;
 
-    const sidebarContainer = document.createElement("sidebar-component");
-    sidebarContainer.setAttribute("id", "sidebar");
-
-    if (window.innerWidth <= 1280) {
-      sidebarContainer.classList.remove("active");
-    } else {
-      sidebarContainer.classList.add("active");
-    }
-
-    if (window.innerWidth <= 1280) {
-      sidebarContainer.classList.remove("active");
-    } else {
-      sidebarContainer.classList.add("active");
-    }
-
-    main.after(sidebarContainer);
+  private bodyTemplate(children: string) {
+    return html`
+    <div class="page container dva-page">
+    ${headerTemplate()}
+    ${unsafeHTML(children)}
+    <footer>my footer</footer>
+    </div>`;
   }
 
   private addInnerContainer(main: HTMLElement) {
@@ -108,7 +99,7 @@ export class MainService {
     const edsMain = main;
     const body = document.querySelector("body");
     if (body) {
-      body.innerHTML = `<div class="page container dva-page"><header>MY-header</header>${children}<footer>my footer</footer></div>`;
+      render(this.bodyTemplate(children), body);
       edsFooter?.remove();
       edsHeader?.remove();
       edsMain.remove();
