@@ -1,0 +1,39 @@
+.dvag-m-skew-component {
+  @extend %dvag-h-component-margin-bottom;
+  @extend %dvag-h-component-margin-top;
+
+  .dva-h-skew--in,
+  .dvag-h-skew--in {
+    display: none;
+    color: $dvag-color__black-25;
+
+    .dvag-h-skew--top & {
+      display: block;
+    }
+  }
+
+  .dva-h-skew--out,
+  .dvag-h-skew--out {
+    display: none;
+    color: $dvag-color__black-25;
+
+    .dvag-h-skew--bottom & {
+      display: block;
+    }
+  }
+
+  .dvag-m-skewed-box__content {
+    @extend %dvag-grid-container;
+
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    .dvag-h-background--grey & {
+      background-color: $dvag-color__black-25;
+    }
+
+    > div:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

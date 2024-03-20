@@ -1,0 +1,114 @@
+.dvag-m-c11-accordion {
+  position: relative;
+  display: block;
+
+  &__block {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid $dvag-color__black-75;
+  }
+
+  &__toggle {
+    @extend %dva-type-500-bold;
+
+    width: 100%;
+    padding: 0;
+    border: none;
+    color: $dvag-color__gold-500;
+    background: none;
+    text-align: left;
+    transition: color 0.3s ease-in-out;
+
+    @include hover() {
+      color: $dvag-color__gold-500 !important; // @TODO: remove important when legacy FE is gone;
+      background: none !important; // @TODO: remove important when legacy FE is gone;
+      cursor: pointer;
+    }
+
+    html:not(.touchevents) &:hover {
+      color: $dvag-color__gold-500 !important; // @TODO: remove important when legacy FE is gone;
+      background: none !important; // @TODO: remove important when legacy FE is gone;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &:disabled {
+      border: none !important; // @TODO: remove important when legacy FE is gone;
+      color: $dvag-color__black-100;
+      cursor: not-allowed;
+    }
+
+    .dva-h-keyboard-focus &:focus {
+      position: relative;
+      outline: none;
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        width: 100%;
+        height: 0;
+        border-bottom: 1px solid $dvag-color__gold-500;
+      }
+    }
+  }
+
+  &__toggle-icon {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    display: flex;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    border: none;
+    margin: 22px 0;
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    fill: $dvag-color__gold-500;
+
+    :hover & {
+      background: none;
+      fill: currentColor;
+    }
+
+    .dva-state-active & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__toggle-label {
+    @extend %dva-type-500;
+
+    display: block;
+    padding: 20px 40px 20px 0;
+    color: inherit;
+    text-decoration: none;
+    text-transform: none;
+  }
+
+  &__content {
+    transform: translateY(50px);
+    display: block;
+    overflow: hidden;
+    max-height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out, visibility 0.4s ease-in-out,
+      max-height 0.2s ease-in-out;
+
+    .dva-state-active > & {
+      transform: translateY(0);
+      overflow: visible;
+      max-height: var(--accordion-content-height);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__content-wrapper {
+    padding: 0 0 12px;
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "navigationSections": [
+    {
+      "headline": {
+        "label": "Unternehmen",
+        "link": "#"
+      },
+      "items": [
+        {
+          "label": "Über uns",
+          "link": "#"
+        },
+        {
+          "label": "Geschäftsleitung",
+          "link": "#"
+        },
+        {
+          "label": "Markenbotschafter",
+          "link": "#"
+        },
+        {
+          "label": "Struktur & Geschichte",
+          "link": "#"
+        },
+        {
+          "label": "Unternehmensbericht",
+          "link": "#"
+        },
+        {
+          "label": "Presseservice",
+          "link": "#"
+        },
+        {
+          "label": "Standorte",
+          "link": "#"
+        },
+        {
+          "label": "Gezielte und nachhaltige Hilfe",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "headline": {
+        "label": "Beratung",
+        "link": "#"
+      },
+      "items": [
+        {
+          "label": "Unser Beratungsmodell",
+          "link": "#"
+        },
+        {
+          "label": "Leistungen für Privatkunden",
+          "link": "#"
+        },
+        {
+          "label": "Leistungen für Firmenkunden",
+          "link": "#"
+        },
+        {
+          "label": "Finanztipps",
+          "link": "#"
+        },
+        {
+          "label": "Produktpartner",
+          "link": "#"
+        },
+        {
+          "label": "Ansprechpartner finden",
+          "link": "#"
+        },
+        {
+          "label": "Nachhaltigkeit (EGS)",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "headline": {
+        "label": "Erfahrungen & Bewertungen",
+        "link": "#"
+      },
+      "items": [
+        {
+          "label": "Kundenbewertungen",
+          "link": "#"
+        },
+        {
+          "label": "Zertifikate & Auszeichnungen",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "headline": {
+        "label": "Karriere",
+        "link": "#"
+      },
+      "items": [
+        {
+          "label": "Karriere als selbstständiger Finanzcoach",
+          "link": "#"
+        },
+        {
+          "label": "Teamblog",
+          "link": "#"
+        },
+        {
+          "label": "Karriere in der Unternehmenszentrale",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "headline": {
+        "label": "Unternehmen",
+        "link": "#"
+      },
+      "items": [
+        {
+          "label": "Über uns",
+          "link": "#"
+        },
+        {
+          "label": "Geschäftsleitung",
+          "link": "#"
+        },
+        {
+          "label": "Markenbotschafter",
+          "link": "#"
+        },
+        {
+          "label": "Struktur & Geschichte",
+          "link": "#"
+        },
+        {
+          "label": "Unternehmensbericht",
+          "link": "#"
+        },
+        {
+          "label": "Presseservice",
+          "link": "#"
+        },
+        {
+          "label": "Standorte",
+          "link": "#"
+        },
+        {
+          "label": "Gezielte und nachhaltige Hilfe",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "headline": {
+        "label": "Beratung",
+        "link": "#"
+      },
+      "items": [
+        {
+          "label": "Unser Beratungsmodell",
+          "link": "#"
+        },
+        {
+          "label": "Leistungen für Privatkunden",
+          "link": "#"
+        },
+        {
+          "label": "Leistungen für Firmenkunden",
+          "link": "#"
+        },
+        {
+          "label": "Finanztipps",
+          "link": "#"
+        },
+        {
+          "label": "Produktpartner",
+          "link": "#"
+        },
+        {
+          "label": "Ansprechpartner finden",
+          "link": "#"
+        },
+        {
+          "label": "Nachhaltigkeit (EGS)",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "headline": {
+        "label": "Erfahrungen & Bewertungen",
+        "link": "#"
+      },
+      "items": [
+        {
+          "label": "Kundenbewertungen",
+          "link": "#"
+        },
+        {
+          "label": "Zertifikate & Auszeichnungen",
+          "link": "#"
+        }
+      ]
+    },
+    {
+      "headline": {
+        "label": "Karriere",
+        "link": "#"
+      },
+      "items": [
+        {
+          "label": "Karriere als selbstständiger Finanzcoach",
+          "link": "#"
+        },
+        {
+          "label": "Teamblog",
+          "link": "#"
+        },
+        {
+          "label": "Karriere in der Unternehmenszentrale",
+          "link": "#"
+        }
+      ]
+    }
+  ],
+  "socialLinks": [
+    {
+      "icon": "dva-icon-instagram-24px"
+    },
+    {
+      "icon": "dva-icon-facebook-24px"
+    },
+    {
+      "icon": "dva-icon-tiktok-24px"
+    },
+    {
+      "icon": "dva-icon-linkedin-24px"
+    },
+    {
+      "icon": "dva-icon-xing-24px"
+    },
+    {
+      "icon": "dva-icon-youtube-24px"
+    },
+    {
+      "icon": "dva-icon-twitter-24px"
+    }
+  ]
+}

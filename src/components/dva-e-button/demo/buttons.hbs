@@ -1,0 +1,152 @@
+---
+layout: default
+nestedPath: '../'
+iconTypes:
+  - iconOnly: false # No icon
+  - cssClasses: "dva-e-button--icon-right"
+    iconID: "dva-icon-facebook"
+  - iconOnly: true
+    iconID: "dva-icon-facebook"
+    cssClasses: "dva-e-button--icon-only"
+---
+
+{{#each this.iconTypes}}
+  {{> dva-e-button 
+    iconOnly=this.iconOnly 
+    cssClasses=this.cssClasses
+    label="Primary Button" 
+    iconID=this.iconID
+  }}
+{{/each}}
+
+<br>
+
+{{#each this.iconTypes}}
+  {{> dva-e-button 
+    iconOnly=this.iconOnly 
+    cssClasses=(pv-concat "dva-e-button--secondary " this.cssClasses)
+    label="Secondary Button" 
+    iconID=this.iconID
+  }}
+{{/each}}
+
+<br>
+
+  {{> dva-e-button
+      isRebrushButton=true
+      iconOnly=false
+      cssClasses=(pv-concat "dva-e-button--rebrush " this.cssClasses)
+      label="Rebrush Primary Button"
+  }}
+
+  {{> dva-e-button
+      isRebrushButton=true
+      iconOnly=false
+      cssClasses=(pv-concat "dva-e-button--rebrush " this.cssClasses)
+      label="Rebrush Primary Button"
+      iconID="dva-icon-facebook"
+  }}
+
+<br>
+
+  {{> dva-e-button
+      isRebrushButton=true
+      iconOnly=false
+      cssClasses=(pv-concat "dva-e-button--rebrush dva-e-button--small " this.cssClasses)
+      label="Rebrush Primary Button (small)"
+  }}
+
+  {{> dva-e-button
+      isRebrushButton=true
+      iconOnly=false
+      cssClasses=(pv-concat "dva-e-button--rebrush dva-e-button--small " this.cssClasses)
+      label="Rebrush Primary Button (small)"
+      iconID="dva-icon-facebook"
+  }}
+
+<br>
+
+  <div style="background-color: #c8aa22; padding: 30px">
+
+    {{> dva-e-button
+        isRebrushButton=true
+        iconOnly=false
+        cssClasses=(pv-concat "dva-e-button--rebrush dva-e-button--white " this.cssClasses)
+        label="Rebrush Primary Button White"
+    }}
+
+    {{> dva-e-button
+        isRebrushButton=true
+        iconOnly=false
+        cssClasses=(pv-concat "dva-e-button--rebrush dva-e-button--white " this.cssClasses)
+        label="Rebrush Primary Button White"
+        iconID="dva-icon-facebook"
+    }}
+
+<br>
+
+    {{> dva-e-button
+        isRebrushButton=true
+        iconOnly=false
+        cssClasses=(pv-concat "dva-e-button--rebrush dva-e-button--white dva-e-button--small " this.cssClasses)
+        label="Rebrush Primary Button White (small)"
+    }}
+
+    {{> dva-e-button
+        isRebrushButton=true
+        iconOnly=false
+        cssClasses=(pv-concat "dva-e-button--rebrush dva-e-button--white dva-e-button--small " this.cssClasses)
+        label="Rebrush Primary Button White (small)"
+        iconID="dva-icon-facebook"
+    }}
+  </div>
+
+<br>
+
+  {{> dva-e-button
+      isRebrushButton=true
+      iconOnly=false
+      cssClasses=(pv-concat "dva-e-button--secondary dva-e-button--rebrush " this.cssClasses)
+      label="Rebrush Secondary Button"
+  }}
+
+  {{> dva-e-button
+      isRebrushButton=true
+      iconOnly=false
+      cssClasses=(pv-concat "dva-e-button--secondary dva-e-button--rebrush " this.cssClasses)
+      label="Rebrush Secondary Button"
+      iconID="dva-icon-facebook"
+  }}
+
+<br>
+
+  {{> dva-e-button
+      isRebrushButton=true
+      iconOnly=false
+      cssClasses=(pv-concat "dva-e-button--secondary dva-e-button--small dva-e-button--rebrush " this.cssClasses)
+      label="Rebrush Secondary Button (small)"
+  }}
+
+  {{> dva-e-button
+      isRebrushButton=true
+      iconOnly=false
+      cssClasses=(pv-concat "dva-e-button--secondary dva-e-button--small dva-e-button--rebrush " this.cssClasses)
+      label="Rebrush Secondary Button (small)"
+      iconID="dva-icon-facebook"
+  }}
+
+<br>
+
+{{> dva-e-button 
+  cssClasses="dva-e-button--inline dva-e-button--icon-right" 
+  label="Inline Button" 
+  iconID="dva-icon-facebook"
+}}
+
+<br>
+
+<a class="btn inline external" href="https://www.dvag.de/dvag/das-unternehmen/geschaeftsbericht.html" target="_blank">Legacy Inline External</a>
+
+<a href="https://www.dvag-karriere.de/" class="btn filled external" target="_blank">Jetzt mehr erfahren</a>
+
+<a href="https://www.dvag-karriere.de/" class="btn" target="_blank">Mehr über den Beruf erfahren</a>

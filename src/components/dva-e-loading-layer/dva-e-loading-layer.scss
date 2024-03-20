@@ -1,0 +1,10 @@
+.dva-e-loading-layer {
+  position: relative;
+  overflow: hidden;
+  background: $dvag-color__black-25;
+
+  &.dva-state-loaded {
+    overflow: inherit;
+    background: transparent;
+  }
+}

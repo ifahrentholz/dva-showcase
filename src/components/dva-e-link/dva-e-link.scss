@@ -1,0 +1,115 @@
+// render link underline
+@keyframes dva-link-border__animation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@mixin link-bottom-border($border-color) {
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: -2px;
+    left: 0;
+    display: block;
+    width: 100%;
+    border-bottom: 2px solid $border-color;
+    animation: dva-link-border__animation 300ms 1 ease-in-out;
+  }
+}
+
+/**
+ * Helper to change text and underline colors
+ */
+@mixin hover-link-colors($variant: $dvag-color__gold-700) {
+  color: $variant;
+  @include link-bottom-border($variant);
+}
+
+/**
+ * Helper to render focus style of link
+ */
+@mixin focus-link-styles {
+  outline: none;
+  text-decoration: none;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: -2px;
+    left: 0;
+    display: block;
+    width: 100%;
+    border-bottom: 2px solid $dvag-color__gold-500;
+  }
+}
+
+/**
+ * Link is part of container that has hover and focus styles that need to be handed down
+ */
+.dvag-h-link-inside {
+  @include hover() {
+    .dva-e-link {
+      @include hover-link-colors($dvag-color__white-500); // from dvag-m-c01b-teaser
+    }
+  }
+}
+
+%dva-e-link,
+.dva-e-link {
+  position: relative;
+  top: 1px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: bottom;
+  color: $dvag-color__gold-500;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+
+  @include hover() {
+    text-decoration: none;
+
+    @include hover-link-colors($dvag-color__gold-700);
+  }
+
+  .dvag-h-keyboard-focus &:focus {
+    text-decoration: none;
+
+    @include focus-link-styles();
+  }
+
+  &:active {
+    // @include hover-link-colors($dvag-color__gold-700); // leads to underlined links on touchdevices?
+
+    &:after {
+      content: none;
+    }
+  }
+
+  &__label {
+    color: inherit;
+  }
+
+  .dva-e-icon {
+    display: flex;
+    width: 12px;
+    height: 12px;
+    margin: 0 0 0 5px;
+    color: inherit;
+    fill: currentColor;
+  }
+
+  &--icon-left {
+    flex-direction: row-reverse;
+
+    .dva-e-icon {
+      margin: 0 5px 0 0;
+    }
+  }
+}

@@ -8,6 +8,7 @@ import { getLocation } from "../sidekickHelpers/getLocation.ts";
 import { html, render } from "lit-html";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import { headerTemplate } from "Components/dvag-m-n01-header/dvag-m-n01-header.template.ts";
+import { renderFooter } from "Components/dvag-m-n02-footer/dvag-m-n02-footer.template.ts";
 
 type BlockMapping = {
   name: string;
@@ -86,9 +87,9 @@ export class MainService {
   private bodyTemplate(children: string) {
     return html`
     <div class="page container dva-page">
-    ${headerTemplate()}
-    ${unsafeHTML(children)}
-    <footer>my footer</footer>
+      ${headerTemplate()}
+      ${unsafeHTML(children)}
+      ${renderFooter()}
     </div>`;
   }
 

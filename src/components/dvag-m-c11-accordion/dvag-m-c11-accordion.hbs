@@ -1,0 +1,35 @@
+---
+layout: default
+title: "[C11] Accordion"
+---
+
+<dvag-m-c11-accordion class="dvag-m-c11-accordion" active-on-mq="1-5">
+  <div class="dvag-m-c11-accordion__block{{#if this.expanded}} dva-state-active{{/if}}">
+    <button class="dvag-m-c11-accordion__toggle" {{#if this.disabled}}disabled="disabled"{{/if}}>
+      {{> dva-e-icon cssClasses="dvag-m-c11-accordion__toggle-icon" iconId="dva-icon-chevron-down-16px"}}
+      <span class="dvag-m-c11-accordion__toggle-label">
+        Test C13 Text-Media
+      </span>
+    </button>
+    <div class="dvag-m-c11-accordion__content">
+      <div class="dvag-m-c11-accordion__content-wrapper">
+      {{> dvag-m-c13-text-media dvag-m-c13-text-media__data.variants.[4]}}
+      </div>
+    </div>
+  </div>
+  {{#each dvag-m-c11-accordion__data.blocks}}
+  <div class="dvag-m-c11-accordion__block{{#if this.expanded}} dva-state-active{{/if}}">
+    <button class="dvag-m-c11-accordion__toggle" {{#if this.disabled}}disabled="disabled"{{/if}}>
+      {{> dva-e-icon cssClasses="dvag-m-c11-accordion__toggle-icon" iconId="dva-icon-chevron-down-16px"}}
+      <span class="dvag-m-c11-accordion__toggle-label">
+        {{this.label}}
+      </span>
+    </button>
+    <div class="dvag-m-c11-accordion__content">
+      <div class="dvag-m-c11-accordion__content-wrapper">
+        {{this.content}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</dvag-m-c11-accordion>

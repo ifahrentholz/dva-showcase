@@ -26,6 +26,8 @@
       "Components/*": ["./src/components/*"],
       "Constants/*": ["./src/constants/*"],
       "Helpers/*": ["./src/helpers/*"],
+      "Config/*": ["./src/config/*"],
+      "Utils/*": ["./src/utils/*"],
     }
   },
   "include": [

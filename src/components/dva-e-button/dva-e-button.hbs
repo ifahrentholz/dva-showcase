@@ -1,0 +1,53 @@
+---
+layout: default
+href: "#"
+label: Facebook
+iconID: dva-icon-facebook
+---
+
+{{#if isRebrushButton}}
+  {{#if isButton}}
+    <button type="{{pv-choose this.type "button"}}"
+        class="dva-e-button {{cssClasses}}"
+    {{#if isDisabled}} disabled{{/if}}>
+  {{else}}
+    <a href="{{href}}"
+        class="dva-e-button {{cssClasses}}"
+    {{#if isDisabled}} disabled{{/if}}
+    {{#if isDisabled}}tabindex="-1"{{/if}}>
+  {{/if}}
+    <div class="dva-e-button__background"></div>
+  {{#if this.iconID}}
+      <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="{{this.iconID}}"></dva-e-icon>
+  {{/if}}
+  {{#if this.label}}
+      <span class="dva-e-button__label">{{this.label}}</span>
+  {{/if}}
+  {{#if isRealButton}}
+    </button>
+  {{else}}
+    </a>
+  {{/if}}
+
+{{else}}
+
+  {{#if isButton}}
+    <button type="{{pv-choose btnType 'button'}}"
+      {{#if disabled}}disabled{{/if}}
+      {{#if isDisabled}} disabled{{/if}}
+        class="dva-e-button {{cssClasses}}">
+  {{else}}
+    <a class="dva-e-button {{cssClasses}}"
+        href="{{this.href}}"
+        target="{{#if newWindow}}_blank{{else}}_self{{/if}}">
+  {{/if}}
+    <div class="dva-e-button__background"></div>
+  {{#unless iconOnly}}
+      <span class="dva-e-button__label">{{this.label}}</span>
+  {{/unless}}
+  {{#if iconID}}
+      <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="{{iconID}}"></dva-e-icon>
+  {{/if}}
+
+  {{#if isButton}}</button>{{else}}</a>{{/if}}
+{{/if}}

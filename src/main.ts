@@ -1,9 +1,11 @@
 // const LCP_BLOCKS: string[] = []; // add your LCP blocks to the list
 
-import "./components/sidebar/sidebar.ts";
-import "./components/header.ts";
-import "./components/icon/dva-e-icon.ts";
-import "./services/fetch.service.ts";
+import "Components/sidebar/sidebar.ts";
+import "Components/header.ts";
+import "Components/icon/dva-e-icon.ts";
+import "Components/dva-e-lazy-image/dva-e-lazy-image.ts";
+import "Services/fetch.service.ts";
+import "Components/dvag-m-c11-accordion/dvag-m-c11-accordion.ts";
 import { BlockService } from "./services/block.service.ts";
 import { SectionService } from "./services/section.service.ts";
 import { MainService } from "./services/main.service.ts";
