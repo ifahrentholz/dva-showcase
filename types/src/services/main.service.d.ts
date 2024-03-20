@@ -15,7 +15,7 @@ export declare class MainService {
      */
     private setup;
     private loadEager;
-    private addMainHeader;
+    private bodyTemplate;
     private addInnerContainer;
     private loadLazy;
     private decorateTemplateAndTheme;
