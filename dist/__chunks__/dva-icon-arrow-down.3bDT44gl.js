@@ -1,0 +1,6 @@
+const t=`<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+										<path d="M50 78.583L0 28.53l4.703-4.71L52.355 71.47"></path>
+										<path d="M47.65 71.468L95.292 23.82 100 28.53 50 78.583"></path>
+										<title>Arrow down</title></svg>
+										`;export{t as default};
+//# sourceMappingURL=dva-icon-arrow-down.3bDT44gl.js.map

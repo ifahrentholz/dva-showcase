@@ -1,0 +1,2 @@
+const n="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20viewBox='0%200%2024%2024'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cpolygon%20transform='translate(12.000000,%2013.000000)%20scale(-1,%20-1)%20rotate(90.000000)%20translate(-12.000000,%20-13.000000)%20'%20points='15.6518088%205%2017%206.41837809%209.88103511%2012.9990279%2017%2019.5816219%2015.6518088%2021%207%2013'%3e%3c/polygon%3e%3c/svg%3e";export{n as default};
+//# sourceMappingURL=dva-icon-chevron-down.krgCgT8k.js.map
