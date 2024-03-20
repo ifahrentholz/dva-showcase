@@ -1,1 +1,4 @@
 helix-importer-ui
+dist
+__template__
+scripts/__backup__
