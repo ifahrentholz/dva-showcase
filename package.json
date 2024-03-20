@@ -5,6 +5,7 @@
   "description": "EDS Editorial Website",
   "scripts": {
     "aemUp": "aem up",
+    "aemUp:no": "aem up --no-open",
     "build": "tsc && vite build",
     "build:watch": "run-p tsc:watch vite:watch",
     "lint:js": "eslint 'src/**/!(*-toc).{js,ts}'",
