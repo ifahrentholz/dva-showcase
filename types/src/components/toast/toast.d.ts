@@ -1,4 +1,4 @@
-import { LitElement } from 'lit';
+import { LitElement } from "lit";
 export declare class Toast extends LitElement {
     message: string;
     duration: number;

@@ -1,4 +1,4 @@
-import { LitElement } from 'lit';
+import { LitElement } from "lit";
 export declare class SidebarFooter extends LitElement {
     footerMarkup: HTMLParagraphElement | null;
     protected createRenderRoot(): HTMLElement | DocumentFragment;

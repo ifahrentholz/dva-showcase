@@ -1,5 +1,5 @@
-import { LitElement } from 'lit';
-import { FormField, FormFieldInput, FormFieldSelect } from './form.template.ts';
+import { LitElement } from "lit";
+import { FormField, FormFieldInput, FormFieldSelect } from "./form.template.ts";
 type FormElement = {
     name: string;
     type: string;

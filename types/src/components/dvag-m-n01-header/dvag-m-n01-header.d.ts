@@ -1,4 +1,4 @@
-import { Component } from '@kluntje/core';
+import { Component } from "@kluntje/core";
 import { DVAGN01Navigation } from "Components/dvag-m-n01-navigation/dvag-m-n01-navigation";
 export declare class DVAGN01Header extends Component {
     burgerAnchor: HTMLAnchorElement;

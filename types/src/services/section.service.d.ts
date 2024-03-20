@@ -1,4 +1,4 @@
-import { BlockService } from './block.service';
+import { BlockService } from "./block.service";
 export declare class SectionService {
     private blockService;
     constructor(blockService: BlockService);
