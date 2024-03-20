@@ -1,0 +1,50 @@
+.dva-m-breadcrump-navigation {
+  display: none;
+
+  @include breakpoint($mq-5-and-up) {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 16px 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &:last-of-type {
+      margin-right: 0;
+
+      .dva-e-icon {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    @extend %dva-e-link;
+  }
+
+  &__label {
+    @extend %dva-type-200;
+
+    overflow: hidden;
+    max-width: 350px;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .dva-e-icon {
+    display: flex;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    fill: $dvag-color__gold-300;
+  }
+}

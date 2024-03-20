@@ -9,6 +9,7 @@ import { html, render } from "lit-html";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import { headerTemplate } from "Components/dvag-m-n01-header/dvag-m-n01-header.template.ts";
 import { renderFooter } from "Components/dvag-m-n02-footer/dvag-m-n02-footer.template.ts";
+import { renderBreadcrumpNavigationTemplate } from "Components/dva-m-breadcrump-navigation/dva-m-breadcrump-navigation.template.ts";
 
 type BlockMapping = {
   name: string;
@@ -88,6 +89,7 @@ export class MainService {
     return html`
     <div class="page container dva-page">
       ${headerTemplate()}
+      ${renderBreadcrumpNavigationTemplate()}
       ${unsafeHTML(children)}
       ${renderFooter()}
     </div>`;
