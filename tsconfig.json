@@ -23,15 +23,16 @@
     "esModuleInterop": true,
     "paths": {
       "Services/*": ["./src/services/*"],
+      "Utils/*": ["./src/utils/*"],
       "Components/*": ["./src/components/*"],
       "Constants/*": ["./src/constants/*"],
       "Helpers/*": ["./src/helpers/*"],
     }
   },
   "include": [
+    ".eslintrc.js",
     "blocks/**/*.ts",
     "scripts/**/*.ts",
     "src/**/*.ts",
-    "src/**/*.json"
   ],
 }
