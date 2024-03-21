@@ -6,8 +6,8 @@
 
 /* Wrapper */
 
-	#wrapper {
-		@include vendor('display', 'flex');
-		@include vendor('flex-direction', 'row-reverse');
-		min-height: 100vh;
-	}
+#wrapper {
+  min-height: 100vh;
+  @include vendor("display", "flex");
+  @include vendor("flex-direction", "row-reverse");
+}

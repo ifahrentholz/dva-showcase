@@ -55,12 +55,12 @@ body {
 
 body {
   display: flex;
-  flex-direction: row-reverse;
   min-height: 100vh;
+  flex-direction: row-reverse;
 }
 
 body > main {
+  width: 100%;
   flex-grow: 1;
   flex-shrink: 1;
-  width: 100%;
 }

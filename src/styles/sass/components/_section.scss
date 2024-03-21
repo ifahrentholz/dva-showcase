@@ -15,29 +15,29 @@ article {
 
 .section .default-content-wrapper:first-child {
   h2 {
-    border-bottom: solid 3px _palette(accent);
     display: inline-block;
-    margin: 0 0 _size(element-margin) 0;
     padding: 0 0.75em 0.5em 0;
+    border-bottom: solid 3px _palette(accent);
+    margin: 0 0 _size(element-margin) 0;
   }
 }
 
 header {
   p {
+    margin-top: -0.5em;
     font-family: _font(family-heading);
     font-size: 1em;
     font-weight: _font(weight-heading-alt);
-    letter-spacing: _font(kerning-heading);
-    margin-top: -0.5em;
     text-transform: uppercase;
+    letter-spacing: _font(kerning-heading);
   }
 
   &.major {
     > :last-child {
-      border-bottom: solid 3px _palette(accent);
       display: inline-block;
-      margin: 0 0 _size(element-margin) 0;
       padding: 0 0.75em 0.5em 0;
+      border-bottom: solid 3px _palette(accent);
+      margin: 0 0 _size(element-margin) 0;
     }
   }
 

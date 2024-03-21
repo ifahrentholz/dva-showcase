@@ -5,149 +5,70 @@
     position: relative;
 
     &::before {
-      color: fg;
-      content: '\f002';
-      cursor: default;
-      display: block;
-      font-size: 1.5em;
-      height: calc(element - height / 1.375);
-      line-height: calc(element - height / 1.375);
-      opacity: 0.325;
+      content: "\f002";
       position: absolute;
-      right: 0;
-      text-align: center;
       top: 0;
+      right: 0;
+      display: block;
       width: calc(element - height / 1.375);
+      height: calc(element - height / 1.375);
+      color: fg;
+      opacity: 0.325;
+      font-size: 1.5em;
+      text-align: center;
+      line-height: calc(element - height / 1.375);
+      cursor: default;
     }
 
-    input[type='text'] {
+    input[type="text"] {
       padding-right: element-height;
     }
   }
 }
 
 #sidebar.activate-animations {
-  @include vendor('transition', ('margin-left 0.5s ease', 'box-shadow 0.5s ease'));
+  @include vendor("transition", ("margin-left 0.5s ease", "box-shadow 0.5s ease"));
 }
 
 #sidebar {
   $pad: calc(2em / 0.9);
-
-  @include vendor('flex-grow', '0');
-  @include vendor('flex-shrink', '0');
-
-  background-color: _palette(bg-alt);
-  font-size: 0.9em;
   position: relative;
   width: _size(sidebar-width);
   margin-left: (_size(sidebar-width) * -1);
 
-  h2 {
-    font-size: calc(1.25em / 0.9);
-  }
+  background-color: _palette(bg-alt);
+  font-size: 0.9em;
 
-  > .inner {
-    @include padding($pad, $pad, (0, 0, $pad, 0));
+  @include vendor("flex-grow", "0");
+  @include vendor("flex-shrink", "0");
 
-    position: relative;
-    width: _size(sidebar-width);
-
-    > * {
-      display: block;
-      border-bottom: solid 2px _palette(border);
-      margin: 0 0 (_size(element-margin) * 1.75) 0;
-      padding: 0 0 (_size(element-margin) * 1.75) 0;
-
-      > :last-child {
-        margin-bottom: 0;
-      }
-
-      &:last-child {
-        border-bottom: 0;
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
-    }
-
-    > .alt {
-      background-color: darken(_palette(bg-alt), 2);
-      border-bottom: 0;
-      margin: ($pad * -1) 0 ($pad * 2) ($pad * -1);
-      padding: $pad;
-      width: calc(100% + #{$pad * 2});
-    }
-  }
-
-  .contact .icon-component {
-    color: #f56a6a;
-    display: inline-block;
-    font-size: 1.5em;
-    height: 1.125em;
-    left: 0;
-    line-height: 1.125em;
-    position: absolute;
-    text-align: center;
-    width: 29px;
-  }
-
-  .toggle {
-    @include icon(false, solid);
-    @include vendor('transition', 'left 0.5s ease');
-
-    -webkit-tap-highlight-color: rgb(255 255 255 / 0%);
-    border: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 7.5em;
-    left: _size(sidebar-width);
-    line-height: 7.5em;
-    outline: 0;
-    overflow: hidden;
-    position: absolute;
-    text-align: center;
-    text-indent: -15em;
-    white-space: nowrap;
-    top: 0;
-    width: 6em;
-    z-index: _misc(z-index-base);
-
-    > .icon-component {
-      width: 2.5rem;
-    }
-  }
-
-  &.active {
-    margin-left: 0;
-  }
-
-  @include breakpoint('<=xlarge') {
+  @include breakpoint("<=xlarge") {
     $pad: calc(1.5em / 0.9);
 
     width: _size(sidebar-width-alt);
     margin-left: (_size(sidebar-width-alt) * -1);
 
     > .inner {
-      @include padding($pad, $pad, (0, 0, $pad, 0));
 
       width: _size(sidebar-width-alt);
+      @include padding($pad, $pad, (0, 0, $pad, 0));
 
       > .alt {
-        margin: ($pad * -1) 0 ($pad * 2) ($pad * -1);
-        padding: $pad;
         width: calc(100% + #{$pad * 2});
+        padding: $pad;
+        margin: ($pad * -1) 0 ($pad * 2) ($pad * -1);
       }
     }
 
     .toggle {
-      height: 6.25em;
       left: _size(sidebar-width-alt);
-      line-height: 6.25em;
-      text-indent: 5em;
-      width: 5em;
       display: flex;
+      width: 5em;
+      height: 6.25em;
       align-items: center;
       justify-content: center;
+      text-indent: 5em;
+      line-height: 6.25em;
     }
 
     &.active {
@@ -155,30 +76,30 @@
     }
   }
 
-  @include breakpoint('<=large') {
-    height: 100%;
-    left: 0;
+  @include breakpoint("<=large") {
     position: fixed;
-    top: 0;
     z-index: _misc(z-index-base);
+    top: 0;
+    left: 0;
+    height: 100%;
 
     &.active {
       box-shadow: 0 0 5em 0 rgb(0 0 0 / 17.5%);
     }
 
     > .inner {
-      -webkit-overflow-scrolling: touch;
-      height: 100%;
-      left: 0;
-      overflow: hidden auto;
       position: absolute;
       top: 0;
+      left: 0;
+      overflow: hidden auto;
+      height: 100%;
+      -webkit-overflow-scrolling: touch;
 
       &::after {
-        content: '';
+        content: "";
         display: block;
-        height: 4em;
         width: 100%;
+        height: 4em;
       }
     }
 
@@ -187,8 +108,8 @@
     }
 
     .toggle {
-      text-indent: 6em;
       width: 6em;
+      text-indent: 6em;
     }
 
     body.is-preload & {
@@ -196,39 +117,118 @@
     }
   }
 
-  @include breakpoint('<=small') {
+  @include breakpoint("<=small") {
     .contact .icon-component {
       width: 24px;
     }
 
     .toggle {
-      text-indent: 7.25em;
       width: 7.25em;
+      text-indent: 7.25em;
 
       &::before {
-        color: _palette(fg);
-        margin-left: calc(-0.125em / 2);
-        margin-top: calc(-0.5em / 2);
-        font-size: 1.1rem;
         z-index: 1;
+        margin-top: calc(-0.5em / 2);
+        margin-left: calc(-0.125em / 2);
+        color: _palette(fg);
+        font-size: 1.1rem;
       }
 
       &::after {
-        background: transparentize(lighten(_palette(fg), 35), 0.25);
-        border-radius: _size(border-radius);
-        content: '';
-        height: 3.5em;
-        left: 1.15em;
+        content: "";
         position: absolute;
         top: 1.35em;
+        left: 1.15em;
         width: 5em;
+        height: 3.5em;
+        border-radius: _size(border-radius);
+        background: transparentize(lighten(_palette(fg), 35), 0.25);
       }
 
       .icon-component {
         width: 35px;
-        color: _palette(fg);
         height: 35px;
+        color: _palette(fg);
       }
     }
+  }
+
+  h2 {
+    font-size: calc(1.25em / 0.9);
+  }
+
+  > .inner {
+
+    position: relative;
+    width: _size(sidebar-width);
+    @include padding($pad, $pad, (0, 0, $pad, 0));
+
+    > * {
+      display: block;
+      padding: 0 0 (_size(element-margin) * 1.75) 0;
+      border-bottom: solid 2px _palette(border);
+      margin: 0 0 (_size(element-margin) * 1.75) 0;
+
+      > :last-child {
+        margin-bottom: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    > .alt {
+      width: calc(100% + #{$pad * 2});
+      padding: $pad;
+      border-bottom: 0;
+      margin: ($pad * -1) 0 ($pad * 2) ($pad * -1);
+      background-color: darken(_palette(bg-alt), 2);
+    }
+  }
+
+  .contact .icon-component {
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    width: 29px;
+    height: 1.125em;
+    color: #f56a6a;
+    font-size: 1.5em;
+    text-align: center;
+    line-height: 1.125em;
+  }
+
+  .toggle {
+    position: absolute;
+    z-index: _misc(z-index-base);
+    top: 0;
+    left: _size(sidebar-width);
+    display: flex;
+    overflow: hidden;
+    width: 6em;
+    height: 7.5em;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    text-indent: -15em;
+    line-height: 7.5em;
+    white-space: nowrap;
+
+    -webkit-tap-highlight-color: rgb(255 255 255 / 0%);
+    @include icon(false, solid);
+    @include vendor("transition", "left 0.5s ease");
+
+    > .icon-component {
+      width: 2.5rem;
+    }
+  }
+
+  &.active {
+    margin-left: 0;
   }
 }

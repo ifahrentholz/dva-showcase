@@ -14,53 +14,53 @@
   }
 
   &__icon {
-    @include vendor(
-      'transition',
-      ('color #{_duration(transition)} ease-in-out', 'transform #{_duration(transition)} ease-in-out')
-    );
+    width: 20px;
     flex-grow: 0;
     flex-shrink: 1;
-    width: 20px;
+    @include vendor(
+      "transition",
+      ("color #{_duration(transition)} ease-in-out", "transform #{_duration(transition)} ease-in-out")
+    );
   }
 
   &.active & {
     &__icon {
-      @include vendor('transform', 'rotate(-180deg)');
+      @include vendor("transform", "rotate(-180deg)");
     }
   }
 }
 
 #menu {
   ul {
-    @include vendor('user-select', 'none');
+    padding: 0;
+    margin-bottom: 0;
+    list-style: none;
     color: _palette(fg-bold);
     font-family: _font(family-heading);
     font-weight: _font(weight-heading-alt);
-    letter-spacing: _font(kerning-heading);
-    list-style: none;
-    margin-bottom: 0;
-    padding: 0;
     text-transform: uppercase;
+    letter-spacing: _font(kerning-heading);
+    @include vendor("user-select", "none");
 
     a,
     span {
+      display: block;
+      padding: 0.625em 0;
       border-bottom: 0;
       color: inherit;
-      cursor: pointer;
-      display: block;
       font-size: 0.9em;
-      padding: 0.625em 0;
+      cursor: pointer;
 
       &:hover {
         color: _palette(accent);
       }
 
       &.opener {
-        @include vendor('transition', 'color #{_duration(transition)} ease-in-out');
-        @include icon(false, solid);
-        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
         position: relative;
         display: flex;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        @include vendor("transition", "color #{_duration(transition)} ease-in-out");
+        @include icon(false, solid);
 
         &:hover {
           color: _palette(accent);
@@ -72,7 +72,7 @@
           }
 
           &:before {
-            @include vendor('transform', 'rotate(-180deg)');
+            @include vendor("transform", "rotate(-180deg)");
           }
         }
       }
@@ -81,15 +81,15 @@
 
   > ul {
     > li {
+      padding: 0.5em 0 0 0;
       border-top: solid 1px _palette(border);
       margin: 0.5em 0 0 0;
-      padding: 0.5em 0 0 0;
 
       > ul {
-        color: _palette(fg-light);
         display: none;
-        margin: 0.5em 0 1.5em 0;
         padding-left: 1em;
+        margin: 0.5em 0 1.5em 0;
+        color: _palette(fg-light);
 
         a,
         span {
@@ -97,15 +97,15 @@
         }
 
         > li {
-          margin: 0.125em 0 0 0;
           padding: 0.125em 0 0 0;
+          margin: 0.125em 0 0 0;
         }
       }
 
       &:first-child {
+        padding-top: 0;
         border-top: 0;
         margin-top: 0;
-        padding-top: 0;
       }
     }
   }

@@ -30,16 +30,13 @@ textarea {
 }
 
 a {
-  @include vendor(
-    "transition",
-    (
-      "color #{_duration(transition)} ease-in-out",
-      "border-bottom-color #{_duration(transition)} ease-in-out"
-    )
-  );
   border-bottom: dotted 1px;
   color: _palette(accent);
   text-decoration: none;
+  @include vendor(
+    "transition",
+    ("color #{_duration(transition)} ease-in-out", "border-bottom-color #{_duration(transition)} ease-in-out")
+  );
 
   &:hover {
     border-bottom-color: _palette(accent);
@@ -72,22 +69,22 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0 0 (_size(element-margin) * 0.5) 0;
   color: _palette(fg-bold);
   font-family: _font(family-heading);
   font-weight: _font(weight-heading);
   line-height: 1.5;
-  margin: 0 0 (_size(element-margin) * 0.5) 0;
 
   a {
+    border-bottom: 0;
     color: inherit;
     text-decoration: none;
-    border-bottom: 0;
   }
 }
 
 h1 {
-  font-size: 4em;
   margin: 0 0 (_size(element-margin) * 0.25) 0;
+  font-size: 4em;
   line-height: 1.3;
 }
 
@@ -135,46 +132,45 @@ h6 {
 }
 
 sub {
-  font-size: 0.8em;
   position: relative;
   top: 0.5em;
+  font-size: 0.8em;
 }
 
 sup {
-  font-size: 0.8em;
   position: relative;
   top: -0.5em;
+  font-size: 0.8em;
 }
 
 blockquote {
+  padding: calc(_size(element-margin) / 4) 0 calc(_size(element-margin) / 4) _size(element-margin);
   border-left: solid 3px _palette(border);
-  font-style: italic;
   margin: 0 0 _size(element-margin) 0;
-  padding: calc(_size(element-margin) / 4) 0 calc(_size(element-margin) / 4)
-    _size(element-margin);
+  font-style: italic;
 }
 
 code {
-  background: _palette(border-bg);
-  border-radius: _size(border-radius);
+  padding: 0.25em 0.65em;
   border: solid 1px _palette(border);
+  border-radius: _size(border-radius);
+  margin: 0 0.25em;
+  background: _palette(border-bg);
   font-family: _font(family-fixed);
   font-size: 0.9em;
-  margin: 0 0.25em;
-  padding: 0.25em 0.65em;
 }
 
 pre {
-  -webkit-overflow-scrolling: touch;
+  margin: 0 0 _size(element-margin) 0;
   font-family: _font(family-fixed);
   font-size: 0.9em;
-  margin: 0 0 _size(element-margin) 0;
+  -webkit-overflow-scrolling: touch;
 
   code {
     display: block;
-    line-height: 1.75;
-    padding: 1em 1.5em;
     overflow-x: auto;
+    padding: 1em 1.5em;
+    line-height: 1.75;
   }
 }
 

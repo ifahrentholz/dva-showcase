@@ -7,33 +7,33 @@
 /* Contact */
 
 ul.contact {
-  list-style: none;
   padding: 0;
+  list-style: none;
 
   li {
-    @include icon;
+    position: relative;
+    padding: 1.5em 0 0 3em;
     border-top: solid 1px _palette(border);
     margin: 1.5em 0 0 0;
-    padding: 1.5em 0 0 3em;
-    position: relative;
+    @include icon ();
 
     &:before {
-      color: _palette(accent);
-      display: inline-block;
-      font-size: 1.5em;
-      height: 1.125em;
-      left: 0;
-      line-height: 1.125em;
       position: absolute;
-      text-align: center;
       top: calc(1.5em / 1.5);
+      left: 0;
+      display: inline-block;
       width: 1.5em;
+      height: 1.125em;
+      color: _palette(accent);
+      font-size: 1.5em;
+      text-align: center;
+      line-height: 1.125em;
     }
 
     &:first-child {
+      padding-top: 0;
       border-top: 0;
       margin-top: 0;
-      padding-top: 0;
 
       &:before {
         top: 0;

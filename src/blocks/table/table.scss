@@ -7,19 +7,19 @@
 /* Table */
 
 .table-wrapper {
-  -webkit-overflow-scrolling: touch;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 table {
-  margin: 0 0 _size(element-margin) 0;
   width: 100%;
+  margin: 0 0 _size(element-margin) 0;
 
   tbody {
     tr {
       border: solid 1px _palette(border);
-      border-left: 0;
       border-right: 0;
+      border-left: 0;
 
       &:nth-child(2n + 1) {
         background-color: _palette(border-bg);
@@ -32,10 +32,10 @@ table {
   }
 
   th {
+    padding: 0 0.75em 0.75em 0.75em;
     color: _palette(fg-bold);
     font-size: 0.9em;
     font-weight: _font(weight-bold);
-    padding: 0 0.75em 0.75em 0.75em;
     text-align: left;
   }
 
@@ -54,8 +54,8 @@ table {
       tr {
         td {
           border: solid 1px _palette(border);
-          border-left-width: 0;
           border-top-width: 0;
+          border-left-width: 0;
 
           &:first-child {
             border-left-width: 1px;

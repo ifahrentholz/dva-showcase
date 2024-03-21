@@ -14,15 +14,21 @@
   // Suffixes.
   $suffixes: null;
 
+  // Gutters.
+  $guttersCols: null;
+  $guttersRows: null;
+
+  // Row.
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: stretch;
+
   @if (type-of($suffix) == "list") {
     $suffixes: $suffix;
   } @else {
     $suffixes: ($suffix);
   }
-
-  // Gutters.
-  $guttersCols: null;
-  $guttersRows: null;
 
   @if (type-of($gutters) == "list") {
     $guttersCols: nth($gutters, 1);
@@ -30,51 +36,6 @@
   } @else {
     $guttersCols: $gutters;
     $guttersRows: 0;
-  }
-
-  // Row.
-  display: flex;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-  align-items: stretch;
-
-  // Columns.
-  > * {
-    box-sizing: border-box;
-  }
-
-  // Gutters.
-  &.gtr-uniform {
-    > * {
-      > :last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  // Alignment.
-  &.aln-left {
-    justify-content: flex-start;
-  }
-
-  &.aln-center {
-    justify-content: center;
-  }
-
-  &.aln-right {
-    justify-content: flex-end;
-  }
-
-  &.aln-top {
-    align-items: flex-start;
-  }
-
-  &.aln-middle {
-    align-items: center;
-  }
-
-  &.aln-bottom {
-    align-items: flex-end;
   }
 
   // Step through suffixes.
@@ -118,10 +79,7 @@
         margin-left: ($guttersCols * $multiplier * -1);
 
         > * {
-          padding: ($guttersRows * $multiplier)
-            0
-            0
-            ($guttersCols * $multiplier);
+          padding: ($guttersRows * $multiplier) 0 0 ($guttersCols * $multiplier);
         }
 
         // Uniform.
@@ -134,5 +92,44 @@
         }
       }
     }
+  }
+
+  // Columns.
+  > * {
+    box-sizing: border-box;
+  }
+
+  // Gutters.
+  &.gtr-uniform {
+    > * {
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Alignment.
+  &.aln-left {
+    justify-content: flex-start;
+  }
+
+  &.aln-center {
+    justify-content: center;
+  }
+
+  &.aln-right {
+    justify-content: flex-end;
+  }
+
+  &.aln-top {
+    align-items: flex-start;
+  }
+
+  &.aln-middle {
+    align-items: center;
+  }
+
+  &.aln-bottom {
+    align-items: flex-end;
   }
 }

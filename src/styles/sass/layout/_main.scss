@@ -7,27 +7,11 @@
 /* Main */
 
 #main {
-  @include vendor('flex-grow', '1');
-  @include vendor('flex-shrink', '1');
   width: 100%;
+  @include vendor("flex-grow", "1");
+  @include vendor("flex-shrink", "1");
 
-  > .inner {
-    @include padding(0, 6em);
-    margin: 0 auto;
-    max-width: 110em;
-
-    .section {
-      @include padding(6em, 0);
-      border-top: solid 2px _palette(border);
-
-      &:first-child {
-        border-top: 0 !important;
-        padding: 0;
-      }
-    }
-  }
-
-  @include breakpoint('<=xlarge') {
+  @include breakpoint("<=xlarge") {
     > .inner {
       @include padding(0, 5em);
 
@@ -37,7 +21,7 @@
     }
   }
 
-  @include breakpoint('<=large') {
+  @include breakpoint("<=large") {
     > .inner {
       @include padding(0, 4em);
 
@@ -47,12 +31,28 @@
     }
   }
 
-  @include breakpoint('<=small') {
+  @include breakpoint("<=small") {
     > .inner {
       @include padding(0, 2em);
 
       > .section {
         @include padding(3em, 0);
+      }
+    }
+  }
+
+  > .inner {
+    max-width: 110em;
+    margin: 0 auto;
+    @include padding(0, 6em);
+
+    .section {
+      border-top: solid 2px _palette(border);
+      @include padding(6em, 0);
+
+      &:first-child {
+        padding: 0;
+        border-top: 0 !important;
       }
     }
   }
