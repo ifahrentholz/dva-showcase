@@ -1,0 +1,207 @@
+.dvag-m-n02-footer {
+  max-width: 1460px;
+  padding-top: 16px;
+  margin: 0 auto;
+  background: $dvag-color__white-500;
+
+  @include breakpoint($mq-3-and-up) {
+    padding-top: 28px;
+  }
+
+  // modifier only for footer without dvag-m-recommendation-bar on top
+  &--border-top {
+    border-top: 1px solid $dvag-color__black-75;
+  }
+
+  &__headline {
+    @extend %dva-type-700;
+
+    margin-bottom: 20px;
+    color: $dvag-color__black-375;
+  }
+
+  // navigation
+  &__navigation {
+    margin-bottom: 40px;
+
+    @include breakpoint($mq-3-and-up) {
+      margin-bottom: 48px;
+    }
+
+    @include breakpoint($mq-4-and-up) {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 48px 24px;
+    }
+
+    .dvag-m-c11-accordion__block {
+      @include breakpoint($mq-4-and-up) {
+        width: calc(25% - 18px);
+        border-bottom: none;
+      }
+    }
+
+    .dvag-m-c11-accordion__toggle {
+      @include breakpoint($mq-4-and-up) {
+        cursor: default;
+      }
+    }
+
+    .dvag-m-c11-accordion__toggle-icon {
+      @include breakpoint($mq-4-and-up) {
+        display: none;
+      }
+    }
+
+    .dvag-m-c11-accordion__toggle-label {
+      @extend %dva-type-700;
+      @extend %dva-type-regular;
+
+      margin: 0;
+
+      @include breakpoint($mq-4-and-up) {
+        color: $dvag-color__black-375;
+      }
+    }
+
+    .dvag-m-c11-accordion__content {
+      @include breakpoint($mq-4-and-up) {
+        transform: translateY(0);
+        overflow: visible;
+        max-height: 100%;
+        visibility: visible;
+        opacity: 1;
+        transition: none;
+      }
+    }
+
+    .dvag-m-c11-accordion__content-wrapper {
+      padding: 0 0 16px;
+
+      @include breakpoint($mq-4-and-up) {
+        padding: 0;
+      }
+    }
+
+    .dva-e-link {
+      @extend %dva-type-bold;
+    }
+  }
+
+  &__list {
+    @extend %dvag-reset-list-styling;
+
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 4px;
+    gap: 16px;
+  }
+
+  // social links
+  &__social-links {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 48px;
+    gap: 16px;
+  }
+
+  &__social-link {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+
+    .dva-e-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .dvag-h-keyboard-focus &:focus,
+    &:hover {
+      border: 2px solid $dvag-color__gold-600;
+      color: $dvag-color__gold-600;
+      background: $dvag-color__gold-50;
+    }
+
+    &:active {
+      border: 2px solid $dvag-color__gold-800;
+      color: $dvag-color__gold-800;
+      background: $dvag-color__gold-50;
+    }
+  }
+
+  // awards
+  &__awards {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 40px;
+    gap: 40px;
+
+    @include breakpoint($mq-3-and-up) {
+      margin-bottom: 48px;
+      gap: 60px;
+    }
+
+    @include breakpoint($mq-4-and-up) {
+      gap: 40px;
+    }
+
+    @include breakpoint($mq-5-and-up) {
+      gap: 60px;
+    }
+  }
+
+  &__award-image {
+    width: auto;
+    height: 140px;
+  }
+
+  // skew area
+  .dvag-h-skew--in {
+    color: $dvag-color__black-300;
+  }
+
+  .dvag-m-skewed-box__content {
+    background: $dvag-color__black-300;
+  }
+
+  &__legal-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    gap: 16px;
+
+    @include breakpoint($mq-3-and-up) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 0;
+    }
+  }
+
+  &__legal-link {
+    color: $dvag-color__white-500;
+
+    .dvag-h-keyboard-focus &:focus,
+    &:hover,
+    &:active {
+      color: $dvag-color__white-500;
+
+      &:before {
+        border-bottom-color: $dvag-color__white-500;
+      }
+    }
+  }
+
+  &__copyright {
+    @extend %dva-type-400;
+
+    display: flex;
+    margin: 32px 0;
+    color: $dvag-color__black-200;
+
+    @include breakpoint($mq-3-and-up) {
+      justify-content: flex-end;
+      margin: 16px 0;
+    }
+  }
+}

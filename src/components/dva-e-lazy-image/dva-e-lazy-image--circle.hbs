@@ -1,0 +1,16 @@
+---
+layout: default
+src: ../dummy-content/images/sample/app_teaser_bg.jpg 
+alt: "DVAG App"
+aspectRatio: "1:1"
+wrapper: "circle"
+---
+
+<dva-e-lazy-image
+  class="dva-e-lazy-image dva-js-lazy-image {{cssClasses}}"
+  src="{{pv-path @root this.src}}"
+  alt="{{this.alt}}"
+  aspect-ratio="{{aspectRatio}}"
+  wrapper="{{wrapper}}"
+>
+</dva-e-lazy-image>

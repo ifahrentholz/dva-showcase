@@ -1,0 +1,15 @@
+---
+layout: default
+title: "[N02] Footer"
+---
+
+<h5 class="dvag-m-n02-footer__headline">Finden Sie uns in den sozialen Netzwerken</h5>
+
+<div class="dvag-m-n02-footer__social-links">
+  {{#each dvag-m-n02-footer__data.socialLinks}}
+    <a href="#" class="dva-e-button dva-e-button--secondary dva-e-button--icon-only dva-e-button--rebrush dvag-m-n02-footer__social-link">
+      <div class="dva-e-button__background"></div>
+      {{> dva-e-icon cssClasses="dva-e-button__icon" iconId=this.icon }}
+    </a>
+  {{/each}}
+</div>

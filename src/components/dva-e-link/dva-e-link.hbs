@@ -1,0 +1,14 @@
+---
+layout: default
+label: Stellenprofil herunter
+iconID: dva-icon-download
+---
+
+<a href="{{pv-choose href '#'}}" class="dva-e-link {{cssClasses}}" target="{{#if newWindow}}_blank{{else}}_self{{/if}}">
+  {{#if label}}
+    <span class="dva-e-link__label">{{label}}</span>
+  {{/if}}
+  {{#if iconID}}
+    <dva-e-icon class="dva-e-icon" icon-id="{{iconID}}"></dva-e-icon>
+  {{/if}}
+</a>

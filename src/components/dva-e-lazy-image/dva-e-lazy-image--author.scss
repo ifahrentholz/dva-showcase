@@ -1,0 +1,18 @@
+.dva-edit-lazy-image {
+  &__error {
+    position: absolute;
+    z-index: 50;
+    top: calc(50% - 11px);
+    left: 0;
+    width: 100%;
+    color: $dvag-color__error;
+    font-size: 22px;
+    text-align: center;
+    line-height: 22px;
+  }
+
+  &__box {
+    width: 100%;
+    min-width: 100%;
+  }
+}

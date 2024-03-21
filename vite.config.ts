@@ -41,10 +41,11 @@ export default defineConfig(({ command, mode }) => {
     resolve: {
       alias: {
         Components: resolve(__dirname, "src/components/"),
-        Constants: resolve(__dirname, "src/constants/"),
-        Services: resolve(__dirname, "src/services"),
+        Configs: resolve(__dirname, "src/configs"),
+        Constants: resolve(__dirname, "src/constants"),
         Helpers: resolve(__dirname, "src/helpers"),
-        Utils: resolve(__dirname, "./src/utils"),
+        Services: resolve(__dirname, "src/services"),
+        Utils: resolve(__dirname, "src/utils"),
       },
     },
     build: {

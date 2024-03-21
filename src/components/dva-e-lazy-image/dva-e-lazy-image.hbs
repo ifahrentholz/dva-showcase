@@ -1,0 +1,27 @@
+---
+layout: default
+src: https://via.placeholder.com/1200x675/aa8c41/dedede
+alt: "DVAG App"
+aspectRatio: "16:9"
+srcset: "https://via.placeholder.com/480x270/aa8c41/dedede 480w,
+         https://via.placeholder.com/800x450/aa8c41/dedede 800w,
+         https://via.placeholder.com/1000x450/aa8c41/dedede 1000w,
+         https://via.placeholder.com/1200x675/aa8c41/dedede 1200w"
+sizes: "(max-width: 480px) 480px,
+        (max-width: 800px) 800px,
+        (max-width: 1000px) 1000px,
+        (min-width: 1001px) 1200px"
+wrapper: wrapper
+---
+
+<dva-e-lazy-image 
+  class="dva-e-lazy-image dva-js-lazy-image {{cssClasses}}"
+  src="{{pv-path @root this.src}}"
+  alt="{{this.alt}}"
+  srcset="{{this.srcset}}"
+  sizes="{{this.sizes}}"
+  aspect-ratio="{{this.aspectRatio}}"
+  wrapper="{{this.wrapper}}"
+
+>
+</dva-e-lazy-image>

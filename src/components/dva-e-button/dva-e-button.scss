@@ -1,0 +1,402 @@
+// extend for rebrush primary button white
+%dvag-primary-button--white {
+  color: $dvag-color__gold-500;
+  background: $dvag-color__white-500;
+
+  &:hover {
+    color: $dvag-color__gold-700 !important; // @TODO: remove when legacy FE is gone;
+    background: $dvag-color__white-500 !important; // @TODO: remove when legacy FE is gone;
+
+    .dva-e-icon {
+      color: $dvag-color__gold-700;
+      fill: $dvag-color__gold-700;
+    }
+  }
+
+  &:active {
+    background: $dvag-color__gold-100;
+
+    .dva-e-button__background:after {
+      background: $dvag-color__gold-100;
+    }
+  }
+
+  &:before {
+    border: 2px solid $dvag-color__white-500;
+  }
+
+  .dva-e-button__background:after {
+    background: $dvag-color__gold-50;
+  }
+}
+
+.dva-e-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 30px;
+  border: 1px solid $dvag-color__gold-500;
+  border-radius: 4px;
+  color: $dvag-color__white-500;
+  background: $dvag-color__gold-500;
+  text-decoration: none;
+  cursor: pointer;
+  @include transition(0.3s background, 0.3s color, 0.3s border);
+
+  @include hover() {
+    color: $dvag-color__gold-500; // !important; // @TODO: remove when legacy FE is gone;
+    background: $dvag-color__white-500; // !important; // @TODO: remove when legacy FE is gone;
+  }
+
+  // CSS Hacks to fix Problems with legacy button-list and modern buttons
+  /* stylelint-disable */
+  .has-path-cookie &.show-if-path-cookie {
+    display: flex !important; // @TODO: remove when legacy FE is gone;
+  }
+
+  .button-list-item & { // @TODO: remove when legacy FE is gone;
+    max-height: 56px;
+    width: 100%;
+  }
+  /* stylelint-enable */
+
+  &--full-width {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dvag-h-keyboard-focus &:focus {
+    box-shadow: none !important; // @TODO: remove when legacy FE is gone;
+  }
+
+  &:disabled {
+    border-color: $dvag-color__black-200;
+    color: $dvag-color__white-500 !important; // @TODO: remove important when legacy FE is gone;
+    background: $dvag-color__black-200;
+    opacity: 0.6;
+  }
+
+  &__label {
+    @extend %dva-type-bold;
+
+    margin-top: 1px;
+    color: inherit;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  &__icon {
+    z-index: 2;
+    display: none;
+    width: 20px;
+    height: 20px;
+    color: inherit;
+    pointer-events: none;
+    fill: currentColor;
+    @include transition(0.3s fill);
+  }
+
+  &--icon-right {
+    .dva-e-button__icon {
+      display: flex;
+      margin-left: 5px;
+    }
+  }
+
+  &--icon-only {
+    padding: 10px;
+
+    .dva-e-button__label {
+      display: none;
+    }
+
+    .dva-e-button__icon {
+      display: flex;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &--white {
+    position: relative;
+    color: $dvag-color__gold-500;
+    background: $dvag-color__white-500;
+
+    &:hover {
+      color: $dvag-color__gold-700;
+    }
+
+    &:active {
+      background: $dvag-color__gold-100;
+    }
+
+    &:before {
+      border: 2px solid $dvag-color__white-500;
+    }
+  }
+
+  .dvag-h-keyboard-focus &:focus,
+  &:hover {
+    border: 1px solid $dvag-color__gold-500 !important; // @TODO: remove when legacy FE is gone;
+    color: $dvag-color__gold-500;
+    background: $dvag-color__white-500;
+    text-decoration: none;
+  }
+}
+
+.dva-e-button--secondary {
+  color: $dvag-color__gold-500;
+  background: transparent;
+
+  @include hover() {
+    color: $dvag-color__white-500;
+    background: $dvag-color__gold-500;
+  }
+
+  .dvag-h-keyboard-focus &:focus {
+    color: $dvag-color__white-500;
+    background: $dvag-color__gold-500;
+  }
+
+  &:disabled {
+    border-color: $dvag-color__black-300;
+    color: $dvag-color__black-300 !important; // @TODO: remove important when legacy FE is gone;
+    background: transparent;
+  }
+}
+
+.dva-e-button--inline {
+  padding: 0;
+  border: none;
+  color: $dvag-color__gold-500;
+  background: transparent;
+
+  .dva-e-button__label {
+    margin-top: 0;
+    text-align: left;
+    text-transform: none;
+  }
+
+  .dva-e-button__icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .dvag-h-keyboard-focus &:focus,
+  &:hover {
+    border: none !important; // @TODO: remove when legacy FE is gone;
+    color: $dvag-color__gold-700 !important; // @TODO: remove important when legacy FE is gone;
+    background: transparent !important; // @TODO: remove important when legacy FE is gone;
+  }
+
+  &:disabled {
+    border: none !important; // @TODO: remove when legacy FE is gone;
+    background: transparent !important; // @TODO: remove important when legacy FE is gone;
+  }
+}
+
+// Rebrush Buttons
+.dva-e-button--rebrush {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 32px;
+  border: none;
+  border-radius: 2px;
+  color: $dvag-color__white-500;
+  background: $dvag-color__gold-500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+
+  @include hover() {
+    border: none !important; // @TODO: remove when legacy FE is gone;
+    color: $dvag-color__white-500;
+    background: $dvag-color__gold-500;
+
+    .dva-e-button__background:after {
+      transform: skew(-5deg) scaleX(1);
+    }
+
+    .dva-e-icon {
+      color: $dvag-color__white-500;
+      fill: $dvag-color__white-500;
+    }
+  }
+
+  &[disabled] {
+    border-color: $dvag-color__black-100;
+    color: $dvag-color__white-500;
+    background: $dvag-color__black-100;
+    pointer-events: none;
+  }
+
+  &:active {
+    background: $dvag-color__gold-800;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    border: 2px solid $dvag-color__gold-500;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .dvag-h-keyboard-focus &:focus {
+    border: none !important; // @TODO: remove when legacy FE is gone;
+    outline: 0;
+    color: $dvag-color__gold-500;
+
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  &.dva-e-button--white {
+    @extend %dvag-primary-button--white;
+  }
+
+  // increase specifity to overwrite legacy styling-rules - @TODO: remove when legacy FE is gone;
+  &.dva-e-button--secondary.dva-e-button {
+    border: 2px solid $dvag-color__gold-500;
+    color: $dvag-color__gold-500;
+    background: $dvag-color__white-500;
+    transition: border 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    @include hover() {
+      border: 2px solid $dvag-color__gold-700 !important; // @TODO: remove when legacy FE is gone;
+      color: $dvag-color__gold-700 !important; // @TODO: remove when legacy FE is gone;
+      background-color: $dvag-color__white-500 !important; // @TODO: remove when legacy FE is gone;
+
+      .dva-e-icon {
+        color: $dvag-color__gold-700;
+        fill: $dvag-color__gold-700;
+      }
+    }
+
+    &:active {
+      background: $dvag-color__gold-100;
+
+      .dva-e-button__background:after {
+        background: $dvag-color__gold-100;
+      }
+    }
+
+    .dvag-h-keyboard-focus &:focus {
+      border: 2px solid $dvag-color__gold-500 !important; // @TODO: remove when legacy FE is gone;
+      background: $dvag-color__white-500;
+    }
+
+    &[disabled] {
+      border-color: $dvag-color__black-100;
+      color: $dvag-color__black-100;
+      background: $dvag-color__white-500;
+      pointer-events: none;
+    }
+
+    &:before {
+      top: -5px;
+      left: -5px;
+      width: calc(100% + 6px);
+      height: calc(100% + 6px);
+      border: 2px solid $dvag-color__gold-500;
+    }
+
+    .dva-e-button__background:after {
+      background: $dvag-color__gold-50;
+    }
+  }
+
+  &.dva-e-button--icon-only {
+    width: 48px;
+    height: 48px;
+    padding: 12px 0 12px 12px;
+
+    .dva-e-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .dva-e-button__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: skew(-5deg) scaleX(0);
+      transform-origin: top left;
+      width: 150%;
+      height: 100%;
+      background: $dvag-color__gold-700;
+      transition: transform 0s ease-in-out, transform 0.3s ease-in-out, background 0.3s ease-in-out;
+
+      .dva-e-button--rebrush:active & {
+        background: $dvag-color__gold-800;
+      }
+    }
+  }
+
+  &.dva-e-button--small {
+    padding: 16px 24px;
+  }
+
+  .dva-e-icon {
+    z-index: 1;
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-right: 12px;
+    color: inherit;
+
+    &--loading {
+      display: none;
+      margin-right: 0;
+      margin-left: 12px;
+    }
+
+    .dva-state-loading > & {
+      display: none;
+
+      &--loading {
+        display: flex;
+      }
+    }
+
+    .dva-e-button--icon-only & {
+      margin-right: 0;
+    }
+  }
+
+  .dva-e-button__label {
+    @extend %dva-type-500;
+
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    // text-align: left;
+  }
+
+  /* stylelint-disable */
+  .button-list & {
+    width: 100%; // @TODO: remove when legacy FE is gone;
+  }
+  /* stylelint-enable */
+}

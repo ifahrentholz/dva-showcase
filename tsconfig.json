@@ -24,6 +24,7 @@
     "paths": {
       "Services/*": ["./src/services/*"],
       "Components/*": ["./src/components/*"],
+      "Config/*": ["./src/config/*"],
       "Constants/*": ["./src/constants/*"],
       "Helpers/*": ["./src/helpers/*"],
       "Utils/*": ["./src/utils/*"],
@@ -33,5 +34,6 @@
     "blocks/**/*.ts",
     "scripts/**/*.ts",
     "src/**/*.ts",
+    "src/**/*.json"
   ],
 }

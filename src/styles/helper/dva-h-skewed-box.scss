@@ -17,7 +17,8 @@
   }
 }
 
-.dva-h-skew {
+.dva-h-skew,
+.dvag-h-skew {
   &--in {
     @extend %dva-skewed-box;
 

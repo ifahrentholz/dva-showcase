@@ -1,0 +1,28 @@
+---
+layout: default
+title: "[N02] Footer"
+---
+
+<dvag-m-c11-accordion class="dvag-m-c11-accordion dvag-m-n02-footer__navigation" active-on-mq="1-3">
+  {{#each dvag-m-n02-footer__data.navigationSections}}
+  <div class="dvag-m-c11-accordion__block">
+    <button class="dvag-m-c11-accordion__toggle" tabindex="-1">
+      {{> dva-e-icon cssClasses="dvag-m-c11-accordion__toggle-icon" iconId="dva-icon-chevron-down-16px"}}
+      <span class="dvag-m-c11-accordion__toggle-label">
+        {{this.headline.label}}
+      </span>
+    </button>
+    <div class="dvag-m-c11-accordion__content">
+      <div class="dvag-m-c11-accordion__content-wrapper">
+        <ul class="dvag-m-n02-footer__list">
+        {{#each this.items}}
+          <li class="dvag-m-n02-footer__list-item">
+            {{> dva-e-link link=this.link label=this.label}}
+          </li>
+        {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</dvag-m-c11-accordion>
