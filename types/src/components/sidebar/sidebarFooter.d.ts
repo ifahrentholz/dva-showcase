@@ -4,5 +4,5 @@ export declare class SidebarFooter extends LitElement {
     protected createRenderRoot(): HTMLElement | DocumentFragment;
     connectedCallback(): void;
     fetchFooterData(): Promise<void>;
-    render(): import("lit-html").TemplateResult<1> | undefined;
+    render(): import("lit").TemplateResult<1> | undefined;
 }

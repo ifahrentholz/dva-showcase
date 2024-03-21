@@ -1,1 +1,1 @@
-export declare const renderFooter: (borderTop?: boolean) => import("lit-html").TemplateResult<1>;
+export declare const renderFooter: (borderTop?: boolean) => import("lit-html").TemplateResult;

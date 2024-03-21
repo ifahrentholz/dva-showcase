@@ -6,5 +6,5 @@ declare class SidekickLibraryId extends Directive {
     update(part: AttributePart, props: unknown[]): symbol;
     render(sidekickElement: SidekickElement): symbol;
 }
-export declare const getSidekickLibraryId: (sidekickElement: SidekickElement) => import("lit-html/directive").DirectiveResult<typeof SidekickLibraryId>;
+export declare const getSidekickLibraryId: (sidekickElement: SidekickElement) => import("lit/directive.js").DirectiveResult<typeof SidekickLibraryId>;
 export {};

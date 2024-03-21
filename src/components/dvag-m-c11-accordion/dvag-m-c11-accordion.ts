@@ -1,7 +1,7 @@
 import { Component, MQBasedRendered, uiElements, uiEvent } from "@kluntje/core";
 import { addClass, find, /* getParent, */ hasClass, removeClass, waitFor } from "@kluntje/js-utils/lib/dom-helpers";
 import { throttle } from "@kluntje/js-utils/lib/function-helpers/decorators";
-import mqDefinitions from "Config/mediaQueries";
+import mqDefinitions from "Configs/mediaQueries";
 import { ACTIVE } from "Constants/cssClasses";
 // import AEMPanelcontainerService from "Services/AEMPanelcontainerService";
 // import { PanelcontainerMessageData } from "Services/AEMPanelcontainerService.types";

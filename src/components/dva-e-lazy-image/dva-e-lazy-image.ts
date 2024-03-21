@@ -2,7 +2,7 @@ import { Component, MQBasedRendered } from "@kluntje/core";
 import { LOADING, LOADED, INITIALIZED, IN_VIEWPORT, HIDDEN } from "Constants/cssClasses";
 import { removeClass, addClass, onEvent, removeEvent } from "@kluntje/js-utils/lib/dom-helpers";
 import { render } from "lit-html";
-import mqDefinitions from "Config/mediaQueries";
+import mqDefinitions from "Configs/mediaQueries";
 import LazyConnectService from "Services/LazyConnectService";
 
 import { template } from "./dva-e-lazy-image.template";
