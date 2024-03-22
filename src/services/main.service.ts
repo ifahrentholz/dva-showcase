@@ -65,8 +65,8 @@ export class MainService {
     const main = document.querySelector("main");
     if (main) {
       this.sectionService.init(main);
-      this.addInnerContainer(main);
       this.blockService.decorateBlocks(main);
+      this.renderLayout(main);
 
       setTimeout(() => {
         document.body.classList.add("show");
@@ -91,7 +91,7 @@ export class MainService {
     </div>`;
   }
 
-  private addInnerContainer(main: HTMLElement) {
+  private renderLayout(main: HTMLElement) {
     const children = main.innerHTML;
     const edsHeader = document.querySelector("header");
     const edsFooter = document.querySelector("footer");
