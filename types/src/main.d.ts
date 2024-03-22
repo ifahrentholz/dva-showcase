@@ -1,4 +1,3 @@
-import "Components/sidebar/sidebar.ts";
 import "Components/header.ts";
 import "Components/icon/dva-e-icon.ts";
 import "Components/dva-e-lazy-image/dva-e-lazy-image.ts";
