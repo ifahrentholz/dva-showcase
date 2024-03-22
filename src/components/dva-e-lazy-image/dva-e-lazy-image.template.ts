@@ -14,7 +14,7 @@ interface TemplateParameter {
   fallbackImg: string;
 }
 
-interface renderLazyImageParameter {
+export interface RenderLazyImageParameter {
   src: string;
   alt?: string;
   srcset?: string;
@@ -77,7 +77,7 @@ export const template = (args: TemplateParameter) => {
   `;
 };
 
-export const renderLazyImage = (args: renderLazyImageParameter) => {
+export const renderLazyImage = (args: RenderLazyImageParameter) => {
   return html`
     <dva-e-lazy-image
       class="dva-e-lazy-image dva-js-lazy-image${renderCssClasses(args.cssClasses)}"

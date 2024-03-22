@@ -7,7 +7,7 @@ interface TemplateParameter {
     wrapper?: string;
     fallbackImg: string;
 }
-interface renderLazyImageParameter {
+export interface RenderLazyImageParameter {
     src: string;
     alt?: string;
     srcset?: string;
@@ -16,6 +16,6 @@ interface renderLazyImageParameter {
     wrapper?: string;
     cssClasses?: string;
 }
-export declare const template: (args: TemplateParameter) => import("lit-html").TemplateResult;
-export declare const renderLazyImage: (args: renderLazyImageParameter) => import("lit-html").TemplateResult;
+export declare const template: (args: TemplateParameter) => import("lit-html").TemplateResult<1>;
+export declare const renderLazyImage: (args: RenderLazyImageParameter) => import("lit-html").TemplateResult<1>;
 export {};

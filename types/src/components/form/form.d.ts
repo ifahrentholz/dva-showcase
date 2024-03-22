@@ -20,7 +20,7 @@ export declare class Form extends LitElement {
     protected createRenderRoot(): HTMLElement | DocumentFragment;
     connectedCallback(): Promise<void>;
     fetchFormData(): Promise<void>;
-    render(): import("lit").TemplateResult<1> | undefined;
+    render(): import("lit-html").TemplateResult<1> | undefined;
     setFieldsets(): void;
     parseFieldData(item: FormElement): FormField | FormFieldInput | FormFieldSelect;
     generatePayload(form: HTMLFormElement): FormPayload;

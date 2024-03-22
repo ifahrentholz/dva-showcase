@@ -12,7 +12,7 @@ export declare class SidebarNav extends LitElement {
     items: MenuItem[];
     protected createRenderRoot(): HTMLElement | DocumentFragment;
     firstUpdated(): Promise<void>;
-    render(): import("lit").TemplateResult<1> | undefined;
+    render(): import("lit-html").TemplateResult<1> | undefined;
     private toggleSubmenu;
     private renderSubMenu;
     private renderMenuItem;

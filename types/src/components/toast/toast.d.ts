@@ -5,6 +5,6 @@ export declare class Toast extends LitElement {
     connectedCallback(): void;
     close(): void;
     disconnectedCallback(): void;
-    render(): import("lit").TemplateResult<1> | undefined;
+    render(): import("lit-html").TemplateResult<1> | undefined;
     static styles: import("lit").CSSResult;
 }

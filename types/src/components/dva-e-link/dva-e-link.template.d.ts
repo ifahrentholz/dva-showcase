@@ -6,4 +6,4 @@ export type DvaLinkTemplateArgs = {
     iconID?: string;
     shouldRender?: boolean;
 };
-export declare const dvaLinkTemplate: (args: DvaLinkTemplateArgs) => "" | import("lit-html").TemplateResult;
+export declare const dvaLinkTemplate: (args: DvaLinkTemplateArgs) => import("lit-html").TemplateResult<1> | "";

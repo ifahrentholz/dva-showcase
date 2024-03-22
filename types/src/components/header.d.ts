@@ -28,6 +28,6 @@ export declare class HeaderComponent extends LitElement {
     protected createRenderRoot(): HTMLElement | DocumentFragment;
     protected firstUpdated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): Promise<void>;
     fetchHeaderData(): Promise<void>;
-    render(): import("lit").TemplateResult<1> | undefined;
+    render(): import("lit-html").TemplateResult<1> | undefined;
 }
 export {};

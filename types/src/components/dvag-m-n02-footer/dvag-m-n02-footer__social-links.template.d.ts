@@ -1,1 +1,1 @@
-export declare const renderFooterSocialLinksTemplate: () => import("lit-html").TemplateResult;
+export declare const renderFooterSocialLinksTemplate: () => import("lit-html").TemplateResult<1>;
