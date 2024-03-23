@@ -1,5 +1,5 @@
 import { html, render } from "lit";
-import "~/Components/dva-e-lazy-image/dva-e-lazy-image";
+import "../../components/dva-e-lazy-image/dva-e-lazy-image";
 
 const template = () => {
   return html`<div class="dva-m-article-stage">
