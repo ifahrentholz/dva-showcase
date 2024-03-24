@@ -1,4 +1,5 @@
 import { html, render } from "lit";
+import "./article-stage.scss";
 import "../../components/dva-e-lazy-image/dva-e-lazy-image";
 
 const template = () => {
