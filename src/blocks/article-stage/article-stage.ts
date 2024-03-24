@@ -1,8 +1,9 @@
+import { ifDefined } from "lit-html/directives/if-defined.js";
 import { html, render } from "lit";
 import "./article-stage.scss";
 import "../../components/dva-e-lazy-image/dva-e-lazy-image";
 
-const template = () => {
+const template = (imageSrc: string | undefined) => {
   return html`<div class="dva-m-article-stage">
     <div class="dva-m-article-stage__background">
       <div class="dva-m-skewed-box__content"></div>
@@ -14,8 +15,7 @@ const template = () => {
           <div class="dva-m-article-stage__image">
             <dva-e-lazy-image
               class="dva-e-lazy-image dva-js-lazy-image"
-              src="https://placehold.co/880x367"
-              loading-placeholder="https://placehold.co/880x367"
+              src="${ifDefined(imageSrc)}"
               aspect-ratio="2:1"
             ></dva-e-lazy-image>
           </div>
@@ -26,7 +26,9 @@ const template = () => {
 };
 
 export default function (block: HTMLElement) {
+  const image: HTMLImageElement | null = block.querySelector("picture > img");
+  const src = image?.src;
   block.innerHTML = "";
   block.style.removeProperty("display");
-  render(template(), block);
+  render(template(src), block);
 }
