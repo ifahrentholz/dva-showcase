@@ -14,7 +14,7 @@ interface TemplateParameter {
   fallbackImg: string;
 }
 
-export interface RenderLazyImageParameter {
+interface RenderLazyImageParameter {
   src: string;
   alt?: string;
   srcset?: string;
