@@ -1,0 +1,114 @@
+.dva-m-article-overview {
+  display: block;
+  padding: 0 24px;
+  border: 1px solid $dvag-color__gold-500;
+  margin: 0 0 32px;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px 0;
+
+    @include breakpoint($mq-3-and-up) {
+      flex-direction: row;
+    }
+  }
+
+  &__header-item {
+    @extend %dva-type-400;
+
+    display: flex;
+    align-items: flex-start;
+    padding: 0 4px;
+    margin-bottom: 24px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    @include breakpoint($mq-3-and-up) {
+      margin-bottom: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+      color: $dvag-color__gold-500;
+      cursor: pointer;
+
+      &:hover {
+        color: $dvag-color__gold-700;
+      }
+    }
+
+    &.dva-state-loaded {
+      opacity: 1;
+    }
+
+    &.dva-state-hidden {
+      display: none;
+    }
+  }
+
+  &__header-item-count {
+    @extend %dva-type-400-bold;
+  }
+
+  .dva-e-icon {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    color: $dvag-color__gold-500;
+    fill: currentColor;
+  }
+
+  &__content {
+    padding: 32px 0 10px;
+
+    .dva-m-article-overview__header + & {
+      border-top: 1px solid $dvag-color__black-100;
+    }
+
+    &:empty {
+      padding: 0;
+      border-top: none;
+    }
+  }
+
+  .dva-m-article-overview__headline {
+    @extend %dva-type-550-bold;
+
+    margin: 0 0 16px;
+  }
+
+  ul {
+    @extend %dva-type-400;
+
+    padding-left: 20px;
+    // reset legacy-styles
+    margin-bottom: 0 !important;
+    list-style-position: outside;
+  }
+
+  ul li {
+    position: relative;
+    // reset legacy-styles
+    padding-left: 0 !important;
+    margin-bottom: 20px !important;
+    list-style: none;
+
+    &:before {
+      content: "\2022" !important;
+      position: absolute;
+      top: 0 !important;
+      display: inline-block !important;
+      width: 15px !important;
+      padding-bottom: 0 !important;
+      margin-left: -20px;
+      color: $dvag-color__gold-500;
+      // reset legacy-styles
+      background: transparent !important;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
