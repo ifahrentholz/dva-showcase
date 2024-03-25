@@ -2,7 +2,7 @@ import { html, nothing, render } from "lit";
 import { cleanUpBlock } from "Utils/cleanUpBlock.ts";
 import "./dva-m-article-stage.scss";
 import { createOptimizedPicture } from "Utils/createOptimizedPicture.ts";
-import { addClass } from "@kluntje/js-utils/lib/dom-helpers";
+import { addClasses } from "Utils/addClasses.ts";
 
 const renderPicture = (picture?: HTMLPictureElement) => {
   if (!picture) return nothing;
@@ -10,7 +10,7 @@ const renderPicture = (picture?: HTMLPictureElement) => {
   return html` <div class="dva-grid">
     <div class="dva-grid-row">
       <div class="dva-grid-col-1-12 dva-grid-col-4-8 dva-grid-offset-4-2">
-        <div class="dva-m-article-stage__image">${picture} test</div>
+        <div class="dva-m-article-stage__image">${picture}</div>
       </div>
     </div>
   </div>`;
@@ -18,7 +18,6 @@ const renderPicture = (picture?: HTMLPictureElement) => {
 
 const renderBackground = () => {
   return html`
-    <p>test</p>
     <div class="dva-m-article-stage__background">
       <div class="dva-m-skewed-box__content"></div>
       <div class="dva-h-skew--out"></div>
@@ -30,7 +29,6 @@ const template = (picture?: HTMLPictureElement) => {
   return html` ${renderBackground()} teste ${renderPicture(picture)} `;
 };
 export default function (block: HTMLElement) {
-  console.log("test");
   const image = block.querySelector("img");
   if (image === null) {
     cleanUpBlock(block);
@@ -52,7 +50,7 @@ export default function (block: HTMLElement) {
     breakpoints,
   });
 
-  addClass(picture!, "attachment-wide size-wide");
+  addClasses(picture!, "attachment-wide-size-wide");
 
   cleanUpBlock(block);
   render(template(picture), block);

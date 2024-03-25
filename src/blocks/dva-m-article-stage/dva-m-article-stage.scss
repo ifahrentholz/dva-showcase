@@ -3,6 +3,16 @@
   margin-bottom: 40px;
   color: $dvag-color__gold-500;
 
+  // TODO: Remove if general styles are imported from dvag projekt
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .dva-grid {
+    position: relative;
+  }
+
   @include breakpoint($mq-4-and-up) {
     margin-bottom: 64px;
   }
