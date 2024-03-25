@@ -26,7 +26,7 @@ const renderBackground = () => {
 };
 
 const template = (picture?: HTMLPictureElement) => {
-  return html` ${renderBackground()} teste ${renderPicture(picture)} `;
+  return html` ${renderBackground()} ${renderPicture(picture)} `;
 };
 export default function (block: HTMLElement) {
   const image = block.querySelector("img");
