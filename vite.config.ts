@@ -30,7 +30,10 @@ export default defineConfig(({ command, mode }) => {
       devSourcemap: true,
       preprocessorOptions: {
         scss: {
-          additionalData: `@import 'src/styles/sass/libs/_index.scss';`,
+          additionalData: `
+          @import 'src/styles/sass/libs/_index.scss';
+          @import 'src/styles/base/base.scss';
+          `,
         },
       },
     },
