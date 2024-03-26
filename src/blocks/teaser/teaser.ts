@@ -1,8 +1,11 @@
 import { cleanUpBlock } from "Utils/cleanUpBlock.ts";
 import { html, render } from "lit";
 import { renderIcon } from "Components/icon/dva-e-icon.template.ts";
+import { renderLazyImage } from "Components/dva-e-lazy-image/dva-e-lazy-image.template.ts";
 
 import { IconName } from "../../icons.types.ts";
+
+import "./teaser.scss";
 
 interface BannerArgs {
   buttonLabel: string;
@@ -11,9 +14,21 @@ interface BannerArgs {
   image?: HTMLImageElement;
   advisorName: string;
   text: string;
+  advisorTitle: string;
 }
 
-const template = ({ buttonLabel, color, iconName, image, text, advisorName }: BannerArgs) => {
+const renderAdvisorImage = (image?: HTMLImageElement) => {
+  return html` <div class="dvag-m-c19-cta-block__image-wrapper dvag-m-c19-cta-block__image-wrapper--vb-image">
+    ${renderLazyImage({
+      aspectRatio: "1:1",
+      cssClasses: "dvag-m-c19-cta-block__vb-image",
+      wrapper: "circle",
+      src: image ? image.src : "",
+      alt: image ? image.alt : "",
+    })}
+  </div>`;
+};
+const template = ({ buttonLabel, color, iconName, image, text, advisorName, advisorTitle }: BannerArgs) => {
   return html` <div
     class="c19-ctablock teaser dvag-h-typography--light
 dvag-h-primary-button--white
@@ -21,35 +36,16 @@ dvag-h-margin-top--small
 dvag-h-margin-bottom--small"
   >
     <div class="dvag-m-c19-cta-block" id="c19-cta-block" style="--background-color:${color}">
-      <div class="dvag-m-c19-cta-block__vb-content dva-state-hidden">
+      <div class="">
         <div class="dvag-m-c19-cta-block__content-wrapper">
           <div class="dvag-m-c19-cta-block__inner-content-wrapper">
-            <div class="dvag-m-c19-cta-block__image-wrapper dvag-m-c19-cta-block__image-wrapper--vb-image">
-              <!-- render image over render function -->
-              <dva-e-lazy-image
-                class="dva-e-lazy-image dva-js-lazy-image dvag-m-c19-cta-block__vb-image"
-                src="${image?.src}"
-                alt="${image?.alt}"
-                aspect-ratio="1:1"
-                wrapper="circle"
-              ></dva-e-lazy-image>
-            </div>
-            <div class="dvag-m-c19-cta-block__image-wrapper dvag-m-c19-cta-block__image-wrapper--vb-fallback">
-              <!-- render image over render function -->
-              <dva-e-lazy-image
-                class="dva-e-lazy-image dva-js-lazy-image"
-                src="${renderIcon(iconName)}"
-                alt="sprechblase.svg"
-                aspect-ratio="1:1"
-              >
-              </dva-e-lazy-image>
-            </div>
+            ${renderAdvisorImage(image)}
             <div class="dvag-m-c19-cta-block__text-wrapper">
               <div class="dvag-m-c19-cta-block__text">
                 <h2>${text}</h2>
               </div>
               <p class="dvag-m-c19-cta-block__vb-info">
-                Ihr Finanzcoach
+                ${advisorTitle}
                 <span class="dvag-m-c19-cta-block__vb-name">${advisorName}</span>
               </p>
               <div class="dvag-m-c19-cta-block__button-wrapper">
@@ -60,7 +56,7 @@ dvag-h-margin-bottom--small"
                   tabindex="0"
                 >
                   <div class="dva-e-button__background"></div>
-                  <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="dva-icon-speechbubbles-24px"></dva-e-icon>
+                  ${renderIcon(iconName, "dva-e-button__icon")}
                   <span class="dva-e-button__label">${buttonLabel}</span>
                 </dvag-e-c26-vb-contact-overlay-toggle>
               </div>
@@ -74,12 +70,13 @@ dvag-h-margin-bottom--small"
 
 export default function (block: HTMLElement) {
   const bannerArgs: BannerArgs = {
-    image: block.querySelector("img") || undefined,
-    advisorName: block.children[0].textContent || "",
-    text: block.children[1].textContent || "",
-    buttonLabel: block.children[2].textContent || "",
-    iconName: (block.children[3].textContent as IconName) || "dva-icon-speechbubble-24px",
-    color: block.children[4].textContent || "",
+    image: block.querySelector("img") || undefined, // find a better solution
+    advisorName: block.children[1].textContent?.trim() || "",
+    text: block.children[2].textContent?.trim() || "",
+    buttonLabel: block.children[4].textContent?.trim() || "",
+    iconName: (block.children[3].textContent?.trim() as IconName) || "dva-icon-speechbubble-24px",
+    color: block.children[5].textContent?.trim() || "",
+    advisorTitle: block.children[6].textContent?.trim() || "",
   };
 
   cleanUpBlock(block);

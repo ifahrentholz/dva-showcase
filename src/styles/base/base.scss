@@ -1,6 +1,7 @@
 @import "breakpoint-sass/stylesheets/breakpoint";
 @import "colors";
 @import "mixins";
+@import "../helper/dvag-h-component-margin-utils";
 @import "gridUtils";
 @import "grid";
 @import "typographyUtils";
@@ -9,6 +10,7 @@
 @import "globalDefinitions";
 @import "animations";
 @import "extendables";
+@import "linkUtils";
 
 html * {
   box-sizing: border-box;

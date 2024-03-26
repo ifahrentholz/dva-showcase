@@ -115,9 +115,8 @@ $grid-columns: 12;
 }
 
 @mixin generate-col($col, $minMq, $mqQuery) {
-  %dvag-grid-col-#{$minMq}-#{$col},
-  .dva-grid-col-#{$minMq}-#{$col},
-  .dvag-grid-col-#{$minMq}-#{$col} {
+  %dvag-grid-col-#{$minMq}-#{$col}
+  {
     @for $curBp from $minMq through length($breakpoints) {
       @if $curBp == 1 {
         margin: 0 map-get($grid-gutter, $curBp);
@@ -156,9 +155,7 @@ $grid-columns: 12;
 }
 
 @mixin generate-offset($col, $minMq, $mqQuery) {  
-  %dvag-grid-offset-#{$minMq}-#{$col},
-  .dva-grid-offset-#{$minMq}-#{$col},
-  .dvag-grid-offset-#{$minMq}-#{$col} {
+  %dvag-grid-offset-#{$minMq}-#{$col}{
     @for $curBp from $minMq through length($breakpoints) {
       @if $curBp == 1 {
         @if $col == 0 {
@@ -230,4 +227,7 @@ $grid-columns: 12;
     }
   }
 }
+
+@include generate-grid();
+
 /* stylelint-enable */
