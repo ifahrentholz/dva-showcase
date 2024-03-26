@@ -1,8 +1,8 @@
 import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
+import { renderCssClasses } from "Utils/renderCssClasses";
 
 import dvaELazyImageShadowScss from "./dva-e-lazy-image.shadow.scss?inline";
-import { renderCssClasses } from "Utils/renderCssClasses";
 
 interface TemplateParameter {
   src?: string;
@@ -12,7 +12,7 @@ interface TemplateParameter {
   aspectRatio?: string;
   wrapper?: string;
   fallbackImg: string;
-};
+}
 
 interface renderLazyImageParameter {
   src: string;
@@ -22,9 +22,7 @@ interface renderLazyImageParameter {
   aspectRatio?: string;
   wrapper?: string;
   cssClasses?: string;
-};
-
-
+}
 
 const getObjectFitVal = (aspectRatio: string | undefined) => {
   if (aspectRatio === "cover") return "cover";
@@ -81,14 +79,15 @@ export const template = (args: TemplateParameter) => {
 
 export const renderLazyImage = (args: renderLazyImageParameter) => {
   return html`
-    <dva-e-lazy-image 
+    <dva-e-lazy-image
       class="dva-e-lazy-image dva-js-lazy-image${renderCssClasses(args.cssClasses)}"
       src="${args.src}"
       alt=${ifDefined(args.alt)}
       srcset="${ifDefined(args.srcset)}"
       sizes="${ifDefined(args.sizes)}"
       aspect-ratio="${ifDefined(args.aspectRatio)}"
-      wrapper="${ifDefined(args.wrapper)}">
+      wrapper="${ifDefined(args.wrapper)}"
+    >
     </dva-e-lazy-image>
   `;
 };
