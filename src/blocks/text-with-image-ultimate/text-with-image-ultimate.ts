@@ -35,7 +35,7 @@ const textWithImageUltimateTemplate = (args: TextWithImageUltimateTemplateArgs) 
                         <img class="center" src="${args.imageSrc}" />
                       </div>
                       <div class="col-s-12 col-m-10 col-l-10 bleed-m bleed-l">
-                        <h2>${args.title}</h2>
+                        <h2>${args.title}<br><br></h2>
                         <ul>
                           ${args.listItems.map((item) => html`<li>${unsafeHTML(item)}</li>`)}
                         </ul>

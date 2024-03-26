@@ -21,6 +21,7 @@ module.exports = {
     "import/extensions": "off",
     "no-console": "off"
   },
+  include: ["vite.config.ts", "vite.helper.ts"],
   overrides: [
     {
       files: ["**/*.spec.ts"],

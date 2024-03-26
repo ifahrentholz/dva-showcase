@@ -15,6 +15,7 @@ export default defineConfig(({ command, mode }) => {
 
   const inputOptions: InputOption = {
     main: resolve(__dirname, mainTsPath),
+    legacyStyles: resolve(__dirname, "src/styles/legacyStyles.scss"),
     styles: resolve(__dirname, mainScssPath),
     ...blocksEntries,
   };

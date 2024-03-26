@@ -113,6 +113,7 @@ export class MainService {
         await this.loadCSS(`${window.hlx.codeBasePath}/dist/sidekickLibraryStyles/sidekickLibraryStyles.css`);
       }
       if (fontsScssPath) await this.loadFonts();
+      await this.loadCSS(`${window.hlx.codeBasePath}/dist/legacyStyles/legacyStyles.css`);
       await this.loadBlocks();
     } catch (error) {
       console.error("Load lazy error: ", error);
