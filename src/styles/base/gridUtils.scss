@@ -1,0 +1,233 @@
+// Breakpoints
+@use "sass:math";
+
+$bp-0: 0;
+$bp-1: 476px;
+$bp-2: 760px;
+$bp-3: 1024px;
+$bp-4: 1280px;
+
+$bp-0-max: $bp-1 - 1;
+$bp-1-max: $bp-2 - 1;
+$bp-2-max: $bp-3 - 1;
+$bp-3-max: $bp-4 - 1;
+
+// Media Query Variables
+// Use the following definitions to create media query output
+// with `@include breakpoint()`.
+$mq-2-and-up: min-width $bp-1;
+$mq-3-and-up: min-width $bp-2;
+$mq-4-and-up: min-width $bp-3;
+$mq-5-and-up: min-width $bp-4;
+
+$mq-2-min: min-width $bp-1;
+$mq-3-min: min-width $bp-2;
+$mq-4-min: min-width $bp-3;
+$mq-5-min: min-width $bp-4;
+
+$mq-1-max: max-width $bp-0-max;
+$mq-2-max: max-width $bp-1-max;
+$mq-3-max: max-width $bp-2-max;
+$mq-4-max: max-width $bp-3-max;
+
+$mq-1: max-width $bp-0-max;
+$mq-2: $mq-2-min $mq-2-max;
+$mq-3: $mq-3-min $mq-3-max;
+$mq-4: $mq-4-min $mq-4-max;
+$mq-5: min-width $bp-4;
+
+// Variable maps to create column classes
+$breakpoints: (
+  1: "min",
+  2: $mq-2-and-up,
+  3: $mq-3-and-up,
+  4: $mq-4-and-up,
+  5: $mq-5-and-up,
+);
+
+// $grid-gutter
+$grid-gutter: (
+  1: 8px,
+  2: 8px,
+  3: 12px,
+  4: 12px,
+  5: 12px,
+);
+
+$grid-columns: 12;
+
+%dvag-grid-container {
+  width: 100%;
+  padding: 0 16px;
+
+  @include breakpoint($mq-2-and-up) {
+    padding: 0 24px;
+  }
+
+  @include breakpoint($mq-3-and-up) {
+    padding: 0 32px;
+  }
+
+  @include breakpoint($mq-5-and-up) {
+    max-width: 1460px;
+    padding: 0 40px;
+    margin: 0 auto;
+  }
+}
+
+%dvag-grid-row {
+  display: flex;
+  min-width: 100%;
+  flex-wrap: wrap;
+
+  @for $curBp from 1 through length($breakpoints) {
+    @if $curBp == 1 {
+      margin: 0 -#{map-get($grid-gutter, $curBp)};
+    } @else {
+      @include breakpoint(map-get($breakpoints, $curBp)) {
+        margin: 0 -#{map-get($grid-gutter, $curBp)};
+      }
+    }
+  }
+
+  .dva-grid-col--centered,
+  .dvag-grid-col--centered {
+    margin: 0 auto;
+  }
+}
+
+// disable stylelint for mixin
+/* stylelint-disable */
+@mixin generate-grid() {
+  @each $minMq, $mqQuery in $breakpoints {
+    @for $col from 1 through $grid-columns {
+      @include generate-col($col, $minMq, $mqQuery);
+    }
+
+    @for $col from 0 through $grid-columns {
+      @include generate-offset($col, $minMq, $mqQuery);
+    }
+
+    @for $col from 1 through $grid-columns {
+      @include generate-order($col, $minMq, $mqQuery);
+    }
+  }
+}
+
+@mixin generate-col($col, $minMq, $mqQuery) {
+  %dvag-grid-col-#{$minMq}-#{$col},
+  .dva-grid-col-#{$minMq}-#{$col},
+  .dvag-grid-col-#{$minMq}-#{$col} {
+    @for $curBp from $minMq through length($breakpoints) {
+      @if $curBp == 1 {
+        margin: 0 map-get($grid-gutter, $curBp);
+        flex-basis: calc((100% / #{math.div($grid-columns, $col)}) - #{map-get($grid-gutter, $curBp) * 2});
+        max-width: calc((100% / #{math.div($grid-columns, $col)}) - #{map-get($grid-gutter, $curBp) * 2});
+      } @else {
+        @include breakpoint(map-get($breakpoints, $curBp)) {
+          max-width: calc((100% / #{math.div($grid-columns, $col)}) - #{map-get($grid-gutter, $curBp) * 2});
+          flex-basis: calc((100% / #{math.div($grid-columns, $col)}) - #{map-get($grid-gutter, $curBp) * 2});
+          margin: 0 map-get($grid-gutter, $curBp);
+        }
+      }
+    }
+  }
+  %dvag-grid-container-col-#{$minMq}-#{$col} {
+    @for $curBp from $minMq through length($breakpoints) {
+      @if $curBp == 1 {
+        flex-basis: calc(
+          ((100% + #{map-get($grid-gutter, $curBp) * 2}) / 12) * #{$col} - #{map-get($grid-gutter, $curBp) * 2}
+        );
+        max-width: calc(
+          ((100% + #{map-get($grid-gutter, $curBp) * 2}) / 12) * #{$col} - #{map-get($grid-gutter, $curBp) * 2}
+        );
+      } @else {
+        @include breakpoint(map-get($breakpoints, $curBp)) {
+          flex-basis: calc(
+            ((100% + #{map-get($grid-gutter, $curBp) * 2}) / 12) * #{$col} - #{map-get($grid-gutter, $curBp) * 2}
+          );
+          max-width: calc(
+            ((100% + #{map-get($grid-gutter, $curBp) * 2}) / 12) * #{$col} - #{map-get($grid-gutter, $curBp) * 2}
+          );
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-offset($col, $minMq, $mqQuery) {  
+  %dvag-grid-offset-#{$minMq}-#{$col},
+  .dva-grid-offset-#{$minMq}-#{$col},
+  .dvag-grid-offset-#{$minMq}-#{$col} {
+    @for $curBp from $minMq through length($breakpoints) {
+      @if $curBp == 1 {
+        @if $col == 0 {
+          margin-left: #{map-get($grid-gutter, $minMq)};
+        } @else {
+          margin-left: calc((100% / #{math.div($grid-columns, $col)}) + #{map-get($grid-gutter, $curBp)});
+        }
+      } @else {
+        @include breakpoint(map-get($breakpoints, $curBp)) {
+          @if $col == 0 {
+            margin-left: #{map-get($grid-gutter, $curBp)};
+          } @else {
+            margin-left: calc((100% / #{math.div($grid-columns, $col)}) + #{map-get($grid-gutter, $curBp)});
+          }
+        }
+      }
+    }
+  }
+  %dvag-grid-container-offset-#{$minMq}-#{$col} {
+    @for $curBp from $minMq through length($breakpoints) {
+      @if $curBp == 1 {
+        @if $col == 0 {
+          margin-left: 0;
+        } @else {
+          margin-left: calc(((100% + #{map-get($grid-gutter, $curBp) * 2}) / 12) * #{$col});
+        }
+      } @else {
+        @include breakpoint(map-get($breakpoints, $curBp)) {
+          @if $col == 0 {
+            margin-left: 0;
+          } @else {
+            margin-left: calc(((100% + #{map-get($grid-gutter, $curBp) * 2}) / 12) * #{$col});
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-order($col, $minMq, $mqQuery) {
+  .dva-grid-order-#{$minMq}-#{$col},
+  .dvag-grid-order-#{$minMq}-#{$col} {
+    @if $minMq == 1 {
+      order: $col;
+    } @else {
+      @include breakpoint($mqQuery) {
+        order: $col;
+      }
+    }
+  }
+  .dva-grid-order-#{$minMq}-first,
+  .dvag-grid-order-#{$minMq}-first {
+    @if $minMq == 1 {
+      order: -1;
+    } @else {
+      @include breakpoint($mqQuery) {
+        order: -1;
+      }
+    }
+  }
+  .dva-grid-order-#{$minMq}-last,
+  .dvag-grid-order-#{$minMq}-last {
+    @if $minMq == 1 {
+      order: $grid-columns + 1;
+    } @else {
+      @include breakpoint($mqQuery) {
+        order: $grid-columns + 1;
+      }
+    }
+  }
+}
+/* stylelint-enable */

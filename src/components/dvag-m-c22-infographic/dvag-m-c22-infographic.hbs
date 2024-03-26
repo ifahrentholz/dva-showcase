@@ -1,0 +1,12 @@
+---
+layout: default
+title: "[C22] Infographic"
+---
+
+<dvag-m-c22-infographic class="dvag-m-c22-infographic" 
+                        desktop-url="{{pv-path @root desktopFile}}" 
+                        {{#if mobileFile}}mobile-url="{{pv-path @root mobileFile}}"{{/if}}>
+  <div class="dvag-m-c22-infographic__placeholder">
+    {{> dva-e-icon iconId="dva-icon-loading"}}
+  </div>
+</dvag-m-c22-infographic>
