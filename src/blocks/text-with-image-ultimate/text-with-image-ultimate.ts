@@ -1,6 +1,7 @@
 import { cleanUpBlock } from 'Utils/cleanUpBlock';
 import { html, render } from 'lit';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
+import './text-with-image-ultimate.scss';
 
 interface TextWithImageUltimateTemplateArgs {
   imageSrc: string;
