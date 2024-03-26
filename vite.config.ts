@@ -32,7 +32,7 @@ export default defineConfig(({ command, mode }) => {
         scss: {
           additionalData: `
           @import 'src/styles/sass/libs/_index.scss';
-          @import 'src/styles/base/base.scss';
+          @import 'src/styles/base/utils.scss';
           `,
         },
       },

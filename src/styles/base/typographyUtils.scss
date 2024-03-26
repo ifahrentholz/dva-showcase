@@ -1,0 +1,210 @@
+$dva-typo__dvag-type: "dvag-type", sans-serif;
+
+@mixin smoothing {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+// helper classes to manually set light, bold or italic styles
+%dva-type-bold {
+  font-weight: 700;
+}
+
+%dva-type-regular {
+  font-weight: 400;
+}
+
+%dva-type-light {
+  font-weight: 300;
+}
+
+%dva-type-italic {
+  font-style: italic;
+}
+
+// take font selector and render variants in bold and light
+@mixin generate-font-variants-extends($font: "dva-type-500") {
+  // Bold
+  %dva-type-#{$font}-bold {
+    @extend %dva-type-#{$font};
+    @extend %dva-type-bold;
+  }
+  // Bold-Italic
+  %dva-type-#{$font}-bold-italic {
+    @extend %dva-type-#{$font};
+    @extend %dva-type-bold;
+    @extend %dva-type-italic;
+  }
+  // Light
+  %dva-type-#{$font}-light {
+    @extend %dva-type-#{$font};
+    @extend %dva-type-light;
+  }
+  // Light-Italic
+  %dva-type-#{$font}-light-italic {
+    @extend %dva-type-#{$font};
+    @extend %dva-type-light;
+    @extend %dva-type-italic;
+  }
+  // Italic
+  %dva-type-#{$font}-italic {
+    @extend %dva-type-#{$font};
+    @extend %dva-type-italic;
+  }
+}
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 8
+%dva-type-975 {
+  margin: 0;
+  font-family: $dva-typo__dvag-type;
+  font-size: 3rem; // 48px
+  line-height: 1.25; // 60px
+
+  @include breakpoint($mq-4-and-up) {
+    font-size: 4rem; // 64px -> line-height: 80px;
+  }
+}
+
+@include generate-font-variants-extends($font: "975");
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 8
+%dva-type-950 {
+  margin: 0 0 24px;
+  font-family: $dva-typo__dvag-type;
+  font-size: 2.375rem; // 38px
+  line-height: 1.28; // 49px
+
+  @include breakpoint($mq-4-and-up) {
+    margin: 0 0 32px;
+    font-size: 3.5rem; // 56px -> line-height: 72px;
+  }
+}
+
+@include generate-font-variants-extends($font: "950");
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 10
+%dva-type-900 {
+  margin: 0 0 16px;
+  font-family: $dva-typo__dvag-type;
+  font-size: 2rem; // 32px
+  line-height: 1.27; // 41px
+
+  @include breakpoint($mq-4-and-up) {
+    margin: 0 0 32px;
+    font-size: 2.75rem; // 44px -> line-height: 56px;
+  }
+}
+
+@include generate-font-variants-extends($font: "900");
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 15
+%dva-type-850 {
+  margin: 0 0 16px;
+  font-family: $dva-typo__dvag-type;
+  font-size: 1.75rem; // 28px
+  line-height: 1.35; // 38px
+
+  @include breakpoint($mq-4-and-up) {
+    margin: 0 0 24px;
+    font-size: 2.5rem; // 40px -> line-height: 54px;
+  }
+}
+
+@include generate-font-variants-extends($font: "850");
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 15
+%dva-type-800 {
+  margin: 0 0 16px;
+  font-family: $dva-typo__dvag-type;
+  font-size: 1.5rem; // 24px
+  line-height: 1.42; // 35px
+
+  @include breakpoint($mq-4-and-up) {
+    margin: 0 0 24px;
+    font-size: 1.75rem; // 28px -> line-height: 40px;
+  }
+}
+
+@include generate-font-variants-extends($font: "800");
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 15
+%dva-type-750 {
+  margin: 0 0 16px;
+  font-family: $dva-typo__dvag-type;
+  font-size: 1.5rem; // 24px
+  line-height: 1.33; // 32px
+}
+
+@include generate-font-variants-extends($font: "750");
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 15
+%dva-type-700 {
+  margin: 0 0 16px;
+  font-family: $dva-typo__dvag-type;
+  font-size: 1.25rem; // 20px
+  line-height: 1.4; // 28px
+}
+
+@include generate-font-variants-extends($font: "700");
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 100
+%dva-type-550 {
+  margin: 0;
+  font-family: $dva-typo__dvag-type;
+  font-size: 1.125rem; // 18px
+  line-height: 1.44; // 26px
+}
+
+@include generate-font-variants-extends($font: "550");
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 100
+%dva-type-500 {
+  margin: 0;
+  font-family: $dva-typo__dvag-type;
+  font-size: 1rem; // 16px
+  line-height: 1.5; // 24px
+}
+
+@include generate-font-variants-extends($font: "500");
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 100
+%dva-type-400 {
+  margin: 0;
+  font-family: $dva-typo__dvag-type;
+  font-size: 0.875rem; // 14px
+  line-height: 1.57; // 22px
+}
+
+@include generate-font-variants-extends($font: "400");
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 100
+%dva-type-200 {
+  margin: 0;
+  font-family: $dva-typo__dvag-type;
+  font-size: 0.75rem; // 12px
+  line-height: 1.5; // 18px
+}
+
+@include generate-font-variants-extends($font: "200");
