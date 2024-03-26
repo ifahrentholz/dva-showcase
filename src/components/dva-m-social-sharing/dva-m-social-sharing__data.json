@@ -1,0 +1,55 @@
+{
+    "portals": [
+      {
+        "name": "whatsapp",
+        "modifier": "dva-m-social-sharing__button--whatsapp",
+        "link": {
+          "target": "#",
+          "alt": "..."
+        }
+      },
+      {
+        "name": "facebook",
+        "link": {
+          "target": "#",
+          "alt": "..."
+        }
+      },
+      {
+        "name": "twitter",
+        "link": {
+          "target": "#",
+          "alt": "..."
+        }
+      },
+      {
+        "name": "xing",
+        "link": {
+          "target": "#",
+          "alt": "..."
+        }
+      },
+      {
+        "name": "linkedin",
+        "link": {
+          "target": "#",
+          "alt": "..."
+        }
+      },
+      {
+        "name": "mail",
+        "link": {
+          "target": "#",
+          "alt": "..."
+        }
+      },
+      {
+        "name": "printer",
+        "modifier": "dva-m-social-sharing__button--print",
+        "link": {
+          "target": "#",
+          "alt": "..."
+        }
+      }
+    ]
+  }
