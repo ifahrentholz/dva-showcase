@@ -1,8 +1,8 @@
-import { html, render } from "lit";
-import { ifDefined } from "lit-html/directives/if-defined.js";
-import "./social-sharing.scss";
-import { cleanUpBlock } from "Utils/cleanUpBlock";
-import "Components/dva-m-social-sharing/dva-m-social-sharing";
+import { html, render } from 'lit';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
+import './social-sharing.scss';
+import { cleanUpBlock } from 'Utils/cleanUpBlock';
+import 'Components/dva-m-social-sharing/dva-m-social-sharing';
 
 interface SocialSharingTemplateArgs {
   name?: string | null;
@@ -22,7 +22,7 @@ const socialTemplateOverview = (args: SocialSharingTemplateArgs[]) => {
       </header>
       <div class="dva-m-social-sharing__icons">
         ${args.map(
-          item => html`
+          (item) => html`
             <a
               class="dva-e-button dva-e-button--secondary dva-e-button--icon-only dva-m-social-sharing__button dva-js-social-sharing__share-link"
               href="${ifDefined(item.url)}"
@@ -32,7 +32,21 @@ const socialTemplateOverview = (args: SocialSharingTemplateArgs[]) => {
               <div class="dva-e-button__background"></div>
               <dva-e-icon class="dva-e-button__icon" icon-id="dva-icon-${item.name}"></dva-e-icon>
             </a>
-          `,
+          `
+        )}
+      </div>
+
+      <div class="dva-m-social-sharing__sticky dva-js-social-sharing__sticky dva-state-active">
+        <dva-e-icon
+          class="dva-m-social-sharing__sticky-icon dva-m-social-sharing__sticky-icon--main dva-js-social-sharing__sticky-icon"
+          icon-id="dva-icon-share"
+        ></dva-e-icon>
+        ${args.map(
+          (item) => html`
+            <a href="${item.url}" class="dva-m-social-sharing__sticky-link dva-js-social-sharing__share-link">
+              <dva-e-icon class="dva-m-social-sharing__sticky-icon" icon-id="dva-icon-${item.name}"></dva-e-icon>
+            </a>
+          `
         )}
       </div>
     </dva-m-social-sharing>
@@ -40,7 +54,7 @@ const socialTemplateOverview = (args: SocialSharingTemplateArgs[]) => {
 };
 export default function (block: HTMLElement) {
   const rows = [...block.children];
-  const templateArgs = rows.map(row => {
+  const templateArgs = rows.map((row) => {
     const name = row.children[0].textContent;
     const url = row.children[1].textContent;
     return { name, url };
