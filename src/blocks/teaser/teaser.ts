@@ -28,8 +28,8 @@ dvag-h-margin-bottom--small"
               <!-- render image over render function -->
               <dva-e-lazy-image
                 class="dva-e-lazy-image dva-js-lazy-image dvag-m-c19-cta-block__vb-image"
-                src="${image.src}"
-                alt="${image.alt}"
+                src="${image?.src}"
+                alt="${image?.alt}"
                 aspect-ratio="1:1"
                 wrapper="circle"
               ></dva-e-lazy-image>
