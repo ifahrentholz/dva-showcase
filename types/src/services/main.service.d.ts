@@ -1,5 +1,5 @@
-import { BlockService } from "./block.service";
-import { SectionService } from "./section.service";
+import { BlockService } from './block.service';
+import { SectionService } from './section.service';
 type BlockMapping = {
     name: string;
     element: HTMLDivElement;

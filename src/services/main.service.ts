@@ -1,16 +1,16 @@
-import { html, render } from "lit-html";
-import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
-import { headerTemplate } from "Components/dvag-m-n01-header/dvag-m-n01-header.template.ts";
-import { renderFooter } from "Components/dvag-m-n02-footer/dvag-m-n02-footer.template.ts";
-import { renderBreadcrumpNavigationTemplate } from "Components/dva-m-breadcrump-navigation/dva-m-breadcrump-navigation.template.ts";
+import { html, render } from 'lit-html';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
+import { headerTemplate } from 'Components/dvag-m-n01-header/dvag-m-n01-header.template.ts';
+import { renderFooter } from 'Components/dvag-m-n02-footer/dvag-m-n02-footer.template.ts';
+import { renderBreadcrumpNavigationTemplate } from 'Components/dva-m-breadcrump-navigation/dva-m-breadcrump-navigation.template.ts';
 
-import { isSidekickLibraryActive } from "../sidekickHelpers/isSidekickLibraryActive";
-import { addClasses } from "../utils/addClasses";
-import { getMetadata } from "../utils/getMetadata";
-import { BlockService } from "./block.service";
-import { SectionService } from "./section.service";
-import { config } from "../../config.ts";
-import { getLocation } from "../sidekickHelpers/getLocation.ts";
+import { isSidekickLibraryActive } from '../sidekickHelpers/isSidekickLibraryActive';
+import { addClasses } from '../utils/addClasses';
+import { getMetadata } from '../utils/getMetadata';
+import { BlockService } from './block.service';
+import { SectionService } from './section.service';
+import { config } from '../../config.ts';
+import { getLocation } from '../sidekickHelpers/getLocation.ts';
 
 type BlockMapping = {
   name: string;
@@ -22,16 +22,19 @@ interface LcpCandidate extends HTMLElement {
 }
 
 class Status {
-  static unloaded = "unloaded";
-  static loading = "loading";
-  static loaded = "loaded";
-  static error = "error";
+  static unloaded = 'unloaded';
+  static loading = 'loading';
+  static loaded = 'loaded';
+  static error = 'error';
 }
 
 export class MainService {
-  private lcpBlocks = ["banner"];
+  private lcpBlocks = ['banner'];
 
-  constructor(private sectionService: SectionService, private blockService: BlockService) {}
+  constructor(
+    private sectionService: SectionService,
+    private blockService: BlockService
+  ) {}
 
   init = async () => {
     this.setup();
@@ -44,14 +47,14 @@ export class MainService {
    */
   private setup() {
     window.hlx = window.hlx || {};
-    window.hlx.RUM_MASK_URL = "full";
-    window.hlx.codeBasePath = "";
-    window.hlx.lighthouse = new URLSearchParams(getLocation().search).get("lighthouse") === "on";
+    window.hlx.RUM_MASK_URL = 'full';
+    window.hlx.codeBasePath = '';
+    window.hlx.lighthouse = new URLSearchParams(getLocation().search).get('lighthouse') === 'on';
 
     const scriptEl = document.querySelector('script[src$="/scripts/scripts.js"]') as HTMLScriptElement;
     if (scriptEl) {
       try {
-        [window.hlx.codeBasePath] = new URL(scriptEl.src).pathname.split("/scripts/scripts.js");
+        [window.hlx.codeBasePath] = new URL(scriptEl.src).pathname.split('/scripts/scripts.js');
       } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
@@ -60,23 +63,23 @@ export class MainService {
   }
 
   private loadEager = async () => {
-    document.documentElement.lang = "en";
+    document.documentElement.lang = 'en';
     this.decorateTemplateAndTheme();
-    const main = document.querySelector("main");
+    const main = document.querySelector('main');
     if (main) {
       this.sectionService.init(main);
       this.blockService.decorateBlocks(main);
       this.renderLayout(main);
 
       setTimeout(() => {
-        document.body.classList.add("show");
+        document.body.classList.add('show');
       }, 100);
 
       await this.waitForLCP();
 
       try {
         /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
-        if (window.innerWidth >= 900 || sessionStorage.getItem("fonts-loaded")) {
+        if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
           await this.loadFonts();
         }
       } catch (e) {
@@ -93,10 +96,10 @@ export class MainService {
 
   private renderLayout(main: HTMLElement) {
     const children = main.innerHTML;
-    const edsHeader = document.querySelector("header");
-    const edsFooter = document.querySelector("footer");
+    const edsHeader = document.querySelector('header');
+    const edsFooter = document.querySelector('footer');
     const edsMain = main;
-    const body = document.querySelector("body");
+    const body = document.querySelector('body');
     if (body) {
       render(this.bodyTemplate(children), body);
       edsFooter?.remove();
@@ -116,19 +119,19 @@ export class MainService {
       await this.loadCSS(`${window.hlx.codeBasePath}/dist/legacyStyles/legacyStyles.css`);
       await this.loadBlocks();
     } catch (error) {
-      console.error("Load lazy error: ", error);
+      console.error('Load lazy error: ', error);
       try {
         await this.loadBlocks();
       } catch (err) {
-        console.error("Load blocks error: ", err);
+        console.error('Load blocks error: ', err);
       }
     }
   };
 
   private decorateTemplateAndTheme() {
-    const template = getMetadata("template");
+    const template = getMetadata('template');
     if (template) addClasses(document.body, template);
-    const theme = getMetadata("theme");
+    const theme = getMetadata('theme');
     if (theme) addClasses(document.body, theme);
   }
 
@@ -138,19 +141,19 @@ export class MainService {
    * and shows every section that is finished loading.
    */
   private loadBlocks = async () => {
-    const sections = [...document.querySelectorAll<HTMLElement>(".section")];
-    const SectionsPromises = sections.map(section => this.loadBlock(section));
+    const sections = [...document.querySelectorAll<HTMLElement>('.section')];
+    const SectionsPromises = sections.map((section) => this.loadBlock(section));
 
     await Promise.all(SectionsPromises);
   };
 
   private collectBlocks(section: HTMLElement): BlockMapping[] {
     const blockMap: BlockMapping[] = [];
-    const blocksElements = section.querySelectorAll<HTMLDivElement>("[data-block-name]");
+    const blocksElements = section.querySelectorAll<HTMLDivElement>('[data-block-name]');
 
     blocksElements.forEach((block: HTMLDivElement) => {
       blockMap.push({
-        name: block.dataset["blockName"] as string,
+        name: block.dataset['blockName'] as string,
         element: block,
       });
     });
@@ -174,7 +177,7 @@ export class MainService {
         block.element.dataset.blockStatus = Status.loaded;
       } catch (error) {
         block.element.dataset.blockStatus = Status.error;
-        console.error("An error occurred during module import:", error);
+        console.error('An error occurred during module import:', error);
       }
     }
   }
@@ -188,13 +191,13 @@ export class MainService {
   }
 
   private showSection(section: HTMLElement) {
-    section.style.removeProperty("display");
+    section.style.removeProperty('display');
   }
 
   private async loadFonts() {
     await this.loadCSS(`${window.hlx.codeBasePath}/dist/fonts/fonts.css`);
     try {
-      if (!getLocation().hostname.includes("localhost")) sessionStorage.setItem("fonts-loaded", "true");
+      if (!getLocation().hostname.includes('localhost')) sessionStorage.setItem('fonts-loaded', 'true');
     } catch (e) {
       // do nothing
     }
@@ -203,8 +206,8 @@ export class MainService {
   private async loadCSS(href: string) {
     return new Promise((resolve, reject) => {
       if (!document.querySelector(`head > link[href="${href}"]`)) {
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
         link.href = href;
         link.onload = resolve;
         link.onerror = reject;
@@ -220,11 +223,11 @@ export class MainService {
     Old logic only looks after the first block
     New logic looks in the first section after lcp candidates,
     since we show ech section depending on if its blocks and modules are loaded */
-    const firstSection: HTMLElement | null = document.querySelector(".section");
+    const firstSection: HTMLElement | null = document.querySelector('.section');
 
     if (firstSection) {
       const blocks = this.collectBlocks(firstSection);
-      const blockPromises = blocks.map(async block => {
+      const blockPromises = blocks.map(async (block) => {
         const hasLCPBlock = this.lcpBlocks.includes(block.name);
         if (hasLCPBlock) await Promise.all([this.loadBlockModules(block), this.loadBlockStyles(block)]);
       });
@@ -235,14 +238,14 @@ export class MainService {
 
     // @ts-ignore
     document.body.style.display = null;
-    const lcpCandidate = document.querySelector<LcpCandidate>("main img");
+    const lcpCandidate = document.querySelector<LcpCandidate>('main img');
 
-    await new Promise<void>(resolve => {
+    await new Promise<void>((resolve) => {
       if (lcpCandidate && !lcpCandidate.complete) {
-        lcpCandidate.setAttribute("loading", "eager");
-        lcpCandidate.setAttribute("fetchpriority", "high");
-        lcpCandidate.addEventListener("load", () => resolve());
-        lcpCandidate.addEventListener("error", () => resolve());
+        lcpCandidate.setAttribute('loading', 'eager');
+        lcpCandidate.setAttribute('fetchpriority', 'high');
+        lcpCandidate.addEventListener('load', () => resolve());
+        lcpCandidate.addEventListener('error', () => resolve());
       } else {
         resolve();
       }
