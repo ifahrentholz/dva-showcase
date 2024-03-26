@@ -1,5 +1,6 @@
 import { html, render } from "lit";
 import { ifDefined } from "lit-html/directives/if-defined.js";
+import "./social-sharing.scss";
 
 interface SocialSharingTemplateArgs {
   name?: string | null;
