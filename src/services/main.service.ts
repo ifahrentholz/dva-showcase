@@ -119,8 +119,8 @@ export class MainService {
       console.error("Load lazy error: ", error);
       try {
         await this.loadBlocks();
-      } catch (error) {
-        console.error("Load blocks error: ", error);
+      } catch (err) {
+        console.error("Load blocks error: ", err);
       }
     }
   };

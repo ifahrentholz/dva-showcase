@@ -10,47 +10,56 @@ interface ArticleOverviewTemplateArgs {
   footNote: string;
 }
 
-
 const articleTemplateOverview = (args: ArticleOverviewTemplateArgs) => {
-  return html`
-    <div class="article-infobox">
-    <dva-m-article-overview class="dva-m-article-overview" threshold-views="63" threshold-shares="1" share-text="Artikel teilen" info-url="https://sma.dvag.de/count-service/v1/counter/wichtig-fuer-sie/vorsorge/attraktive-zusatzleistungen-vom-arbeitgeber-nutzen-bav-und-bkv">
-    <header class="dva-m-article-overview__header">
-      <div class="dva-m-article-overview__header-item dva-js-article-overview__header-item--time dva-state-loaded">
-        <dva-e-icon class="dva-e-icon" icon-id="dva-icon-clock"></dva-e-icon>
-        <div class="dva-m-article-overview__header-text">
-          <span class="dva-m-article-overview__header-item-count dva-js-article-overview__header-item-count">${args.readingTime}</span> 
-          <span class="dva-js-article-overview__header-item-unit">Lesedauer</span>
+  return html` <div class="article-infobox">
+    <dva-m-article-overview
+      class="dva-m-article-overview"
+      threshold-views="63"
+      threshold-shares="1"
+      share-text="Artikel teilen"
+      info-url="https://sma.dvag.de/count-service/v1/counter/wichtig-fuer-sie/vorsorge/attraktive-zusatzleistungen-vom-arbeitgeber-nutzen-bav-und-bkv"
+    >
+      <header class="dva-m-article-overview__header">
+        <div class="dva-m-article-overview__header-item dva-js-article-overview__header-item--time dva-state-loaded">
+          <dva-e-icon class="dva-e-icon" icon-id="dva-icon-clock"></dva-e-icon>
+          <div class="dva-m-article-overview__header-text">
+            <span class="dva-m-article-overview__header-item-count dva-js-article-overview__header-item-count"
+              >${args.readingTime}</span
+            >
+            <span class="dva-js-article-overview__header-item-unit">Lesedauer</span>
+          </div>
         </div>
-      </div>
-      <div class="dva-m-article-overview__header-item dva-js-article-overview__header-item--views dva-state-loaded">
-        <dva-e-icon class="dva-e-icon" icon-id="dva-icon-eye"></dva-e-icon>
-        <div class="dva-m-article-overview__header-text">
-          <span class="dva-m-article-overview__header-item-count dva-js-article-overview__header-item-count">8.051 mal</span>
-          <span class="dva-js-article-overview__header-item-unit">gelesen</span>
+        <div class="dva-m-article-overview__header-item dva-js-article-overview__header-item--views dva-state-loaded">
+          <dva-e-icon class="dva-e-icon" icon-id="dva-icon-eye"></dva-e-icon>
+          <div class="dva-m-article-overview__header-text">
+            <span class="dva-m-article-overview__header-item-count dva-js-article-overview__header-item-count"
+              >8.051 mal</span
+            >
+            <span class="dva-js-article-overview__header-item-unit">gelesen</span>
+          </div>
         </div>
-      </div>
-      <div class="dva-m-article-overview__header-item dva-js-article-overview__header-item--shares dva-state-loaded">
-        <dva-e-icon class="dva-e-icon" icon-id="dva-icon-share"></dva-e-icon>
-        <div class="dva-m-article-overview__header-text">
-          <span class="dva-m-article-overview__header-item-count dva-js-article-overview__header-item-count">119 mal</span> 
-          <span class="dva-js-article-overview__header-item-unit">geteilt</span>
+        <div class="dva-m-article-overview__header-item dva-js-article-overview__header-item--shares dva-state-loaded">
+          <dva-e-icon class="dva-e-icon" icon-id="dva-icon-share"></dva-e-icon>
+          <div class="dva-m-article-overview__header-text">
+            <span class="dva-m-article-overview__header-item-count dva-js-article-overview__header-item-count"
+              >119 mal</span
+            >
+            <span class="dva-js-article-overview__header-item-unit">geteilt</span>
+          </div>
         </div>
+      </header>
+      <div class="dva-m-article-overview__content">
+        <h3 class="dva-m-article-overview__headline">${args.headline}</h3>
+        <ul>
+          ${args.listItems.map(item => html`<li>${unsafeHTML(item.innerHTML)}</li>`)}
+        </ul>
+        <p><small>${unsafeHTML(args.footNote)}</small></p>
       </div>
-    </header>
-    <div class="dva-m-article-overview__content">
-      <h3 class="dva-m-article-overview__headline">${args.headline}</h3>
-      <ul>
-        ${args.listItems.map(item => html`<li>${unsafeHTML(item.innerHTML)}</li>`)}
-      </ul>
-    <p><small>${unsafeHTML(args.footNote)}</small></p>
-
-    </div>
-  </dva-m-article-overview>
-</div>`;
+    </dva-m-article-overview>
+  </div>`;
 };
 
-export default function(block: HTMLElement) {
+export default function (block: HTMLElement) {
   const readingTime = block.children[0].textContent || "1 Minute";
   const headline = block.children[1].querySelector("p")?.textContent || "";
   const listItems = [...block.children[1].querySelectorAll("li")];
@@ -58,5 +67,5 @@ export default function(block: HTMLElement) {
 
   cleanUpBlock(block);
 
-  render(articleTemplateOverview({readingTime,headline,listItems,footNote}), block);
+  render(articleTemplateOverview({ readingTime, headline, listItems, footNote }), block);
 }

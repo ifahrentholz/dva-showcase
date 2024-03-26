@@ -1,2 +1,0 @@
-const a="data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M14,5%20L24,19%20L4,19%20L14,5%20Z%20M14,8.441%20L7.886,16.999%20L20.113,16.999%20L14,8.441%20Z'%20transform='translate(14.000000,%2012.000000)%20rotate(90.000000)%20translate(-14.000000,%20-12.000000)%20'%3e%3c/path%3e%3c/svg%3e";export{a as default};
-//# sourceMappingURL=dva-icon-play.QaEs_2bQ.js.map

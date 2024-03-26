@@ -1,7 +1,7 @@
-import { cleanUpBlock } from 'Utils/cleanUpBlock';
-import { html, render } from 'lit';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import './text-with-image-ultimate.scss';
+import { cleanUpBlock } from "Utils/cleanUpBlock";
+import { html, render } from "lit";
+import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
+import "./text-with-image-ultimate.scss";
 
 interface TextWithImageUltimateTemplateArgs {
   imageSrc: string;
@@ -35,9 +35,9 @@ const textWithImageUltimateTemplate = (args: TextWithImageUltimateTemplateArgs) 
                         <img class="center" src="${args.imageSrc}" />
                       </div>
                       <div class="col-s-12 col-m-10 col-l-10 bleed-m bleed-l">
-                        <h2>${args.title}<br><br></h2>
+                        <h2>${args.title}<br /><br /></h2>
                         <ul>
-                          ${args.listItems.map((item) => html`<li>${unsafeHTML(item)}</li>`)}
+                          ${args.listItems.map(item => html`<li>${unsafeHTML(item)}</li>`)}
                         </ul>
                       </div>
                     </div>
@@ -55,9 +55,9 @@ const textWithImageUltimateTemplate = (args: TextWithImageUltimateTemplateArgs) 
 };
 
 export default function (block: HTMLElement) {
-  const imageSrc = block.querySelector('img')?.getAttribute('src') || '';
-  const title = block.querySelector('h3')?.textContent || '';
-  const listItems = [...block.querySelectorAll('ul li')].map((li) => li.innerHTML);
+  const imageSrc = block.querySelector("img")?.getAttribute("src") || "";
+  const title = block.querySelector("h3")?.textContent || "";
+  const listItems = [...block.querySelectorAll("ul li")].map(li => li.innerHTML);
 
   cleanUpBlock(block);
 
