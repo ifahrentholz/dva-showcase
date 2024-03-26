@@ -122,10 +122,12 @@
     margin: 32px 0 0;
   }
 
+
   .dva-e-button {
     animation: gold-pulse-animation 1.5s infinite;
 
-    .dvag-h-primary-button--white & {
+
+    .button-white & {
       @extend %dvag-primary-button--white;
 
       animation: white-pulse-animation 1.5s infinite;

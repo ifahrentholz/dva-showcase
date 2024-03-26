@@ -1,5 +1,5 @@
 import { cleanUpBlock } from "Utils/cleanUpBlock.ts";
-import { html, render } from "lit";
+import { html, nothing, render } from "lit";
 import { renderIcon } from "Components/icon/dva-e-icon.template.ts";
 import { renderLazyImage } from "Components/dva-e-lazy-image/dva-e-lazy-image.template.ts";
 
@@ -15,9 +15,11 @@ interface BannerArgs {
   advisorName: string;
   text: string;
   advisorTitle: string;
+  options: string;
 }
 
 const renderAdvisorImage = (image?: HTMLImageElement) => {
+  if (!image?.src) return nothing;
   return html` <div class="dvag-m-c19-cta-block__image-wrapper dvag-m-c19-cta-block__image-wrapper--vb-image">
     ${renderLazyImage({
       aspectRatio: "1:1",
@@ -28,12 +30,11 @@ const renderAdvisorImage = (image?: HTMLImageElement) => {
     })}
   </div>`;
 };
-const template = ({ buttonLabel, color, iconName, image, text, advisorName, advisorTitle }: BannerArgs) => {
+const template = ({ buttonLabel, color, iconName, image, text, advisorName, advisorTitle, options }: BannerArgs) => {
   return html` <div
     class="c19-ctablock teaser dvag-h-typography--light
-dvag-h-primary-button--white
-dvag-h-margin-top--small
-dvag-h-margin-bottom--small"
+${options}
+"
   >
     <div class="dvag-m-c19-cta-block" id="c19-cta-block" style="--background-color:${color}">
       <div class="">
@@ -68,6 +69,20 @@ dvag-h-margin-bottom--small"
   </div>`;
 };
 
+const addPrefix = (value: string) => {
+  return `dvag-h-${value}`;
+};
+
+const getBlockOptions = (block: HTMLElement) => {
+  console.log([...block.classList]);
+  return [...block.classList]
+    .filter(classValue => !["block", "teaser"].includes(classValue))
+    .map(classValue =>
+      classValue.includes("margin") || classValue.includes("typography") ? addPrefix(classValue) : classValue,
+    )
+    .join(" ");
+};
+
 export default function (block: HTMLElement) {
   const bannerArgs: BannerArgs = {
     image: block.querySelector("img") || undefined, // find a better solution
@@ -77,6 +92,7 @@ export default function (block: HTMLElement) {
     iconName: (block.children[3].textContent?.trim() as IconName) || "dva-icon-speechbubble-24px",
     color: block.children[5].textContent?.trim() || "",
     advisorTitle: block.children[6].textContent?.trim() || "",
+    options: getBlockOptions(block),
   };
 
   cleanUpBlock(block);
