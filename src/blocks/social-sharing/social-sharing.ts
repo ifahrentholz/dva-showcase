@@ -3,7 +3,6 @@ import { ifDefined } from "lit-html/directives/if-defined.js";
 import "./social-sharing.scss";
 import { cleanUpBlock } from "Utils/cleanUpBlock";
 import "Components/dva-m-social-sharing/dva-m-social-sharing";
-// importuj tutaj z component ts
 
 interface SocialSharingTemplateArgs {
   name?: string | null;
@@ -25,7 +24,7 @@ const socialTemplateOverview = (args: SocialSharingTemplateArgs[]) => {
         ${args.map(
           item => html`
             <a
-              class="dva-e-button dva-e-button--secondary dva-e-button--icon-only dva-m-social-sharing__button dva-js-social-sharing__share-link dva-m-social-sharing__button--whatsapp"
+              class="dva-e-button dva-e-button--secondary dva-e-button--icon-only dva-m-social-sharing__button dva-js-social-sharing__share-link"
               href="${ifDefined(item.url)}"
               title="${ifDefined(item.name)}"
               target="_blank"
