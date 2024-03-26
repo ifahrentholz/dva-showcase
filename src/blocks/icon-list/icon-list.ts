@@ -12,14 +12,22 @@ interface IconListTemplateArgs {
 }
 
 const iconListTemplate = (args: IconListTemplateArgs) => {
-  return html` <div class="article-text text parbase">
-    <div class="dva-e-list--${args.variant || "star"}">
-      <h2>${args.headline}</h2>
-      <ul>
-        ${args.listItems.map(item => html`<li>${unsafeHTML(item.innerHTML)}</li>`)}
-      </ul>
+  return html`
+    <div class="container text">
+      <div class="bleed-m bleed-l">
+        <div class="col-s-12 col-m-10 col-m-1-offset col-l-8 col-l-2-offset">
+          <div class="article-text text parbase">
+            <div class="dva-e-list--${args.variant || "star"}">
+              <h2>${args.headline}</h2>
+              <ul>
+                ${args.listItems.map(item => html`<li>${unsafeHTML(item.innerHTML)}</li>`)}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>`;
+  `;
 };
 
 export default function (block: HTMLElement) {
