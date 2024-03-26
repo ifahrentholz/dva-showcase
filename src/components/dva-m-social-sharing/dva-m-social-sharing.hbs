@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<dva-m-social-sharing class="dva-m-social-sharing {{cssClasses}}" share-event-url="https://abnahme.dvag.de/servlets/articleviews.html/dvag/wichtig-fuer-sie/finanzen/champions-select-setzen-sie-auf-die-besten-fonds.json">
+  <header class="dva-m-social-sharing__head">
+    <dva-e-icon class='dva-m-social-sharing__head-icon' icon-id='dva-icon-share'></dva-e-icon>
+    <h3 class="dva-m-social-sharing__headline">Artikel Teilen:</h3>
+  </header>
+  <div class="dva-m-social-sharing__icons">
+    {{#each dva-m-social-sharing__data.portals}}
+      {{> dva-e-button 
+        cssClasses=(pv-concat "dva-e-button--secondary dva-e-button--icon-only dva-m-social-sharing__button dva-js-social-sharing__share-link " this.modifier) 
+        iconID=(pv-concat "dva-icon-" this.name)
+        iconOnly="true"
+        href=this.link.target
+      }}
+    {{/each}}
+  </div>
+
+  <div class="dva-m-social-sharing__sticky dva-js-social-sharing__sticky dva-state-active">
+    <dva-e-icon class='dva-m-social-sharing__sticky-icon dva-m-social-sharing__sticky-icon--main dva-js-social-sharing__sticky-icon' icon-id='dva-icon-share'></dva-e-icon>
+    {{#each dva-m-social-sharing__data.portals}}
+      {{#unless this.modifier}}
+        <a href="{{this.link.target}}" class="dva-m-social-sharing__sticky-link dva-js-social-sharing__share-link">
+          <dva-e-icon class='dva-m-social-sharing__sticky-icon' icon-id='dva-icon-{{this.name}}'></dva-e-icon>
+        </a>
+      {{/unless}}
+    {{/each}}
+  </div>
+</dva-m-social-sharing>
