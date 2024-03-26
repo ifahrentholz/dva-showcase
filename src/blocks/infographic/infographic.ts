@@ -1,5 +1,6 @@
 import { cleanUpBlock } from "Utils/cleanUpBlock";
 import { html, render } from "lit";
+import "Components/dvag-m-c22-infographic/dvag-m-c22-infographic";
 import "./infographic.scss";
 
 interface InfographicTemplateArgs {
