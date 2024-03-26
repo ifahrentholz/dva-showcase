@@ -62,13 +62,31 @@ export class MainService {
     }
   }
 
+  decorateDefaultContent(main: HTMLElement) {
+    const defaultContentWrappers = main.querySelectorAll('.default-content-wrapper');
+    if (!defaultContentWrappers) return;
+    defaultContentWrappers.forEach((wrapper: HTMLElement) => {
+      const template = html`
+        <div class="container text">
+          <div class="bleed-m bleed-l">
+            <div class="col-s-12 col-m-10 col-m-1-offset col-l-8 col-l-2-offset">${unsafeHTML(wrapper.innerHTML)}</div>
+          </div>
+        </div>
+      `;
+      wrapper.innerHTML = '';
+      render(template, wrapper);
+    });
+  }
+
   private loadEager = async () => {
     document.documentElement.lang = 'en';
     this.decorateTemplateAndTheme();
     const main = document.querySelector('main');
     if (main) {
       this.sectionService.init(main);
+
       this.blockService.decorateBlocks(main);
+      this.decorateDefaultContent(main);
       this.renderLayout(main);
 
       setTimeout(() => {
