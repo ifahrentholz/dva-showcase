@@ -74,7 +74,6 @@ const addPrefix = (value: string) => {
 };
 
 const getBlockOptions = (block: HTMLElement) => {
-  console.log([...block.classList]);
   return [...block.classList]
     .filter(classValue => !["block", "teaser"].includes(classValue))
     .map(classValue =>
