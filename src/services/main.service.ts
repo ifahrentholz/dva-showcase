@@ -138,6 +138,10 @@ export class MainService {
         await this.loadCSS(`${window.hlx.codeBasePath}/dist/sidekickLibraryStyles/sidekickLibraryStyles.css`);
       }
       if (fontsScssPath) await this.loadFonts();
+      await this.loadCSS(
+        `${window.hlx.codeBasePath}/dist/legacyStyles/legacyStyles.css`,
+        `${window.hlx.codeBasePath}/dist/styles/styles.css`
+      );
       await this.loadBlocks();
     } catch (error) {
       console.error('Load lazy error: ', error);
@@ -224,7 +228,7 @@ export class MainService {
     }
   }
 
-  private async loadCSS(href: string) {
+  private async loadCSS(href: string, insertBefore?: string) {
     return new Promise((resolve, reject) => {
       if (!document.querySelector(`head > link[href="${href}"]`)) {
         const link = document.createElement('link');
@@ -232,7 +236,12 @@ export class MainService {
         link.href = href;
         link.onload = resolve;
         link.onerror = reject;
-        document.head.append(link);
+        if (insertBefore !== undefined) {
+          const before = document.querySelector(`head > link[href="${insertBefore}"]`);
+          if (before) before.before(link);
+        } else {
+          document.head.append(link);
+        }
       } else {
         resolve(true);
       }
