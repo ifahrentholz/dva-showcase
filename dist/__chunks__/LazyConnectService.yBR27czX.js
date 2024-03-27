@@ -1,0 +1,2 @@
+class c{constructor(){this.componentMap=new WeakMap,this.intersectionObserver=new IntersectionObserver(e=>this.handleIntersectionChange(e))}subscribe(e,n){this.componentMap.set(e,n),this.intersectionObserver.observe(e)}unsubscribe(e){this.intersectionObserver.unobserve(e),this.componentMap.delete(e)}handleIntersectionChange(e){e.forEach(n=>{const t=n.target;if(!n.isIntersecting||!this.componentMap.has(t))return;const s=this.componentMap.get(t);this.unsubscribe(t),s()})}}const o=new c;export{o as L};
+//# sourceMappingURL=LazyConnectService.yBR27czX.js.map

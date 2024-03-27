@@ -1,0 +1,67 @@
+.dvag-m-lottie-slider {
+  .dvag-m-basic-slider {
+    @extend %dvag-grid-container-col-1-11;
+    @extend %dvag-grid-container-col-4-10;
+    @extend %dvag-grid-container-offset-1-1;
+
+    // to enable correct controls placing
+    @include breakpoint($mq-4-min) {
+      max-width: 100%;
+      padding-left: calc(16.66667% + 2px);
+      margin-left: 0;
+    }
+
+    &__slides {
+      @include breakpoint($mq-4) {
+        scroll-padding-left: 24px;
+      }
+
+      @include breakpoint($mq-5) {
+        margin-left: 30px;
+        scroll-padding-left: 0;
+      }
+    }
+
+    &__slide {
+      flex-basis: 80%;
+      opacity: 0.3;
+      transition: opacity 1s;
+
+      @include breakpoint($mq-4-min) {
+        flex-basis: 60%;
+      }
+
+      &.dva-state-active {
+        opacity: 1;
+      }
+    }
+
+    &__slide:last-of-type:after {
+      left: 100%;
+      width: 20%;
+
+      @include breakpoint($mq-4-and-up) {
+        width: calc(60% + 12px);
+      }
+
+      @include breakpoint($mq-5-and-up) {
+        display: block;
+        width: calc(60% + 45px);
+      }
+    }
+  }
+
+  &__animation-box {
+    @extend %dvag-grid-container-col-1-12;
+    @extend %dvag-grid-container-col-4-8;
+
+    margin: 0 auto 24px;
+    /* stylelint-disable property-no-unknown */
+    aspect-ratio: 16/9;
+    /* stylelint-enable property-no-unknown */
+  }
+
+  &__grid-wrapper {
+    @extend %dvag-grid-container;
+  }
+}
