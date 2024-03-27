@@ -1,0 +1,136 @@
+.dva-m-teaser {
+  &__topline {
+    @extend %dva-type-400-bold;
+
+    margin: 0 0 8px;
+  }
+
+  &__headline {
+    @extend %dva-type-700;
+
+    margin: 0 0 32px;
+    hyphens: auto;
+  }
+
+  &__text {
+    margin: 0 0 16px;
+  }
+
+  &__cta {
+    @extend %dva-type-500-bold;
+  }
+}
+
+.dva-m-article-teaser {
+  &__image-link {
+    display: none;
+
+    @include breakpoint($mq-4-and-up) {
+      display: block;
+    }
+
+    .dva-m-article-teaser--is-first & {
+      display: block;
+    }
+
+    .text & {
+      display: block;
+
+      &:hover:before {
+        content: none;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  &__new-tag {
+    @extend %dva-type-200-bold;
+
+    display: inline-block;
+    padding: 4px 6px;
+    border-radius: 2px;
+    margin: 0 0 7px;
+    color: $dvag-color__white-500;
+    background: $dvag-color__gold-500;
+    text-transform: uppercase;
+    line-height: 12px;
+  }
+}
+
+.dva-m-article-teaser--hero {
+  position: relative;
+
+  .dva-m-article-teaser__image {
+    display: none;
+
+    @include breakpoint($mq-4-and-up) {
+      display: block;
+    }
+  }
+
+  .dva-m-teaser__topline,
+  .dva-m-article-teaser__new-tag {
+    display: none;
+  }
+
+  .dva-m-article-teaser__content {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 20px 30px 20px 60px;
+
+    @include breakpoint($mq-4-and-up) {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+    }
+
+    @include breakpoint($mq-5-and-up) {
+      justify-content: flex-start;
+      padding: 50px 70px 50px 110px;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: rgba(89, 65, 0, 0.65);
+
+      @include breakpoint($mq-4-and-up) {
+        top: -25%;
+        height: 150%;
+        border-radius: 50% 0 0 50%;
+      }
+    }
+  }
+
+  .dva-m-teaser__headline,
+  .dva-m-teaser__text,
+  .dva-m-teaser__cta {
+    position: relative;
+    color: $dvag-color__white-500;
+    text-align: right;
+  }
+
+  .dva-m-teaser__headline {
+    @extend %dva-type-850-bold;
+  }
+
+  .dva-m-teaser__cta {
+    justify-content: flex-end;
+  }
+}
+

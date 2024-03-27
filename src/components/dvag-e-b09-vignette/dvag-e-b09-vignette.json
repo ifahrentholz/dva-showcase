@@ -1,0 +1,14 @@
+{
+  "variants": [
+    {
+      "cssClasses": "",
+      "hasImage": true
+    },
+    {
+      "cssClasses": "dvag-e-b09-vignette--text",
+      "hasImage": false,
+      "hasText": true,
+      "text": "+99"            
+    }
+  ]
+}

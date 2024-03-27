@@ -1,0 +1,14 @@
+<div class="dvag-e-b09-vignette {{cssClasses}}">
+  {{#if hasImage}}
+    {{> dva-e-lazy-image
+      src="../dummy-content/images/sample/cropped-portrait.png"
+      alt="Alt Text"
+      aspectRatio="1:1"
+      wrapper="circle"
+    }}
+  {{/if}}
+
+  {{#if hasText}}
+    <p class="dvag-e-b09-vignette__text">{{text}}</p>
+  {{/if}}  
+</div>

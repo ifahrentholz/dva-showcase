@@ -1,0 +1,25 @@
+%dvag-e-b09-vignette{
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid $dvag-color__black-100;
+  border-radius: 100%;
+
+  .dva-e-lazy-image {
+    background-color: $dvag-color__white-500;
+  }
+
+  &--text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $dvag-color__gold-500;
+    aspect-ratio: 1/1;
+
+    .dvag-e-b09-vignette__text {
+      @extend %dva-type-700-bold;
+
+      margin: 0;
+      color: $dvag-color__white-500;
+    }
+  }
+}
