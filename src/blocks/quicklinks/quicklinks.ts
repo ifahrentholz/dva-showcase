@@ -1,11 +1,12 @@
 import { cleanUpBlock } from "Utils/cleanUpBlock";
 import { html, render } from "lit";
-import "./quicklink.scss";
+import "./quicklinks.scss";
+//import 'Components/dvag-m--c22-quicklinks/dvag-m--c22-quicklinks';
 
 interface QuicklinkTemplateArgs {
   url?: string | null;
   name?: string | null;
-  src: string | null;
+  src: string | undefined;
 }
 
 const quicklinkTemplateOverview = (args: QuicklinkTemplateArgs[]) => {
