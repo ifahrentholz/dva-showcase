@@ -1,0 +1,31 @@
+// extend for rebrush primary button white
+%dvag-primary-button--white {
+  color: $dvag-color__gold-500;
+  background: $dvag-color__white-500;
+
+  &:hover {
+    color: $dvag-color__gold-700 !important; // @TODO: remove when legacy FE is gone;
+    background: $dvag-color__white-500 !important; // @TODO: remove when legacy FE is gone;
+
+    .dva-e-icon {
+      color: $dvag-color__gold-700;
+      fill: $dvag-color__gold-700;
+    }
+  }
+
+  &:active {
+    background: $dvag-color__gold-100;
+
+    .dva-e-button__background:after {
+      background: $dvag-color__gold-100;
+    }
+  }
+
+  &:before {
+    border: 2px solid $dvag-color__white-500;
+  }
+
+  .dva-e-button__background:after {
+    background: $dvag-color__gold-50;
+  }
+}

@@ -1,9 +1,9 @@
-import { html, nothing, render } from "lit";
-import "./article-header.scss";
-import { cleanUpBlock } from "Utils/cleanUpBlock";
-import { undefinedOnEmpty } from "Utils/undefinedOnEmpty";
-import { ifDefined } from "lit-html/directives/if-defined.js";
-import { DebuggerService } from "@kluntje/services";
+import { html, nothing, render } from 'lit';
+import './article-header.scss';
+import { cleanUpBlock } from 'Utils/cleanUpBlock';
+import { undefinedOnEmpty } from 'Utils/undefinedOnEmpty';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
+import { DebuggerService } from '@kluntje/services';
 
 interface ArticleHeaderTemplateArgs {
   date?: string;
@@ -18,7 +18,7 @@ const renderTopline = (date?: string) => {
     dateIsoString = new Date(date).toISOString();
     formattedDate = new Date(date).toLocaleDateString();
   } catch (error) {
-    DebuggerService.warn("Could not parse date", date);
+    DebuggerService.warn('Could not parse date', date);
     dateIsoString = undefined;
     formattedDate = date;
   }
@@ -45,9 +45,9 @@ const renderText = (text?: string) => {
 };
 
 const articleHaderTemplate = (args: ArticleHeaderTemplateArgs) => {
-  const date = undefinedOnEmpty(args.date || "");
-  const headline = undefinedOnEmpty(args.headline || "");
-  const text = undefinedOnEmpty(args.text || "");
+  const date = undefinedOnEmpty(args.date || '');
+  const headline = undefinedOnEmpty(args.headline || '');
+  const text = undefinedOnEmpty(args.text || '');
 
   if (!date && !headline && !text) return nothing;
 
@@ -65,9 +65,9 @@ const articleHaderTemplate = (args: ArticleHeaderTemplateArgs) => {
 };
 
 export default function (block: HTMLElement) {
-  const date = block.children[0].textContent || "";
-  const headline = block.children[1].textContent || "";
-  const text = block.children[2].textContent || "";
+  const date = block.children[0].textContent || '';
+  const headline = block.children[1].textContent || '';
+  const text = block.children[2].textContent || '';
 
   cleanUpBlock(block);
 
