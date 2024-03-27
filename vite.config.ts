@@ -16,6 +16,7 @@ export default defineConfig(({ command, mode }) => {
 
   const inputOptions: InputOption = {
     main: resolve(__dirname, mainTsPath),
+    legacyStyles: resolve(__dirname, "src/styles/legacyStyles.scss"),
     styles: resolve(__dirname, mainScssPath),
     ...blocksEntries,
   };
@@ -33,7 +34,7 @@ export default defineConfig(({ command, mode }) => {
         scss: {
           additionalData: `
           @import 'src/styles/sass/libs/_index.scss';
-          @import 'src/styles/base/base.scss';
+          @import 'src/styles/base/utils.scss';
           `,
         },
       },

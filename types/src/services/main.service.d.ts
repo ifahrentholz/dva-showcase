@@ -14,6 +14,7 @@ export declare class MainService {
      * Setup block utils.
      */
     private setup;
+    decorateDefaultContent(main: HTMLElement): void;
     private loadEager;
     private bodyTemplate;
     private renderLayout;
