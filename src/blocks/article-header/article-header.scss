@@ -1,0 +1,36 @@
+.dva-m-article-header {
+  margin-bottom: 40px;
+
+  &__topline {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .dva-e-tag {
+    margin: 4px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+
+  &__date {
+    @extend %dva-type-400;
+
+    margin: 0 16px 0 0;
+  }
+
+  &__headline {
+    @extend %dva-type-850;
+
+    font-weight: 400;
+  }
+
+  &__text {
+    @extend %dva-type-550;
+
+    font-weight: 400;
+  }
+}

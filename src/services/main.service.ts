@@ -1,3 +1,9 @@
+import { html, render } from "lit-html";
+import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
+import { headerTemplate } from "Components/dvag-m-n01-header/dvag-m-n01-header.template.ts";
+import { renderFooter } from "Components/dvag-m-n02-footer/dvag-m-n02-footer.template.ts";
+import { renderBreadcrumpNavigationTemplate } from "Components/dva-m-breadcrump-navigation/dva-m-breadcrump-navigation.template.ts";
+
 import { isSidekickLibraryActive } from "../sidekickHelpers/isSidekickLibraryActive";
 import { addClasses } from "../utils/addClasses";
 import { getMetadata } from "../utils/getMetadata";
@@ -5,11 +11,6 @@ import { BlockService } from "./block.service";
 import { SectionService } from "./section.service";
 import { config } from "../../config.ts";
 import { getLocation } from "../sidekickHelpers/getLocation.ts";
-import { html, render } from "lit-html";
-import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
-import { headerTemplate } from "Components/dvag-m-n01-header/dvag-m-n01-header.template.ts";
-import { renderFooter } from "Components/dvag-m-n02-footer/dvag-m-n02-footer.template.ts";
-import { renderBreadcrumpNavigationTemplate } from "Components/dva-m-breadcrump-navigation/dva-m-breadcrump-navigation.template.ts";
 
 type BlockMapping = {
   name: string;
@@ -58,14 +59,36 @@ export class MainService {
     }
   }
 
+  decorateDefaultContent(main: HTMLElement) {
+    const defaultContentWrappers = main.querySelectorAll(".default-content-wrapper");
+    if (!defaultContentWrappers) return;
+    defaultContentWrappers.forEach((wrapper: HTMLElement) => {
+      const template = html`
+        <div class="article-container">
+          <div class="container text">
+            <div class="bleed-m bleed-l">
+              <div class="col-s-12 col-m-10 col-m-1-offset col-l-8 col-l-2-offset">
+                ${unsafeHTML(wrapper.innerHTML)}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      wrapper.innerHTML = "";
+      render(template, wrapper);
+    });
+  }
+
   private loadEager = async () => {
     document.documentElement.lang = "en";
     this.decorateTemplateAndTheme();
     const main = document.querySelector("main");
     if (main) {
       this.sectionService.init(main);
-      this.addInnerContainer(main);
+
       this.blockService.decorateBlocks(main);
+      this.decorateDefaultContent(main);
+      this.renderLayout(main);
 
       setTimeout(() => {
         document.body.classList.add("show");
@@ -84,18 +107,13 @@ export class MainService {
     }
   };
 
-
   private bodyTemplate(children: string) {
-    return html`
-    <div class="page container dva-page">
-      ${headerTemplate()}
-      ${renderBreadcrumpNavigationTemplate()}
-      ${unsafeHTML(children)}
-      ${renderFooter()}
+    return html` <div class="page container dva-page">
+      ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()} ${unsafeHTML(children)} ${renderFooter()}
     </div>`;
   }
 
-  private addInnerContainer(main: HTMLElement) {
+  private renderLayout(main: HTMLElement) {
     const children = main.innerHTML;
     const edsHeader = document.querySelector("header");
     const edsFooter = document.querySelector("footer");
@@ -117,9 +135,15 @@ export class MainService {
         await this.loadCSS(`${window.hlx.codeBasePath}/dist/sidekickLibraryStyles/sidekickLibraryStyles.css`);
       }
       if (fontsScssPath) await this.loadFonts();
+      await this.loadCSS(`${window.hlx.codeBasePath}/dist/legacyStyles/legacyStyles.css`);
       await this.loadBlocks();
     } catch (error) {
       console.error("Load lazy error: ", error);
+      try {
+        await this.loadBlocks();
+      } catch (err) {
+        console.error("Load blocks error: ", err);
+      }
     }
   };
 

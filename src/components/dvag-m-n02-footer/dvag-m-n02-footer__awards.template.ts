@@ -12,7 +12,7 @@ export const renderFooterAwardsTemplate = () => {
         })}
       </a>
       <a href="#">
-      ${renderLazyImage({
+        ${renderLazyImage({
           src: "https://main--dva-showcase--ifahrentholz.hlx.page/assets/kundenchampions-footer.svg",
           cssClasses: "dvag-m-n02-footer__award-image",
         })}
