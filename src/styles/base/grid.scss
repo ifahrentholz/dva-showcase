@@ -8,4 +8,4 @@
   @extend %dvag-grid-row;
 }
 
-@include generate-grid();
+@include generate-grid(false);
