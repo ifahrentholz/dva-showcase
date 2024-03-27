@@ -18,7 +18,7 @@ import{x as i}from"./lit-element.XkUWx5ik.js";import{o as e}from"./if-defined.Jf
       </div>
     </div>
     <!--</div>-->
-  `,g=a=>i`
+  `,s=a=>i`
     <dva-e-lazy-image
       class="dva-e-lazy-image dva-js-lazy-image${t(a.cssClasses)}"
       src="${a.src}"
@@ -29,5 +29,5 @@ import{x as i}from"./lit-element.XkUWx5ik.js";import{o as e}from"./if-defined.Jf
       wrapper="${e(a.wrapper)}"
     >
     </dva-e-lazy-image>
-  `;export{g as r,v as t};
-//# sourceMappingURL=dva-e-lazy-image.template.1izYfAEc.js.map
+  `;export{t as a,s as r,v as t};
+//# sourceMappingURL=dva-e-lazy-image.template.OYQsP62C.js.map
