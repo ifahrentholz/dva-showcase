@@ -32,8 +32,7 @@ export default defineConfig(({ command, mode }) => {
       preprocessorOptions: {
         scss: {
           additionalData: `
-          @import 'src/styles/sass/libs/_index.scss';
-          @import 'src/styles/base/utils.scss';
+            @import 'src/styles/base/utils.scss';
           `,
         },
       },
