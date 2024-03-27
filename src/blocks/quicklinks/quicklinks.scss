@@ -1,3 +1,34 @@
+.dvag-m-c24-quicklinks {
+    position: relative;
+  
+    .dvag-m-skewed-box__content {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  
+    .dvag-m-section-header__subheadline {
+      @extend %dva-type-500;
+  
+      padding-bottom: 8px;
+    }
+  
+    .dvag-m-section-header__headline {
+      @extend %dva-type-750-bold;
+  
+      margin-bottom: 0;
+      padding-bottom: 24px;
+    }
+  
+    &__content-wrapper {
+      @extend %dvag-grid-container;
+  
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: center;
+    }
+  }
+  
 .dvag-m-c24-quicklink-item {
     display: flex;
     margin: 0 8px 16px;
