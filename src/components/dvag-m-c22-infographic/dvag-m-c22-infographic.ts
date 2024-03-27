@@ -1,7 +1,7 @@
 import { Component, uiEvent } from "@kluntje/core";
 import { addClass, getCurrentMQ, waitFor } from "@kluntje/js-utils/lib/dom-helpers";
 import { MediaQueryService, ViewportObserver } from "@kluntje/services";
-import mqDefinitions from "Config/mediaQueries";
+import mqDefinitions from "Configs/mediaQueries";
 import { ANIMATING } from "Constants/cssClasses";
 import { IN_VIEWPORT_EVENT, MQ_CHANGE_EVENT } from "Constants/eventTypes";
 
