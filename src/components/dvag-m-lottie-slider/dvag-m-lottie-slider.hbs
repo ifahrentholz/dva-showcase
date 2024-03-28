@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<dvag-m-lottie-slider class="dvag-m-lottie-slider"
+                      autoplay="true"
+                      animation-path="{{pv-choose this.animationPath "../dummy-content/animations/data-20230227.json"}}"
+                      segment-length="{{pv-choose this.segmentLength 120 }}">
+  <div class="dvag-m-lottie-slider__grid-wrapper">
+    <div class="dvag-m-lottie-slider__animation-box">
+      <!-- lottie animation is rendered dynamically here -->
+    </div>
+  </div>
+
+  {{> dvag-e-progress-bar }}
+
+  <div class="dvag-m-basic-slider dvag-m-teaser-slider">
+    <div class="dvag-m-basic-slider__slides">
+      {{#each dvag-m-lottie-slider__data.slides }}
+        <div class="dvag-m-basic-slider__slide">
+          {{> dvag-m-lottie-slider-slide}}
+        </div>
+      {{/each}}
+    </div>
+
+    <div class="dvag-m-basic-slider__controls">
+      <button class="dva-e-button dva-e-button--primary dva-e-button--rebrush dvag-m-basic-slider__nav-button dvag-m-basic-slider__nav-button--prev">
+        <div class="dva-e-button__background"></div>
+        <dva-e-icon class="dva-e-icon" icon-id="dva-icon-chevron-left"></dva-e-icon>
+      </button>
+      <button class="dva-e-button dva-e-button--primary dva-e-button--rebrush dvag-m-basic-slider__nav-button dvag-m-basic-slider__nav-button--next">
+        <div class="dva-e-button__background"></div>
+        <dva-e-icon class="dva-e-icon" icon-id="dva-icon-chevron-right"></dva-e-icon>
+      </button>
+    </div>
+  </div>
+</dvag-m-lottie-slider>

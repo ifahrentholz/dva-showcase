@@ -1,0 +1,26 @@
+.dvag-m-c28-content-container {
+  @extend %dvag-grid-container;
+
+  &__content-wrapper {
+    @extend %dvag-grid-container-col-1-12;
+
+    .dvag-m-c28-content-container--10-cols & {
+      @extend %dvag-grid-container-col-3-10;
+      @extend %dvag-grid-container-offset-3-1;
+    }
+
+    .dvag-m-c28-content-container--8-cols & {
+      @extend %dvag-grid-container-col-3-10;
+      @extend %dvag-grid-container-offset-3-1;
+      @extend %dvag-grid-container-col-5-8;
+      @extend %dvag-grid-container-offset-5-2;
+    }
+
+    .dvag-m-c28-content-container--6-cols & {
+      @extend %dvag-grid-container-col-3-8;
+      @extend %dvag-grid-container-offset-3-2;
+      @extend %dvag-grid-container-col-5-6;
+      @extend %dvag-grid-container-offset-5-3;
+    }
+  }
+}

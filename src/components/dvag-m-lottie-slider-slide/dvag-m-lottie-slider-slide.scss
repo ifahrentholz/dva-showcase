@@ -1,0 +1,15 @@
+.dvag-m-lottie-slider-slide {
+  &__subheadline {
+    @extend %dva-type-400-bold;
+
+    margin: 0 0 16px;
+    color: $dvag-color__black-250;
+  }
+
+  &__headline {
+    @extend %dva-type-550-bold;
+
+    margin: 0 0 8px;
+    color: $dvag-color__black-350;
+  }
+}
