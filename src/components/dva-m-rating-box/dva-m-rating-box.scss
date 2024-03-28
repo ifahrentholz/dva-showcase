@@ -1,0 +1,47 @@
+.dva-m-rating-box {
+  display: flex;
+  flex-direction: column;
+
+  &__ratingstar-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dvag-e-form-field__error {
+    display: none;
+  }
+}
+
+.dva-m-rating-box[edit-mode="true"] {
+  color: $dvag-color__gold-500;
+  cursor: pointer;
+
+  &.dva-state-error {
+    color: $dvag-color__red-50;
+
+    .dva-e-rating-star {
+      opacity: 1;
+    }
+
+    .dvag-e-form-field__error {
+      display: flex;
+    }
+  }
+
+  &:hover {
+    color: $dvag-color__gold-500;
+
+    .dva-e-rating-star {
+      opacity: 1;
+    }
+  }
+
+  .dva-e-rating-star {
+    color: inherit;
+    fill: currentColor;
+
+    &:hover ~ .dva-e-rating-star {
+      opacity: 0.3;
+    }
+  }
+}

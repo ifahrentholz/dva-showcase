@@ -1,0 +1,14 @@
+.dva-e-rating-star {
+  display: flex;
+  width: 35px;
+  height: 35px;
+  color: $dvag-color__gold-500;
+  opacity: 0.3;
+  transition: opacity 0.3s ease-in-out;
+  fill: $dvag-color__gold-500;
+
+  &--half,
+  &--full {
+    opacity: 1;
+  }
+}

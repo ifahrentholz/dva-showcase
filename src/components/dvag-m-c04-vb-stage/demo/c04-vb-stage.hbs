@@ -1,0 +1,27 @@
+---
+layout: default
+title: "[C04] VB Stage"
+---
+
+<div style="padding-bottom: 100px;">
+  {{#each dvag-m-c04-vb-stage__data.variants}}
+    <div class="dvag-grid">
+      <div class="dvag-grid-row">
+        <div class="dvag-grid-col-1-12">
+          <h3 class="dva-lsg-typography__headline">{{title}}</h3>
+        </div>
+      </div>
+    </div>
+      {{> dvag-m-c04-vb-stage}}
+  {{/each}}
+</div>
+
+<!-- no api-url here to show static variant in LSG on Server -->
+<!-- to test markup-mock, add: api-url="/mocker/dvag-m-c26-vb-contact-overlay" -->
+<dvag-m-c26-vb-contact-overlay class="dvag-m-basic-overlay dvag-m-c26-vb-contact-overlay">
+  <div class="dvag-m-basic-overlay__content">
+    <div class="dvag-m-basic-overlay__inner-content">
+      {{> dvag-m-c26-vb-contact-overlay__inner-content }}
+    </div>
+  </div>
+</dvag-m-c26-vb-contact-overlay>
