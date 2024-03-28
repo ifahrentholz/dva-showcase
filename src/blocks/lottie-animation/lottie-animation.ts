@@ -1,7 +1,9 @@
 import { renderIcon } from "Components/icon/dva-e-icon.template";
 import { cleanUpBlock } from "Utils/cleanUpBlock";
 import { html, render } from "lit";
+import "./lottie-animation.scss";
 import "Components/dvag-m-lottie-slider/dvag-m-lottie-slider";
+import "Components/dvag-e-progress-bar/dvag-e-progress-bar";
 
 type modifier = "background--grey" | "skew--top" | "skew--bottom" | "margin-bottom--none";
 
@@ -21,8 +23,16 @@ interface LottieAnimationTemplateArgs {
   ctaLabel?: string;
 }
 
-const renderModifiers = (cssClasses: modifier[]) => {
-  return cssClasses.map(cssClass => `dvag-h-${cssClass}`).join(" ");
+const renderModifiers = (cssClasses: string[]) => {
+  return cssClasses
+    .map(cssClass => {
+      if (cssClass === "margin-bottom-none") return `dvag-h-margin-bottom--none`;
+      if (cssClass === "background-grey") return `dvag-h-background--grey`;
+      if (cssClass === "skew-top") return `dvag-h-skew--top`;
+      if (cssClass === "skew-bottom") return `dvag-h-skew--bottom`;
+      return `dvag-h-${cssClass}`;
+    })
+    .join(" ");
 };
 
 const lottieAnimationTemplate = (args: LottieAnimationTemplateArgs) => {
@@ -114,8 +124,7 @@ export default function (block: HTMLElement) {
       text: slide.querySelector("p")?.textContent || "",
     };
   });
-  const cta = block.children[4].querySelector("a");
-  console.log(cta);
+  const cta = block.children[3].querySelector("a");
   const ctaUrl = cta?.getAttribute("href") || "";
   const ctaLabel = cta?.textContent || "";
 
