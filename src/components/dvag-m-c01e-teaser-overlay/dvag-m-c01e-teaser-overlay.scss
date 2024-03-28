@@ -1,0 +1,275 @@
+.dvag-m-c01e-teaser-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: rgba($dvag-color__black-350, 0.9);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  &.dva-state-active {
+    z-index: $zIndex-overlay;
+    display: flex;
+    overflow: hidden;
+  }
+
+  &.dva-state-animating {
+    opacity: 1;
+  }
+
+  &__content-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-height: 100dvh;
+    background: $dvag-color__white-500;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.16);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &__sticky-header {
+    position: sticky;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 56px;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    background-color: $dvag-color__white-500;
+  }
+
+  .dvag-m-basic-overlay__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    cursor: pointer;
+    transition: fill 0.3s ease-in-out;
+    fill: $dvag-color__gold-500;
+
+    @include breakpoint($mq-3-and-up) {
+      top: 24px;
+      right: 32px;
+    }
+
+    &:hover {
+      fill: $dvag-color__gold-700;
+    }
+  }
+
+  &__scrollable-content {
+    overflow: auto;
+    height: calc(100% - 56px);
+    max-height: inherit;
+    padding: 0 16px;
+
+    @include breakpoint($mq-3-and-up) {
+      padding: 0 32px;
+    }
+  }
+
+  &__rating-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 0 12px;
+  }
+
+  &__main-rating {
+    width: 120px;
+    min-height: 20px;
+  }
+
+  // full class name needed for more specificity on article pages
+  .dvag-m-c01e-teaser-overlay__rating-label {
+    @extend %dva-type-200;
+
+    margin: 3px 0 0 8px;
+    color: $dvag-color__black-250;
+  }
+
+  &__headline {
+    @extend %dva-type-800;
+
+    margin: 0 0 12px;
+    color: $dvag-color__black-400;
+  }
+
+  &__text {
+    @extend %dva-type-500;
+
+    margin: 0 0 24px;
+    color: $dvag-color__black-400;
+  }
+
+  &__ratings {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 0 24px;
+  }
+
+  &__rating-row {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 24px;
+
+    @include breakpoint($mq-3-and-up) {
+      max-width: 340px;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 0 0 9px;
+    }
+
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+
+  &__rating-category {
+    @extend %dva-type-500-bold;
+
+    margin-bottom: 4px;
+    color: $dvag-color__black-400;
+
+    @include breakpoint($mq-3-and-up) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__rating-value {
+    margin: 0;
+  }
+
+  &__sub-rating {
+    width: 120px;
+
+    .dva-e-rating-star {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+    border-top: 1px solid $dvag-color__black-75;
+    margin: 24px 0;
+
+    @include breakpoint($mq-3-and-up) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__vb-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+
+    @include breakpoint($mq-3-and-up) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__vb-wrapper,
+  &__customer-wrapper {
+    width: 100%;
+
+    @include breakpoint($mq-3-and-up) {
+      width: calc(50% - 12px);
+    }
+  }
+
+  &__image-wrapper {
+    @extend %dvag-e-b09-vignette;
+
+    width: 60px;
+    height: 60px;
+    margin-right: 8px;
+  }
+
+  &__vb-name {
+    @extend %dva-type-400-bold;
+
+    color: $dvag-color__gold-500;
+  }
+
+  &__vb-label,
+  &__customer-label,
+  &__customer-name,
+  &__customer-info {
+    @extend %dva-type-400;
+
+    color: $dvag-color__black-250;
+  }
+
+  // full class name needed for more specificity on article pages
+  .dvag-m-c01e-teaser-overlay__vb-label {
+    margin: 0;
+  }
+
+  // full class name needed for more specificity on article pages
+  .dvag-m-c01e-teaser-overlay__customer-name {
+    margin: 0;
+    color: $dvag-color__black-400;
+  }
+
+  // full class name needed for more specificity on article pages
+  .dvag-m-c01e-teaser-overlay__customer-info {
+    margin: 0;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    border-top: 1px solid $dvag-color__black-75;
+    margin: 0;
+
+    @include breakpoint($mq-3-and-up) {
+      padding: 24px 0 32px;
+    }
+  }
+
+  &__nav-btn {
+    user-select: none;
+
+    &.dva-state-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .dva-e-button__label {
+      @include breakpoint($mq-2-max) {
+        display: none;
+      }
+    }
+
+    .dva-e-button__icon {
+      display: flex;
+
+      @include breakpoint($mq-2-max) {
+        margin: 0;
+      }
+    }
+  }
+
+  &__nav-btn--next {
+    .dva-e-button__icon {
+      @include breakpoint($mq-3-and-up) {
+        margin-right: 0;
+        margin-left: 12px;
+      }
+    }
+  }
+}
