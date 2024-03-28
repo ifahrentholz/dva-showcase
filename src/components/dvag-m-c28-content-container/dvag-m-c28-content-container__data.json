@@ -1,0 +1,20 @@
+{
+  "variants": [
+    {
+      "title": "[C28] Content Container - 12 Cols on MQ1-5",
+      "cssClasses": ""
+    },
+    {
+      "title": "[C28] Content Container - 10 Cols MQ3-5 (centered), 12 Cols on MQ1-2",
+      "cssClasses": "dvag-m-c28-content-container--10-cols"
+    },
+    {
+      "title": "[C28] Content Container - 8 Cols on MQ5 (centered), 10 Cols on MQ3-4 (centered), 12 Cols on MQ1-2",
+      "cssClasses": "dvag-m-c28-content-container--8-cols"
+    },
+    {
+      "title": "[C28] Content Container - 6 Cols on MQ5 (centered), 8 Cols on MQ3-4 (centered), 12 Cols on MQ1-2",
+      "cssClasses": "dvag-m-c28-content-container--6-cols"
+    }
+  ]
+}

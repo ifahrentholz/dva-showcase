@@ -98,26 +98,24 @@ $grid-columns: 12;
 
 // disable stylelint for mixin
 /* stylelint-disable */
-@mixin generate-grid() {
+@mixin generate-grid($justExtends: true) {
   @each $minMq, $mqQuery in $breakpoints {
     @for $col from 1 through $grid-columns {
-      @include generate-col($col, $minMq, $mqQuery);
+      @include generate-col($col, $minMq, $mqQuery, $justExtends);
     }
 
     @for $col from 0 through $grid-columns {
-      @include generate-offset($col, $minMq, $mqQuery);
+      @include generate-offset($col, $minMq, $mqQuery, $justExtends);
     }
 
     @for $col from 1 through $grid-columns {
-      @include generate-order($col, $minMq, $mqQuery);
+      @include generate-order($col, $minMq, $mqQuery, $justExtends);
     }
   }
 }
 
-@mixin generate-col($col, $minMq, $mqQuery) {
-  %dvag-grid-col-#{$minMq}-#{$col},
-  .dva-grid-col-#{$minMq}-#{$col},
-  .dvag-grid-col-#{$minMq}-#{$col} {
+@mixin generate-col($col, $minMq, $mqQuery, $justExtends) {
+  %dvag-grid-col-#{$minMq}-#{$col} {
     @for $curBp from $minMq through length($breakpoints) {
       @if $curBp == 1 {
         margin: 0 map-get($grid-gutter, $curBp);
@@ -153,12 +151,19 @@ $grid-columns: 12;
       }
     }
   }
+
+  @if $justExtends {
+  
+  } @else {
+    .dva-grid-col-#{$minMq}-#{$col},
+    .dvag-grid-col-#{$minMq}-#{$col} {
+      @extend %dvag-grid-col-#{$minMq}-#{$col};
+    }
+  }
 }
 
-@mixin generate-offset($col, $minMq, $mqQuery) {  
-  %dvag-grid-offset-#{$minMq}-#{$col},
-  .dva-grid-offset-#{$minMq}-#{$col},
-  .dvag-grid-offset-#{$minMq}-#{$col} {
+@mixin generate-offset($col, $minMq, $mqQuery, $justExtends) {  
+  %dvag-grid-offset-#{$minMq}-#{$col}{
     @for $curBp from $minMq through length($breakpoints) {
       @if $curBp == 1 {
         @if $col == 0 {
@@ -196,11 +201,19 @@ $grid-columns: 12;
       }
     }
   }
+
+  @if $justExtends {
+  
+  } @else {
+    .dva-grid-offset-#{$minMq}-#{$col},
+    .dvag-grid-offset-#{$minMq}-#{$col} {
+      @extend %dvag-grid-offset-#{$minMq}-#{$col};
+    }
+  }
 }
 
-@mixin generate-order($col, $minMq, $mqQuery) {
-  .dva-grid-order-#{$minMq}-#{$col},
-  .dvag-grid-order-#{$minMq}-#{$col} {
+@mixin generate-order($col, $minMq, $mqQuery, $justExtends) {
+  %dvag-grid-order-#{$minMq}-#{$col} {
     @if $minMq == 1 {
       order: $col;
     } @else {
@@ -209,8 +222,7 @@ $grid-columns: 12;
       }
     }
   }
-  .dva-grid-order-#{$minMq}-first,
-  .dvag-grid-order-#{$minMq}-first {
+  %dvag-grid-order-#{$minMq}-first {
     @if $minMq == 1 {
       order: -1;
     } @else {
@@ -219,8 +231,7 @@ $grid-columns: 12;
       }
     }
   }
-  .dva-grid-order-#{$minMq}-last,
-  .dvag-grid-order-#{$minMq}-last {
+  %dvag-grid-order-#{$minMq}-last {
     @if $minMq == 1 {
       order: $grid-columns + 1;
     } @else {
@@ -229,5 +240,27 @@ $grid-columns: 12;
       }
     }
   }
+
+  @if $justExtends {
+  
+  } @else {
+    .dva-grid-order-#{$minMq}-#{$col},
+    .dvag-grid-order-#{$minMq}-#{$col} {
+      @extend %dvag-grid-order-#{$minMq}-#{$col};
+    }    
+
+    .dva-grid-order-#{$minMq}-first,
+    .dvag-grid-order-#{$minMq}-first {
+      @extend %dvag-grid-order-#{$minMq}-first;
+    }
+    
+    .dva-grid-order-#{$minMq}-last,
+    .dvag-grid-order-#{$minMq}-last {
+      @extend %dvag-grid-order-#{$minMq}-last;
+    }
+  }
 }
+
+@include generate-grid(true);
+
 /* stylelint-enable */

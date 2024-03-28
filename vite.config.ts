@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import minifyHTML from "rollup-plugin-minify-html-literals";
 import { generateBlockEntries, generateIconNameType } from "./vite.helpers";
 import { config } from "./config.ts";
-import path, { resolve } from "path";
+import { resolve } from "path";
 import { InputOption } from "rollup";
 
 const isProd = process.env.NODE_ENV === "production";
@@ -32,8 +32,7 @@ export default defineConfig(({ command, mode }) => {
       preprocessorOptions: {
         scss: {
           additionalData: `
-          @import 'src/styles/sass/libs/_index.scss';
-          @import 'src/styles/base/utils.scss';
+            @import 'src/styles/base/utils.scss';
           `,
         },
       },

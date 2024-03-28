@@ -1,0 +1,26 @@
+.dvag-m-c33-lottie-animation {
+  @extend %dvag-h-component-margin-bottom;
+  @extend %dvag-h-component-margin-top;
+  @extend %dvag-h-component-padding-bottom;
+  @extend %dvag-h-component-padding-top;
+
+  display: block;
+
+  .dvag-m-section-header__text {
+    display: none;
+  }
+
+  .dvag-m-skewed-box__content {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  &__grid-wrapper {
+    @extend %dvag-grid-container;
+  }
+
+  &__cta-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}

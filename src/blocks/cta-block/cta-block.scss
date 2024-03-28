@@ -1,0 +1,136 @@
+.dvag-m-c19-cta-block {
+  @extend %dvag-h-component-margin-bottom;
+  @extend %dvag-h-component-margin-top;
+
+  &__content-wrapper {
+    @extend %dvag-grid-container;
+
+    background-color: var(--background-color);
+  }
+
+  &__inner-content-wrapper {
+    @extend %dvag-grid-container-col-1-12;
+    @extend %dvag-grid-container-col-5-10;
+    @extend %dvag-grid-container-offset-5-1;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 24px 0;
+
+    @include breakpoint($mq-3-and-up) {
+      padding: 32px 0;
+    }
+
+    @include breakpoint($mq-4-and-up) {
+      flex-direction: row;
+      padding: 56px 0;
+    }
+  }
+
+  &__image-wrapper {
+    width: 160px;
+    height: 160px;
+    flex: 1;
+    margin: 0 0 24px;
+
+    @include breakpoint($mq-4-and-up) {
+      width: 210px;
+      height: 210px;
+      flex: none;
+      margin: 0 60px 0 0;
+    }
+
+    &--vb-image {
+      @extend %dvag-e-b09-vignette;
+    }
+  }
+
+  &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    @include breakpoint($mq-4-and-up) {
+      align-items: flex-start;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    color: $dvag-color__black-375;
+    text-align: center;
+
+    @include breakpoint($mq-4-and-up) {
+      text-align: left;
+    }
+
+    .dvag-h-typography--light & {
+      color: $dvag-color__white-500;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @extend %dva-type-750;
+
+      margin: 0 0 12px;
+    }
+
+    p {
+      margin: 0 0 12px;
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+
+
+    b {
+      @extend %dva-type-750-bold;
+    }
+
+    i {
+      @extend %dva-type-italic;
+    }
+
+    a {
+      @extend %dva-e-link;
+    }
+  }
+
+  &__vb-info {
+    margin: 12px 0 0;
+    color: $dvag-color__black-375;
+
+    .dvag-h-typography--light & {
+      color: $dvag-color__white-500;
+    }
+  }
+
+  &__vb-name {
+    @extend %dva-type-bold;
+  }
+
+  &__button-wrapper {
+    margin: 32px 0 0;
+  }
+
+
+  .dva-e-button {
+    animation: gold-pulse-animation 1.5s infinite;
+
+
+    .button-white & {
+      @extend %dvag-primary-button--white;
+
+      animation: white-pulse-animation 1.5s infinite;
+    }
+  }
+}

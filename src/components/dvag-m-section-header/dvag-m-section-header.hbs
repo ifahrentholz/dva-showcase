@@ -1,0 +1,24 @@
+---
+layout: default
+subheadline: "Subheadline/type-700/black-300"
+headline: "Headline/type-900/black-350"
+text: "Text/type-500/black-350"
+---
+
+<div class="dvag-m-section-header">
+  {{#if subheadline}}
+    {{#if isHeadlineH1}}
+      <h1 class="dvag-m-section-header__subheadline">{{pv-choose subheadline "Subheadline/type-700/black-300"}}</h1>
+    {{else}}
+      <h3 class="dvag-m-section-header__subheadline">{{pv-choose subheadline "Subheadline/type-700/black-300"}}</h3>
+    {{/if}}
+  {{/if}}
+  {{#if headline}}
+    <h2 class="dvag-m-section-header__headline">{{pv-choose headline "Headline/type-900/black-350"}}</h2>
+  {{/if}}
+  {{#if text}}
+    <div class="dvag-m-section-header__text">
+      <p>{{pv-choose text "Text/type-500/black-350"}}</p>
+    </div>
+  {{/if}}
+</div>
