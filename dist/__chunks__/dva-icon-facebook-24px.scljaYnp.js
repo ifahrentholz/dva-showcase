@@ -1,2 +1,0 @@
-const e="data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M13.6794%201H16.8685V4.31858H14.6167C14.0284%204.31858%2013.3416%204.67605%2013.3416%205.68091V8.30988H16.8825L16.5448%2011.7213H13.3557V23H9.22927V11.7213H7V8.30988H9.22927V5.44729C9.22927%204.40302%209.55015%201%2013.6794%201Z'/%3e%3c/svg%3e";export{e as default};
-//# sourceMappingURL=dva-icon-facebook-24px.scljaYnp.js.map
