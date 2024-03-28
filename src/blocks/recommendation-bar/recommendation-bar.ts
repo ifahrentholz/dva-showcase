@@ -1,5 +1,6 @@
 import { cleanUpBlock } from "Utils/cleanUpBlock";
 import { html, render } from "lit";
+
 import "./recommendation-bar.scss";
 
 interface RecommendationBarTemplateArgs {
@@ -16,6 +17,13 @@ function openModal() {
   if (overlay) {
     overlay.classList.add("dva-state-active");
     console.log("correct");
+  }
+}
+
+function closeModal() {
+  const overlay = document.getElementById("recommendationOverlay");
+  if (overlay) {
+    overlay.classList.remove("dva-state-active");
   }
 }
 
@@ -67,6 +75,7 @@ const recommendationBarTemplate = (args: RecommendationBarTemplateArgs) => {
             <button
               type="button"
               class="dva-e-button dvag-m-basic-overlay__close dvag-m-recommendation-bar__overlay-close dva-e-button--icon-only"
+              @click=${closeModal}
             >
               <div class="dva-e-button__background"></div>
               <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="dva-icon-close"></dva-e-icon>
@@ -82,7 +91,7 @@ const recommendationBarTemplate = (args: RecommendationBarTemplateArgs) => {
             <div class="dvag-m-recommendation-bar__recommendation-items-wrapper">
               <a
                 class="dva-e-button dva-e-button--secondary dva-e-button--rebrush dva-e-button--icon-only dvag-m-recommendation-bar__recommendation-item"
-                href="mailto:%20?subject=Ein%20Tipp%20von%20mir&amp;body=Hallo%21%0A%0AOb%20Arzt%2C%20Steuerberater%20oder%20Handwerker%20%E2%80%93%20es%20ist%20nicht%20einfach%2C%20den%20richtigen%20zu%20finden.%20Ich%20kenne%20jemanden%2C%20auf%20den%20ich%20mich%20bei%20allen%20Fragen%20rund%20um%20Finanzen%2C%20Vorsorge%20und%20Absicherung%20100-prozentig%20verlassen%20kann.%0A%0ASchau%20dir%20mal%20diese%20Seite%20an%3A%20https://www.dvag.de/Benjamin.Rube%0A%0AIch%20bin%20top%20zufrieden.%20Das%20wirst%20du%20auch%20sein%21%0A%0AProbiere%20es%20mal%20aus%20%E2%80%93%20du%20kannst%20einen%20Termin%20zum%20Kennenlernen%20direkt%20auf%20der%20Seite%20vereinbaren.%0A%0AViele%20Gr%C3%BC%C3%9Fe"
+                href=""
                 target="_blank"
               >
                 <div class="dva-e-button__background"></div>
@@ -103,6 +112,7 @@ export default function (block: HTMLElement) {
   const rating = block.children[3].textContent || "";
   const modalHeadline = block.children[4].textContent || "";
   const modalText = block.children[5].textContent || "";
+
   cleanUpBlock(block);
 
   render(recommendationBarTemplate({ headline, text, url, rating, modalHeadline, modalText }), block);
