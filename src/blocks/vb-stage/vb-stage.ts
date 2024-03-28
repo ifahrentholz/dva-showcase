@@ -49,7 +49,11 @@ const template = (args: VBStageArgs) => {
               playsinline=""
               poster="${args.videoFallback?.src}"
             >
-              <source data-src="video/${args.videoName}.754.564.mp4" type="video/mp4" data-dva-mq="1-3" />
+              <source
+                data-src="${window.hlx.codeBasePath}/dist/video/${args.videoName}.754.564.mp4"
+                type="dist/video/mp4"
+                data-dva-mq="1-3"
+              />
             </video>
             <video
               class="dva-e-lazy-video__video dva-js-lazy-video__video dva-state-loaded"
@@ -60,7 +64,7 @@ const template = (args: VBStageArgs) => {
               poster="${args.videoFallback?.src}"
             >
               <source
-                data-src="video/${args.videoName}.1200.500.mp4"
+                data-src="${window.hlx.codeBasePath}/dist/video/${args.videoName}.1200.500.mp4"
                 type="video/mp4"
                 data-dva-mq="4-5"
                 poster="${args.videoFallback?.src}"
@@ -91,24 +95,14 @@ const template = (args: VBStageArgs) => {
             <div class="dvag-m-c04-vb-stage__vb-inner-content">
               <div class="dvag-m-c04-vb-stage__rating-wrapper">
                 <dva-m-rating-box class="dva-m-rating-box" rating="${args.rating}">
-                  <div class="dva-m-rating-box__ratingstar-wrapper">
-                    <dva-e-icon icon-id="dva-icon-star" class="dva-e-rating-star dva-e-rating-star--full"></dva-e-icon>
-                    <dva-e-icon icon-id="dva-icon-star" class="dva-e-rating-star dva-e-rating-star--full"></dva-e-icon>
-                    <dva-e-icon icon-id="dva-icon-star" class="dva-e-rating-star dva-e-rating-star--full"></dva-e-icon>
-                    <dva-e-icon icon-id="dva-icon-star" class="dva-e-rating-star dva-e-rating-star--full"></dva-e-icon>
-                    <dva-e-icon icon-id="dva-icon-star" class="dva-e-rating-star dva-e-rating-star--full"></dva-e-icon>
-                  </div>
+                  <div class="dva-m-rating-box__ratingstar-wrapper"></div>
                   <span class="dvag-e-form-field__error">
                     <dva-e-icon class="dvag-e-form-field__error-icon" icon-id="dva-icon-error-16px"></dva-e-icon> Bitte
                     bewerten Sie.
                   </span>
                 </dva-m-rating-box>
                 <p class="dvag-m-c04-vb-stage__rating-label">
-                  5 von 5 Sternen<a
-                    class="dvag-m-c04-vb-stage__rating-link"
-                    href="/benjamin.rube/ueber-uns/alle-bewertungen.html"
-                    >15 Bewertungen</a
-                  >
+                  5 von 5 Sternen<a class="dvag-m-c04-vb-stage__rating-link" href="#">15 Bewertungen</a>
                 </p>
               </div>
 
@@ -121,14 +115,11 @@ const template = (args: VBStageArgs) => {
                 id="contact_c04-vb-stage"
                 no-cookie-hide="no-cookie-hide"
               >
-                <!-- template vb-contact-overlay-toggle -->
                 <div class="dva-e-button__background"></div>
                 <span class="dva-e-button__label"> Kontakt aufnehmen </span>
 
                 <dva-e-icon class="dva-e-button__icon" icon-id="dva-icon-contact-new"></dva-e-icon>
               </dvag-e-c26-vb-contact-overlay-toggle>
-
-              <!--  Fallback to VB Finder if requested by vbFinderFallback-Flag and if there is no VB Context given -->
             </div>
           </div>
         </div>
