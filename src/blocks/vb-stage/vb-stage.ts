@@ -33,7 +33,11 @@ enum blockRows {
   buttonLabel,
 }
 
-const template = (args: VBStageArgs) => {
+const getPublicVideoPath = (fileName: string) => {
+  return `${window.hlx.codeBasePath}/dist/video/${fileName}`;
+};
+
+const template = ({ description, image, name, rating, titel, videoFallback, videoName }: VBStageArgs) => {
   return html`
     <div class="c04-vbstage dvag-h-margin-bottom--none">
       <dvag-m-c04-vb-stage class="dvag-m-c04-vb-stage " id="c04-vb-stage">
@@ -47,13 +51,9 @@ const template = (args: VBStageArgs) => {
               muted=""
               loop=""
               playsinline=""
-              poster="${args.videoFallback?.src}"
+              poster="${videoFallback?.src}"
             >
-              <source
-                data-src="${window.hlx.codeBasePath}/dist/video/${args.videoName}.754.564.mp4"
-                type="dist/video/mp4"
-                data-dva-mq="1-3"
-              />
+              <source data-src="${getPublicVideoPath(videoName)}.754.564.mp4" type="dist/video/mp4" data-dva-mq="1-3" />
             </video>
             <video
               class="dva-e-lazy-video__video dva-js-lazy-video__video dva-state-loaded"
@@ -61,13 +61,13 @@ const template = (args: VBStageArgs) => {
               muted=""
               loop=""
               playsinline=""
-              poster="${args.videoFallback?.src}"
+              poster="${videoFallback?.src}"
             >
               <source
-                data-src="${window.hlx.codeBasePath}/dist/video/${args.videoName}.1200.500.mp4"
+                data-src="${getPublicVideoPath(videoName)}.1200.500.mp4"
                 type="video/mp4"
                 data-dva-mq="4-5"
-                poster="${args.videoFallback?.src}"
+                poster="${videoFallback?.src}"
               />
             </video>
           </dva-e-lazy-video>
@@ -84,8 +84,8 @@ const template = (args: VBStageArgs) => {
             <div class="dvag-m-c04-vb-stage__vb-image-wrapper">
               <dva-e-lazy-image
                 class="dva-e-lazy-image dva-js-lazy-image dvag-m-c04-vb-stage__vb-portrait dva-state-initialized dva-state-invp dva-state-loaded"
-                src="${args.image?.src}"
-                alt="${args.image?.alt}"
+                src="${image?.src}"
+                alt="${image?.alt}"
                 aspect-ratio="1:1"
               ></dva-e-lazy-image>
             </div>
@@ -94,7 +94,7 @@ const template = (args: VBStageArgs) => {
           <div class="dvag-m-c04-vb-stage__vb-content">
             <div class="dvag-m-c04-vb-stage__vb-inner-content">
               <div class="dvag-m-c04-vb-stage__rating-wrapper">
-                <dva-m-rating-box class="dva-m-rating-box" rating="${args.rating}">
+                <dva-m-rating-box class="dva-m-rating-box" rating="${rating}">
                   <div class="dva-m-rating-box__ratingstar-wrapper"></div>
                   <span class="dvag-e-form-field__error">
                     <dva-e-icon class="dvag-e-form-field__error-icon" icon-id="dva-icon-error-16px"></dva-e-icon> Bitte
@@ -106,9 +106,9 @@ const template = (args: VBStageArgs) => {
                 </p>
               </div>
 
-              <p class="dvag-m-c04-vb-stage__vb-name">${args.name}</p>
-              <p class="dvag-m-c04-vb-stage__vb-info">${args.description}</p>
-              <p class="dvag-m-c04-vb-stage__vb-title">${args.titel}</p>
+              <p class="dvag-m-c04-vb-stage__vb-name">${name}</p>
+              <p class="dvag-m-c04-vb-stage__vb-info">${description}</p>
+              <p class="dvag-m-c04-vb-stage__vb-title">${titel}</p>
 
               <dvag-e-c26-vb-contact-overlay-toggle
                 class="dvag-e-c26-vb-contact-overlay-toggle dva-e-button dva-e-button--rebrush dva-e-button--small dvag-m-c04-vb-stage__cta dva-e-button--white dva-state-active"
@@ -161,7 +161,6 @@ export default function (block: HTMLElement) {
     buttonLabel: getChildNodeText(block, blockRows.buttonLabel),
   };
 
-  console.log(args);
   cleanUpBlock(block);
   render(template(args), block);
 }
