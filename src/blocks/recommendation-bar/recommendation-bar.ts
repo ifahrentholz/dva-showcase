@@ -10,13 +10,13 @@ interface RecommendationBarTemplateArgs {
   rating: number;
   modalHeadline?: string;
   modalText?: string;
+  socialMediaLinks: { [key: string]: string };
 }
 
 function openModal() {
   const overlay = document.getElementById("recommendationOverlay");
   if (overlay) {
     overlay.classList.add("dva-state-active");
-    console.log("correct");
   }
 }
 
@@ -37,6 +37,23 @@ const recommendationBarTemplate = (args: RecommendationBarTemplateArgs) => {
     }
     return stars;
   };
+
+  const generateSocialMediaIcons = (socialMediaLinks: { [key: string]: string }) => {
+    return Object.entries(socialMediaLinks).map(([name, link]) => {
+      const iconName = `dva-icon-${name}-24px`;
+      return html`
+        <a
+          class="dva-e-button dva-e-button--secondary dva-e-button--rebrush dva-e-button--icon-only dvag-m-recommendation-bar__recommendation-item"
+          href="${link}"
+          target="_blank"
+        >
+          <div class="dva-e-button__background"></div>
+          <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="${iconName}"></dva-e-icon>
+        </a>
+      `;
+    });
+  };
+
   return html`
     <div class="dvag-m-recommendation-bar">
       <div class="dvag-grid">
@@ -89,14 +106,7 @@ const recommendationBarTemplate = (args: RecommendationBarTemplateArgs) => {
             <h3 class="dvag-m-recommendation-bar__overlay-headline">${args.modalHeadline}</h3>
             <p class="dvag-m-recommendation-bar__overlay-text">${args.modalText}</p>
             <div class="dvag-m-recommendation-bar__recommendation-items-wrapper">
-              <a
-                class="dva-e-button dva-e-button--secondary dva-e-button--rebrush dva-e-button--icon-only dvag-m-recommendation-bar__recommendation-item"
-                href=""
-                target="_blank"
-              >
-                <div class="dva-e-button__background"></div>
-                <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="dva-icon-mail-32px"></dva-e-icon>
-              </a>
+              ${generateSocialMediaIcons(args.socialMediaLinks)}
             </div>
           </div>
         </div>
@@ -112,8 +122,20 @@ export default function (block: HTMLElement) {
   const rating = block.children[3].textContent || "";
   const modalHeadline = block.children[4].textContent || "";
   const modalText = block.children[5].textContent || "";
+  const socialMediaLinks: { [key: string]: string } = {};
 
+  for (let i = 6; i < block.children.length; i++) {
+    const nameElement = block.children[i].querySelector("div");
+    const linkElement = block.children[i].querySelector("div + div");
+    if (nameElement && linkElement) {
+      const socialMediaName = nameElement.textContent?.trim().toLowerCase();
+      const socialMediaLink = linkElement.textContent || "";
+
+      if (socialMediaName && socialMediaName !== "#") {
+        socialMediaLinks[socialMediaName] = socialMediaLink;
+      }
+    }
+  }
   cleanUpBlock(block);
-
-  render(recommendationBarTemplate({ headline, text, url, rating, modalHeadline, modalText }), block);
+  render(recommendationBarTemplate({ headline, text, url, rating, modalHeadline, modalText, socialMediaLinks }), block);
 }

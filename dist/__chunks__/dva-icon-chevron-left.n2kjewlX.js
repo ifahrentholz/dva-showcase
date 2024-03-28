@@ -1,2 +1,0 @@
-const o="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20width='24px'%20height='24px'%20viewBox='0%200%2024%2024'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cpolygon%20id='Icon'%20points='14.6518088%204%2016%205.41837809%208.88103511%2011.9990279%2016%2018.5816219%2014.6518088%2020%206%2012'%3e%3c/polygon%3e%3c/svg%3e";export{o as default};
-//# sourceMappingURL=dva-icon-chevron-left.n2kjewlX.js.map
