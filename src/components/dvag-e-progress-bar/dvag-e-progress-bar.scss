@@ -1,0 +1,16 @@
+.dvag-e-progress-bar {
+  @extend %dvag-grid-container-col-1-8;
+  @extend %dvag-grid-container-col-4-6;
+
+  display: block;
+  height: 4px;
+  margin: 0 auto 24px;
+  background-color: $dvag-color__black-100;
+
+  &__progress-indicator {
+    width: 0;
+    height: 4px;
+    background-color: $dvag-color__gold-500;
+    transition-property: width;
+  }
+}
