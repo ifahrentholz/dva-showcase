@@ -11,6 +11,8 @@ type Stars = 0.5 | 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 | 4.5 | 5;
 
 interface VBStageArgs {
   image?: HTMLImageElement;
+  videoFallback?: HTMLImageElement;
+  videoName: string;
   name: string;
   description: string;
   titel: string;
@@ -20,13 +22,15 @@ interface VBStageArgs {
 }
 
 enum blockRows {
-  image = 0,
-  name = 1,
-  description = 2,
-  titel = 3,
-  rating = 4,
-  shared = 5,
-  buttonLabel = 6,
+  image,
+  videoFallback,
+  videoName,
+  name,
+  description,
+  titel,
+  rating,
+  shared,
+  buttonLabel,
 }
 
 const template = (args: VBStageArgs) => {
@@ -43,13 +47,9 @@ const template = (args: VBStageArgs) => {
               muted=""
               loop=""
               playsinline=""
-              poster="/content/dam/projects/dvag/bilder/konfigurator/bilder/konfigurator-hintergrund-1.jpg/jcr:content/renditions/cq5dam.web.750.422.jpeg"
+              poster="${args.videoFallback?.src}"
             >
-              <source
-                data-src="/content/dam/projects/dvag/bilder/konfigurator/bilder/konfigurator-hintergrund-1.jpg/jcr:content/renditions/cq5dam.video.754.564.mp4"
-                type="video/mp4"
-                data-dva-mq="1-3"
-              />
+              <source data-src="video/${args.videoName}.754.564.mp4" type="video/mp4" data-dva-mq="1-3" />
             </video>
             <video
               class="dva-e-lazy-video__video dva-js-lazy-video__video dva-state-loaded"
@@ -57,13 +57,13 @@ const template = (args: VBStageArgs) => {
               muted=""
               loop=""
               playsinline=""
-              poster="/content/dam/projects/dvag/bilder/konfigurator/bilder/konfigurator-hintergrund-1.jpg/jcr:content/renditions/cq5dam.web.1200.500.jpeg"
+              poster="${args.videoFallback?.src}"
             >
               <source
-                data-src="/content/dam/projects/dvag/bilder/konfigurator/bilder/konfigurator-hintergrund-1.jpg/jcr:content/renditions/cq5dam.video.1200.500.mp4"
+                data-src="video/${args.videoName}.1200.500.mp4"
                 type="video/mp4"
                 data-dva-mq="4-5"
-                src="/content/dam/projects/dvag/bilder/konfigurator/bilder/konfigurator-hintergrund-1.jpg/jcr:content/renditions/cq5dam.video.1200.500.mp4"
+                poster="${args.videoFallback?.src}"
               />
             </video>
           </dva-e-lazy-video>
@@ -80,36 +80,29 @@ const template = (args: VBStageArgs) => {
             <div class="dvag-m-c04-vb-stage__vb-image-wrapper">
               <dva-e-lazy-image
                 class="dva-e-lazy-image dva-js-lazy-image dvag-m-c04-vb-stage__vb-portrait dva-state-initialized dva-state-invp dva-state-loaded"
-                src="/content/dam/vbdata/dvag/b/e/n/benjamin.rube/vbportrait_mask_01.png/jcr:content/renditions/cq5dam.heroimageportrait.png"
-                alt="Portrait Benjamin Rube, Bankkaufmann (IHK)"
+                src="${args.image?.src}"
+                alt="${args.image?.alt}"
                 aspect-ratio="1:1"
               ></dva-e-lazy-image>
             </div>
           </div>
+
           <div class="dvag-m-c04-vb-stage__vb-content">
             <div class="dvag-m-c04-vb-stage__vb-inner-content">
               <div class="dvag-m-c04-vb-stage__rating-wrapper">
-                <dva-m-rating-box class="dva-m-rating-box" rating="${args.rating}"
-                  ><!---->
+                <dva-m-rating-box class="dva-m-rating-box" rating="${args.rating}">
                   <div class="dva-m-rating-box__ratingstar-wrapper">
-                    <!---->
                     <dva-e-icon icon-id="dva-icon-star" class="dva-e-rating-star dva-e-rating-star--full"></dva-e-icon>
-                    <!---->
                     <dva-e-icon icon-id="dva-icon-star" class="dva-e-rating-star dva-e-rating-star--full"></dva-e-icon>
-                    <!---->
                     <dva-e-icon icon-id="dva-icon-star" class="dva-e-rating-star dva-e-rating-star--full"></dva-e-icon>
-                    <!---->
                     <dva-e-icon icon-id="dva-icon-star" class="dva-e-rating-star dva-e-rating-star--full"></dva-e-icon>
-                    <!---->
                     <dva-e-icon icon-id="dva-icon-star" class="dva-e-rating-star dva-e-rating-star--full"></dva-e-icon>
-                    <!---->
                   </div>
                   <span class="dvag-e-form-field__error">
                     <dva-e-icon class="dvag-e-form-field__error-icon" icon-id="dva-icon-error-16px"></dva-e-icon> Bitte
                     bewerten Sie.
                   </span>
-                  <!----></dva-m-rating-box
-                >
+                </dva-m-rating-box>
                 <p class="dvag-m-c04-vb-stage__rating-label">
                   5 von 5 Sternen<a
                     class="dvag-m-c04-vb-stage__rating-link"
@@ -119,14 +112,9 @@ const template = (args: VBStageArgs) => {
                 </p>
               </div>
 
-              <p class="dvag-m-c04-vb-stage__vb-name">Benjamin Rube</p>
-              <p class="dvag-m-c04-vb-stage__vb-info">Ihr Vermögensberater aus Berlin</p>
-
-              <p class="dvag-m-c04-vb-stage__vb-title">Bankkaufmann (IHK)</p>
-
-              <!--  CTA ... classic link -->
-
-              <!-- ... or vb-contact-overlay-toggle -->
+              <p class="dvag-m-c04-vb-stage__vb-name">${args.name}</p>
+              <p class="dvag-m-c04-vb-stage__vb-info">${args.description}</p>
+              <p class="dvag-m-c04-vb-stage__vb-title">${args.titel}</p>
 
               <dvag-e-c26-vb-contact-overlay-toggle
                 class="dvag-e-c26-vb-contact-overlay-toggle dva-e-button dva-e-button--rebrush dva-e-button--small dvag-m-c04-vb-stage__cta dva-e-button--white dva-state-active"
@@ -150,8 +138,8 @@ const template = (args: VBStageArgs) => {
 };
 
 const getChildNodeText = (element: HTMLElement, index: number): string => {
-  const childNode = element.childNodes[index];
-  return childNode.textContent?.trim() || "";
+  const childNode = element.children[index];
+  return childNode.textContent?.trim() ?? "";
 };
 
 const getChildNodeInt = (element: HTMLElement, index: number): number => {
@@ -171,7 +159,9 @@ const getStars = (element: HTMLElement, index: number): Stars => {
 
 export default function (block: HTMLElement) {
   const args: VBStageArgs = {
-    image: block.querySelector("img") || undefined,
+    image: block.children[blockRows.image].querySelector("img") ?? undefined,
+    videoFallback: block.children[blockRows.videoFallback].querySelector("img") ?? undefined,
+    videoName: getChildNodeText(block, blockRows.videoName),
     name: getChildNodeText(block, blockRows.name),
     description: getChildNodeText(block, blockRows.description),
     titel: getChildNodeText(block, blockRows.titel),
@@ -180,6 +170,7 @@ export default function (block: HTMLElement) {
     buttonLabel: getChildNodeText(block, blockRows.buttonLabel),
   };
 
+  console.log(args);
   cleanUpBlock(block);
   render(template(args), block);
 }
