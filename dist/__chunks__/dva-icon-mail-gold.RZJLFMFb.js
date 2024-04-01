@@ -1,0 +1,2 @@
+const e="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20viewBox='0%200%2024%2024'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cpath%20d='M22,4%20L22,20%20L2,20%20L2,4%20L22,4%20Z%20M20,7.044%20L12,13.2668616%20L4,7.044%20L4,18%20L20,18%20L20,7.044%20Z%20M18.085,6%20L5.915,6%20L12,10.733%20L18.085,6%20Z'%20fill='%23AA8C41'%3e%3c/path%3e%3c/svg%3e";export{e as default};
+//# sourceMappingURL=dva-icon-mail-gold.RZJLFMFb.js.map

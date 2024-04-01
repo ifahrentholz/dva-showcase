@@ -1,0 +1,40 @@
+const t=`<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 68 68" style="enable-background:new 0 0 68 68;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:none;}
+	.st2{fill:#F2F1E9;}
+</style>
+<g>
+	<polygon class="st0" points="34.1,9 38.4,13.2 51.1,0.5 50.6,0 42.1,0 42.6,0.5 	"/>
+	<polygon class="st0" points="16.7,0 8.2,0 8.7,0.5 4.5,4.7 0,9.2 0,17.6 17.2,0.5 	"/>
+	<polygon class="st0" points="26.1,68 33.7,68 29.9,64.2 	"/>
+	<polygon class="st0" points="29.9,4.7 34.1,0.5 33.6,0 26.1,0 25.7,0.5 	"/>
+	<polygon class="st0" points="59.7,17.3 51.1,25.9 55.3,30.1 68,17.4 68,9.2 59.7,17.5 	"/>
+	<rect x="60.8" y="31.5" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -5.6589 55.1385)" class="st0" width="5.9" height="5.9"/>
+	<polygon class="st0" points="55.3,4.7 42.6,17.5 46.8,21.7 68,0.5 68,0 59.1,0 59.5,0.5 	"/>
+	<polygon class="st0" points="0,34.2 0,34.5 0.2,34.4 	"/>
+	<polygon class="st0" points="0,51.4 0,59.8 4.5,64.3 8.2,68 16.6,68 0,51.3 	"/>
+	<polygon class="st0" points="17.2,9 38.4,30.3 42.6,34.5 42.5,34.6 42.6,34.6 38.4,38.8 17.2,60 21.4,64.2 25.8,59.8 25.6,59.8 
+		51.1,34.4 21.4,4.7 	"/>
+	<polygon class="st0" points="55.4,38.8 51.2,43 68,59.8 68,51.4 	"/>
+	<polygon class="st0" points="12.9,13.2 8.7,17.4 21.4,30.2 25.6,34.4 25.6,34.5 21.4,38.7 8.7,51.4 12.9,55.6 13,55.5 34.1,34.4 	
+		"/>
+	<polygon class="st0" points="34.1,60 38.4,64.2 42.2,68 50.6,68 38.3,55.8 	"/>
+	<polygon class="st0" points="42.6,51.4 51,59.8 50.9,59.8 55.3,64.2 59.1,68 67.6,68 46.8,47.2 	"/>
+	<polygon class="st0" points="4.4,21.7 0.2,26.1 8.7,34.6 0.3,43 4.4,47.1 17.1,34.4 	"/>
+	<path class="st1" d="M68,0.4"/>
+	<path class="st2" d="M55.4,38.8L68,51.4v-17l-4.2,4.2l-4.2-4.2l4.2-4.2l4.2,4.2v-0.1V17.4L55.3,30.1l-4.2-4.2L68,9.2V0.5L46.8,21.7
+		l-4.2-4.2l16.9-17L59.1,0h-8.5l0.5,0.5L38.4,13.2L34.1,9l8.5-8.5L42.1,0h-8.4h-0.1l0.5,0.5l-4.2,4.2l-4.2-4.2L26.1,0h-9.4l0.5,0.5
+		L0,17.6v33.7L16.6,68h9.5l3.8-3.8l3.8,3.8h8.4h0.1l-3.8-3.8L34.1,60l4.2-4.2L50.6,68h8.5l-3.8-3.8l-4.4-4.4H51l-8.4-8.4l4.2-4.2
+		L67.6,68H68v-8.2L51.2,43L55.4,38.8z M0.3,43l8.4-8.4l-8.5-8.5l4.2-4.4l12.7,12.7L4.4,47.1L0.3,43z M13,55.5l-0.1,0.1l-4.2-4.2
+		l12.7-12.7l4.2-4.2v-0.1l-4.2-4.2L8.7,17.4l4.2-4.2l21.2,21.2L13,55.5z M21.4,64.2L17.2,60l25.4-25.4v-0.1L17.2,9l4.2-4.3
+		l29.7,29.7L21.4,64.2z"/>
+	<polygon class="st2" points="0,59.8 0,68 8.2,68 	"/>
+	<polygon class="st2" points="8.7,0.5 8.2,0 0,0 0,0.3 0.2,0.5 0,0.7 0,9.2 	"/>
+</g>
+</svg>
+`;export{t as default};
+//# sourceMappingURL=dva-icon-spikes-pattern.npvMG6ni.js.map
