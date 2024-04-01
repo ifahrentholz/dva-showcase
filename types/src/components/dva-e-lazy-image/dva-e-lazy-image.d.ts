@@ -1,6 +1,10 @@
 import { Component } from "@kluntje/core";
 export type ImageInitType = "lazy" | "explicit";
-export declare class DvaLazyImage extends Component {
+export declare class DVALazyImage extends Component {
+    viewportObserver: IntersectionObserver;
+    _hasError: boolean;
+    _loadingPlaceholderLoaded: boolean;
+    _loadingPlaceholderLoadingError: boolean;
     constructor();
     connectedCallback(): void;
     get DEFAULT_FALLBACK_IMAGE(): string;
@@ -29,17 +33,25 @@ export declare class DvaLazyImage extends Component {
      * Returns value of 'aspect-ratio'-Attribute
      * @returns {string}
      */
-    get imgAspectRatio(): string;
+    get imgAspectRatio(): string | null;
     /**
      * Returns value of 'wrapper'-Attribute
      * @returns {string}
      */
     get imgWrapper(): string;
+    get noPlaceholder(): boolean;
     /**
      * Returns, whether loaded image is Wider than needed
      * @returns {boolean}
      */
     get hasOverWidth(): boolean;
+    get hasError(): boolean;
+    set hasError(newErrorState: boolean);
+    get hasLoadingPlaceholder(): boolean;
+    get loadingPlaceholderLoaded(): boolean;
+    set loadingPlaceholderLoaded(newLoadedState: boolean);
+    get loadingPlaceholderLoadingError(): boolean;
+    set loadingPlaceholderLoadingError(newErrorState: boolean);
     /**
      * Webcomponents Helper to observe Attribute Changes
      * @override
@@ -51,6 +63,8 @@ export declare class DvaLazyImage extends Component {
      * @returns {ImageInitType}
      */
     get initType(): ImageInitType;
+    getLoadingPlaceholderFromSrc(): string;
+    get loadingPlaceholder(): string;
     /**
      * Handles change of observed Attributes
      * @override

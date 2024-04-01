@@ -1,0 +1,7 @@
+.dva-e-lazy-image {
+  @extend .dva-e-loading-layer;
+
+  &__img {
+    max-width: none; // @TODO: remove when legacy FE is gone;
+  }
+}

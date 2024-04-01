@@ -5,6 +5,6 @@ export declare class DvagBasicOverlay extends Component {
     open(): Promise<void>;
     handleKeyboardsEvents(e: KeyboardEvent): void;
     handleCookieChange(): void;
-    handleOverlayClick(_e: Event): void;
+    handleOverlayClick(e: Event): void;
     handleCloseBtnClick(): void;
 }

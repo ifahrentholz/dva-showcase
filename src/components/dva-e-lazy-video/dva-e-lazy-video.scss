@@ -1,0 +1,14 @@
+.dva-e-lazy-video {
+  @extend .dva-e-loading-layer;
+
+  display: block;
+
+  &__video {
+    display: none;
+    width: 100%;
+  }
+
+  .dva-state-loaded.dva-e-lazy-video__video {
+    display: block;
+  }
+}
