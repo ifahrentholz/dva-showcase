@@ -1,0 +1,2 @@
+const e="data:image/svg+xml,%3csvg%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M4.45319%2024.0167L22.2105%2041.1607L24.4318%2038.8594L10.7069%2025.6082H43.7065V22.4082H10.723L24.4318%209.16071L22.2105%206.85938L4.45319%2024.0167Z'/%3e%3c/svg%3e";export{e as default};
+//# sourceMappingURL=dva-icon-arrow-left-48px.MqfMOSA4.js.map

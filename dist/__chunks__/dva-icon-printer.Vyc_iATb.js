@@ -1,0 +1,18 @@
+const n=`<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>54638872-0C87-4BF1-9B04-860F6732E041</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Übersicht" stroke="none" stroke-width="1" fill-rule="evenodd">
+        <g id="ICONS" transform="translate(-258.000000, -1199.000000)" fill-rule="nonzero">
+            <g id="Icons" transform="translate(100.000000, 869.000000)">
+                <g id="20x20" transform="translate(158.000000, 170.000000)">
+                    <g id="Icon/20x20/printer" transform="translate(0.000000, 160.000000)">
+                        <path d="M18.5,4 L17,4 L17,1.5 C17,0.673 16.327,0 15.5,0 L4.5,0 C3.673,0 3,0.673 3,1.5 L3,4 L1.5,4 C0.673,4 0,4.673 0,5.5 L0,14.5 C0,15.327 0.673,16 1.5,16 L3,16 L3,18.5 C3,19.327 3.673,20 4.5,20 L15.5,20 C16.327,20 17,19.327 17,18.5 L17,16 L18.5,16 C19.327,16 20,15.327 20,14.5 L20,5.5 C20,4.673 19.327,4 18.5,4 Z M4,1.5 C4,1.224 4.224,1 4.5,1 L15.5,1 C15.776,1 16,1.224 16,1.5 L16,4 L4,4 L4,1.5 Z M15.5,19 L4.5,19 C4.224,19 4,18.776 4,18.5 L4,12 L16,12 L16,18.5 C16,18.776 15.776,19 15.5,19 Z M19,14.5 C19,14.776 18.776,15 18.5,15 L17,15 L17,12 L17.5,12 C17.776,12 18,11.776 18,11.5 C18,11.224 17.776,11 17.5,11 L2.5,11 C2.224,11 2,11.224 2,11.5 C2,11.776 2.224,12 2.5,12 L3,12 L3,15 L1.5,15 C1.224,15 1,14.776 1,14.5 L1,5.5 C1,5.224 1.224,5 1.5,5 L18.5,5 C18.776,5 19,5.224 19,5.5 L19,14.5 Z" id="🎨"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>`;export{n as default};
+//# sourceMappingURL=dva-icon-printer.Vyc_iATb.js.map

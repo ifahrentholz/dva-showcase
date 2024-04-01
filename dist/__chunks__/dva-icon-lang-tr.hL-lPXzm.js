@@ -1,0 +1,17 @@
+const l=`<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16345 24.8366 0 16 0C7.16344 0 0 7.16345 0 16C0 24.8366 7.16344 32 16 32Z" fill="#D3262F"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.0074 8.00024C17.4374 8.00024 21.0075 11.5704 21.0075 16.0004C21.0075 20.4305 17.4114 24.0006 13.0074 24.0006C8.57731 24.0006 5.0072 20.4044 5.0072 16.0004C5.0072 11.5704 8.57731 8.00024 13.0074 8.00024Z" fill="#FEFEFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.0139 9.58984C18.5579 9.58984 21.4245 12.4563 21.4245 16.0004C21.4245 19.5444 18.5579 22.411 15.0139 22.411C11.4698 22.411 8.60333 19.5444 8.60333 16.0004C8.60333 12.4563 11.4698 9.58984 15.0139 9.58984Z" fill="#D3262F"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.7827 16.0005L23.5612 17.2253L24.1867 15.323L19.7827 16.0005Z" fill="#FEFEFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.7827 16.0004L23.5612 14.7756L24.1867 16.6779L19.7827 16.0004Z" fill="#FEFEFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.5451 12.1958V16.1829H24.5256L22.5451 12.1958Z" fill="#FEFEFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.5451 12.1958L24.8904 15.4272L23.2748 16.5998L22.5451 12.1958Z" fill="#FEFEFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.5451 19.8051L24.8904 16.5738L23.2748 15.4011L22.5451 19.8051Z" fill="#FEFEFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.5451 19.8051V15.792H24.5256L22.5451 19.8051Z" fill="#FEFEFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M27.0011 13.6551L23.1965 14.8799L23.8219 16.7822L27.0011 13.6551Z" fill="#FEFEFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M27.0011 13.6551L24.6558 16.8865L23.0401 15.7138L27.0011 13.6551Z" fill="#FEFEFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M27.0011 18.3456L24.6558 15.1143L23.0401 16.287L27.0011 18.3456Z" fill="#FEFEFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M27.0011 18.3457L23.1965 17.1209L23.8219 15.2186L27.0011 18.3457Z" fill="#FEFEFE"/>
+</svg>
+`;export{l as default};
+//# sourceMappingURL=dva-icon-lang-tr.hL-lPXzm.js.map
