@@ -1,0 +1,34 @@
+.dvag-m-c05-list-entry {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 40px;
+
+  @include breakpoint($mq-4-and-up) {
+    flex-direction: row;
+  }
+
+  &__image-wrapper {
+    width: 48px;
+    height: 48px;
+    margin: 0 0 8px;
+
+    @include breakpoint($mq-4-and-up) {
+      margin: 0 8px 0 0;
+    }
+  }
+
+  &__image {
+    width: 48px;
+    height: 48px;
+  }
+
+  &__headline {
+    @extend %dva-type-700;
+
+    margin: 0 0 8px;
+  }
+
+  &__text {
+    margin: 0;
+  }
+}

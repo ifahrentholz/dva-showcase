@@ -1,0 +1,17 @@
+---
+layout: default
+title: "[C08] Barcomponent"
+---
+
+{{#each dvag-m-c08-barcomponent__data.variants}}
+  <div class="dvag-grid">
+    <div class="dvag-grid-row">
+      <div class="dvag-grid-col-1-12">
+        <h3 class="dva-lsg-typography__headline">{{this.title}}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="dvag-lsg-grid-demo">
+    {{> dvag-m-c08-barcomponent cols=this.cols}}
+  </div>
+{{/each}}

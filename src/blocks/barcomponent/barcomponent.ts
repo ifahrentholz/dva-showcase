@@ -17,8 +17,8 @@ enum blockRows {
   subheader,
   header,
   barImages,
-  barHeader,
-  barText,
+  barHeaders,
+  barTexts,
 }
 
 const template = (args: barComponentArgs) => {
@@ -28,22 +28,16 @@ const template = (args: barComponentArgs) => {
 
       <div class="dvag-m-skewed-box__content">
         <div class="dvag-m-section-header">
-          <h3 class="dvag-m-section-header__subheadline">Individuelles Finanzcoaching</h3>
-          <h2 class="dvag-m-section-header__headline">Ihre Vorteile auf einen Blick</h2>
+          <h3 class="dvag-m-section-header__subheadline">${args.subheader}</h3>
+          <h2 class="dvag-m-section-header__headline">${args.header}</h2>
         </div>
 
         <div class="dvag-m-c06-page-section__content-wrapper wcm-io-parsys">
-          <!-- primary - resourceType:  -->
-
-          <!-- secondary - resourceType:  -->
-
-          <!-- c08_barcomponent - resourceType: dvag/core/components/content/c08-barcomponent -->
           <div class="wcm-io-parsys dvag-h-margin-bottom--none">
             <div class="dvag-m-c08-barcomponent">
               <div class="dvag-grid">
                 <div class="dvag-grid-row wcm-io-parsys">
                   <div class="dvag-grid-col-1-12 dvag-grid-col-3-4">
-                    <!-- c05_listentry - resourceType: dvag/core/components/content/c05-listentry -->
                     <div class="c05-listentry">
                       <div class="dvag-m-c05-list-entry">
                         <div class="dvag-m-c05-list-entry__image-wrapper">
@@ -162,15 +156,15 @@ const getBars = (block: HTMLElement): Bar[] => {
   return [...block.children[blockRows.barImages].children].map((imageRow, index) => {
     return {
       image: imageRow.querySelector("img") || undefined,
-      header: getChildNodeText(block.children[blockRows.barHeader], index),
-      text: getChildNodeText(block.children[blockRows.barText], index),
+      header: getChildNodeText(block.children[blockRows.barHeaders], index),
+      text: getChildNodeText(block.children[blockRows.barTexts], index),
     };
   });
 };
 export default function (block: HTMLElement) {
   const args: barComponentArgs = {
     subheader: getChildNodeText(block, blockRows.subheader),
-    header: getChildNodeText(block, blockRows.barHeader),
+    header: getChildNodeText(block, blockRows.barHeaders),
     bars: getBars(block),
   };
 

@@ -1,0 +1,24 @@
+{
+  "variants": [
+    {
+      "title": "[C06] Page Section - Default",
+      "cssClasses": ""
+    },
+    {
+      "title": "[C06] Page Section - Grey background",
+      "cssClasses": "dvag-h-background--grey"
+    },
+    {
+      "title": "[C06] Page Section - Grey background with skew top",
+      "cssClasses": "dvag-h-background--grey dvag-h-skew--top"
+    },
+    {
+      "title": "[C06] Page Section - Grey background with skew bottom",
+      "cssClasses": "dvag-h-background--grey dvag-h-skew--bottom"
+    },
+    {
+      "title": "[C06] Page Section - Grey background with skew top and bottom",
+      "cssClasses": "dvag-h-background--grey dvag-h-skew--top dvag-h-skew--bottom"
+    }
+  ]
+}
