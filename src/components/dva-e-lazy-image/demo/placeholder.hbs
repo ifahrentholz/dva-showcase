@@ -1,0 +1,38 @@
+---
+layout: default
+noToolbar: true
+src: 'resources/img/test-1__1280.jpeg'
+placeholderSrc: 'resources/img/test-1__60.jpeg'
+alt: "DVA Lazy Image with placeholder"
+aspectRatio: "16:9"
+nestedPath: "../"
+test:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+---
+
+<div class="dva-grid">
+  <div class="dva-grid-row">
+    {{#each this.test}}
+      <dva-e-lazy-image
+        class="dva-grid-col-mq1-12 dva-grid-col-mq2-6 dva-e-lazy-image dva-js-lazy-image {{../this.cssClasses}}"
+        loading-placeholder="{{pv-path @root ../this.placeholderSrc }}"
+        src="{{pv-path @root ../this.src}}"
+        alt="{{../this.alt}}"
+        aspect-ratio="{{../this.aspectRatio}}"
+        style="margin-bottom: 20px;"
+      >
+      </dva-e-lazy-image>
+    {{/each}}
+  </div>
+</div>

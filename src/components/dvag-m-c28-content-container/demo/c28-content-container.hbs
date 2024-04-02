@@ -1,0 +1,20 @@
+---
+layout: default
+title: "[C28] Content Container"
+---
+
+<div class="dvag-m-c28-content-container"></div>
+
+
+{{#each dvag-m-c28-content-container__data.variants}}
+  <div class="dvag-grid">
+    <div class="dvag-grid-row">
+      <div class="dvag-grid-col-1-12">
+        <h3 class="dva-lsg-typography__headline">{{this.title}}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="dvag-lsg-grid-demo">
+    {{> dvag-m-c28-content-container}}
+  </div>
+{{/each}}

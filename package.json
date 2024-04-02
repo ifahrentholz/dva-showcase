@@ -64,6 +64,7 @@
     "@kluntje/polyfills": "^0.2.0",
     "@kluntje/services": "^0.6.5",
     "lit": "3.1.1",
+    "lottie-web": "5.10.2",
     "js-cookie": "2.2.1"
   },
   "engines": {

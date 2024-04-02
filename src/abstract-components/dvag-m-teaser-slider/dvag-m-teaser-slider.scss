@@ -1,0 +1,85 @@
+.dvag-m-teaser-slider {
+  margin-bottom: 40px;
+
+  .dvag-m-basic-slider__slides {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    scroll-padding-left: 16px;
+
+    @include breakpoint($mq-2-and-up) {
+      scroll-padding-left: 24px;
+    }
+
+    @include breakpoint($mq-3-and-up) {
+      scroll-padding-left: 32px;
+    }
+
+    @include breakpoint($mq-4-and-up) {
+      scroll-padding-left: 40px;
+    }
+
+    @include breakpoint($mq-5-and-up) {
+      max-width: 1380px;
+      margin: 0 auto;
+      scroll-padding-left: 0;
+    }
+  }
+
+  .dvag-m-basic-slider__slide {
+    flex-basis: 284px;
+    margin: 0 8px;
+
+    @include breakpoint($mq-5-and-up) {
+      flex-basis: calc((100% - 48px) / 3);
+      margin: 0 12px;
+    }
+
+    &:first-of-type {
+      margin-left: 16px;
+
+      @include breakpoint($mq-2-and-up) {
+        margin-left: 24px;
+      }
+
+      @include breakpoint($mq-3-and-up) {
+        margin-left: 32px;
+      }
+
+      @include breakpoint($mq-5-and-up) {
+        margin-left: 0;
+      }
+    }
+
+    &:last-of-type {
+      position: relative;
+
+      @include breakpoint($mq-5-and-up) {
+        margin-right: 0;
+      }
+    }
+
+    &:last-of-type:after {
+      content: "";
+      position: absolute;
+      right: -16px;
+      display: block;
+      width: 16px;
+      height: 1px;
+
+      @include breakpoint($mq-2-and-up) {
+        right: -24px;
+        width: 24px;
+      }
+
+      @include breakpoint($mq-3-and-up) {
+        right: -32px;
+        width: 32px;
+      }
+
+      @include breakpoint($mq-5-and-up) {
+        display: none;
+      }
+    }
+  }
+}

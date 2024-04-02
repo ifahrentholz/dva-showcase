@@ -3,6 +3,8 @@ import "Components/icon/dva-e-icon.ts";
 import "Components/dva-e-lazy-image/dva-e-lazy-image.ts";
 import "Services/fetch.service.ts";
 import "Components/dvag-m-c11-accordion/dvag-m-c11-accordion.ts";
+import { ConsentManagementService } from "Services/ConsentManagementService.ts";
+
 import { BlockService } from "./services/block.service.ts";
 import { SectionService } from "./services/section.service.ts";
 import { MainService } from "./services/main.service.ts";
@@ -22,5 +24,7 @@ declare global {
       codeBasePath: string;
       lighthouse: boolean;
     };
+    Granite: any;
+    _dvaConsentManagementService: ConsentManagementService;
   }
 }
