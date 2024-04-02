@@ -9,10 +9,11 @@ interface TeaserTemplateArgs {
   textSecondPart?: string | null;
 }
 
-const teaserTemplateOverview = (args: TeaserTemplateArgs) => {
+const teaserTemplateOverview = (args: TeaserTemplateArgs, alignment: "left" | "right" = "right") => {
+  const textAlignmentClass = alignment === "left" ? "dvag-h-text--left" : "dvag-h-text--right";
   return html`
     <div
-      class="c01d-teaser teaser dvag-h-background--gradient dvag-h-margin-bottom--none dvag-h-text--right dvag-h-headline--bold"
+      class="c01d-teaser teaser dvag-h-background--gradient dvag-h-margin-bottom--none dvag-h-headline--bold ${textAlignmentClass}"
     >
       <div class="dvag-m-c01d-teaser  " style="--gradient-color:#CCDDE4">
         <div class="dvag-m-c01d-teaser__image-wrapper">
@@ -37,7 +38,7 @@ const teaserTemplateOverview = (args: TeaserTemplateArgs) => {
         </div>
         <div class="dvag-m-c01d-teaser__grid-wrapper">
           <div class="dvag-m-c01d-teaser__content-wrapper">
-            <h4 class="dvag-m-c01d-teaser__subheadline">${args.subheadline}</h4>
+            <h4 class="dvag-m-c01d-teaser__subheadline">bla bla bla</h4>
             <div class="dvag-m-c01d-teaser__headline">${args.headline}</div>
             <div class="dvag-m-c01d-teaser__text">
               <p>${args.textFirstPart}</p>
@@ -62,12 +63,12 @@ const teaserTemplateOverview = (args: TeaserTemplateArgs) => {
   `;
 };
 
-export default function (block: HTMLElement) {
+export default function renderTeaser(block: HTMLElement, alignment: "left" | "right" = "right") {
   const subheadline = block.children[0].textContent;
   const headline = block.children[1].textContent;
   const textFirstPart = block.children[2].textContent;
   const textSecondPart = block.children[3].textContent;
 
   cleanUpBlock(block);
-  render(teaserTemplateOverview({ subheadline, headline, textFirstPart, textSecondPart }), block);
+  render(teaserTemplateOverview({ subheadline, headline, textFirstPart, textSecondPart }, alignment), block);
 }
