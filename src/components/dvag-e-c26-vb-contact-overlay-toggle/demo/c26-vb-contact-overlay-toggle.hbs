@@ -1,0 +1,19 @@
+---
+layout: default
+title: "[C26] (VB) Contact Overlay Toggle"
+label: "Open [C26] (VB) Contact Overlay]"
+deeplinkingTarget: "kontakt"
+
+---
+
+{{> dvag-e-c26-vb-contact-overlay-toggle }}
+
+<!-- no api-url here to show static variant in LSG on Server -->
+<!-- to test markup-mock, add: api-url="/mocker/dvag-m-c26-vb-contact-overlay" -->
+<dvag-m-c26-vb-contact-overlay class="dvag-m-basic-overlay dvag-m-c26-vb-contact-overlay" deeplinking-target="{{this.deeplinkingTarget}}">
+  <div class="dvag-m-basic-overlay__content">
+    <div class="dvag-m-basic-overlay__inner-content">
+      {{> dvag-m-c26-vb-contact-overlay__inner-content }}
+    </div>
+  </div>
+</dvag-m-c26-vb-contact-overlay>

@@ -1,27 +1,21 @@
 ---
 layout: default
-src: https://via.placeholder.com/1200x675/aa8c41/dedede
-alt: "DVAG App"
+noToolbar: true
+alt: "DVA Lazy Image"
 aspectRatio: "16:9"
-srcset: "https://via.placeholder.com/480x270/aa8c41/dedede 480w,
-         https://via.placeholder.com/800x450/aa8c41/dedede 800w,
-         https://via.placeholder.com/1000x450/aa8c41/dedede 1000w,
-         https://via.placeholder.com/1200x675/aa8c41/dedede 1200w"
-sizes: "(max-width: 480px) 480px,
-        (max-width: 800px) 800px,
-        (max-width: 1000px) 1000px,
-        (min-width: 1001px) 1200px"
-wrapper: wrapper
+sizes: "100vw"
 ---
 
-<dva-e-lazy-image 
-  class="dva-e-lazy-image dva-js-lazy-image {{cssClasses}}"
-  src="{{pv-path @root this.src}}"
-  alt="{{this.alt}}"
-  srcset="{{this.srcset}}"
-  sizes="{{this.sizes}}"
-  aspect-ratio="{{this.aspectRatio}}"
-  wrapper="{{this.wrapper}}"
 
+<dva-e-lazy-image
+  class="dva-e-lazy-image {{cssClasses}}"
+  src="{{pv-path @root (pv-choose this.src (pv-img-placeholder "1200" (pv-choose this.dummyAspectRatio "16:9") this.dummyColor))}}"
+  alt="{{pv-choose this.alt "Image"}}"
+  srcset="{{dva-srcset (pv-choose this.srcsetBase "dummy") (pv-choose this.dummyAspectRatio "16:9") this.dummyColor this.srcsetFileType}}"
+  sizes="{{this.sizes}}"
+  loading-placeholder="{{pv-path @root (pv-choose this.loadingPlaceholder (pv-img-placeholder "60" (pv-choose this.dummyAspectRatio "16:9") this.dummyColor))}}"
+  aspect-ratio="{{this.aspectRatio}}"
+  {{#if this.noPlaceholder}}no-placeholder{{/if}}
 >
 </dva-e-lazy-image>
+

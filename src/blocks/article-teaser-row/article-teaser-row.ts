@@ -1,13 +1,13 @@
-import { renderLazyImage } from 'Components/dva-e-lazy-image/dva-e-lazy-image.template';
-import { renderIcon } from 'Components/icon/dva-e-icon.template';
-import { html, render } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
-import { renderCssClasses } from 'Utils/renderCssClasses';
-import './article-teaser-row.scss';
-import { cleanUpBlock } from 'Utils/cleanUpBlock';
+import { renderLazyImage } from "Components/dva-e-lazy-image/dva-e-lazy-image.template";
+import { renderIcon } from "Components/icon/dva-e-icon.template";
+import { html, render } from "lit";
+import { ifDefined } from "lit/directives/if-defined.js";
+import { renderCssClasses } from "Utils/renderCssClasses";
+import "./article-teaser-row.scss";
+import { cleanUpBlock } from "Utils/cleanUpBlock";
 
 interface ArticleTeaserArgs {
-  cssClasses?: string | 'dva-m-article-teaser--is-first';
+  cssClasses?: string | "dva-m-article-teaser--is-first";
   linkUrl: string;
   imageSrc: string;
   topline?: string;
@@ -23,9 +23,9 @@ const articleTeaserTemplate = (args: ArticleTeaserArgs) => {
         <a href="${args.linkUrl}" class="dva-m-article-teaser__image-link">
           ${renderLazyImage({
             src: args.imageSrc,
-            alt: 'header-finanz-und-versicherungscheck-beratung-frauen.jpg',
-            cssClasses: 'dva-m-article-teaser__image',
-            aspectRatio: '21:9',
+            alt: "header-finanz-und-versicherungscheck-beratung-frauen.jpg",
+            cssClasses: "dva-m-article-teaser__image",
+            aspectRatio: "21:9",
           })}
         </a>
         <div class="dva-m-article-teaser__content">
@@ -37,10 +37,10 @@ const articleTeaserTemplate = (args: ArticleTeaserArgs) => {
               ? html`
                   <a href="${args.linkUrl}" class="dva-e-link dva-m-teaser__cta" target="_self">
                     <span class="dva-e-link__label">Weiterlesen</span>
-                    ${renderIcon('dva-icon-arrow-right')}
+                    ${renderIcon("dva-icon-arrow-right")}
                   </a>
                 `
-              : undefined
+              : undefined,
           )}
         </div>
       </div>
@@ -69,7 +69,7 @@ const articleTeaserRowTemplate = (args: ArticleTeaserRowArgs) => {
           <div class="content-box clear col-s-12 col-m-12 col-l-12">
             <div class="bar">
               <div class="text">
-                <div class="col-wrapper">${args.teasers.map((teaser) => articleTeaserTemplate(teaser))}</div>
+                <div class="col-wrapper">${args.teasers.map(teaser => articleTeaserTemplate(teaser))}</div>
               </div>
             </div>
           </div>
@@ -91,19 +91,19 @@ const articleTeaserRowTemplate = (args: ArticleTeaserRowArgs) => {
 };
 
 export default function (block: HTMLElement) {
-  const headline = block.children[0].textContent || '';
+  const headline = block.children[0].textContent || "";
   const teasers = [...block.children[1].children].map((teaser, index) => {
-    const teaserImage = teaser.querySelector('img');
-    const teaserTopline = block.children[2].children[index].textContent || '';
-    const teaserHeadline = block.children[3].children[index].textContent || '';
-    const teaserText = block.children[4].children[index].textContent || '';
-    const teaserLink = block.children[5].children[index].querySelector('a');
-    const teaserLinkUrl = teaserLink?.getAttribute('href') || '';
-    const teaserLinkLabel = teaserLink?.textContent || '';
+    const teaserImage = teaser.querySelector("img");
+    const teaserTopline = block.children[2].children[index].textContent || "";
+    const teaserHeadline = block.children[3].children[index].textContent || "";
+    const teaserText = block.children[4].children[index].textContent || "";
+    const teaserLink = block.children[5].children[index].querySelector("a");
+    const teaserLinkUrl = teaserLink?.getAttribute("href") || "";
+    const teaserLinkLabel = teaserLink?.textContent || "";
 
     return {
       linkUrl: teaserLinkUrl,
-      imageSrc: teaserImage?.getAttribute('src') || '',
+      imageSrc: teaserImage?.src || "",
       topline: teaserTopline,
       headline: teaserHeadline,
       text: teaserText,
@@ -111,9 +111,9 @@ export default function (block: HTMLElement) {
     };
   });
 
-  const cta = block.children[6].querySelector('a');
-  const ctaUrl = cta?.getAttribute('href') || '';
-  const ctaLabel = cta?.textContent || '';
+  const cta = block.children[6].querySelector("a");
+  const ctaUrl = cta?.getAttribute("href") || "";
+  const ctaLabel = cta?.textContent || "";
 
   cleanUpBlock(block);
 
@@ -124,6 +124,6 @@ export default function (block: HTMLElement) {
       ctaLabel,
       ctaUrl,
     }),
-    block
+    block,
   );
 }
