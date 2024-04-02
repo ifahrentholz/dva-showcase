@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<div class="AEM-WRAPPER-ELEMENT">
+  <!-- @BE: add css-class "dvag-m-c04-vb-stage--no-vb-image" if no VB-cutout-image is available -->      
+  <dvag-m-c04-vb-stage class="dvag-m-c04-vb-stage {{cssClasses}}">
+    <div class="dvag-m-c04-vb-stage__background-wrapper">
+      {{#if hasImageBackground}}
+        <dva-e-lazy-image class="dva-e-lazy-image dva-h-preload dvag-m-c04-vb-stage__background-image"        
+            src="../dummy-content/images/sample/vb-stage/vb_stage_fallback_01_mq5-min.jpg"
+            alt="Background"
+            sizes="100vw"
+            srcset="../dummy-content/images/sample/vb-stage/vb_stage_fallback_01_mq5-min.jpg 480w, ../dummy-content/images/sample/vb-stage/vb_stage_fallback_01_mq5-min.jpg 760w, ../dummy-content/images/sample/vb-stage/vb_stage_fallback_01_mq5-min.jpg 1280w, ../dummy-content/images/sample/vb-stage/vb_stage_fallback_01_mq5-min.jpg 1440w, ../dummy-content/images/sample/vb-stage/vb_stage_fallback_01_mq5-min.jpg 1460w"
+            aspect-ratio="cover">
+        </dva-e-lazy-image>
+      {{else}}
+        {{> dva-e-lazy-video
+            cssClasses="dva-h-preload dva-h-preload__4-3--mq-1-3 dva-h-preload__21-9--mq-4-and-up dvag-m-c04-vb-stage__background-video"
+            sources=backgroundVideo
+        }}
+      {{/if}}
+      <div class="dvag-m-c04-vb-stage__skewed-box">
+        <div class="dva-h-skew--in"></div>
+        <div class="dva-m-skewed-box__content"></div>
+        <div class="dva-h-skew--out"></div>
+      </div>
+    </div>
+    <div class="dvag-m-c04-vb-stage__content-wrapper">
+      {{#if hasVbImage}}
+        <div class="dvag-m-c04-vb-stage__vb-image">
+          <div class="dvag-m-c04-vb-stage__vb-image-wrapper">
+            <dva-e-lazy-image
+                class="dva-e-lazy-image dva-js-lazy-image dvag-m-c04-vb-stage__vb-portrait"
+                src="../dummy-content/images/sample/wiggers_portrait.png"
+                alt="Portrait von Felix Wiggers"
+                aspect-ratio="1:1"
+            >
+            </dva-e-lazy-image>
+          </div>
+        </div>
+      {{/if}}
+      <div class="dvag-m-c04-vb-stage__vb-content">
+        <div class="dvag-m-c04-vb-stage__vb-inner-content">
+          {{#if hasRating}}
+            <div class="dvag-m-c04-vb-stage__rating-wrapper">
+              <dva-m-rating-box 
+                class="dva-m-rating-box" 
+                rating="4,5">
+              </dva-m-rating-box>
+              <p class="dvag-m-c04-vb-stage__rating-label">
+                4,5 von 5 Sternen<a class="dvag-m-c04-vb-stage__rating-link" href="#">9.999 Bewertungen</a>
+              </p>
+            </div>
+          {{/if}}
+          <p class="dvag-m-c04-vb-stage__vb-name">Felix Wiggers</p>
+          <p class="dvag-m-c04-vb-stage__vb-info">Ihr Vermögensberater aus Stockelsdorf</p>
+          <p class="dvag-m-c04-vb-stage__vb-title">Fachw. für Finanzberatung (IHK) (Akademischer Titel)</p>
+          {{#if hasCTA}}
+            <dvag-e-c26-vb-contact-overlay-toggle class="dva-e-button dva-e-button--rebrush dva-e-button--small dvag-e-c26-vb-contact-overlay-toggle dvag-m-c04-vb-stage__cta">
+              <div class="dva-e-button__background"></div>
+              <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="dva-icon-contact-new"></dva-e-icon>
+              <span class="dva-e-button__label">Jetzt Kontakt aufnehmen</span>
+            </dvag-e-c26-vb-contact-overlay-toggle>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </dvag-m-c04-vb-stage>
+</div>
