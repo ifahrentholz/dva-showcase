@@ -1,0 +1,116 @@
+---
+layout: default
+title: "[C25] (VB) About Me"
+---
+
+<div class="AEM-WRAPPER-ELEMENT {{cssClasses}}">
+  <!-- @BE: please add this modifier-class if an image gallery is included: 'dvag-m-c25-vb-about-me--has-gallery' -->
+  <dvag-m-c25-vb-about-me class="dvag-m-c25-vb-about-me dvag-m-skew-component {{#if
+          this.hasGallery}}dvag-m-c25-vb-about-me--has-gallery{{/if}}">
+    <div class="dva-h-skew--in"></div>
+    <div class="dvag-m-skewed-box__content">
+      <div class="dvag-m-c25-vb-about-me__grid-wrapper">
+        <div class="dvag-m-c25-vb-about-me__content-wrapper">
+          {{> dvag-m-section-header
+                  subheadline="Max Mustermann"
+                  headline="Lernen Sie mich kennen"
+          }}
+          <div class="dvag-m-c25-vb-about-me__intro-text">
+            <p>Lorem ipsum dolor sit amet consectetur. In metus lectus bibendum porttitor faucibus velit at. Mi nibh
+              velit
+              dignissim tellus parturient dui tincidunt. Blandit donec morbi nulla adipiscing dignissim. Neque amet
+              viverra nunc vitae elit pellentesque interdum gravida libero.</p>
+          </div>
+          {{#if this.hasKeyfacts}}
+            <div class="dvag-m-c25-vb-about-me__keyfacts">
+              <div class="dvag-m-c25-vb-about-me__keyfact-item">
+                <p class="dvag-m-c25-vb-about-me__keyfact-text">Seit</p>
+                <p class="dvag-m-c25-vb-about-me__keyfact-text--highlight">2012</p>
+                <p class="dvag-m-c25-vb-about-me__keyfact-text">für meine Kunden da <br/>&nbsp;</p>
+              </div>
+              {{#if this.hasMultipleKeyfactItems}}
+                <div class="dvag-m-c25-vb-about-me__keyfact-item">
+                  <p class="dvag-m-c25-vb-about-me__keyfact-text--highlight">46</p>
+                  <p class="dvag-m-c25-vb-about-me__keyfact-text">Jahre jung <br/>&nbsp;</p>
+                </div>
+                <div class="dvag-m-c25-vb-about-me__keyfact-item">
+                  <p class="dvag-m-c25-vb-about-me__keyfact-text--highlight">2.200</p>
+                  <p class="dvag-m-c25-vb-about-me__keyfact-text">zufriedene Kunden <br/>&nbsp;</p>
+                </div>
+                {{#if this.hasKeyfactItem3}}
+                  <div class="dvag-m-c25-vb-about-me__keyfact-item">
+                    <dva-e-lazy-image
+                            class="dva-e-lazy-image dva-js-lazy-image dvag-m-c25-vb-about-me__keyfact-image"
+                            src="../dummy-content/images/sample/seal.png"
+                            alt="Alt Text"
+                    >
+                    </dva-e-lazy-image>
+                    <p class="dvag-m-c25-vb-about-me__keyfact-text">Als Mitglied zu höchster Beratungsqualität
+                      verpflichtet</p>
+                  </div>
+                {{/if}}
+                {{#if this.hasKeyfactItem4}}
+                  <div class="dvag-m-c25-vb-about-me__keyfact-item">
+                    <div class="dvag-m-c25-vb-about-me__keyfact-team">
+                      <div class="dvag-m-c25-vb-about-me__keyfact-team-item">
+                        {{> dva-e-lazy-image
+                                cssClasses="dva-h-preload dva-h-preload__1-1"
+                                src="../dummy-content/images/sample/team-vignette/Birgit_Rajchart.png"
+                                alt="Alt Text"
+                                aspectRatio="1:1"
+                                wrapper="circle"
+                        }}
+                      </div>
+                      <div class="dvag-m-c25-vb-about-me__keyfact-team-item">
+                        {{> dva-e-lazy-image
+                                cssClasses="dva-h-preload dva-h-preload__1-1"
+                                src="../dummy-content/images/sample/team-vignette/Dr_Maria_Lehmann.png"
+                                alt="Alt Text"
+                                aspectRatio="1:1"
+                                wrapper="circle"
+                        }}
+                      </div>
+                      <div class="dvag-m-c25-vb-about-me__keyfact-team-item">
+                        {{> dva-e-lazy-image
+                                cssClasses="dva-h-preload dva-h-preload__1-1"
+                                src="../dummy-content/images/sample/team-vignette/Sina_Schirach.png"
+                                alt="Alt Text"
+                                aspectRatio="1:1"
+                                wrapper="circle"
+                        }}
+                      </div>
+                      <div class="dvag-m-c25-vb-about-me__keyfact-team-item">
+                        {{> dva-e-lazy-image
+                                cssClasses="dva-h-preload dva-h-preload__1-1"
+                                src="../dummy-content/images/sample/team-vignette/Lorena_Steigertahl.png"
+                                alt="Alt Text"
+                                aspectRatio="1:1"
+                                wrapper="circle"
+                        }}
+                      </div>
+                    </div>
+                    <p class="dvag-m-c25-vb-about-me__keyfact-text">n-köpfiges Team <br/>&nbsp;</p>
+                  </div>
+                {{/if}}
+              {{/if}}
+            </div>
+          {{/if}}
+
+          <div class="dvag-m-c25-vb-about-me__button-wrapper">
+            {{> dva-e-button
+                    cssClasses="dva-e-button--rebrush"
+                    label="Mehr über mich erfahren"
+            }}
+          </div>
+        </div>
+        {{#if this.hasGallery}}
+          {{> dvag-m-c25-vb-about-me__gallery}}
+
+          <!-- overlay for MQ4/5 with Slider and larger images -->
+          {{> dvag-m-c25-vb-about-me__overlay}}
+        {{/if}}
+      </div>
+    </div>
+    <div class="dva-h-skew--out"></div>
+  </dvag-m-c25-vb-about-me>
+</div>
