@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<dvag-m-basic-overlay class="dvag-m-basic-overlay {{cssClasses}}" role="dialog" aria-modal="true">
+  {{> dva-e-button
+        iconOnly=true
+        cssClasses="dvag-m-basic-overlay__close dva-e-button--icon-only"
+        label="Schließen"
+        iconID="dva-icon-close"
+        isButton=true
+    }}
+  <div class="dvag-m-basic-overlay__content">
+    <!-- content will be located -->
+    <!-- optional inner-content-wrapper for grid-based-layer -->
+    <div class="dvag-m-basic-overlay__inner-content"></div>
+  </div>
+</dvag-m-basic-overlay>
