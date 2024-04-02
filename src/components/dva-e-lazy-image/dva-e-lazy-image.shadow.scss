@@ -1,5 +1,4 @@
-@import "../../styles/base/colors";
-@import "../../styles/base/mixins";
+@import "../../styles/base/mixins.scss";
 
 :host {
   display: block;
@@ -14,31 +13,31 @@
     pointer-events: none;
 
     &--16-9 {
-      padding-bottom: 56.25%; // 16:9
+      padding-bottom: percentage(math.div(9, 16));
     }
 
     &--21-9 {
-      padding-bottom: 42.8571429%; // 21:9
-    }
-
-    &--9-16 {
-      padding-bottom: 177.78%; // 9:16
+      padding-bottom: percentage(math.div(9, 21));
     }
 
     &--4-3 {
-      padding-bottom: 75%; // 4:3
+      padding-bottom: percentage(3 * 0.25);
     }
 
-    &--2-3 {
-      padding-bottom: 150%; // 2:3
+    &--3-2 {
+      padding-bottom: percentage(math.div(2, 3));
     }
 
     &--1-1 {
       padding-bottom: 100%; // 1:1
     }
 
-    &--2-1 {
-      padding-bottom: 50%; // 2:1
+    &--2-3 {
+      padding-bottom: percentage(3 * 0.5);
+    }
+
+    &--4-5 {
+      padding-bottom: percentage(5 * 0.25);
     }
   }
 
@@ -55,7 +54,7 @@
   &__wrapper.dva-state-loading {
     position: relative;
     min-height: 200px;
-    opacity: 0;
+    // opacity: 0;
   }
 
   .dva-e-lazy-image__mask &__wrapper.dva-state-loading {
@@ -64,15 +63,36 @@
   }
 
   &__img {
+    position: relative;
     width: 100%;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+
+    &.dva-state-loaded {
+      opacity: 1;
+    }
+  }
+
+  &__img--placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(1.1);
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    filter: blur(10px);
+
+    &.dva-state-hidden {
+      opacity: 0;
+      transition: opacity 0.01s ease-out 0.1s;
+    }
   }
 
   &__wrapper--has-overwidth {
     .dva-e-lazy-image__img {
-      width: inherit;
+      width: auto;
       height: 100%;
-      object-fit: cover;
-      object-position: 50% 50%;
     }
   }
 
@@ -93,21 +113,30 @@
   }
 
   &__cover {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-
     .dva-e-lazy-image__img {
+      position: absolute;
+      top: 0;
+      left: 0;
       object-fit: cover;
+      object-position: var(--dva-image-object-position, 50% 50%);
     }
   }
 
   &__contain {
     .dva-e-lazy-image__img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* stylelint-disable length-zero-no-unit */
+      width: calc(100% - (2 * var(--dva-image-padding, 0px)));
+      height: calc(100% - (2 * var(--dva-image-padding, 0px)));
+      /* stylelint-enable length-zero-no-unit */
+      padding: var(--dva-image-padding, 0);
       object-fit: contain;
-      object-position: 100% 100%;
+      object-position: var(--dva-image-object-position, 50% 50%);
+      background: var(--dva-image-background, transparent);
     }
   }
 
@@ -119,24 +148,24 @@
     @include aspect-ratio(16, 9);
   }
 
-  .dva-e-lazy-image__mask--9-16 &__wrapper {
-    @include aspect-ratio(9, 16);
-  }
-
   .dva-e-lazy-image__mask--4-3 &__wrapper {
     @include aspect-ratio(4, 3);
+  }
+
+  .dva-e-lazy-image__mask--3-2 &__wrapper {
+    @include aspect-ratio(3, 2);
+  }
+
+  .dva-e-lazy-image__mask--1-1 &__wrapper {
+    @include aspect-ratio(1, 1);
   }
 
   .dva-e-lazy-image__mask--2-3 &__wrapper {
     @include aspect-ratio(2, 3);
   }
 
-  .dva-e-lazy-image__mask--2-1 &__wrapper {
-    @include aspect-ratio(2, 1);
-  }
-
-  .dva-e-lazy-image__mask--1-1 &__wrapper {
-    @include aspect-ratio(1, 1);
+  .dva-e-lazy-image__mask--4-5 &__wrapper {
+    @include aspect-ratio(4, 5);
   }
 
   .dva-e-lazy-image__mask &__wrapper {
@@ -159,5 +188,36 @@
       width: 100%;
       border-radius: 100%;
     }
+  }
+
+  &__error-placeholder-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+    &.dva-state-animate {
+      background: linear-gradient(
+        to right,
+        $dvag-color__black-100 4%,
+        $dvag-color__black-200 36%,
+        $dvag-color__black-100 54%
+      );
+      background-size: 1000px 100%;
+      animation: shimmer 3s infinite linear;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
   }
 }

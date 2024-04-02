@@ -1,0 +1,112 @@
+{
+  "variants": [
+    {
+      "title": "[C04] VB Stage - Background-Video, VB-Image, Rating and CTA",
+      "cssClasses": "",
+      "hasImageBackground": false,
+      "backgroundVideo": [
+        {
+          "mqDef": "1-3",
+          "fallback": "../dummy-content/images/sample/vb_conf/backgrounds/motiv1_4x3.jpg",
+          "renditions": [
+            {
+              "type": "video/mp4",
+              "src": "../dummy-content/videos/office-setup_4_3.mp4"
+            }
+          ]
+        },
+        {
+          "mqDef": "4-5",
+          "fallback": "../dummy-content/images/sample/vb_conf/backgrounds/motiv1_21x9.jpg",
+          "renditions": [
+            {
+              "type": "video/mp4",
+              "src": "../dummy-content/videos/office-setup_21_9.mp4"
+            }
+          ]
+        }
+      ],
+      "hasVbImage": true,
+      "hasRating": true,
+      "hasCTA": true
+    },
+    {
+      "title": "[C04] VB Stage - Background-Image, VB-Image, Rating and CTA",
+      "cssClasses": "",
+      "hasImageBackground": true,
+      "hasVbImage": true,
+      "hasRating": true,
+      "hasCTA": true
+    },
+    {
+      "title": "[C04] VB Stage - Background-Image, VB-Image, CTA, no Rating",
+      "cssClasses": "",
+      "hasImageBackground": true,
+      "hasVbImage": true,
+      "hasRating": false,
+      "hasCTA": true
+    },
+    {
+      "title": "[C04] VB Stage - Background-Image, VB-Image, Rating, no CTA",
+      "cssClasses": "",
+      "hasImageBackground": true,
+      "hasVbImage": true,
+      "hasRating": true,
+      "hasCTA": false
+    },
+    {
+      "title": "[C04] VB Stage - Background-Image, VB-Image, no Rating, no CTA",
+      "cssClasses": "",
+      "hasImageBackground": true,
+      "hasVbImage": true,
+      "hasRating": false,
+      "hasCTA": false
+    },
+    {
+      "title": "[C04] VB Stage - Background-Image, Rating, CTA, no VB-Image",
+      "cssClasses": "dvag-m-c04-vb-stage--no-vb-image",
+      "hasImageBackground": true,
+      "hasVbImage": false,
+      "hasRating": true,
+      "hasCTA": true
+    },
+    {
+      "title": "[C04] VB Stage - Background-Video, Rating, no CTA, no VB-Image",
+      "cssClasses": "dvag-m-c04-vb-stage--no-vb-image",
+      "hasImageBackground": false,
+      "backgroundVideo": [
+        {
+          "mqDef": "1-3",
+          "fallback": "../dummy-content/images/sample/vb_conf/backgrounds/motiv1_4x3.jpg",
+          "renditions": [
+            {
+              "type": "video/mp4",
+              "src": "../dummy-content/videos/office-setup_4_3.mp4"
+            }
+          ]
+        },
+        {
+          "mqDef": "4-5",
+          "fallback": "../dummy-content/images/sample/vb_conf/backgrounds/motiv1_21x9.jpg",
+          "renditions": [
+            {
+              "type": "video/mp4",
+              "src": "../dummy-content/videos/office-setup_21_9.mp4"
+            }
+          ]
+        }
+      ],
+      "hasVbImage": false,
+      "hasRating": true,
+      "hasCTA": false
+    },
+    {
+      "title": "[C04] VB Stage - Background-Image, no Rating, no CTA, no VB-Image",
+      "cssClasses": "dvag-m-c04-vb-stage--no-vb-image",
+      "hasImageBackground": true,
+      "hasVbImage": false,
+      "hasRating": false,
+      "hasCTA": false
+    }
+  ]
+}
