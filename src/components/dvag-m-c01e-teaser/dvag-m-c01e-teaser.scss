@@ -1,0 +1,102 @@
+.dvag-m-c01e-teaser {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin: 8px;
+  background-color: $dvag-color__white-500;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.16);
+
+  &__content {
+    padding-bottom: 12px;
+  }
+
+  &__rating-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+  }
+
+  &__main-rating {
+    width: 120px;
+    min-height: 20px;
+  }
+
+  // full class name needed for more specificity on article pages
+  .dvag-m-c01e-teaser__rating-label {
+    @extend %dva-type-200;
+
+    margin: 3px 0 0 8px;
+    color: $dvag-color__black-250;
+  }
+
+  &__headline {
+    @extend %dva-type-700;
+
+    /* stylelint-disable value-no-vendor-prefix */
+    display: -webkit-box;
+    /* stylelint-enable value-no-vendor-prefix */
+    overflow: hidden;
+    margin: 0 0 12px;
+    color: $dvag-color__black-400;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  // full class name needed for more specificity on article pages
+  .dvag-m-c01e-teaser__text {
+    @extend %dva-type-500;
+
+    /* stylelint-disable value-no-vendor-prefix */
+    display: -webkit-box;
+    /* stylelint-enable value-no-vendor-prefix */
+    overflow: hidden;
+    margin: 0 0 12px;
+    color: $dvag-color__black-400;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+
+    @include breakpoint($mq-5-and-up) {
+      -webkit-line-clamp: 4;
+    }
+  }
+
+  &__full-text {
+    display: none;
+  }
+
+  &__cta {
+    @extend %dva-type-bold;
+
+    .dva-e-icon {
+      width: 24px;
+      height: 24px;
+      margin-left: 12px;
+    }
+  }
+
+  &__footer {
+    @extend %dva-type-400;
+
+    padding-top: 12px;
+    border-top: 1px solid $dvag-color__black-75;
+  }
+
+  &__customer-label {
+    @extend %dva-type-400;
+
+    color: $dvag-color__black-250;
+  }
+
+  // full class name needed for more specificity on article pages
+  .dvag-m-c01e-teaser__customer-name {
+    margin: 0;
+    color: $dvag-color__black-400;
+  }
+
+  // full class name needed for more specificity on article pages
+  .dvag-m-c01e-teaser__customer-info {
+    margin: 0;
+    color: $dvag-color__black-250;
+  }
+}
