@@ -1,9 +1,7 @@
 import { cleanUpBlock } from "Utils/cleanUpBlock.ts";
 import { html, render } from "lit";
-
 import "./barcomponent.scss";
-
-import "Components/dva-e-lazy-image/dva-e-lazy-image";
+import { renderLazyImage } from "Components/dva-e-lazy-image/dva-e-lazy-image.template";
 
 interface Bar {
   image?: HTMLImageElement;
@@ -32,12 +30,12 @@ const renderBars = ({ header, image, text }: Bar) => {
     <div class="c05-listentry">
       <div class="dvag-m-c05-list-entry">
         <div class="dvag-m-c05-list-entry__image-wrapper">
-          <dva-e-lazy-image
-            class="dva-e-lazy-image dva-js-lazy-image dvag-m-c05-list-entry__image dva-state-initialized dva-state-invp dva-state-loaded"
-            src="${image?.src}"
-            alt="${image?.alt}"
-            aspect-ratio="cover"
-          ></dva-e-lazy-image>
+          ${renderLazyImage({
+            cssClasses: "dvag-m-c05-list-entry__image",
+            src: image?.src || "",
+            alt: image?.alt,
+            aspectRatio: "cover",
+          })}
         </div>
         <div class="dvag-m-c05-list-entry__content">
           <h4 class="dvag-m-c05-list-entry__headline">${header}</h4>
@@ -71,14 +69,10 @@ const template = ({ bars, buttonLabel, header, subheader }: barComponentArgs) =>
           <div class="buttons">
             <ul class="button-list bleed-m bleed-l">
               <li class="button-list-item col-s-12 col-m-4 col-l-m-4-offset col-l-4 col-l-4-offset">
-                <dvag-e-c26-vb-contact-overlay-toggle
-                  class="dvag-e-c26-vb-contact-overlay-toggle dva-e-button dva-e-button--rebrush dva-e-button--small dva-state-active"
-                  id="contact_button"
-                  no-cookie-hide="no-cookie-hide"
-                >
+                <a href="#" class="dva-e-button dva-e-button--rebrush dva-e-button--small dva-state-active">
                   <div class="dva-e-button__background"></div>
                   <span class="dva-e-button__label">${buttonLabel}</span>
-                </dvag-e-c26-vb-contact-overlay-toggle>
+                </a>
               </li>
             </ul>
           </div>
@@ -106,6 +100,7 @@ const getBars = (block: HTMLElement): Bar[] => {
     };
   });
 };
+
 export default function (block: HTMLElement) {
   const args: barComponentArgs = {
     subheader: getChildNodeText(block, blockRows.subheader),
