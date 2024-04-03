@@ -1,0 +1,8 @@
+.dvag-m-c08-barcomponent {
+  @extend %dvag-h-component-margin;
+
+  // make elements in cols (usually AEM-WRAPPER-ELEMENT) use full height
+  .dvag-grid-col-1-12 > div:not(.dvag-m-c01b-teaser) {
+    height: 100%;
+  }
+}

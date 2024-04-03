@@ -1,0 +1,17 @@
+---
+layout: default
+title: "[C6] Page Section"
+---
+
+{{#each dvag-m-c06-page-section__data.variants}}
+  <div class="dvag-grid">
+    <div class="dvag-grid-row">
+      <div class="dvag-grid-col-1-12">
+        <h3 class="dva-lsg-typography__headline">{{this.title}}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="dvag-lsg-grid-demo">
+    {{> dvag-m-c06-page-section cssClasses=this.cssClasses}}
+  </div>
+{{/each}}
