@@ -1,0 +1,74 @@
+{
+  "variants": [
+    {
+      "title": "[C25] (VB) About me, without gallery, 5 keyfacts, skew box",
+      "cssClasses": "dvag-h-background--grey dvag-h-skew--top dvag-h-skew--bottom",
+      "hasGallery": false,
+      "hasKeyfacts": true,
+      "hasMultipleKeyfactItems": true,
+      "hasKeyfactItem4": true
+    },
+    {
+      "title": "[C25] (VB) About me, without gallery, 1 keyfact, left aligned header",
+      "cssClasses": "dvag-h-header--left-aligned",
+      "hasGallery": false,
+      "hasKeyfacts": true,
+      "hasMultipleKeyfactItems": false,
+      "hasKeyfactItem3": true,
+      "hasKeyfactItem4": false
+    },
+    {
+      "title": "[C25] (VB) About me, without gallery, 2 keyfacts, regular header",
+      "cssClasses": "dvag-h-headline--regular",
+      "hasGallery": false,
+      "hasKeyfacts": true,
+      "hasMultipleKeyfactItems": true,
+      "hasKeyfactItem3": false,
+      "hasKeyfactItem4": false
+    },
+    {
+      "title": "[C25] (VB) About me, without gallery, no keyfacts",
+      "cssClasses": "",
+      "hasGallery": false,
+      "hasKeyfacts": false,
+      "hasMultipleKeyfactItems": false,
+      "hasKeyfactItem3": false,
+      "hasKeyfactItem4": false
+    },
+    {
+      "title": "[C25] (VB) About me, with gallery, 4 keyfacts",
+      "cssClasses": "",
+      "hasGallery": true,
+      "hasKeyfacts": true,
+      "hasMultipleKeyfactItems": true,
+      "hasKeyfactItem4": true
+    },
+    {
+      "title": "[C25] (VB) About me, with gallery, 3 keyfacts",
+      "cssClasses": "",
+      "hasGallery": true,
+      "hasKeyfacts": true,
+      "hasMultipleKeyfactItems": true,
+      "hasKeyfactItem3": true,
+      "hasKeyfactItem4": false
+    },
+    {
+      "title": "[C25] (VB) About me, with gallery, 2 keyfacts",
+      "cssClasses": "",
+      "hasGallery": true,
+      "hasKeyfacts": true,
+      "hasMultipleKeyfactItems": true,
+      "hasKeyfactItem3": false,
+      "hasKeyfactItem4": false
+    },
+    {
+      "title": "[C25] (VB) About me, with gallery, no keyfacts",
+      "cssClasses": "",
+      "hasGallery": true,
+      "hasKeyfacts": false,
+      "hasMultipleKeyfactItems": false,
+      "hasKeyfactItem3": false,
+      "hasKeyfactItem4": false
+    }
+  ]
+}

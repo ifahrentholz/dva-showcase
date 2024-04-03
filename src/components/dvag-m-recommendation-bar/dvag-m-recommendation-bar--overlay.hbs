@@ -1,0 +1,50 @@
+---
+layout: default
+hasRating: true
+overlayId: recommendation-overlay
+---
+
+<!-- recommendation overlay: -->
+<dvag-m-basic-overlay class="dvag-m-basic-overlay dvag-m-recommendation-bar__overlay" role="dialog" aria-modal="true" id="{{this.overlayId}}">
+  <div class="dvag-m-basic-overlay__content">
+    <div class="dvag-m-basic-overlay__inner-content">      
+      {{> dva-e-button
+          iconOnly=true
+          cssClasses="dvag-m-basic-overlay__close dvag-m-recommendation-bar__overlay-close dva-e-button--icon-only"
+          label="Schließen"
+          iconID="dva-icon-close"
+          isButton=true
+      }}
+      {{#if this.hasRating}}  
+      <div class="dvag-m-recommendation-bar__overlay-rating-wrapper">
+        <dva-m-rating-box class="dva-m-rating-box" rating="4,5" edit-mode="false"></dva-m-rating-box>
+        <p class="dvag-m-recommendation-bar__overlay-rating-label">
+          4,5 von 5 Sternen
+        </p>
+      </div>
+      {{/if}}
+      <h3 class="dvag-m-recommendation-bar__overlay-headline">Empfehlen Sie mich weiter</h3>
+      <p class="dvag-m-recommendation-bar__overlay-text">
+        Sie haben bereits gute Erfahrung mit meiner Beratung gemacht, dann sagen Sie es weiter:
+      </p>
+      <div class="dvag-m-recommendation-bar__recommendation-items-wrapper">
+        <a class="dva-e-button dva-e-button--secondary dva-e-button--rebrush dva-e-button--icon-only dvag-m-recommendation-bar__recommendation-item" href="#" target="_blank">
+          <div class="dva-e-button__background"></div>
+          <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="dva-icon-mail-32px"></dva-e-icon>
+        </a>
+        <a class="dva-e-button dva-e-button--secondary dva-e-button--rebrush dva-e-button--icon-only dvag-m-recommendation-bar__recommendation-item" href="#" target="_blank">
+          <div class="dva-e-button__background"></div>
+          <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="dva-icon-facebook-24px"></dva-e-icon>
+        </a>
+        <a class="dva-e-button dva-e-button--secondary dva-e-button--rebrush dva-e-button--icon-only dvag-m-recommendation-bar__recommendation-item" href="#" target="_blank">
+          <div class="dva-e-button__background"></div>
+          <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="dva-icon-xing-24px"></dva-e-icon>
+        </a>
+        <a class="dva-e-button dva-e-button--secondary dva-e-button--rebrush dva-e-button--icon-only dvag-m-recommendation-bar__recommendation-item" href="#" target="_blank">
+          <div class="dva-e-button__background"></div>
+          <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="dva-icon-linkedin-24px"></dva-e-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</dvag-m-basic-overlay>

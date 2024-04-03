@@ -1,0 +1,67 @@
+---
+layout: default
+title: "[C01d] Teaser"
+---
+
+<div class="AEM-WRAPPER-ELEMENT {{cssClasses}}">
+  <div class="dvag-m-c01d-teaser" style="--gradient-color:{{pv-choose gradientColor '#fff'}}">
+    <div class="dvag-m-c01d-teaser__image-wrapper">
+      {{#if hasImage}}
+        {{> dva-e-lazy-image
+            src=mobileImage.imageSrc
+            alt=mobileImage.imageAlt
+            cssClasses=mobileImage.imageCssClasses
+            aspectRatio=mobileImage.imageRatio
+            sizes=mobileImage.imageSizes
+            srcset=mobileImage.imageSrcset
+        }}
+        {{> dva-e-lazy-image
+            src=desktopImage.imageSrc
+            alt=desktopImage.imageAlt
+            cssClasses=desktopImage.imageCssClasses
+            aspectRatio=desktopImage.imageRatio
+            sizes=desktopImage.imageSizes
+            srcset=desktopImage.imageSrcset
+        }}
+      {{else}}
+        {{> dva-e-lazy-video
+          cssClasses="dva-h-preload dvag-m-c01d-teaser__video"
+          sources=sources
+        }}
+      {{/if}}
+    </div>
+    <div class="dvag-m-c01d-teaser__grid-wrapper">
+      <div class="dvag-m-c01d-teaser__content-wrapper">
+        <h4 class="dvag-m-c01d-teaser__subheadline">
+          {{#if hasIcon}}
+            {{> dva-e-lazy-image
+                src="../resources/icons/dva-icon-info.svg"
+                alt="Icon Alt Text"
+                cssClasses="dvag-m-c01d-teaser__icon"
+                aspectRatio="cover"
+            }}
+          {{/if}}
+          Subheadline/type-550/black-300
+        </h4>
+        <div class="dvag-m-c01d-teaser__headline">Headline/type-800/black-350</div>
+        <div class="dvag-m-c01d-teaser__text">
+          <p>Copy/type-500/black-350 - Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel</p>
+        </div>
+        <div class="dvag-m-c01d-teaser__button-wrapper">
+          {{> dva-e-button
+            isRebrushButton=true
+            href="#"
+            label="Label primary"
+            cssClasses="dva-e-button--rebrush dva-e-button--small"
+          }}
+          {{> dva-e-button
+            isRebrushButton=true
+            href="#"
+            label="Label secondary"
+            cssClasses="dva-e-button--rebrush dva-e-button--secondary dva-e-button--small"
+          }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

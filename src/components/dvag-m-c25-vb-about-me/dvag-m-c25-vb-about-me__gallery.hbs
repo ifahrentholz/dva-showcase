@@ -1,0 +1,83 @@
+<div class="dvag-m-c25-vb-about-me__gallery-wrapper">
+  <dvag-m-basic-slider class="dvag-m-basic-slider dvag-m-c25-vb-about-me__slider" active-on-mq="1-3">
+    <div class="dvag-m-basic-slider__slides dvag-m-c25-vb-about-me__slides">
+      <div class="dvag-m-basic-slider__slide dvag-m-c25-vb-about-me__gallery-slide dvag-m-c25-vb-about-me__gallery-overlay-toggle">
+        {{> dva-e-lazy-image
+            src="../dummy-content/images/sample/dummy-image--16x9.jpg"
+            alt="Alt Text"
+            aspectRatio="16:9"
+        }}
+        <div class="dvag-m-c25-vb-about-me__gallery-button">
+          <dva-e-icon class="dva-e-icon dvag-m-c25-vb-about-me__gallery-button-icon"
+                      icon-id="dva-icon-image-gallery-16px"></dva-e-icon>
+          <span class="dvag-m-c25-vb-about-me__gallery-button-counter">0</span> Fotos
+        </div>
+        <p class="dvag-m-basic-slider__slide-text">80 Zeichen max. - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sedta</p>
+      </div>
+      <div class="dvag-m-basic-slider__slide dvag-m-c25-vb-about-me__gallery-slide dvag-m-c25-vb-about-me__gallery-overlay-toggle">
+        {{> dva-e-lazy-image
+            src="../dummy-content/images/sample/dummy-image--1x1.jpg"
+            alt="Alt Text"
+            aspectRatio="1:1"
+        }}
+        <p class="dvag-m-basic-slider__slide-text">80 Zeichen max. - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sedta</p>
+      </div>
+      <div class="dvag-m-basic-slider__slide dvag-m-c25-vb-about-me__gallery-slide dvag-m-c25-vb-about-me__gallery-overlay-toggle">
+        {{> dva-e-lazy-image
+            src="../dummy-content/images/sample/dummy-image--1x1.jpg"
+            alt="Alt Text"
+            aspectRatio="1:1"
+        }}
+        <p class="dvag-m-basic-slider__slide-text">80 Zeichen max. - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sedta</p>
+      </div>
+      <!-- following items are visible in slider-view MQ1-3, but not in MQ4/MQ5 -->
+      <div class="dvag-m-basic-slider__slide dvag-m-c25-vb-about-me__gallery-slide">
+        {{> dva-e-lazy-image
+            src="../dummy-content/images/sample/dummy-image--1x1.jpg"
+            alt="Alt Text"
+            aspectRatio="1:1"
+        }}
+        <p class="dvag-m-basic-slider__slide-text">80 Zeichen max. - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sedta</p>
+      </div>
+      <div class="dvag-m-basic-slider__slide dvag-m-c25-vb-about-me__gallery-slide">
+        {{> dva-e-lazy-image
+            src="../dummy-content/images/sample/dummy-image--1x1.jpg"
+            alt="Alt Text"
+            aspectRatio="1:1"
+        }}
+        <p class="dvag-m-basic-slider__slide-text">80 Zeichen max. - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sedta</p>
+      </div>
+      <div class="dvag-m-basic-slider__slide dvag-m-c25-vb-about-me__gallery-slide">
+        {{> dva-e-lazy-image
+            src="../dummy-content/images/sample/dummy-image--1x1.jpg"
+            alt="Alt Text"
+            aspectRatio="1:1"
+        }}
+        <p class="dvag-m-basic-slider__slide-text">80 Zeichen max. - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sedta</p>
+      </div>
+    </div>
+    <div class="dvag-m-basic-slider__controls dvag-m-c25-vb-about-me__controls">
+      <button class="dva-e-button dva-e-button--primary dva-e-button--rebrush dvag-m-basic-slider__nav-button dvag-m-basic-slider__nav-button--prev">
+        <div class="dva-e-button__background"></div>
+        <dva-e-icon class="dva-e-icon" icon-id="dva-icon-chevron-left"></dva-e-icon>
+      </button>
+      <button class="dva-e-button dva-e-button--primary dva-e-button--rebrush dvag-m-basic-slider__nav-button dvag-m-basic-slider__nav-button--next">
+        <div class="dva-e-button__background"></div>
+        <dva-e-icon class="dva-e-icon" icon-id="dva-icon-chevron-right"></dva-e-icon>
+      </button>
+    </div>
+    <div class="dvag-m-basic-slider__grid-container-wrapper dvag-m-c25-vb-about-me__grid-container-wrapper">
+      <div class="dvag-m-basic-slider__scroll-bar">
+        <button class="dvag-m-basic-slider__scroll-indicator" tabindex="-1"></button>
+      </div>
+    </div>
+  </dvag-m-basic-slider>
+
+  <!-- @BE: this is a duplicate of the button above, due to layout they will visually be toggled in CSS depending on "--has-gallery"-modifier -->
+  <div class="dvag-m-c25-vb-about-me__button-wrapper">
+    {{> dva-e-button
+        cssClasses="dva-e-button--rebrush"
+        label="Mehr über mich erfahren"
+    }}
+  </div>
+</div>
