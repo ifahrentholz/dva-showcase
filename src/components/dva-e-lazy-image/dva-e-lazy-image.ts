@@ -4,6 +4,7 @@ import { LOADING, LOADED, INITIALIZED, IN_VIEWPORT, HIDDEN, ERROR } from "Consta
 import { removeClass, addClass, onEvent, removeEvent, toggleClass } from "@kluntje/js-utils/lib/dom-helpers";
 import { render } from "lit-html";
 import mqDefinitions from "Config/mediaQueries";
+import { getSrcset } from "Utils/getSrcset";
 
 import { lazyImageTemplate } from "./dva-e-lazy-image.template";
 
@@ -62,7 +63,7 @@ export class DVALazyImage extends Component {
    * @returns {string}
    */
   get imgSrcSet(): string {
-    return this.getAttribute("srcset") || "";
+    return this.getAttribute("srcset") || this.getSrcsetFromSrc();
   }
 
   /**
@@ -171,6 +172,15 @@ export class DVALazyImage extends Component {
     if (width) {
       imgSrcUrl.searchParams.set("width", "60");
       return imgSrcUrl.href;
+    }
+    return this.imgSrc;
+  }
+
+  getSrcsetFromSrc(): string {
+    const imgSrcUrl = new URL(this.imgSrc);
+    const width = imgSrcUrl.searchParams.get("width");
+    if (width) {
+      return getSrcset(imgSrcUrl.href, [480, 760, 1024, 1280, 1440, 1460, 2000]);
     }
     return "";
   }

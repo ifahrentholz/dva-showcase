@@ -54,6 +54,7 @@ export class DvagC22Infographic extends Component {
    * @param {string} svgData
    */
   async addSvgMarkup(svgData: string) {
+    console.log("svgData", svgData);
     if (svgData) this.innerHTML = svgData;
     await waitFor(500);
     addClass(this, ANIMATING);

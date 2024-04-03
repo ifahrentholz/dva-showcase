@@ -64,6 +64,7 @@ export declare class DVALazyImage extends Component {
      */
     get initType(): ImageInitType;
     getLoadingPlaceholderFromSrc(): string;
+    getSrcsetFromSrc(): string;
     get loadingPlaceholder(): string;
     /**
      * Handles change of observed Attributes
