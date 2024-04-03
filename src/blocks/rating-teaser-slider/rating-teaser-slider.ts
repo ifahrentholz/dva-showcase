@@ -96,8 +96,7 @@ const ratingTeaserSliderTemplate = (args: RatingTeaserSliderTemplateArgs) => {
     <div
       class="c07-ratingteaserslider carousel dvag-h-margin-bottom--none
 dvag-h-margin-top--none
-dvag-h-background--grey
-dvag-h-skew--top"
+dvag-h-background--grey"
     >
       <dvag-m-c07-rating-teaser-slider
         class="dvag-m-c07-rating-teaser-slider dvag-m-skew-component cmp-carousel  "
