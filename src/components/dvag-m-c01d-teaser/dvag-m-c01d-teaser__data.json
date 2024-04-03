@@ -1,0 +1,159 @@
+{
+    "variants": [
+      {
+        "title": "teaser with image (21:9), all modifiers: default value, except: text visibility on MQ1-3: text hidden",
+        "cssClasses": "dvag-h-text--hidden-on-mq1-3",
+        "hasIcon": true,
+        "hasImage": true,
+        "mobileImage": {
+          "imageSrc": "../dummy-content/images/sample/dummy-image--21x9.jpg",
+          "imageAlt": "DVAG Lazy Image Alt Tag",
+          "imageCssClasses": "dva-h-preload dva-h-preload__21-9 dvag-m-c01d-teaser__image dvag-m-c01d-teaser__image--mobile",
+          "imageRatio": "21:9",
+          "imageSizes": "(min-width: 1460px) 1460px, 100vw",
+          "imageSrcset": "../dummy-content/images/sample/dummy-image--21x9.jpg 480w, ../dummy-content/images/sample/dummy-image--21x9.jpg 760w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1280w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1440w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1460w"
+        },
+        "desktopImage": {
+          "imageSrc": "../dummy-content/images/sample/dummy-image--21x9.jpg",
+          "imageAlt": "DVAG Lazy Image Alt Tag",
+          "imageCssClasses": "dva-h-preload dva-h-preload__21-9 dvag-m-c01d-teaser__image dvag-m-c01d-teaser__image--desktop",
+          "imageRatio": "21:9",
+          "imageSizes": "(min-width: 1460px) 1460px, 100vw",
+          "imageSrcset": "../dummy-content/images/sample/dummy-image--21x9.jpg 480w, ../dummy-content/images/sample/dummy-image--21x9.jpg 760w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1280w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1440w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1460w"
+        }
+      },
+      {
+        "title": "teaser with image (21:9), all modifiers: default value, except: text visibility on MQ1-3: text hidden, different images for MQ1-3 and MQ4-5",
+        "cssClasses": "dvag-h-text--hidden-on-mq1-3",
+        "hasIcon": true,
+        "hasImage": true,
+        "mobileImage": {
+          "imageSrc": "../dummy-content/images/sample/dummy-image-2--21x9.jpg",
+          "imageAlt": "DVAG Lazy Image Alt Tag",
+          "imageCssClasses": "dva-h-preload dva-h-preload__21-9 dvag-m-c01d-teaser__image dvag-m-c01d-teaser__image--mobile",
+          "imageRatio": "21:9",
+          "imageSizes": "(min-width: 1460px) 1460px, 100vw",
+          "imageSrcset": "../dummy-content/images/sample/dummy-image-2--21x9.jpg 480w, ../dummy-content/images/sample/dummy-image-2--21x9.jpg 760w, ../dummy-content/images/sample/dummy-image-2--21x9.jpg 1280w, ../dummy-content/images/sample/dummy-image-2--21x9.jpg 1440w, ../dummy-content/images/sample/dummy-image-2--21x9.jpg 1460w"
+        },
+        "desktopImage": {
+          "imageSrc": "../dummy-content/images/sample/dummy-image--21x9.jpg",
+          "imageAlt": "DVAG Lazy Image Alt Tag",
+          "imageCssClasses": "dva-h-preload dva-h-preload__21-9 dvag-m-c01d-teaser__image dvag-m-c01d-teaser__image--desktop",
+          "imageRatio": "21:9",
+          "imageSizes": "(min-width: 1460px) 1460px, 100vw",
+          "imageSrcset": "../dummy-content/images/sample/dummy-image--21x9.jpg 480w, ../dummy-content/images/sample/dummy-image--21x9.jpg 760w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1280w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1440w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1460w"
+        }
+      },
+      {
+        "title": "teaser with image (21:9), all modifiers: default value",
+        "cssClasses": "",
+        "hasIcon": true,
+        "hasImage": true,
+        "mobileImage": {
+          "imageSrc": "../dummy-content/images/sample/dummy-image--21x9.jpg",
+          "imageAlt": "DVAG Lazy Image Alt Tag",
+          "imageCssClasses": "dva-h-preload dva-h-preload__21-9 dvag-m-c01d-teaser__image dvag-m-c01d-teaser__image--mobile",
+          "imageRatio": "21:9",
+          "imageSizes": "(min-width: 1460px) 1460px, 100vw",
+          "imageSrcset": "../dummy-content/images/sample/dummy-image--21x9.jpg 480w, ../dummy-content/images/sample/dummy-image--21x9.jpg 760w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1280w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1440w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1460w"
+        },
+        "desktopImage": {
+          "imageSrc": "../dummy-content/images/sample/dummy-image--21x9.jpg",
+          "imageAlt": "DVAG Lazy Image Alt Tag",
+          "imageCssClasses": "dva-h-preload dva-h-preload__21-9 dvag-m-c01d-teaser__image dvag-m-c01d-teaser__image--desktop",
+          "imageRatio": "21:9",
+          "imageSizes": "(min-width: 1460px) 1460px, 100vw",
+          "imageSrcset": "../dummy-content/images/sample/dummy-image--21x9.jpg 480w, ../dummy-content/images/sample/dummy-image--21x9.jpg 760w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1280w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1440w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1460w"
+        }
+      },
+      {
+        "title": "teaser with video (21:9), all modifiers: default value",
+        "cssClasses": "",
+        "hasIcon": true,
+        "hasImage": false,
+        "mobileImage": {
+          "imageSrc": "../dummy-content/images/sample/dummy-image--21x9.jpg",
+          "imageAlt": "DVAG Lazy Image Alt Tag",
+          "imageCssClasses": "dva-h-preload dva-h-preload__21-9 dvag-m-c01d-teaser__image dvag-m-c01d-teaser__image--mobile",
+          "imageRatio": "21:9",
+          "imageSizes": "(min-width: 1460px) 1460px, 100vw",
+          "imageSrcset": "../dummy-content/images/sample/dummy-image--21x9.jpg 480w, ../dummy-content/images/sample/dummy-image--21x9.jpg 760w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1280w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1440w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1460w"
+        },
+        "desktopImage": {
+          "imageSrc": "../dummy-content/images/sample/dummy-image--21x9.jpg",
+          "imageAlt": "DVAG Lazy Image Alt Tag",
+          "imageCssClasses": "dva-h-preload dva-h-preload__21-9 dvag-m-c01d-teaser__image dvag-m-c01d-teaser__image--desktop",
+          "imageRatio": "21:9",
+          "imageSizes": "(min-width: 1460px) 1460px, 100vw",
+          "imageSrcset": "../dummy-content/images/sample/dummy-image--21x9.jpg 480w, ../dummy-content/images/sample/dummy-image--21x9.jpg 760w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1280w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1440w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1460w"
+        },
+        "sources": [
+          {
+            "mqDef": "1-3",
+            "fallback": "../dummy-content/images/sample/dummy-image--21x9.jpg",
+            "renditions": [
+              {
+                "type": "video/mp4",
+                "src": "../dummy-content/videos/office-setup_21_9.mp4"
+              }
+            ]
+          },
+          {
+            "mqDef": "4-5",
+            "fallback": "../dummy-content/images/sample/dummy-image--21x9.jpg",
+            "renditions": [
+              {
+                "type": "video/mp4",
+                "src": "../dummy-content/videos/office-setup_21_9.mp4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "teaser with image (21:9), text-alignment: text right, color themes for typography: light theme, background gradient: enabled (color set to #333)",
+        "cssClasses": "dvag-h-typography--light dvag-h-text--right dvag-h-background--gradient",
+        "gradientColor": "#333",
+        "hasImage": true,
+        "mobileImage": {
+          "imageSrc": "../dummy-content/images/sample/dummy-image--21x9.jpg",
+          "imageAlt": "DVAG Lazy Image Alt Tag",
+          "imageCssClasses": "dva-h-preload dva-h-preload__21-9 dvag-m-c01d-teaser__image dvag-m-c01d-teaser__image--mobile",
+          "imageRatio": "21:9",
+          "imageSizes": "(min-width: 1460px) 1460px, 100vw",
+          "imageSrcset": "../dummy-content/images/sample/dummy-image--21x9.jpg 480w, ../dummy-content/images/sample/dummy-image--21x9.jpg 760w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1280w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1440w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1460w"
+        },
+        "desktopImage": {
+          "imageSrc": "../dummy-content/images/sample/dummy-image--21x9.jpg",
+          "imageAlt": "DVAG Lazy Image Alt Tag",
+          "imageCssClasses": "dva-h-preload dva-h-preload__21-9 dvag-m-c01d-teaser__image dvag-m-c01d-teaser__image--desktop",
+          "imageRatio": "21:9",
+          "imageSizes": "(min-width: 1460px) 1460px, 100vw",
+          "imageSrcset": "../dummy-content/images/sample/dummy-image--21x9.jpg 480w, ../dummy-content/images/sample/dummy-image--21x9.jpg 760w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1280w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1440w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1460w"
+        }
+      },
+      {
+        "title": "teaser with image (21:9), background gradient: enabled (color set to #fff)",
+        "cssClasses": "dvag-h-background--gradient",
+        "gradientColor": "#fff",
+        "hasIcon": true,
+        "hasImage": true,
+        "mobileImage": {
+          "imageSrc": "../dummy-content/images/sample/dummy-image--21x9.jpg",
+          "imageAlt": "DVAG Lazy Image Alt Tag",
+          "imageCssClasses": "dva-h-preload dva-h-preload__21-9 dvag-m-c01d-teaser__image dvag-m-c01d-teaser__image--mobile",
+          "imageRatio": "21:9",
+          "imageSizes": "(min-width: 1460px) 1460px, 100vw",
+          "imageSrcset": "../dummy-content/images/sample/dummy-image--21x9.jpg 480w, ../dummy-content/images/sample/dummy-image--21x9.jpg 760w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1280w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1440w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1460w"
+        },
+        "desktopImage": {
+          "imageSrc": "../dummy-content/images/sample/dummy-image--21x9.jpg",
+          "imageAlt": "DVAG Lazy Image Alt Tag",
+          "imageCssClasses": "dva-h-preload dva-h-preload__21-9 dvag-m-c01d-teaser__image dvag-m-c01d-teaser__image--desktop",
+          "imageRatio": "21:9",
+          "imageSizes": "(min-width: 1460px) 1460px, 100vw",
+          "imageSrcset": "../dummy-content/images/sample/dummy-image--21x9.jpg 480w, ../dummy-content/images/sample/dummy-image--21x9.jpg 760w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1280w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1440w, ../dummy-content/images/sample/dummy-image--21x9.jpg 1460w"
+        }
+      }
+    ]
+  }
