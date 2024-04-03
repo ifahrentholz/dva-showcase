@@ -10,4 +10,4 @@ export type DvaButtonTemplateArgs = {
     disabled?: boolean;
     onClick?: () => void;
 };
-export declare const dvaButtonTemplate: (args: DvaButtonTemplateArgs) => "" | import("lit-html").TemplateResult<1>;
+export declare const dvaButtonTemplate: (args: DvaButtonTemplateArgs) => import("lit-html").TemplateResult<1> | "";
