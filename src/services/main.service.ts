@@ -265,7 +265,7 @@ export class MainService {
 
     // @ts-ignore
     document.body.style.display = null;
-    const lcpCandidate = document.querySelector<LcpCandidate>("main img");
+    const lcpCandidate = document.querySelector<LcpCandidate>("img");
 
     await new Promise<void>(resolve => {
       if (lcpCandidate && !lcpCandidate.complete) {
