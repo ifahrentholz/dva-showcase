@@ -1,6 +1,10 @@
 # DVAG Showcase
 This is a showcasde project in Edge Delivery Serices for DVAG.
 
+## Pages
+1. Vorsorge Page: https://main--dva-showcase--ifahrentholz.hlx.live
+2. Vermögensberater Page: https://develop--dva-showcase--ifahrentholz.hlx.page/vermoegen-berater
+
 ## Environments
 - Preview: [https://main--dva-showcase--ifahrentholz.hlx.page/](https://main--dva-showcase--ifahrentholz.hlx.page/)
 - Live: [https://main--dva-showcase--ifahrentholz.hlx.live/](https://main--dva-showcase--ifahrentholz.hlx.live/)
