@@ -43,33 +43,12 @@ const template = ({ description, image, name, rating, titel, videoFallback, vide
       <dvag-m-c04-vb-stage class="dvag-m-c04-vb-stage " id="c04-vb-stage">
         <div class="dvag-m-c04-vb-stage__background-wrapper">
           <dva-e-lazy-video
-            class="dva-e-lazy-video dva-h-preload dva-h-preload__4-3--mq-1-3 dva-h-preload__21-9--mq-4-and-up dvag-m-c04-vb-stage__background-video dva-state-invp dva-state-loaded dva-state-initialized"
+            class="dva-e-lazy-video dva-h-preload dva-h-preload__4-3--mq-1-3 dva-h-preload__21-9--mq-4-and-up dvag-m-c04-vb-stage__background-video"
           >
-            <video
-              class="dva-e-lazy-video__video dva-js-lazy-video__video"
-              autoplay=""
-              muted=""
-              loop=""
-              playsinline=""
-              poster="${videoFallback?.src}"
-            >
-              <source data-src="${getPublicVideoPath(videoName)}.754.564.mp4" type="dist/video/mp4" data-dva-mq="1-3" />
-            </video>
-            <video
-              class="dva-e-lazy-video__video dva-js-lazy-video__video dva-state-loaded"
-              autoplay=""
-              muted=""
-              loop=""
-              playsinline=""
-              poster="${videoFallback?.src}"
-            >
-              <source
-                data-src="${getPublicVideoPath(videoName)}.1200.500.mp4"
-                type="video/mp4"
-                data-dva-mq="4-5"
-                poster="${videoFallback?.src}"
-              />
-            </video>
+            <source data-src="${getPublicVideoPath(videoName)}.754.564.mp4" type="dist/video/mp4" data-dva-mq="4-5" />
+            <img data-src="${videoFallback?.src}" alt="${videoFallback?.alt}" />
+            <source data-src="${getPublicVideoPath(videoName)}.1200.500.mp4" type="dist/video/mp4" data-dva-mq="1-3" />
+            <img data-src="${videoFallback?.src}" alt=${videoFallback?.alt} />
           </dva-e-lazy-video>
 
           <div class="dvag-m-c04-vb-stage__skewed-box">
@@ -83,7 +62,7 @@ const template = ({ description, image, name, rating, titel, videoFallback, vide
           <div class="dvag-m-c04-vb-stage__vb-image">
             <div class="dvag-m-c04-vb-stage__vb-image-wrapper">
               <dva-e-lazy-image
-                class="dva-e-lazy-image dva-js-lazy-image dvag-m-c04-vb-stage__vb-portrait dva-state-initialized dva-state-invp dva-state-loaded"
+                class="dva-e-lazy-image dva-js-lazy-image dvag-m-c04-vb-stage__vb-portrait"
                 src="${image?.src}"
                 alt="${image?.alt}"
                 aspect-ratio="1:1"
@@ -94,13 +73,7 @@ const template = ({ description, image, name, rating, titel, videoFallback, vide
           <div class="dvag-m-c04-vb-stage__vb-content">
             <div class="dvag-m-c04-vb-stage__vb-inner-content">
               <div class="dvag-m-c04-vb-stage__rating-wrapper">
-                <dva-m-rating-box class="dva-m-rating-box" rating="${rating}">
-                  <div class="dva-m-rating-box__ratingstar-wrapper"></div>
-                  <span class="dvag-e-form-field__error">
-                    <dva-e-icon class="dvag-e-form-field__error-icon" icon-id="dva-icon-error-16px"></dva-e-icon> Bitte
-                    bewerten Sie.
-                  </span>
-                </dva-m-rating-box>
+                <dva-m-rating-box class="dva-m-rating-box" rating="${rating}"></dva-m-rating-box>
                 <p class="dvag-m-c04-vb-stage__rating-label">
                   5 von 5 Sternen<a class="dvag-m-c04-vb-stage__rating-link" href="#">15 Bewertungen</a>
                 </p>
@@ -111,7 +84,7 @@ const template = ({ description, image, name, rating, titel, videoFallback, vide
               <p class="dvag-m-c04-vb-stage__vb-title">${titel}</p>
 
               <dvag-e-c26-vb-contact-overlay-toggle
-                class="dvag-e-c26-vb-contact-overlay-toggle dva-e-button dva-e-button--rebrush dva-e-button--small dvag-m-c04-vb-stage__cta dva-e-button--white dva-state-active"
+                class="dvag-e-c26-vb-contact-overlay-toggle dva-e-button dva-e-button--rebrush dva-e-button--small dvag-m-c04-vb-stage__cta dva-e-button--white"
                 id="contact_c04-vb-stage"
                 no-cookie-hide="no-cookie-hide"
               >
