@@ -1,0 +1,69 @@
+.dvag-m-c06-page-section {
+  @extend %dvag-h-component-margin-bottom;
+  @extend %dvag-h-component-margin-top;
+  @extend %dvag-h-component-padding-bottom;
+  @extend %dvag-h-component-padding-top;
+}
+
+.dvag-m-c06-page-section__content-wrapper {
+  @extend %dvag-grid-container-col-1-12;
+
+  margin-bottom: 40px;
+
+  // unify styling of all links without class attribute to be found in content-wrapper of a page-section
+  /* stylelint-disable selector-no-qualifying-type */
+  a:not([class]),
+  a.external {
+    @extend %dva-e-link;
+  }
+  /* stylelint-enable selector-no-qualifying-type */
+
+  .dvag-m-c28-content-container {
+    padding: 0;
+  }
+}
+
+.dvag-m-c06-page-section__button-wrapper {
+  @extend %dvag-grid-container-col-1-12;
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+
+  @include breakpoint($mq-3-and-up) {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .dva-e-button {
+    flex-basis: 100%;
+
+    @include breakpoint($mq-3-and-up) {
+      &:only-child {
+        flex-basis: auto;
+      }
+    }
+
+    @include breakpoint($mq-5-and-up) {
+      flex-basis: auto;
+    }
+
+    &:not(:first-child) {
+      margin-top: 16px;
+
+      @include breakpoint($mq-3-and-up) {
+        margin-top: 0;
+        margin-left: 24px;
+      }
+    }
+
+    &.dva-state-hidden {
+      margin: 0;
+
+      @include breakpoint($mq-3-and-up) {
+        margin: 0;
+      }
+    }
+  }
+}

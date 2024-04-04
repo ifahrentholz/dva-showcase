@@ -1,7 +1,7 @@
-import { cleanUpBlock } from 'Utils/cleanUpBlock';
-import { html, render } from 'lit';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import './article-overview.scss';
+import { cleanUpBlock } from "Utils/cleanUpBlock";
+import { html, render } from "lit";
+import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
+import "./article-overview.scss";
 
 interface ArticleOverviewTemplateArgs {
   readingTime: string;
@@ -60,7 +60,7 @@ const articleTemplateOverview = (args: ArticleOverviewTemplateArgs) => {
             <div class="dva-m-article-overview__content">
               <h3 class="dva-m-article-overview__headline">${args.headline}</h3>
               <ul>
-                ${args.listItems.map((item) => html`<li>${unsafeHTML(item.innerHTML)}</li>`)}
+                ${args.listItems.map(item => html`<li>${unsafeHTML(item.innerHTML)}</li>`)}
               </ul>
               <p><small>${unsafeHTML(args.footNote)}</small></p>
             </div>
@@ -72,10 +72,10 @@ const articleTemplateOverview = (args: ArticleOverviewTemplateArgs) => {
 };
 
 export default function (block: HTMLElement) {
-  const readingTime = block.children[0].textContent || '1 Minute';
-  const headline = block.children[1].querySelector('p')?.textContent || '';
-  const listItems = [...block.children[1].querySelectorAll('li')];
-  const footNote = block.children[2].innerHTML || '';
+  const readingTime = block.children[0].textContent || "1 Minute";
+  const headline = block.children[1].querySelector("p")?.textContent || "";
+  const listItems = [...block.children[1].querySelectorAll("li")];
+  const footNote = block.children[2].innerHTML || "";
 
   cleanUpBlock(block);
 

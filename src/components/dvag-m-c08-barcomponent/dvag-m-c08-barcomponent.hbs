@@ -1,0 +1,23 @@
+---
+layout: default
+title: "[C08] Barcomponent"
+---
+
+<div class="dvag-m-c08-barcomponent">
+  <div class="dvag-grid">
+    <div class="dvag-grid-row">
+      {{#is cols "100"}}
+        {{> dvag-m-c08-barcomponent--100 }}
+      {{/is}}
+      {{#is cols "50-50"}}
+        {{> dvag-m-c08-barcomponent--50-50 }}
+      {{/is}}
+      {{#is cols "33-33-33"}}
+        {{> dvag-m-c08-barcomponent--33-33-33 }}
+      {{/is}}
+      {{#is cols "25-25-25-25"}}
+        {{> dvag-m-c08-barcomponent--25-25-25-25 }}
+      {{/is}}
+    </div>
+  </div>
+</div>

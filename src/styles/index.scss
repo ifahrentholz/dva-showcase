@@ -1,5 +1,5 @@
 @import "base/base";
-// @import 'legacy-overrides/legacy-overrides';
+@import "legacy-overrides/legacy-overrides";
 @import "helper/dva-h-preload";
 @import "helper/dva-h-skewed-box";
 @import "helper/dvag-h-component-margin";
@@ -120,7 +120,7 @@
 // @import "../components/dvag-m-consent-blocking-overlay/dvag-m-consent-blocking-overlay";
 // // rebrush 2022/2023 components
 // @import "../components/dvag-m-c01b-teaser/dvag-m-c01b-teaser";
-// @import "../components/dvag-m-c08-barcomponent/dvag-m-c08-barcomponent";
+@import "../components/dvag-m-c08-barcomponent/dvag-m-c08-barcomponent";
 // @import "../components/dvag-m-c05-list-entry/dvag-m-c05-list-entry";
 // @import "../components/dvag-m-c02-container-slider/dvag-m-c02-container-slider";
 @import "../components/dvag-m-basic-slider/dvag-m-basic-slider";
@@ -140,7 +140,7 @@
 // @import "../components/dvag-m-c24-quicklinks/dvag-m-c24-quicklinks";
 // @import "../components/dvag-m-c24-quicklink-item/dvag-m-c24-quicklink-item";
 // @import "../components/dvag-m-c29-hero-50-50/dvag-m-c29-hero-50-50";
-//@import "../components/dvag-m-c25-vb-about-me/dvag-m-c25-vb-about-me";
+// @import "../components/dvag-m-c25-vb-about-me/dvag-m-c25-vb-about-me";
 @import "../components/dvag-m-basic-overlay/dvag-m-basic-overlay";
 // @import "../components/dvag-m-c26-vb-contact-overlay/dvag-m-c26-vb-contact-overlay";
 // @import "../components/dvag-m-radio-group/dvag-m-radio-group";
@@ -173,7 +173,7 @@
 // @import "../components/dvag-m-c35-hero-quote/dvag-m-c35-hero-quote";
 // @import "../components/dvag-m-c01c-teaser/dvag-m-c01c-teaser";
 @import "../components/dvag-m-n02-footer/dvag-m-n02-footer";
-// @import "../components/dvag-m-n03-vb-footer/dvag-m-n03-vb-footer";
+@import "../components/dvag-m-n03-vb-footer/dvag-m-n03-vb-footer";
 // @import "../components/dvag-m-recommendation-bar/dvag-m-recommendation-bar";
 // @import "../components/dvag-m-c36-partner-wall/dvag-m-c36-partner-wall";
 @import "../components/dvag-m-n01-header/dvag-m-n01-header";

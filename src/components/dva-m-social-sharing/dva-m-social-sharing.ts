@@ -1,45 +1,45 @@
-import { throttle } from '@kluntje/js-utils/lib/function-helpers/decorators';
-import { Component } from '@kluntje/core';
-import { ViewportObserver } from '@kluntje/services';
-import { toggleClass } from '@kluntje/js-utils/lib/dom-helpers';
-import { fetchJSON } from '@kluntje/js-utils/lib/api-helpers';
-import { ACTIVE, HIDDEN } from 'Constants/cssClasses';
-import { IN_VIEWPORT_EVENT, OUT_VIEWPORT_EVENT } from 'Constants/eventTypes';
+import { throttle } from "@kluntje/js-utils/lib/function-helpers/decorators";
+import { Component } from "@kluntje/core";
+import { ViewportObserver } from "@kluntje/services";
+import { toggleClass } from "@kluntje/js-utils/lib/dom-helpers";
+import { fetchJSON } from "@kluntje/js-utils/lib/api-helpers";
+import { ACTIVE, HIDDEN } from "Constants/cssClasses";
+import { IN_VIEWPORT_EVENT, OUT_VIEWPORT_EVENT } from "Constants/eventTypes";
 
 class DvaSocialSharing extends Component {
   viewportObserver = ViewportObserver.getInstance();
   constructor() {
     super({
       ui: {
-        stickyBox: '.dva-js-social-sharing__sticky :-one',
-        stickyToggle: '.dva-js-social-sharing__sticky-icon :-one',
-        shareLink: '.dva-js-social-sharing__share-link',
+        stickyBox: ".dva-js-social-sharing__sticky :-one",
+        stickyToggle: ".dva-js-social-sharing__sticky-icon :-one",
+        shareLink: ".dva-js-social-sharing__share-link",
       },
       events: [
         {
-          event: 'scroll',
-          target: 'window',
-          handler: 'onScroll',
+          event: "scroll",
+          target: "window",
+          handler: "onScroll",
         },
         {
-          event: 'click',
-          target: 'stickyToggle',
-          handler: 'toggleSticky',
+          event: "click",
+          target: "stickyToggle",
+          handler: "toggleSticky",
         },
         {
           event: IN_VIEWPORT_EVENT,
-          target: 'this',
-          handler: 'handleInVP',
+          target: "this",
+          handler: "handleInVP",
         },
         {
           event: OUT_VIEWPORT_EVENT,
-          target: 'this',
-          handler: 'handleOutVP',
+          target: "this",
+          handler: "handleOutVP",
         },
         {
-          event: 'click',
-          target: 'shareLink',
-          handler: 'handleShare',
+          event: "click",
+          target: "shareLink",
+          handler: "handleShare",
         },
       ],
       initialStates: {
@@ -47,8 +47,8 @@ class DvaSocialSharing extends Component {
         isVisible: true,
       },
       reactions: {
-        isActive: ['onActiveChange'],
-        isVisible: ['onVisibleChange'],
+        isActive: ["onActiveChange"],
+        isVisible: ["onVisibleChange"],
       },
     });
   }
@@ -59,7 +59,7 @@ class DvaSocialSharing extends Component {
    * @returns {string}
    */
   get sharingUrl(): string {
-    return this.getAttribute('share-event-url') || '';
+    return this.getAttribute("share-event-url") || "";
   }
 
   /**
@@ -101,7 +101,7 @@ class DvaSocialSharing extends Component {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }
 
@@ -147,8 +147,8 @@ class DvaSocialSharing extends Component {
    * in order to count Article share
    */
   handleShare(): void {
-    if (this.sharingUrl !== '') fetchJSON(this.sharingUrl);
+    if (this.sharingUrl !== "") fetchJSON(this.sharingUrl);
   }
 }
 
-customElements.define('dva-m-social-sharing', DvaSocialSharing);
+customElements.define("dva-m-social-sharing", DvaSocialSharing);
