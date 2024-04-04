@@ -1,0 +1,114 @@
+---
+layout: default
+title: "[N03] (VB) Footer"
+---
+
+<div class="dvag-m-n03-vb-footer">
+  <!-- VB Contact Section -->
+  <div class="dvag-m-n03-vb-footer__contact-section">
+    <div class="dvag-m-n03-vb-footer__vb-infos">
+      <h4 class="dvag-m-n03-vb-footer__topline">In Ihrer Nähe für Sie da</h4>
+      <h3 class="dvag-m-n03-vb-footer__headline">Klaus Schultze</h3>
+      <p class="dvag-m-n03-vb-footer__direction">Hauptgeschäftsstelle für Deutsche Vermögensberatung</p>
+      
+      <address class="dvag-m-n03-vb-footer__address">
+        <span>Am Damm 34</span>
+        <span>12587 Berlin</span>
+      </address>
+
+      <!-- contact-options for MQ1-3 -->
+      <div class="dvag-m-n03-vb-footer__contact-ctas">
+        {{> dva-e-button
+          cssClasses="dva-e-button--rebrush dva-e-button--secondary dva-e-button--small dvag-m-n03-vb-footer__contact-cta" 
+          isRebrushButton=true
+          label="Telefon"
+          iconID="dva-icon-phone-24px"
+          href="#"
+        }}
+
+        {{> dva-e-button
+          cssClasses="dva-e-button--rebrush dva-e-button--secondary dva-e-button--small dvag-m-n03-vb-footer__contact-cta" 
+          isRebrushButton=true
+          label="Mobil"
+          iconID="dva-icon-mobile-phone-24px"
+          href="#"
+        }}
+
+        {{> dva-e-button
+          cssClasses="dva-e-button--rebrush dva-e-button--secondary dva-e-button--small dvag-m-n03-vb-footer__contact-cta" 
+          isRebrushButton=true
+          label="E-Mail schreiben"
+          iconID="dva-icon-mail-24px"
+          href="mailto:abc@dvag.de"
+        }}
+      </div>
+
+      <!-- contact-options for MQ4-5 -->
+      <dl class="dvag-m-n03-vb-footer__contact-links">
+        <div class="dvag-m-n03-vb-footer__contact-row">
+          <dt class="dvag-m-n03-vb-footer__contact-type">
+            Telefon
+          </dt>
+          <dd class="dvag-m-n03-vb-footer__contact-value">
+            <a href="tel:03065076356" class="dvag-m-n03-vb-footer__contact-link">030 65076356</a>
+          </dd>
+        </div>
+        <div class="dvag-m-n03-vb-footer__contact-row">
+          <dt class="dvag-m-n03-vb-footer__contact-type">
+            Mobil
+          </dt>
+          <dd class="dvag-m-n03-vb-footer__contact-value">
+            <a href="tel:01714454187" class="dvag-m-n03-vb-footer__contact-link">01714454187</a>
+          </dd>
+        </div>
+        <div class="dvag-m-n03-vb-footer__contact-row">
+          <dt class="dvag-m-n03-vb-footer__contact-type">
+            E-Mail
+          </dt>
+          <dd class="dvag-m-n03-vb-footer__contact-value">
+            <a href="mailto:vorname.nachname@dvag.de" class="dvag-m-n03-vb-footer__contact-link">vorname.nachname@dvag.de</a>
+          </dd>
+        </div>
+      </dl>     
+
+      <dvag-e-c26-vb-contact-overlay-toggle class="dva-e-button dva-e-button--rebrush dva-e-button--small dvag-e-c26-vb-contact-overlay-toggle dvag-m-n03-vb-footer__overlay-cta" deeplinking-target="termin">
+        <div class="dva-e-button__background"></div>
+        <span class="dva-e-button__label">Termin vereinbaren</span>
+      </dvag-e-c26-vb-contact-overlay-toggle>
+
+      <h4 class="dvag-m-n03-vb-footer__topline">Finden Sie mich in den sozialen Netzwerken</h4>
+
+      <div class="dvag-m-n03-vb-footer__social-items">
+        <a class="dva-e-button dva-e-button--secondary dva-e-button--rebrush dva-e-button--icon-only dvag-m-n03-vb-footer__social-item" href="#" target="_blank">
+          <div class="dva-e-button__background"></div>
+          <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="dva-icon-facebook-24px"></dva-e-icon>
+        </a>
+        <a class="dva-e-button dva-e-button--secondary dva-e-button--rebrush dva-e-button--icon-only dvag-m-n03-vb-footer__social-item" href="#" target="_blank">
+          <div class="dva-e-button__background"></div>
+          <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="dva-icon-instagram-24px"></dva-e-icon>
+        </a>
+        <a class="dva-e-button dva-e-button--secondary dva-e-button--rebrush dva-e-button--icon-only dvag-m-n03-vb-footer__social-item" href="#" target="_blank">
+          <div class="dva-e-button__background"></div>
+          <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="dva-icon-linkedin-24px"></dva-e-icon>
+        </a>
+        <a class="dva-e-button dva-e-button--secondary dva-e-button--rebrush dva-e-button--icon-only dvag-m-n03-vb-footer__social-item" href="#" target="_blank">
+          <div class="dva-e-button__background"></div>
+          <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="dva-icon-xing-24px"></dva-e-icon>
+        </a>
+        <a class="dva-e-button dva-e-button--secondary dva-e-button--rebrush dva-e-button--icon-only dvag-m-n03-vb-footer__social-item" href="#" target="_blank">
+          <div class="dva-e-button__background"></div>
+          <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="dva-icon-twitter-24px"></dva-e-icon>
+        </a>
+      </div>
+    </div>
+    <div class="dvag-m-n03-vb-footer__google-maps">
+      <dvag-e-google-map class="dvag-e-google-map"
+                         lat="53.8321259"
+                         lng="12.0410447">
+      </dvag-e-google-map>
+    </div>
+  </div>
+
+  <!-- VB Recommendation Bar -->
+  {{> dvag-m-recommendation-bar hasRating=true overlayId="recommendationOverlay"}}
+</div>
