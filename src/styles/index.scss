@@ -1,5 +1,5 @@
 @import "base/base";
-// @import 'legacy-overrides/legacy-overrides';
+@import "legacy-overrides/legacy-overrides";
 @import "helper/dva-h-preload";
 @import "helper/dva-h-skewed-box";
 @import "helper/dvag-h-component-margin";
