@@ -29,7 +29,7 @@ class Status {
 }
 
 export class MainService {
-  private lcpBlocks = ["article-stage", "article-header", "article-overview", "vb-stage"];
+  private lcpBlocks = ["article-stage", "article-header", "article-overview", "vb-stage", "quicklinks"];
 
   constructor(private sectionService: SectionService, private blockService: BlockService) {}
 
