@@ -1,4 +1,5 @@
 export const ACTIVE = "dva-state-active";
+export const ANIMATE = "dva-state-animate";
 export const OPEN = "dva-state-open";
 export const LOADING = "dva-state-loading";
 export const LOADED = "dva-state-loaded";

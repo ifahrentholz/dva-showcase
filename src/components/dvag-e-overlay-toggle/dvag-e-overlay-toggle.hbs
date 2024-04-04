@@ -1,0 +1,12 @@
+---
+layout: default
+label: "Jetzt weiterempfehlen"
+---
+
+<dvag-e-overlay-toggle class="dvag-e-overlay-toggle dva-e-button dva-e-button--rebrush dva-e-button--small {{this.cssClasses}}" target="{{this.target}}" tabindex="0">
+  <div class="dva-e-button__background"></div>
+  {{#if this.iconID}}
+    <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="{{iconID}}"></dva-e-icon>
+  {{/if}}
+  <span class="dva-e-button__label">{{this.label}}</span>
+</dvag-e-overlay-toggle>

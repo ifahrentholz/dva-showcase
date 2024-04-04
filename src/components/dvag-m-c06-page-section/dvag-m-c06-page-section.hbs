@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<div class="AEM-WRAPPER-ELEMENT {{cssClasses}}">
+  <div class="dvag-m-c06-page-section dvag-m-skew-component">
+    <div class="dva-h-skew--in"></div>
+    <div class="dvag-m-skewed-box__content">
+      {{> dvag-m-section-header 
+        subheadline="Subheadline/type-700/black-300"
+        headline="Headline/type-900/black-350"
+      }}
+      <!-- @BE: remove inline-style-attribute (only for representation in living styleguide) -->
+      <div class="dvag-m-c06-page-section__content-wrapper" style="background: #D6D6D6; border: 2px dashed #2B2B2B; height: 300px; display: flex; align-items: center; justify-content: center;">
+        [CONTENT WILL BE INCLUDED HERE]
+      </div>
+      <div class="dvag-m-c06-page-section__button-wrapper">
+        {{> dva-e-button
+          cssClasses="dva-e-button--rebrush"
+          label="Primary - Big"
+        }}
+        {{> dva-e-button
+          cssClasses="dva-e-button--secondary dva-e-button--rebrush"
+          label="Secondary - Big"
+        }}
+      </div>
+    </div>
+    <div class="dva-h-skew--out"></div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.dva-legacy-breadcrumb {
+  &__link {
+    color: $dvag-color__gold-500;
+
+    &:hover {
+      color: $dvag-color__black-300;
+    }
+  }
+}

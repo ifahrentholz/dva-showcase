@@ -1,0 +1,35 @@
+---
+layout: default
+noToolbar: true
+nestedPath: "../"
+images:
+  - description: "No Error"
+    src: 'resources/img/test-1__1280.jpeg'
+    placeholderSrc: 'resources/img/test-1__60.jpeg'
+  - description: "Placeholder Error - Image no error"
+    src: 'resources/img/test-1__1280.jpeg'
+    placeholderSrc: 'resources/img/test-1-placeholder-error.jpeg'
+  - description: "Placeholder no error - Image Error"
+    src: 'resources/img/test-1-error.jpeg'
+    placeholderSrc: 'resources/img/test-1__60.jpeg'
+  - description: "Both Error"
+    src: 'resources/img/test-1-error.jpeg'
+    placeholderSrc: 'resources/img/test-1-placeholder-error.jpeg'
+---
+
+<div class="dva-grid">
+  <div class="dva-grid-row">
+    {{#each images}}
+      <div class="dva-grid-col-mq1-12 dva-grid-col-mq2-6" style="margin-bottom: 20px;">
+        <h3 class="dva-h4">{{this.description}}</h3>
+        <dva-e-lazy-image
+          class="dva-e-lazy-image dva-js-lazy-image"
+          loading-placeholder="{{pv-path @root this.placeholderSrc }}"
+          src="{{pv-path @root this.src}}"
+          alt="DVA Lazy Image with placeholder"
+          aspect-ratio="16:9">
+        </dva-e-lazy-image>
+      </div>
+    {{/each}}
+  </div>
+</div>

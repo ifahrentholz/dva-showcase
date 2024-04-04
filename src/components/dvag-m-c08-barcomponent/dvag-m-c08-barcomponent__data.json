@@ -1,0 +1,20 @@
+{
+  "variants": [
+    {
+      "title": "[C08] Barcomponent - 100",
+      "cols": "100"
+    },
+    {
+      "title": "[C08] Barcomponent - 50-50",
+      "cols": "50-50"
+    },
+    {
+      "title": "[C08] Barcomponent - 33-33-33",
+      "cols": "33-33-33"
+    },
+    {
+      "title": "[C08] Barcomponent - 25-25-25-25",
+      "cols": "25-25-25-25"
+    }
+  ]
+}

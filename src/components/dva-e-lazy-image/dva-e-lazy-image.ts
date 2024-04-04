@@ -1,22 +1,30 @@
-import { Component, MQBasedRendered } from "@kluntje/core";
-import { LOADING, LOADED, INITIALIZED, IN_VIEWPORT, HIDDEN } from "Constants/cssClasses";
-import { removeClass, addClass, onEvent, removeEvent } from "@kluntje/js-utils/lib/dom-helpers";
+import { Component, MQBasedRendered, uiEvent } from "@kluntje/core";
+import { ViewportObserver, IN_VP_EVENT, LazyConnectService } from "@kluntje/services";
+import { LOADING, LOADED, INITIALIZED, IN_VIEWPORT, HIDDEN, ERROR } from "Constants/cssClasses";
+import { removeClass, addClass, onEvent, removeEvent, toggleClass } from "@kluntje/js-utils/lib/dom-helpers";
 import { render } from "lit-html";
 import mqDefinitions from "Config/mediaQueries";
-import LazyConnectService from "Services/LazyConnectService";
+import { getSrcset } from "Utils/getSrcset";
 
-import { template } from "./dva-e-lazy-image.template";
+import { lazyImageTemplate } from "./dva-e-lazy-image.template";
 
 export type ImageInitType = "lazy" | "explicit";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 @MQBasedRendered(mqDefinitions)
-export class DvaLazyImage extends Component {
+export class DVALazyImage extends Component {
+  viewportObserver = ViewportObserver.getInstance();
+
+  _hasError = false;
+  _loadingPlaceholderLoaded = false;
+  _loadingPlaceholderLoadingError = false;
+
   constructor() {
     super({
       ui: {
         image: ".dva-js-lazy-image__img :-one",
+        placeholder: ".dva-e-lazy-image__img--placeholder :-one",
         wrapper: ".dva-js-lazy-image__wrapper :-one",
       },
       initialStates: {
@@ -55,7 +63,7 @@ export class DvaLazyImage extends Component {
    * @returns {string}
    */
   get imgSrcSet(): string {
-    return this.getAttribute("srcset") || "";
+    return this.getAttribute("srcset") || this.getSrcsetFromSrc();
   }
 
   /**
@@ -78,8 +86,8 @@ export class DvaLazyImage extends Component {
    * Returns value of 'aspect-ratio'-Attribute
    * @returns {string}
    */
-  get imgAspectRatio(): string {
-    return this.getAttribute("aspect-ratio") || "";
+  get imgAspectRatio(): string | null {
+    return this.getAttribute("aspect-ratio");
   }
 
   /**
@@ -90,6 +98,10 @@ export class DvaLazyImage extends Component {
     return this.getAttribute("wrapper") || "";
   }
 
+  get noPlaceholder(): boolean {
+    return this.hasAttribute("no-placeholder") && this.getAttribute("no-placeholder") !== "false";
+  }
+
   /**
    * Returns, whether loaded image is Wider than needed
    * @returns {boolean}
@@ -98,13 +110,47 @@ export class DvaLazyImage extends Component {
     return this.ui.image.offsetHeight < this.offsetHeight;
   }
 
+  get hasError(): boolean {
+    return this._hasError;
+  }
+
+  set hasError(newErrorState: boolean) {
+    if (this.hasError === newErrorState) return;
+    this._hasError = newErrorState;
+    this.updateComponent();
+    toggleClass(this.ui.wrapper, ERROR, newErrorState);
+  }
+
+  get hasLoadingPlaceholder(): boolean {
+    return this.loadingPlaceholder !== "";
+  }
+
+  get loadingPlaceholderLoaded(): boolean {
+    return !this.hasLoadingPlaceholder || this._loadingPlaceholderLoaded;
+  }
+
+  set loadingPlaceholderLoaded(newLoadedState: boolean) {
+    if (this.loadingPlaceholderLoaded === newLoadedState) return;
+    this._loadingPlaceholderLoaded = newLoadedState;
+  }
+
+  get loadingPlaceholderLoadingError(): boolean {
+    return !this.hasLoadingPlaceholder || this._loadingPlaceholderLoadingError;
+  }
+
+  set loadingPlaceholderLoadingError(newErrorState: boolean) {
+    if (this.loadingPlaceholderLoadingError === newErrorState) return;
+    this._loadingPlaceholderLoadingError = newErrorState;
+    this.updateComponent();
+  }
+
   /**
    * Webcomponents Helper to observe Attribute Changes
    * @override
    * @returns {string[]}
    */
   static get observedAttributes(): string[] {
-    return ["src", "aspect-ratio"];
+    return ["src", "srcset", "aspect-ratio"];
   }
 
   /**
@@ -118,6 +164,29 @@ export class DvaLazyImage extends Component {
       default:
         return "lazy";
     }
+  }
+
+  getLoadingPlaceholderFromSrc(): string {
+    const imgSrcUrl = new URL(this.imgSrc);
+    const width = imgSrcUrl.searchParams.get("width");
+    if (width) {
+      imgSrcUrl.searchParams.set("width", "60");
+      return imgSrcUrl.href;
+    }
+    return this.imgSrc;
+  }
+
+  getSrcsetFromSrc(): string {
+    const imgSrcUrl = new URL(this.imgSrc);
+    const width = imgSrcUrl.searchParams.get("width");
+    if (width) {
+      return getSrcset(imgSrcUrl.href, [480, 760, 1024, 1280, 1440, 1460, 2000]);
+    }
+    return "";
+  }
+
+  get loadingPlaceholder(): string {
+    return this.getAttribute("loading-placeholder") || this.getLoadingPlaceholderFromSrc();
   }
 
   /**
@@ -135,6 +204,10 @@ export class DvaLazyImage extends Component {
         this.setState({ imgLoaded: false });
         this.loadImage();
         break;
+      case "srcset":
+        this.setState({ imgLoaded: false });
+        this.loadImage();
+        break;
       case "aspect-ratio":
         this.renderComponent();
         this.handleOverwidth();
@@ -147,14 +220,12 @@ export class DvaLazyImage extends Component {
    */
   renderComponent(): void {
     render(
-      template({
+      lazyImageTemplate({
         alt: this.imgAlt,
-        src: this.DEFAULT_FALLBACK_IMAGE,
         srcset: "",
         sizes: this.imgSizes,
-        aspectRatio: this.imgAspectRatio,
+        component: this,
         wrapper: this.imgWrapper,
-        fallbackImg: this.fallbackImg,
       }),
       this.getUiRoot(),
     );
@@ -165,13 +236,11 @@ export class DvaLazyImage extends Component {
    */
   updateComponent(): void {
     render(
-      template({
+      lazyImageTemplate({
         alt: this.imgAlt,
-        src: this.imgSrc,
         srcset: this.imgSrcSet,
         sizes: this.imgSizes,
-        aspectRatio: this.imgAspectRatio,
-        fallbackImg: this.fallbackImg,
+        component: this,
       }),
       this.getUiRoot(),
     );
@@ -184,7 +253,7 @@ export class DvaLazyImage extends Component {
   afterComponentRender(): void {
     addClass(this, INITIALIZED);
     removeClass(this.ui.wrapper, HIDDEN);
-    if (this.initType !== "explicit") this.loadImage();
+    if (this.initType !== "explicit") this.viewportObserver.observe(this);
   }
 
   /**
@@ -204,7 +273,9 @@ export class DvaLazyImage extends Component {
   /**
    * Initiates Image Load, by add src(-set) to img in shadow-DOM
    */
+  @uiEvent("this", IN_VP_EVENT)
   loadImage(): void {
+    this.viewportObserver.unobserve(this);
     if (this.state.imgLoaded) return;
     addClass(this, IN_VIEWPORT);
     addClass(this.ui.wrapper, LOADING);
@@ -226,9 +297,9 @@ export class DvaLazyImage extends Component {
     const currentImg = this.ui.image;
 
     removeEvent(currentImg, "error", this.handleImageLoadingError, this);
-    console.log("src", this.fallbackImg);
-    currentImg.setAttribute("src", this.fallbackImg);
-    currentImg.setAttribute("srcset", "");
+    // currentImg.setAttribute("src", this.fallbackImg);
+    // currentImg.setAttribute("srcset", "");
+    this.hasError = true;
     console.log("lazyImg error:", currentImg);
   }
 
@@ -238,9 +309,12 @@ export class DvaLazyImage extends Component {
   handleImageLoad(): void {
     this.handleOverwidth();
 
+    this.hasError = false;
     removeEvent(this.ui.image, "load", this.handleImageLoad, this);
     removeClass(this.ui.wrapper, LOADING);
     addClass(this, LOADED);
+    addClass(this.ui.image, LOADED);
+    addClass(this.ui.placeholder, HIDDEN);
 
     this.dispatchEvent(
       new CustomEvent("dva-image-loaded", {
@@ -272,4 +346,4 @@ export class DvaLazyImage extends Component {
   }
 }
 
-customElements.define("dva-e-lazy-image", DvaLazyImage);
+customElements.define("dva-e-lazy-image", DVALazyImage);

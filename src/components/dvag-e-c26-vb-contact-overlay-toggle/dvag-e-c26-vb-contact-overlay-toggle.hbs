@@ -1,0 +1,17 @@
+---
+layout: default
+title: "[C26] (VB) Contact Overlay Toggle"
+label: "Open [C26] (VB) Contact Overlay]"
+deeplinkingTarget: "kontakt"
+---
+
+<!-- @BE: set attribute no-cookie-hide if VBPathCookie must be tested -->
+<dvag-e-c26-vb-contact-overlay-toggle class="dvag-e-c26-vb-contact-overlay-toggle dva-e-button dva-e-button--rebrush dva-e-button--small {{cssClasses}}" 
+  deeplinking-target="{{this.deeplinkingTarget}}" tabindex="0"
+  {{#if this.noCookieHide}}no-cookie-hide="no-cookie-hide"{{/if}}>
+  <div class="dva-e-button__background"></div>
+  {{#if this.iconID}}
+      <dva-e-icon class="dva-e-icon dva-e-button__icon" icon-id="{{this.iconID}}"></dva-e-icon>
+  {{/if}}
+  <span class="dva-e-button__label">{{this.label}}</span>
+</dvag-e-c26-vb-contact-overlay-toggle>

@@ -1,0 +1,28 @@
+---
+layout: default
+title: "Recommendation Bar (Rebrush 2022)"
+---
+
+<div style="margin-bottom: 50px;">
+  <div class="dvag-grid">
+    <div class="dvag-grid-row">
+      <div class="dvag-grid-col-1-12">
+        <h3 class="dva-lsg-typography__headline">Recommendation Bar with rating:</h3>
+      </div>
+    </div>
+  </div>
+  <div style="margin-bottom: 50px;">
+    {{> dvag-m-recommendation-bar hasRating=true overlayId="recommendationOverlay1"}}
+  </div>
+  
+  <div class="dvag-grid">
+    <div class="dvag-grid-row">
+      <div class="dvag-grid-col-1-12">
+        <h3 class="dva-lsg-typography__headline">Recommendation Bar without rating:</h3>
+      </div>
+    </div>
+  </div>
+  <div style="margin-bottom: 50px;">
+    {{> dvag-m-recommendation-bar hasRating=false overlayId="recommendationOverlay2"}}
+  </div>
+</div>

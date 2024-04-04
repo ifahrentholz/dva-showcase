@@ -1,0 +1,19 @@
+%legacy-button-override {
+  button {
+    min-height: initial;
+    padding: initial;
+    border: none;
+    border-radius: initial;
+    letter-spacing: initial;
+    transition: initial;
+    &:hover {
+      border: initial;
+      background: transparent;
+    }
+  }
+
+  &:not(.touchevents) button:hover {
+    border: initial;
+    background: transparent;
+  }
+}
