@@ -1,2 +1,2 @@
-import './article-overview.scss';
+import "./article-overview.scss";
 export default function (block: HTMLElement): void;
