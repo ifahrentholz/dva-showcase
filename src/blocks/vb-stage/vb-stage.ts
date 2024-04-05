@@ -129,6 +129,11 @@ export default function (block: HTMLElement) {
     buttonLabel: getChildNodeText(block, blockRows.buttonLabel),
   };
 
+  const image = args.picture?.querySelector("img") ?? undefined;
+
+  image?.setAttribute("loading", "eager");
+  image?.setAttribute("fetchpriority", "high");
+
   cleanUpBlock(block);
   render(template(args), block);
 }

@@ -22,6 +22,11 @@ const template = (picture: HTMLPictureElement | undefined) => {
 
 export default function (block: HTMLElement) {
   const picture = block.querySelector("picture") ?? undefined;
+  const image = picture?.querySelector("img") ?? undefined;
+
+  image?.setAttribute("loading", "eager");
+  image?.setAttribute("fetchpriority", "high");
+
   if (picture) {
     addClasses(picture, "attachment-wide, size-wide");
   }
