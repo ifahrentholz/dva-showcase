@@ -6,6 +6,7 @@ import "Components/dva-m-rating-box/dva-m-rating-box.ts";
 import "Components/dvag-m-c04-vb-stage/dvag-m-c04-vb-stage.ts";
 import "Components/dva-e-lazy-image/dva-e-lazy-image";
 import "Components/icon/dva-e-icon.ts";
+import { renderLazyImage } from "Components/dva-e-lazy-image/dva-e-lazy-image.template";
 
 type Stars = 0.5 | 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 | 4.5 | 5;
 
@@ -82,12 +83,12 @@ const template = ({ description, image, name, rating, titel, videoFallback, vide
         <div class="dvag-m-c04-vb-stage__content-wrapper">
           <div class="dvag-m-c04-vb-stage__vb-image">
             <div class="dvag-m-c04-vb-stage__vb-image-wrapper">
-              <dva-e-lazy-image
-                class="dva-e-lazy-image dva-js-lazy-image dvag-m-c04-vb-stage__vb-portrait dva-state-initialized dva-state-invp dva-state-loaded"
-                src="${image?.src}"
-                alt="${image?.alt}"
-                aspect-ratio="1:1"
-              ></dva-e-lazy-image>
+              ${renderLazyImage({
+                cssClasses: "dvag-m-c04-vb-stage__vb-portrait",
+                src: image?.src || "",
+                alt: image?.alt || "",
+                aspectRatio: "1:1",
+              })}
             </div>
           </div>
 
