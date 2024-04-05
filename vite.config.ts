@@ -52,6 +52,7 @@ export default defineConfig(({ command, mode }) => {
       sourcemap: true,
       minify: true,
       cssMinify: true,
+      cssCodeSplit: true,
       commonjsOptions: {
         include: ["node_modules/**"],
       },
