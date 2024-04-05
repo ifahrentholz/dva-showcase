@@ -32,7 +32,7 @@ const textWithImageUltimateTemplate = ({ image, listItems, title }: TextWithImag
                   <div class="text-with-image-ultimate text parbase">
                     <div class="col-wrapper text-with-image bleed-m bleed-l dva-e-list--checkmark">
                       <div class="col-s-12 col-m-2 col-l-2 image-container">
-                        <img class="center" src="${image?.src}" alt="${image?.alt}" />
+                        <img class="center" src="${image?.src}" alt="${image?.alt}" width="48" height="48" />
                       </div>
                       <div class="col-s-12 col-m-10 col-l-10 bleed-m bleed-l">
                         <h2>${title}<br /><br /></h2>
