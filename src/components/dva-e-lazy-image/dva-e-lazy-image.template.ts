@@ -63,6 +63,7 @@ const renderPlaceholder = (args: LazyImageTemplateParameter) => {
     <img
       draggable="false"
       class="dva-e-lazy-image__img dva-e-lazy-image__img--placeholder"
+      alt="${args.alt}"
       src="${args.component.loadingPlaceholder}"
       @load=${() => {
         args.component.loadingPlaceholderLoaded = true;
