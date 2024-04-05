@@ -5,17 +5,17 @@ export const renderFooterAwardsTemplate = () => {
   return html`
     <h5 class="dvag-m-n02-footer__headline">Bestnoten in Beratung, Service und Karriere</h5>
     <div class="dvag-m-n02-footer__awards">
-      <a href="#">
+      <a href="#" aria-label="Weiter zum Service Rating">
         ${renderLazyImage({
           src: "https://main--dva-showcase--ifahrentholz.hlx.page/assets/service-rating-footer.svg",
-          alt: "Service Rating Footer",
+          alt: "Service Rating",
           cssClasses: "dvag-m-n02-footer__award-image",
         })}
       </a>
-      <a href="#">
+      <a href="#" aria-label="Weiter zu den Kundenchampions">
         ${renderLazyImage({
           src: "https://main--dva-showcase--ifahrentholz.hlx.page/assets/kundenchampions-footer.svg",
-          alt: "Kundenchampions Footer",
+          alt: "Kundenchampions",
           cssClasses: "dvag-m-n02-footer__award-image",
         })}
       </a>
