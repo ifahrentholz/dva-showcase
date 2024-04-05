@@ -234,7 +234,7 @@ export class MainService {
         link.onload = resolve;
         link.onerror = reject;
         if (insertBefore !== undefined) {
-          const before = document.querySelector(`head > link[href="${insertBefore}"]`);
+          const before = document.querySelector(`head > link[href$="${insertBefore}"]`);
           if (before) before.before(link);
         } else {
           document.head.append(link);
