@@ -8,34 +8,46 @@ import { cleanUpBlock } from "Utils/cleanUpBlock";
 
 interface ArticleTeaserArgs {
   cssClasses?: string | "dva-m-article-teaser--is-first";
+  image?: HTMLImageElement;
   linkUrl: string;
-  imageSrc: string;
   topline?: string;
   headline?: string;
   text?: string;
   linkLabel?: string;
 }
 
-const articleTeaserTemplate = (args: ArticleTeaserArgs) => {
+const articleTeaserTemplate = ({
+  cssClasses,
+  headline,
+  image,
+  linkLabel,
+  linkUrl,
+  text,
+  topline,
+}: ArticleTeaserArgs) => {
   return html`
     <div class="col-s-12 col-m-4 col-l-4">
-      <div class="dva-m-teaser dva-m-article-teaser${renderCssClasses(args.cssClasses)}">
-        <a href="${args.linkUrl}" class="dva-m-article-teaser__image-link">
+      <div class="dva-m-teaser dva-m-article-teaser${renderCssClasses(cssClasses)}">
+        <a
+          href="${linkUrl}"
+          class="dva-m-article-teaser__image-link"
+          aria-label="weiter zur versicherungscheck beratung"
+        >
           ${renderLazyImage({
-            src: args.imageSrc,
-            alt: "header-finanz-und-versicherungscheck-beratung-frauen.jpg",
+            src: image?.src ?? "",
+            alt: image?.alt ?? "",
             cssClasses: "dva-m-article-teaser__image",
             aspectRatio: "21:9",
           })}
         </a>
         <div class="dva-m-article-teaser__content">
-          ${ifDefined(args.topline ? html`<h4 class="dva-m-teaser__topline">${args.topline}</h4>` : undefined)}
-          ${ifDefined(args.headline ? html`<h3 class="dva-m-teaser__headline">${args.headline}</h3>` : undefined)}
-          ${ifDefined(args.text ? html`<p class="dva-m-teaser__text">${args.text}</p>` : undefined)}
+          ${ifDefined(topline ? html`<h4 class="dva-m-teaser__topline">${topline}</h4>` : undefined)}
+          ${ifDefined(headline ? html`<h3 class="dva-m-teaser__headline">${headline}</h3>` : undefined)}
+          ${ifDefined(text ? html`<p class="dva-m-teaser__text">${text}</p>` : undefined)}
           ${ifDefined(
-            args.linkLabel && args.linkUrl
+            linkLabel && linkUrl
               ? html`
-                  <a href="${args.linkUrl}" class="dva-e-link dva-m-teaser__cta" target="_self">
+                  <a href="${linkUrl}" class="dva-e-link dva-m-teaser__cta" target="_self">
                     <span class="dva-e-link__label">Weiterlesen</span>
                     ${renderIcon("dva-icon-arrow-right")}
                   </a>
@@ -55,7 +67,7 @@ interface ArticleTeaserRowArgs {
   ctaUrl: string;
 }
 
-const articleTeaserRowTemplate = (args: ArticleTeaserRowArgs) => {
+const articleTeaserRowTemplate = ({ ctaLabel, ctaUrl, headline, teasers }: ArticleTeaserRowArgs) => {
   return html`
     <section class="section bg-darkgrey ">
       <div class="section-content container">
@@ -63,13 +75,13 @@ const articleTeaserRowTemplate = (args: ArticleTeaserRowArgs) => {
           <header
             class="section-header align-center col-s-12 col-m-10 col-m-1-offset col-m-1-push col-l-10 col-l-1-offset col-l-1-push"
           >
-            <h3 class="section-headline">${args.headline}</h3>
+            <h3 class="section-headline">${headline}</h3>
           </header>
 
           <div class="content-box clear col-s-12 col-m-12 col-l-12">
             <div class="bar">
               <div class="text">
-                <div class="col-wrapper">${args.teasers.map(teaser => articleTeaserTemplate(teaser))}</div>
+                <div class="col-wrapper">${teasers.map(teaser => articleTeaserTemplate(teaser))}</div>
               </div>
             </div>
           </div>
@@ -77,9 +89,9 @@ const articleTeaserRowTemplate = (args: ArticleTeaserRowArgs) => {
           <footer class="section-footer clear col-s-12 col-m-12 col-l-12">
             <ul class="button-list bleed-m bleed-l">
               <li class="button-list-item col-m-4 col-m-4-offset col-l-4 col-l-4-offset">
-                <a class="dva-e-button dva-e-button--rebrush" href="${args.ctaUrl}">
+                <a class="dva-e-button dva-e-button--rebrush" href="${ctaUrl}">
                   <div class="dva-e-button__background"></div>
-                  <span class="dva-e-button__label">${args.ctaLabel}</span>
+                  <span class="dva-e-button__label">${ctaLabel}</span>
                 </a>
               </li>
             </ul>
@@ -93,7 +105,7 @@ const articleTeaserRowTemplate = (args: ArticleTeaserRowArgs) => {
 export default function (block: HTMLElement) {
   const headline = block.children[0].textContent || "";
   const teasers = [...block.children[1].children].map((teaser, index) => {
-    const teaserImage = teaser.querySelector("img");
+    const teaserImage = teaser.querySelector("img") ?? undefined;
     const teaserTopline = block.children[2].children[index].textContent || "";
     const teaserHeadline = block.children[3].children[index].textContent || "";
     const teaserText = block.children[4].children[index].textContent || "";
@@ -103,7 +115,7 @@ export default function (block: HTMLElement) {
 
     return {
       linkUrl: teaserLinkUrl,
-      imageSrc: teaserImage?.src || "",
+      image: teaserImage,
       topline: teaserTopline,
       headline: teaserHeadline,
       text: teaserText,
