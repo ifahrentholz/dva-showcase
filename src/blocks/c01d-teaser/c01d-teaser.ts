@@ -15,7 +15,9 @@ interface TeaserTemplateArgs {
   btnUrl?: string;
   variant?: variantName;
   imgDesktop: string;
+  imgDesktopAlt: string;
   imgMobile: string;
+  imgMobileAlt: string;
   gradientColor: string;
 }
 
@@ -33,7 +35,7 @@ dvag-h-headline--bold"
             cssClasses:
               "dvag-m-c01d-teaser__image dva-h-preload dvag-m-c01d-teaser__image dva-h-preload--21-9 dvag-m-c01d-teaser__image--mobile",
             src: args.imgMobile,
-            alt: "",
+            alt: args.imgMobileAlt,
             srcset: getSrcset(args.imgMobile, [480, 760, 1024, 1280, 1440, 1460]),
             sizes: "(min-width: 1460px) 1460px, 100vw",
             aspectRatio: "21:9",
@@ -42,7 +44,7 @@ dvag-h-headline--bold"
             cssClasses:
               "dvag-m-c01d-teaser__image dva-h-preload dvag-m-c01d-teaser__image dva-h-preload--21-9 dvag-m-c01d-teaser__image--desktop",
             src: args.imgDesktop,
-            alt: "teaser-ki-klopp-21_9.jpg",
+            alt: args.imgDesktopAlt,
             srcset: getSrcset(args.imgDesktop, [480, 760, 1024, 1280, 1440, 1460]),
             sizes: "(min-width: 1460px) 1460px, 100vw",
             aspectRatio: "21:9",
@@ -78,7 +80,9 @@ export default function renderTeaser(block: HTMLElement) {
   const btnText = block.children[3].textContent || "";
   const btnUrl = link?.href || "";
   const imgDesktop = block.children[4].getElementsByTagName("img")[0].src;
+  const imgDesktopAlt = block.children[4].getElementsByTagName("img")[0].alt;
   const imgMobile = block.children[5].getElementsByTagName("img")[0].src;
+  const imgMobileAlt = block.children[5].getElementsByTagName("img")[0].alt;
   const gradientColor = block.children[6].textContent || "#CCDDE4";
 
   cleanUpBlock(block);
@@ -91,7 +95,9 @@ export default function renderTeaser(block: HTMLElement) {
     btnUrl,
     variant,
     imgDesktop,
+    imgDesktopAlt,
     imgMobile,
+    imgMobileAlt,
     gradientColor,
   };
 
