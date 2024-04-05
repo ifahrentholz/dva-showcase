@@ -107,10 +107,28 @@ export class MainService {
     }
   };
 
+  private articleBodyTemplate(children: string) {
+    return html` <div class="page container dva-page">
+      <div role="main" class="dva-page__content-area-wrapper">
+        <article class="article dva-l-article dva-m-article-content">
+          ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()} ${unsafeHTML(children)} ${renderFooter()}
+        </article>
+      </div>
+    </div>`;
+  }
+
   private bodyTemplate(children: string) {
     return html` <div class="page container dva-page">
-      ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()} ${unsafeHTML(children)} ${renderFooter()}
+      <div role="main" class="dva-page__content-area-wrapper">
+        ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()} ${unsafeHTML(children)} ${renderFooter()}
+      </div>
     </div>`;
+  }
+
+  private renderBodyTemplate(children: string) {
+    const isArticleSite = getMetadata("template") === "article";
+    if (isArticleSite) this.articleBodyTemplate(children);
+    return this.bodyTemplate(children);
   }
 
   private renderLayout(main: HTMLElement) {
@@ -120,7 +138,7 @@ export class MainService {
     const edsMain = main;
     const body = document.querySelector("body");
     if (body) {
-      render(this.bodyTemplate(children), body);
+      render(this.renderBodyTemplate(children), body);
       edsFooter?.remove();
       edsHeader?.remove();
       edsMain.remove();
