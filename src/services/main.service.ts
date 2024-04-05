@@ -109,7 +109,11 @@ export class MainService {
 
   private bodyTemplate(children: string) {
     return html` <div class="page container dva-page">
-      ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()} ${unsafeHTML(children)} ${renderFooter()}
+      <div role="main" class="dva-page__content-area-wrapper">
+        <article class="article dva-l-article dva-m-article-content">
+          ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()} ${unsafeHTML(children)} ${renderFooter()}
+        </article>
+      </div>
     </div>`;
   }
 
