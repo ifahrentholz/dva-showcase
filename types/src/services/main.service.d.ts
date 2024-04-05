@@ -16,7 +16,9 @@ export declare class MainService {
     private setup;
     decorateDefaultContent(main: HTMLElement): void;
     private loadEager;
+    private articleBodyTemplate;
     private bodyTemplate;
+    private renderBodyTemplate;
     private renderLayout;
     private loadLazy;
     private decorateTemplateAndTheme;
