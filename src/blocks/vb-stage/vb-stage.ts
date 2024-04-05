@@ -10,7 +10,7 @@ import "Components/icon/dva-e-icon.ts";
 type Stars = 0.5 | 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 | 4.5 | 5;
 
 interface VBStageArgs {
-  image?: HTMLImageElement;
+  picture?: HTMLPictureElement;
   videoFallback?: HTMLImageElement;
   videoName: string;
   name: string;
@@ -22,7 +22,7 @@ interface VBStageArgs {
 }
 
 enum blockRows {
-  image,
+  picture,
   videoFallback,
   videoName,
   name,
@@ -37,7 +37,9 @@ const getPublicVideoPath = (fileName: string) => {
   return `${window.hlx.codeBasePath}/dist/video/${fileName}`;
 };
 
-const template = ({ description, image, name, rating, titel, videoFallback, videoName }: VBStageArgs) => {
+const template = ({ description, picture, name, rating, titel, videoFallback, videoName }: VBStageArgs) => {
+  picture?.classList.add("dvag-m-c04-vb-stage__vb-portrait");
+
   return html`
     <div class="c04-vbstage dvag-h-margin-bottom--none">
       <dvag-m-c04-vb-stage class="dvag-m-c04-vb-stage " id="c04-vb-stage">
@@ -60,14 +62,7 @@ const template = ({ description, image, name, rating, titel, videoFallback, vide
 
         <div class="dvag-m-c04-vb-stage__content-wrapper">
           <div class="dvag-m-c04-vb-stage__vb-image">
-            <div class="dvag-m-c04-vb-stage__vb-image-wrapper">
-              <dva-e-lazy-image
-                class="dva-e-lazy-image dva-js-lazy-image dvag-m-c04-vb-stage__vb-portrait"
-                src="${image?.src}"
-                alt="${image?.alt}"
-                aspect-ratio="1:1"
-              ></dva-e-lazy-image>
-            </div>
+            <div class="dvag-m-c04-vb-stage__vb-image-wrapper">${picture}</div>
           </div>
 
           <div class="dvag-m-c04-vb-stage__vb-content">
@@ -123,7 +118,7 @@ const getStars = (element: HTMLElement, index: number): Stars => {
 
 export default function (block: HTMLElement) {
   const args: VBStageArgs = {
-    image: block.children[blockRows.image].querySelector("img") ?? undefined,
+    picture: block.children[blockRows.picture].querySelector("picture") ?? undefined,
     videoFallback: block.children[blockRows.videoFallback].querySelector("img") ?? undefined,
     videoName: getChildNodeText(block, blockRows.videoName),
     name: getChildNodeText(block, blockRows.name),

@@ -36,6 +36,10 @@
     }
   }
 
+  &__vb-portrait {
+    display: flex;
+  }
+
   &__skewed-box {
     position: absolute;
     bottom: 0;
@@ -83,6 +87,7 @@
     background-color: $dvag-color__white-500;
 
     @include breakpoint($mq-4-and-up) {
+      transition: height 0.3s ease;
       position: absolute;
       top: auto;
       bottom: 0;
