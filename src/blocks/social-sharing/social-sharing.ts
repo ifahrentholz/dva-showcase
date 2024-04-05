@@ -28,6 +28,7 @@ const socialTemplateOverview = (args: SocialSharingTemplateArgs[]) => {
               href="${ifDefined(item.url)}"
               title="${ifDefined(item.name)}"
               target="_blank"
+              aria-label="${ifDefined(item.name)}"
             >
               <div class="dva-e-button__background"></div>
               <dva-e-icon class="dva-e-button__icon" icon-id="dva-icon-${item.name}"></dva-e-icon>
@@ -43,7 +44,11 @@ const socialTemplateOverview = (args: SocialSharingTemplateArgs[]) => {
         ></dva-e-icon>
         ${args.map(
           item => html`
-            <a href="${item.url}" class="dva-m-social-sharing__sticky-link dva-js-social-sharing__share-link">
+            <a
+              href="${item.url}"
+              class="dva-m-social-sharing__sticky-link dva-js-social-sharing__share-link"
+              aria-label="${item.name}"
+            >
               <dva-e-icon class="dva-m-social-sharing__sticky-icon" icon-id="dva-icon-${item.name}"></dva-e-icon>
             </a>
           `,
