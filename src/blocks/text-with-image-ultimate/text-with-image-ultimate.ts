@@ -4,12 +4,12 @@ import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import "./text-with-image-ultimate.scss";
 
 interface TextWithImageUltimateTemplateArgs {
-  imageSrc: string;
+  image?: HTMLImageElement;
   title: string;
   listItems: string[];
 }
 
-const textWithImageUltimateTemplate = (args: TextWithImageUltimateTemplateArgs) => {
+const textWithImageUltimateTemplate = ({ image, listItems, title }: TextWithImageUltimateTemplateArgs) => {
   return html`
     <div
       class="wcm-io-parsys dvag-h-background--grey
@@ -32,12 +32,12 @@ const textWithImageUltimateTemplate = (args: TextWithImageUltimateTemplateArgs) 
                   <div class="text-with-image-ultimate text parbase">
                     <div class="col-wrapper text-with-image bleed-m bleed-l dva-e-list--checkmark">
                       <div class="col-s-12 col-m-2 col-l-2 image-container">
-                        <img class="center" src="${args.imageSrc}" />
+                        <img class="center" src="${image?.src}" alt="${image?.alt}" />
                       </div>
                       <div class="col-s-12 col-m-10 col-l-10 bleed-m bleed-l">
-                        <h2>${args.title}<br /><br /></h2>
+                        <h2>${title}<br /><br /></h2>
                         <ul>
-                          ${args.listItems.map(item => html`<li>${unsafeHTML(item)}</li>`)}
+                          ${listItems.map(item => html` <li>${unsafeHTML(item)}</li>`)}
                         </ul>
                       </div>
                     </div>
@@ -55,11 +55,11 @@ const textWithImageUltimateTemplate = (args: TextWithImageUltimateTemplateArgs) 
 };
 
 export default function (block: HTMLElement) {
-  const imageSrc = block.querySelector("img")?.getAttribute("src") || "";
+  const image = block.querySelector("img") ?? undefined;
   const title = block.querySelector("h3")?.textContent || "";
   const listItems = [...block.querySelectorAll("ul li")].map(li => li.innerHTML);
 
   cleanUpBlock(block);
 
-  render(textWithImageUltimateTemplate({ imageSrc, title, listItems }), block);
+  render(textWithImageUltimateTemplate({ image, title, listItems }), block);
 }
