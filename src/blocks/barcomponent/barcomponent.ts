@@ -48,40 +48,42 @@ const renderBars = ({ header, image, text }: Bar) => {
 
 const template = ({ bars, buttonLabel, header, subheader }: barComponentArgs) => {
   return html`
-    <div class="dvag-m-c06-page-section dvag-m-skew-component  ">
-      <div class="dva-h-skew--in"></div>
+    <div class="dvag-h-margin-bottom--none">
+      <div class="dvag-m-c06-page-section dvag-m-skew-component  ">
+        <div class="dva-h-skew--in"></div>
 
-      <div class="dvag-m-skewed-box__content">
-        <div class="dvag-m-section-header">
-          <h3 class="dvag-m-section-header__subheadline">${subheader}</h3>
-          <h2 class="dvag-m-section-header__headline">${header}</h2>
-        </div>
+        <div class="dvag-m-skewed-box__content">
+          <div class="dvag-m-section-header">
+            <h3 class="dvag-m-section-header__subheadline">${subheader}</h3>
+            <h2 class="dvag-m-section-header__headline">${header}</h2>
+          </div>
 
-        <div class="dvag-m-c06-page-section__content-wrapper wcm-io-parsys">
-          <div class="wcm-io-parsys dvag-h-margin-bottom--none">
-            <div class="dvag-m-c08-barcomponent">
-              <div class="dvag-grid">
-                <div class="dvag-grid-row wcm-io-parsys">${bars.map(bar => renderBars(bar))}</div>
+          <div class="dvag-m-c06-page-section__content-wrapper wcm-io-parsys">
+            <div class="wcm-io-parsys dvag-h-margin-bottom--none">
+              <div class="dvag-m-c08-barcomponent">
+                <div class="dvag-grid">
+                  <div class="dvag-grid-row wcm-io-parsys">${bars.map(bar => renderBars(bar))}</div>
+                </div>
               </div>
+            </div>
+
+            <div class="buttons">
+              <ul class="button-list bleed-m bleed-l">
+                <li class="button-list-item col-s-12 col-m-4 col-l-m-4-offset col-l-4 col-l-4-offset">
+                  <a href="#" class="dva-e-button dva-e-button--rebrush dva-e-button--small dva-state-active">
+                    <div class="dva-e-button__background"></div>
+                    <span class="dva-e-button__label">${buttonLabel}</span>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
 
-          <div class="buttons">
-            <ul class="button-list bleed-m bleed-l">
-              <li class="button-list-item col-s-12 col-m-4 col-l-m-4-offset col-l-4 col-l-4-offset">
-                <a href="#" class="dva-e-button dva-e-button--rebrush dva-e-button--small dva-state-active">
-                  <div class="dva-e-button__background"></div>
-                  <span class="dva-e-button__label">${buttonLabel}</span>
-                </a>
-              </li>
-            </ul>
-          </div>
+          <div class="dvag-m-c06-page-section__button-wrapper"></div>
         </div>
 
-        <div class="dvag-m-c06-page-section__button-wrapper"></div>
+        <div class="dva-h-skew--out"></div>
       </div>
-
-      <div class="dva-h-skew--out"></div>
     </div>
   `;
 };
