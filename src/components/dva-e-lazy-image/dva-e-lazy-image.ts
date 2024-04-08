@@ -166,6 +166,14 @@ export class DVALazyImage extends Component {
     }
   }
 
+  get fetchPriority(): string | null {
+    return this.getAttribute("fetchpriority");
+  }
+
+  get loading(): string | null {
+    return this.getAttribute("loading");
+  }
+
   getLoadingPlaceholderFromSrc(): string {
     const imgSrcUrl = new URL(this.imgSrc);
     const width = imgSrcUrl.searchParams.get("width");
@@ -254,6 +262,7 @@ export class DVALazyImage extends Component {
     addClass(this, INITIALIZED);
     removeClass(this.ui.wrapper, HIDDEN);
     if (this.initType !== "explicit") this.viewportObserver.observe(this);
+    if (this.initType === "explicit") this.loadImage();
   }
 
   /**

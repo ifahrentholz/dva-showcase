@@ -283,12 +283,13 @@ export class MainService {
 
     // @ts-ignore
     document.body.style.display = null;
-    const lcpCandidate = document.querySelector<LcpCandidate>("main img");
+    const lcpCandidate = document.querySelector<LcpCandidate>("dva-e-lazy-image");
 
     await new Promise<void>(resolve => {
       if (lcpCandidate && !lcpCandidate.complete) {
         lcpCandidate.setAttribute("loading", "eager");
         lcpCandidate.setAttribute("fetchpriority", "high");
+        lcpCandidate.setAttribute("init", "explicit");
         lcpCandidate.addEventListener("load", () => resolve());
         lcpCandidate.addEventListener("error", () => resolve());
       } else {

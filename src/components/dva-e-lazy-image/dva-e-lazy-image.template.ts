@@ -63,6 +63,8 @@ const renderPlaceholder = (args: LazyImageTemplateParameter) => {
     <img
       draggable="false"
       class="dva-e-lazy-image__img dva-e-lazy-image__img--placeholder"
+      fetchpriority=${ifDefined(args.component.fetchPriority)}
+      loading=${ifDefined(args.component.loading)}
       src="${args.component.loadingPlaceholder}"
       @load=${() => {
         args.component.loadingPlaceholderLoaded = true;
@@ -93,6 +95,8 @@ export const lazyImageTemplate = (args: LazyImageTemplateParameter) => {
           srcset="${args.srcset}"
           alt="${args.alt}"
           sizes="${args.sizes}"
+          fetchpriority=${ifDefined(args.component.fetchPriority)}
+          loading=${ifDefined(args.component.loading)}
           data-object-fit=${getObjectFitVal(args.component.imgAspectRatio)}
           data-object-position=${getObjectPositionVal()}
         />
