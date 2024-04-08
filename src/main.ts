@@ -19,6 +19,7 @@ import { MainService } from "./services/main.service.ts";
 
 declare global {
   interface Window {
+    dvaShowTimeout: number;
     hlx: {
       RUM_MASK_URL: string;
       codeBasePath: string;

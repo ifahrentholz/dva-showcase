@@ -12,6 +12,8 @@ import { SectionService } from "./section.service";
 import { config } from "../../config.ts";
 import { getLocation } from "../sidekickHelpers/getLocation.ts";
 
+window.dvaShowTimeout = 200;
+
 type BlockMapping = {
   name: string;
   element: HTMLDivElement;
@@ -92,7 +94,7 @@ export class MainService {
 
       setTimeout(() => {
         document.body.classList.add("show");
-      }, 200);
+      }, window.dvaShowTimeout);
 
       await this.waitForLCP();
 
