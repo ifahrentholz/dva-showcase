@@ -9,7 +9,7 @@ export declare class MainService {
     private blockService;
     private lcpBlocks;
     constructor(sectionService: SectionService, blockService: BlockService);
-    init: () => void;
+    init: () => Promise<void>;
     /**
      * Setup block utils.
      */

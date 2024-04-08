@@ -63,8 +63,8 @@ export declare class DVALazyImage extends Component {
      * @returns {ImageInitType}
      */
     get initType(): ImageInitType;
-    get fetchPriority(): string | undefined;
-    get loading(): string | undefined;
+    get fetchPriority(): string | null;
+    get loading(): string | null;
     getLoadingPlaceholderFromSrc(): string;
     getSrcsetFromSrc(): string;
     get loadingPlaceholder(): string;

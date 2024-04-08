@@ -166,12 +166,12 @@ export class DVALazyImage extends Component {
     }
   }
 
-  get fetchPriority(): string | undefined {
-    return this.getAttribute("fetchpriority") || undefined;
+  get fetchPriority(): string | null {
+    return this.getAttribute("fetchpriority");
   }
 
-  get loading(): string | undefined {
-    return this.getAttribute("loading") || undefined;
+  get loading(): string | null {
+    return this.getAttribute("loading");
   }
 
   getLoadingPlaceholderFromSrc(): string {

@@ -62,7 +62,6 @@ export class SectionService {
     section.dataset.sectionStatus = "initialized";
     section.style.display = "none";
   }
-
   decorateImages() {
     const picture = document.querySelectorAll(".default-content-wrapper picture");
     picture.forEach(item => {
