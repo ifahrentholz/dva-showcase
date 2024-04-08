@@ -6,6 +6,7 @@ import "Components/dvag-m-c11-accordion/dvag-m-c11-accordion.ts";
 import { ConsentManagementService } from "Services/ConsentManagementService.ts";
 declare global {
     interface Window {
+        dvaShowTimeout: number;
         hlx: {
             RUM_MASK_URL: string;
             codeBasePath: string;
