@@ -33,10 +33,10 @@ export class MainService {
 
   constructor(private sectionService: SectionService, private blockService: BlockService) {}
 
-  init = async () => {
+  init = () => {
     this.setup();
-    await this.loadEager();
-    await this.loadLazy();
+    this.loadEager();
+    this.loadLazy();
   };
 
   /**
@@ -80,30 +80,34 @@ export class MainService {
   }
 
   private loadEager = async () => {
-    document.documentElement.lang = "en";
-    this.decorateTemplateAndTheme();
-    const main = document.querySelector("main");
-    if (main) {
-      this.sectionService.init(main);
+    try {
+      document.documentElement.lang = "en";
+      this.decorateTemplateAndTheme();
+      const main = document.querySelector("main");
+      if (main) {
+        this.sectionService.init(main);
 
-      this.blockService.decorateBlocks(main);
-      this.decorateDefaultContent(main);
-      this.renderLayout(main);
+        this.blockService.decorateBlocks(main);
+        this.decorateDefaultContent(main);
+        this.renderLayout(main);
 
-      setTimeout(() => {
-        document.body.classList.add("show");
-      }, 100);
+        setTimeout(() => {
+          document.body.classList.add("show");
+        }, 100);
 
-      await this.waitForLCP();
+        await this.waitForLCP();
 
-      try {
-        /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
-        if (window.innerWidth >= 900 || sessionStorage.getItem("fonts-loaded")) {
-          await this.loadFonts();
+        try {
+          /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
+          if (window.innerWidth >= 900 || sessionStorage.getItem("fonts-loaded")) {
+            await this.loadFonts();
+          }
+        } catch (e) {
+          // do nothing
         }
-      } catch (e) {
-        // do nothing
       }
+    } catch (error) {
+      console.error("Load eager error: ", error);
     }
   };
 
