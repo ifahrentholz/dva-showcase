@@ -92,7 +92,7 @@ export class MainService {
 
       setTimeout(() => {
         document.body.classList.add("show");
-      }, 200);
+      }, 100);
 
       await this.waitForLCP();
 
