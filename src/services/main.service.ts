@@ -111,7 +111,9 @@ export class MainService {
     return html` <div class="page container dva-page">
       <div role="main" class="dva-page__content-area-wrapper">
         <article class="article dva-l-article dva-m-article-content">
-          ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()} ${unsafeHTML(children)} ${renderFooter()}
+          ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()}
+          <div class="dva-page__content-area-children-wrapper">${unsafeHTML(children)}</div>
+          ${renderFooter()}
         </article>
       </div>
     </div>`;
@@ -120,7 +122,9 @@ export class MainService {
   private bodyTemplate(children: string) {
     return html` <div class="page container dva-page">
       <div role="main" class="dva-page__content-area-wrapper">
-        ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()} ${unsafeHTML(children)} ${renderFooter()}
+        ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()}
+        <div class="dva-page__content-area-children-wrapper">${unsafeHTML(children)}</div>
+        ${renderFooter()}
       </div>
     </div>`;
   }
