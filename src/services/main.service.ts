@@ -21,11 +21,11 @@ interface LcpCandidate extends HTMLElement {
   complete: boolean;
 }
 
-class Status {
-  static unloaded = "unloaded";
-  static loading = "loading";
-  static loaded = "loaded";
-  static error = "error";
+enum Status {
+  unloaded = "unloaded",
+  loading = "loading",
+  loaded = "loaded",
+  error = "error",
 }
 
 export class MainService {
@@ -90,11 +90,9 @@ export class MainService {
       this.decorateDefaultContent(main);
       this.renderLayout(main);
 
-      setTimeout(() => {
-        document.body.classList.add("show");
-      }, 100);
-
       await this.waitForLCP();
+
+      document.body.classList.add("show");
 
       try {
         /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
