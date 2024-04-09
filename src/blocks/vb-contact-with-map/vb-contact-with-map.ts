@@ -5,6 +5,7 @@ import "./vb-contact-with-map.scss";
 
 export interface VbContactWithMapArgs {
   imageSrc: string;
+  imageAlt: string;
   headline: string;
   direction: string;
   address: string[];
@@ -20,6 +21,7 @@ const vbContactWithMapTemplate = (vbContactWithMapArgs: VbContactWithMapArgs) =>
 export default function (block: HTMLElement) {
   const vbContactWithMapArgs: VbContactWithMapArgs = {
     imageSrc: block.children[0].querySelector("img")?.src || "",
+    imageAlt: block.children[0].querySelector("img")?.alt || "",
     headline: block.children[1].textContent?.trim() || "",
     direction: block.children[2].textContent?.trim() || "",
     address: block.children[3].textContent?.trim().split(",") || [],

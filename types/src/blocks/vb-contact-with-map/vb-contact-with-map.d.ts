@@ -1,6 +1,7 @@
 import "./vb-contact-with-map.scss";
 export interface VbContactWithMapArgs {
     imageSrc: string;
+    imageAlt: string;
     headline: string;
     direction: string;
     address: string[];

@@ -65,6 +65,7 @@ const renderPlaceholder = (args: LazyImageTemplateParameter) => {
       class="dva-e-lazy-image__img dva-e-lazy-image__img--placeholder"
       fetchpriority=${ifDefined(args.component.fetchPriority)}
       loading=${ifDefined(args.component.loading)}
+      alt="${args.alt}"
       src="${args.component.loadingPlaceholder}"
       @load=${() => {
         args.component.loadingPlaceholderLoaded = true;

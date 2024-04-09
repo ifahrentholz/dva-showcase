@@ -8,6 +8,7 @@ import "Components/dvag-m-basic-slider/dvag-m-basic-slider";
 
 interface AboutMeImage {
   src: string;
+  alt: string;
   description: string;
   aspectRatio: string;
 }
@@ -62,7 +63,7 @@ dvag-h-margin-bottom--none"
                       >
                         ${renderLazyImage({
                           src: image.src,
-                          alt: image.description,
+                          alt: image.alt,
                           aspectRatio: image.aspectRatio,
                         })}
                         ${index === 0
@@ -135,7 +136,7 @@ dvag-h-margin-bottom--none"
                         <div class="dvag-m-basic-slider__slide dvag-m-c25-vb-about-me__overlay-slide">
                           ${renderLazyImage({
                             src: image.src,
-                            alt: image.description,
+                            alt: image.alt,
                             aspectRatio: image.aspectRatio,
                           })}
                           <p class="dvag-m-basic-slider__slide-text">${image.description}</p>
@@ -183,10 +184,11 @@ export default function (block: HTMLElement) {
   const images = [3, 4, 5].map(imageRow => {
     const imageBlock = block.children[imageRow];
     const src = imageBlock.children[0].getElementsByTagName("img")[0].src || "";
+    const alt = imageBlock.children[0].getElementsByTagName("img")[0].alt || "";
     const aspectRatio = imageRow === 3 ? "16:9" : "1:1";
     const description = imageBlock.children[1].textContent || "";
 
-    return { src, description, aspectRatio };
+    return { src, description, aspectRatio, alt };
   });
 
   cleanUpBlock(block);

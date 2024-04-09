@@ -17,6 +17,7 @@ const infographicTemplate = (args: InfographicTemplateArgs) => {
             class="dvag-m-c22-infographic"
             desktop-url="${args.desktopImage}"
             mobile-url="${args.mobileImage}"
+            alt="Infografik"
           >
           </dvag-m-c22-infographic>
         </div>

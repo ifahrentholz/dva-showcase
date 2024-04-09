@@ -33,7 +33,7 @@ const renderBars = ({ header, image, text }: Bar) => {
           ${renderLazyImage({
             cssClasses: "dvag-m-c05-list-entry__image",
             src: image?.src || "",
-            alt: image?.alt,
+            alt: image?.alt || "",
             aspectRatio: "cover",
           })}
         </div>
