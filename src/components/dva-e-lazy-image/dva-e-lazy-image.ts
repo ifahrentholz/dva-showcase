@@ -24,7 +24,9 @@ export class DVALazyImage extends Component {
     super({
       ui: {
         image: ".dva-js-lazy-image__img :-one",
+        picture: ".dva-js-lazy-image__picture :-one",
         placeholder: ".dva-e-lazy-image__img--placeholder :-one",
+        picturePlaceholder: ".dva-js-lazy-image__picture--placeholder :-one",
         wrapper: ".dva-js-lazy-image__wrapper :-one",
       },
       initialStates: {
@@ -71,7 +73,7 @@ export class DVALazyImage extends Component {
    * @returns {string}
    */
   get imgSizes(): string {
-    return this.getAttribute("sizes") || "";
+    return this.getAttribute("sizes") || "100vw";
   }
 
   /**
@@ -330,7 +332,9 @@ export class DVALazyImage extends Component {
     removeClass(this.ui.wrapper, LOADING);
     addClass(this, LOADED);
     addClass(this.ui.image, LOADED);
+    addClass(this.ui.picture, LOADED);
     addClass(this.ui.placeholder, HIDDEN);
+    addClass(this.ui.picturePlaceholder, HIDDEN);
 
     this.dispatchEvent(
       new CustomEvent("dva-image-loaded", {

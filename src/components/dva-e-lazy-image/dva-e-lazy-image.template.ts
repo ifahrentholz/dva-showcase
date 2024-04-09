@@ -53,6 +53,26 @@ const renderErrorPlaceholder = (args: LazyImageTemplateParameter, forceRender = 
   `;
 };
 
+const isSvg = (src: string) => {
+  return src.endsWith(".svg");
+};
+
+const getWebpSrcFromSrc = (src: string, width?: string) => {
+  try {
+    src = src.replace(/\.[^/.]+$/, ".webp");
+    if (isSvg(src) || src === "") return src;
+    new URL(src);
+    const url = new URL(src);
+    url.searchParams.set("width", width ? width : "750");
+    url.searchParams.set("format", "webply");
+    url.searchParams.set("optimize", "medium");
+    return url.href;
+  } catch (e) {
+    console.error("Error while creating webp src", e);
+    return "";
+  }
+};
+
 const renderPlaceholder = (args: LazyImageTemplateParameter) => {
   if (args.component.noPlaceholder === true) return nothing;
   if (args.component.loadingPlaceholder === "" || args.component.loadingPlaceholderLoadingError === true) {
@@ -60,25 +80,42 @@ const renderPlaceholder = (args: LazyImageTemplateParameter) => {
   }
 
   return html`
-    <img
-      draggable="false"
-      class="dva-e-lazy-image__img dva-e-lazy-image__img--placeholder"
-      fetchpriority=${ifDefined(args.component.fetchPriority)}
-      loading=${ifDefined(args.component.loading)}
-      alt="${args.alt}"
-      src="${args.component.loadingPlaceholder}"
-      @load=${() => {
-        args.component.loadingPlaceholderLoaded = true;
-        args.component.loadingPlaceholderLoadingError = false;
-      }}
-      @error=${() => {
-        args.component.loadingPlaceholderLoaded = false;
-        args.component.loadingPlaceholderLoadingError = true;
-      }}
-      data-object-fit=${getObjectFitVal(args.component.imgAspectRatio)}
-      data-object-position=${getObjectPositionVal()}
-    />
+    <picture
+      class="dva-e-lazy-image__picture dva-js-lazy-image__picture--placeholder dva-e-lazy-image__picture--placeholder"
+    >
+      ${isSvg(args.component.loadingPlaceholder)
+        ? nothing
+        : html`<source type="image/webp" src="${getWebpSrcFromSrc(args.component.loadingPlaceholder)}" />`}
+      <img
+        draggable="false"
+        class="dva-e-lazy-image__img dva-e-lazy-image__img--placeholder"
+        fetchpriority=${ifDefined(args.component.fetchPriority)}
+        loading=${ifDefined(args.component.loading)}
+        alt="${args.alt}"
+        src="${args.component.loadingPlaceholder}"
+        @load=${() => {
+          args.component.loadingPlaceholderLoaded = true;
+          args.component.loadingPlaceholderLoadingError = false;
+        }}
+        @error=${() => {
+          args.component.loadingPlaceholderLoaded = false;
+          args.component.loadingPlaceholderLoadingError = true;
+        }}
+        data-object-fit=${getObjectFitVal(args.component.imgAspectRatio)}
+        data-object-position=${getObjectPositionVal()}
+      />
+    </picture>
   `;
+};
+
+const getWebpSrcSetFromSrcSet = (srcset: string) => {
+  return srcset
+    .split(",")
+    .map(src => {
+      const [srcUrl, srcWidth] = src.trim().split(" ");
+      return `${getWebpSrcFromSrc(srcUrl, srcWidth)} ${srcWidth}`;
+    })
+    .join(", ");
 };
 
 export const lazyImageTemplate = (args: LazyImageTemplateParameter) => {
@@ -89,18 +126,27 @@ export const lazyImageTemplate = (args: LazyImageTemplateParameter) => {
     <div class="${getAspectRatioClass(args.component.imgAspectRatio)}">
       <div class="dva-e-lazy-image__wrapper dva-js-lazy-image__wrapper">
         ${renderPlaceholder(args)}
-        <img
-          draggable="false"
-          class="dva-js-lazy-image__img dva-e-lazy-image__img"
-          src=""
-          srcset="${args.srcset}"
-          alt="${args.alt}"
-          sizes="${args.sizes}"
-          fetchpriority=${ifDefined(args.component.fetchPriority)}
-          loading=${ifDefined(args.component.loading)}
-          data-object-fit=${getObjectFitVal(args.component.imgAspectRatio)}
-          data-object-position=${getObjectPositionVal()}
-        />
+        <picture class="dva-e-lazy-image__picture dva-js-lazy-image__picture">
+          ${isSvg(args.component.imgSrc)
+            ? nothing
+            : html`<source
+                type="image/webp"
+                src="${getWebpSrcFromSrc(args.component.imgSrc)}"
+                srcset="${getWebpSrcSetFromSrcSet(args.srcset || args.component.imgSrcSet)}"
+              />`}
+          <img
+            draggable="false"
+            class="dva-js-lazy-image__img dva-e-lazy-image__img"
+            src=""
+            srcset="${args.srcset}"
+            alt="${args.alt}"
+            sizes="${args.sizes}"
+            fetchpriority=${ifDefined(args.component.fetchPriority)}
+            loading=${ifDefined(args.component.loading)}
+            data-object-fit=${getObjectFitVal(args.component.imgAspectRatio)}
+            data-object-position=${getObjectPositionVal()}
+          />
+        </picture>
         ${renderErrorPlaceholder(args)}
       </div>
     </div>
