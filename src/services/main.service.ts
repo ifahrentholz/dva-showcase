@@ -286,8 +286,8 @@ export class MainService {
         lcpCandidate.setAttribute("loading", "eager");
         lcpCandidate.setAttribute("fetchpriority", "high");
         lcpCandidate.setAttribute("init", "explicit");
-        lcpCandidate.addEventListener("load", () => resolve());
-        lcpCandidate.addEventListener("error", () => resolve());
+        lcpCandidate.addEventListener("dva-image-loaded", () => resolve());
+        lcpCandidate.addEventListener("dva-image-error", () => resolve());
       } else {
         resolve();
       }

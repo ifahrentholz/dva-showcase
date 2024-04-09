@@ -309,6 +309,13 @@ export class DVALazyImage extends Component {
     // currentImg.setAttribute("src", this.fallbackImg);
     // currentImg.setAttribute("srcset", "");
     this.hasError = true;
+    this.dispatchEvent(
+      new CustomEvent("dva-image-error", {
+        detail: {
+          target: this,
+        },
+      }),
+    );
     console.log("lazyImg error:", currentImg);
   }
 
