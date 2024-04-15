@@ -111,7 +111,9 @@ export class MainService {
     return html` <div class="page container dva-page">
       <div role="main" class="dva-page__content-area-wrapper">
         <article class="article dva-l-article dva-m-article-content">
-          ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()} ${unsafeHTML(children)} ${renderFooter()}
+          ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()}
+          <div class="dva-page__content-area-children-wrapper">${unsafeHTML(children)}</div>
+          ${renderFooter()}
         </article>
       </div>
     </div>`;
@@ -120,7 +122,9 @@ export class MainService {
   private bodyTemplate(children: string) {
     return html` <div class="page container dva-page">
       <div role="main" class="dva-page__content-area-wrapper">
-        ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()} ${unsafeHTML(children)} ${renderFooter()}
+        ${headerTemplate()} ${renderBreadcrumpNavigationTemplate()}
+        <div class="dva-page__content-area-children-wrapper">${unsafeHTML(children)}</div>
+        ${renderFooter()}
       </div>
     </div>`;
   }
@@ -153,10 +157,7 @@ export class MainService {
         await this.loadCSS(`${window.hlx.codeBasePath}/dist/sidekickLibraryStyles/sidekickLibraryStyles.css`);
       }
       if (fontsScssPath) await this.loadFonts();
-      await this.loadCSS(
-        `${window.hlx.codeBasePath}/dist/legacyStyles/legacyStyles.css`,
-        `${window.hlx.codeBasePath}/dist/styles/styles.css`,
-      );
+
       await this.loadBlocks();
     } catch (error) {
       console.error("Load lazy error: ", error);
@@ -243,7 +244,7 @@ export class MainService {
     }
   }
 
-  private async loadCSS(href: string, insertBefore?: string) {
+  private async loadCSS(href: string) {
     return new Promise((resolve, reject) => {
       if (!document.querySelector(`head > link[href="${href}"]`)) {
         const link = document.createElement("link");
@@ -251,12 +252,7 @@ export class MainService {
         link.href = href;
         link.onload = resolve;
         link.onerror = reject;
-        if (insertBefore !== undefined) {
-          const before = document.querySelector(`head > link[href="${insertBefore}"]`);
-          if (before) before.before(link);
-        } else {
-          document.head.append(link);
-        }
+        document.head.append(link);
       } else {
         resolve(true);
       }
@@ -283,14 +279,15 @@ export class MainService {
 
     // @ts-ignore
     document.body.style.display = null;
-    const lcpCandidate = document.querySelector<LcpCandidate>("main img");
+    const lcpCandidate = document.querySelector<LcpCandidate>("dva-e-lazy-image");
 
     await new Promise<void>(resolve => {
       if (lcpCandidate && !lcpCandidate.complete) {
         lcpCandidate.setAttribute("loading", "eager");
         lcpCandidate.setAttribute("fetchpriority", "high");
-        lcpCandidate.addEventListener("load", () => resolve());
-        lcpCandidate.addEventListener("error", () => resolve());
+        lcpCandidate.setAttribute("init", "explicit");
+        lcpCandidate.addEventListener("dva-image-loaded", () => resolve());
+        lcpCandidate.addEventListener("dva-image-error", () => resolve());
       } else {
         resolve();
       }

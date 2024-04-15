@@ -24,7 +24,9 @@ export class DVALazyImage extends Component {
     super({
       ui: {
         image: ".dva-js-lazy-image__img :-one",
+        picture: ".dva-js-lazy-image__picture :-one",
         placeholder: ".dva-e-lazy-image__img--placeholder :-one",
+        picturePlaceholder: ".dva-js-lazy-image__picture--placeholder :-one",
         wrapper: ".dva-js-lazy-image__wrapper :-one",
       },
       initialStates: {
@@ -71,7 +73,7 @@ export class DVALazyImage extends Component {
    * @returns {string}
    */
   get imgSizes(): string {
-    return this.getAttribute("sizes") || "";
+    return this.getAttribute("sizes") || "100vw";
   }
 
   /**
@@ -166,6 +168,14 @@ export class DVALazyImage extends Component {
     }
   }
 
+  get fetchPriority(): string | null {
+    return this.getAttribute("fetchpriority");
+  }
+
+  get loading(): string | null {
+    return this.getAttribute("loading");
+  }
+
   getLoadingPlaceholderFromSrc(): string {
     const imgSrcUrl = new URL(this.imgSrc);
     const width = imgSrcUrl.searchParams.get("width");
@@ -254,6 +264,7 @@ export class DVALazyImage extends Component {
     addClass(this, INITIALIZED);
     removeClass(this.ui.wrapper, HIDDEN);
     if (this.initType !== "explicit") this.viewportObserver.observe(this);
+    if (this.initType === "explicit") this.loadImage();
   }
 
   /**
@@ -300,6 +311,13 @@ export class DVALazyImage extends Component {
     // currentImg.setAttribute("src", this.fallbackImg);
     // currentImg.setAttribute("srcset", "");
     this.hasError = true;
+    this.dispatchEvent(
+      new CustomEvent("dva-image-error", {
+        detail: {
+          target: this,
+        },
+      }),
+    );
     console.log("lazyImg error:", currentImg);
   }
 
@@ -314,7 +332,9 @@ export class DVALazyImage extends Component {
     removeClass(this.ui.wrapper, LOADING);
     addClass(this, LOADED);
     addClass(this.ui.image, LOADED);
+    addClass(this.ui.picture, LOADED);
     addClass(this.ui.placeholder, HIDDEN);
+    addClass(this.ui.picturePlaceholder, HIDDEN);
 
     this.dispatchEvent(
       new CustomEvent("dva-image-loaded", {

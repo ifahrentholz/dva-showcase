@@ -55,6 +55,10 @@ body {
   background: $dvag-color__white-500;
 }
 
+.dva-page__content-area-children-wrapper {
+  min-height: 100vh;
+}
+
 // DVW-745: alternating background colors can be set via pageProperties and will overwrite components background colors
 .dvag-h-background--alternating {
   /* stylelint-disable selector-max-compound-selectors */

@@ -7,6 +7,7 @@ interface QuicklinkTemplateArgs {
   url?: string;
   name?: string;
   src?: string;
+  alt?: string;
 }
 
 const quicklinkTemplateOverview = (args: QuicklinkTemplateArgs[]) => {
@@ -26,7 +27,7 @@ const quicklinkTemplateOverview = (args: QuicklinkTemplateArgs[]) => {
                   <a class="dvag-m-c24-quicklink-item__link" target="_self" href="${item.url}">
                     ${renderLazyImage({
                       src: item.src || "",
-                      alt: "Icon",
+                      alt: item.alt || "",
                       aspectRatio: "1:1",
                       cssClasses: "dvag-m-c24-quicklink-item__icon",
                     })}
@@ -48,9 +49,10 @@ export default function (block: HTMLElement) {
   const templateArgs = rows.map(row => {
     const image = row.children[0].querySelector<HTMLImageElement>("picture > img");
     const src = image?.src || "";
+    const alt = image?.alt || "";
     const name = row.children[1].textContent || "";
     const url = row.children[2].textContent || "";
-    return { name, url, src };
+    return { name, url, src, alt };
   });
 
   cleanUpBlock(block);

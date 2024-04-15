@@ -27,6 +27,7 @@ const renderAdvisorImage = (image?: HTMLImageElement) => {
       wrapper: "circle",
       src: image ? image.src : "",
       alt: image ? image.alt : "",
+      sizes: "208px",
     })}
   </div>`;
 };

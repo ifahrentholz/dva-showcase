@@ -10,6 +10,7 @@ interface ArticleTeaserArgs {
   cssClasses?: string | "dva-m-article-teaser--is-first";
   linkUrl: string;
   imageSrc: string;
+  imageAlt: string;
   topline?: string;
   headline?: string;
   text?: string;
@@ -23,7 +24,7 @@ const articleTeaserTemplate = (args: ArticleTeaserArgs) => {
         <a href="${args.linkUrl}" class="dva-m-article-teaser__image-link">
           ${renderLazyImage({
             src: args.imageSrc,
-            alt: "header-finanz-und-versicherungscheck-beratung-frauen.jpg",
+            alt: args.imageAlt,
             cssClasses: "dva-m-article-teaser__image",
             aspectRatio: "21:9",
           })}
@@ -104,6 +105,7 @@ export default function (block: HTMLElement) {
     return {
       linkUrl: teaserLinkUrl,
       imageSrc: teaserImage?.src || "",
+      imageAlt: teaserImage?.alt || "",
       topline: teaserTopline,
       headline: teaserHeadline,
       text: teaserText,

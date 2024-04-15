@@ -16,6 +16,7 @@ export declare class DvagC22Infographic extends Component {
      * @returns {string}
      */
     get mobileUrl(): string;
+    get alt(): string;
     /**
      * Returns current MQ
      * @returns {string}
