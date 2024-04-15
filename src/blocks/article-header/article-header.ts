@@ -14,9 +14,14 @@ interface ArticleHeaderTemplateArgs {
 const renderTopline = (date?: string) => {
   if (!date) return nothing;
   let dateIsoString: string | undefined, formattedDate: string;
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  };
   try {
     dateIsoString = new Date(date).toISOString();
-    formattedDate = new Date(date).toLocaleDateString();
+    formattedDate = new Date(date).toLocaleDateString("de-DE", options);
   } catch (error) {
     DebuggerService.warn("Could not parse date", date);
     dateIsoString = undefined;

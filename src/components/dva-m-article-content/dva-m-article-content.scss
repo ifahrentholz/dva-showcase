@@ -1,0 +1,56 @@
+.dva-m-article-content {
+  // styling of legacy markup
+  a {
+    align-items: center;
+  }
+
+  blockquote {
+    @extend %dva-type-750-italic;
+
+    quotes: "»" "«" "»" "«";
+    float: none !important; // @TODO: remove when legacy FE is gone;
+    width: 100% !important; // @TODO: remove when legacy FE is gone;
+    border: none;
+    color: inherit;
+
+    @include breakpoint($mq-3-and-up) {
+      width: calc(83.33333% - 32px) !important; // @TODO: remove when legacy FE is gone;
+      padding: 0;
+      margin: 0 calc(8.33333% + 16px) 32px; // fake 1 col offset left/right
+    }
+
+    p {
+      margin-bottom: 6px;
+    }
+
+    p:before {
+      content: open-quote;
+    }
+
+    p:after {
+      content: close-quote;
+    }
+
+    cite {
+      @extend %dva-type-400;
+
+      margin-top: 0;
+    }
+  }
+
+  p {
+    margin-bottom: 32px;
+  }
+
+  figure {
+    margin-bottom: 32px;
+
+    img {
+      width: 100%;
+    }
+
+    figcaption {
+      @extend %dva-type-200;
+    }
+  }
+}

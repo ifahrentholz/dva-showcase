@@ -62,7 +62,17 @@
     min-height: initial;
   }
 
-  &__img {
+  .dva-e-lazy-image__mask &__img.dva-state-loaded,
+  .dva-e-lazy-image__mask &__picture.dva-state-loaded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__img,
+  &__picture {
     position: relative;
     width: 100%;
     opacity: 0;
@@ -73,7 +83,8 @@
     }
   }
 
-  &__img--placeholder {
+  &__img--placeholder,
+  &__picture--placeholder {
     position: absolute;
     top: 0;
     left: 0;
@@ -105,7 +116,8 @@
       height: inherit;
     }
 
-    .dva-e-lazy-image__img {
+    .dva-e-lazy-image__img,
+    .dva-e-lazy-image__picture {
       width: inherit;
       max-width: 100%;
       height: inherit;
@@ -115,7 +127,9 @@
   &__cover {
     width: 100%;
     height: 100%;
-    .dva-e-lazy-image__img {
+
+    .dva-e-lazy-image__img,
+    .dva-e-lazy-image__picture {
       position: absolute;
       top: 0;
       left: 0;
@@ -125,7 +139,8 @@
   }
 
   &__contain {
-    .dva-e-lazy-image__img {
+    .dva-e-lazy-image__img,
+    .dva-e-lazy-image__picture {
       position: absolute;
       top: 0;
       left: 0;

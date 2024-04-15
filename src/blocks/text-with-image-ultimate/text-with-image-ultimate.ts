@@ -5,6 +5,7 @@ import "./text-with-image-ultimate.scss";
 
 interface TextWithImageUltimateTemplateArgs {
   imageSrc: string;
+  imageAlt: string;
   title: string;
   listItems: string[];
 }
@@ -32,7 +33,7 @@ const textWithImageUltimateTemplate = (args: TextWithImageUltimateTemplateArgs) 
                   <div class="text-with-image-ultimate text parbase">
                     <div class="col-wrapper text-with-image bleed-m bleed-l dva-e-list--checkmark">
                       <div class="col-s-12 col-m-2 col-l-2 image-container">
-                        <img class="center" src="${args.imageSrc}" />
+                        <img class="center" src="${args.imageSrc}" alt="${args.imageAlt}" loading="lazy" />
                       </div>
                       <div class="col-s-12 col-m-10 col-l-10 bleed-m bleed-l">
                         <h2>${args.title}<br /><br /></h2>
@@ -56,10 +57,11 @@ const textWithImageUltimateTemplate = (args: TextWithImageUltimateTemplateArgs) 
 
 export default function (block: HTMLElement) {
   const imageSrc = block.querySelector("img")?.getAttribute("src") || "";
+  const imageAlt = block.querySelector("img")?.getAttribute("alt") || "";
   const title = block.querySelector("h3")?.textContent || "";
   const listItems = [...block.querySelectorAll("ul li")].map(li => li.innerHTML);
 
   cleanUpBlock(block);
 
-  render(textWithImageUltimateTemplate({ imageSrc, title, listItems }), block);
+  render(textWithImageUltimateTemplate({ imageSrc, title, listItems, imageAlt }), block);
 }

@@ -33,6 +33,10 @@ export class DvagC22Infographic extends Component {
     return this.getAttribute("mobile-url") || this.desktopUrl;
   }
 
+  get alt(): string {
+    return this.getAttribute("alt") || "";
+  }
+
   /**
    * Returns current MQ
    * @returns {string}
@@ -54,7 +58,6 @@ export class DvagC22Infographic extends Component {
    * @param {string} svgData
    */
   async addSvgMarkup(svgData: string) {
-    console.log("svgData", svgData);
     if (svgData) this.innerHTML = svgData;
     await waitFor(500);
     addClass(this, ANIMATING);
@@ -68,6 +71,7 @@ export class DvagC22Infographic extends Component {
     const imageMarkup = `<dva-e-lazy-image
         class="dva-e-lazy-image"
         src=${url}
+        alt=${this.alt}
       ></dva-e-lazy-image>`;
     this.loaded = true;
     this.innerHTML = imageMarkup;
